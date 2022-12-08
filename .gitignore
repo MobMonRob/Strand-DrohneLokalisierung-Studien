@@ -1,5 +1,5 @@
 .DS_STORE
-ros_vm/**.vagrant
+ros_vm/.vagrant
 # General
 .vagrant/
 
