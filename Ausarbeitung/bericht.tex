@@ -72,11 +72,11 @@
 % Wenn \includeonly{..} benutzt wird, werden nur diese Kaptitel ausgegeben.
 \includeonly{
   abk
- ,einleitung
- ,Problemstellung
- ,Theoretische Grundlagen
- ,Implementierung
-,changelog
+  ,chapter1_einleitung
+  ,chapter2_problemstellung
+  ,chapter3_theoretische_grundlagen
+  ,chapter4_implementierung
+ ,changelog
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -139,10 +139,13 @@ Zusammengestellt von Prof. Dr. Jürgen Vollmer \email{vollmer@dhbw-karlsruhe.de}
 
 % Jetzt kommt der "eigentliche" Text
 \include{abk}              % Abkürzungsverzeichnis
-\include{einleitung}
-\include{problemstellung}
-\include{theoretische_grundlagen}
-\include{k}
+%\include{einleitung}
+%\include{problemstellung}
+%\include{theoretische_grundlagen}
+\include{chapter1_einleitung}
+\include{chapter2_problemstellung}
+\include{chapter3_theoretische_grundlagen}
+\include{chapter4_implementierung}
 
 % Ab hier beginnt der Anhang
 \appendix
