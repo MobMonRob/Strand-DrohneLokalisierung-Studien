@@ -1,7 +1,8 @@
 .DS_STORE
-ros_vm/**.vagrant
+ros_vm/.vagrant/**
 # General
 .vagrant/
 
 # Log files (if you are creating logs in debug mode, uncomment this)
 # *.log
+ros_vm/.vagrant/bundler/global.sol
