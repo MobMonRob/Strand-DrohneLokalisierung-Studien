@@ -13,7 +13,7 @@
 % ,11pt
   ,12pt
   ,pdftex
-%  ,disable         % Todo-Markierungen auschalten
+ %,disable         % Todo-Markierungen auschalten
 ]{report}
 
 % Bitte die Codierung Ihrer Dateien auswählen:
@@ -72,8 +72,10 @@
 % Wenn \includeonly{..} benutzt wird, werden nur diese Kaptitel ausgegeben.
 \includeonly{
   abk
- ,kapitel1
- ,kapitel2
+ ,einleitung
+ ,Problemstellung
+ ,Theoretische Grundlagen
+ ,Implementierung
 ,changelog
 }
 
@@ -137,8 +139,10 @@ Zusammengestellt von Prof. Dr. Jürgen Vollmer \email{vollmer@dhbw-karlsruhe.de}
 
 % Jetzt kommt der "eigentliche" Text
 \include{abk}              % Abkürzungsverzeichnis
-\include{kapitel1}
-\include{kapitel2}
+\include{einleitung}
+\include{problemstellung}
+\include{theoretische_grundlagen}
+\include{k}
 
 % Ab hier beginnt der Anhang
 \appendix
