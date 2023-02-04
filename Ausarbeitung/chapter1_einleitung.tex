@@ -2,7 +2,6 @@
 
 GPS Signale sucht man in Räumen vergeblich. Das GPS System wurde nicht dafür konzipiert in Räumen zu funktionieren.
 In dieser Studienarbeit geht es darum zu ermitteln auf welche Art und Weise eine Drohne in einem 3D Modell ohne GPS navigieren kann.
-
 3D Navigation ist ein wichtiger Aspekt bei der Entwicklung von Systemen, die in einer virtuellen oder realen Umgebung agieren. Die Nutzung eines externen Umweltmodells bietet hierbei viele Vorteile, da es die Navigation vereinfacht und gleichzeitig die Genauigkeit verbessert. Ein externes Umweltmodell kann dabei in Form einer digitalen Karte oder eines virtuellen Raums im Computer vorliegen. In diesem Zusammenhang wird die 3D Navigation anhand eines externen Umweltmodells untersucht und die Vorteile, die sich daraus ergeben, werden dargestellt.
 
 
@@ -10,9 +9,20 @@ In dieser Studienarbeit geht es darum zu ermitteln auf welche Art und Weise eine
 \section{Ausgangssituation}
 
 Prinzipiell hat eine Drohne verschiedene Möglichkeiten eine Positionsbestimmung durchzuführen.
-Eine Drohne kann mithilfe von Kameras und inertialen Sensoren die Position relativ zu einer Startposition bestimmen, oder \ac{GPS} verwenden um die Position mithilfe von Satelliten zu möglichst genau zu bestimmen.
-Schnell hat man festgestellt, dass die genaue Positionsbestimmung über GPS in Gebäuden nicht funktioniert, da die Signale der Satelliten zu schwach sind. Außerdem bietet \ac{GPS} ohne großen Aufwand keine Möglichkeiten eine Genauigkeit von unter zwei Metern bekommen.
+Eine Drohne kann mithilfe von Kameras oder inertialen Sensoren wie Gyroskopen und Beschleunigungssensoren die Position relativ zu einer Startposition bestimmen, oder \ac{GPS} verwenden um die Position mithilfe von Satelliten möglichst genau zu bestimmen.
+Schnell hat man festgestellt, dass die genaue Positionsbestimmung über GPS in Gebäuden nicht funktioniert, da die Signale der Satelliten zu schwach sind. Außerdem bietet \ac{GPS} ohne großen Aufwand keine Möglichkeiten eine genaue Bestimmung von unter zwei Metern zu gewährleisten.
+Um eine Navigation ohne GPS zu tätigen muss zudem ein 3D Modell der Umgebung der Drohne übermittelt werden.
+Zu Beginn muss das 3D Modell in dem die Drohne sich bewegt, noch erstellt werden.
 
-\subsection{Stand der Technik}
+
+\section{Motivation}
+
+Die Navigation im dreidimensionalen Raum ist ein wichtiger Schritt für die Automatisierung und Autonomisierung verschiedener Prozesse. Beispielsweise im Bereich der Aufklärung und der Logistik.
+
+Die Navigation im dreidimensionalen Raum in Gebäuden ist ein wichtiger Schritt um in vielen Gebieten in Gebäuden ohne menschliche Truppen eine Sichtung der Umgebung zu ermöglichen. Beispielsweise könnte die Feuerwehr bei einem Wohnhausbrand mit einer Drohne nach Leuten suchen, die noch im Gebäude feststecken.
+
+Diese Arbeit dient dazu Grundlagen zur Navigation mithilfe eines 3D Modells der Umgebung in einem dreidimensionalen Raum zu erarbeiten. Diese Arbeit kann danach in weiteren Arbeiten verwendet werden, um die Navigation in erweiterten Teilbereichen einzusetzen und sie um weitere Funktionen zu ergänzen.
+
+
 
 
