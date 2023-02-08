@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./app
+        working-directory: ./Ausarbeitung
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
