@@ -14,7 +14,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Generate PDF document
         uses: hspaans/latexmk-action@v1
-        working-directory: ./Ausarbeitung
         with:
           format: pdf
-          filename: bericht.tex
+          filename: ./Ausarbeitung/bericht.tex
