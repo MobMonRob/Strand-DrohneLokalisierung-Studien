@@ -3,5 +3,8 @@
     "cSpell.words": [
         "Clover",
         "Coex"
-    ]
+    ],
+    "ltex.additionalRules.languageModel": "de",
+    "ltex.additionalRules.motherTongue": "de",
+    "ltex.language": "de"
 }
