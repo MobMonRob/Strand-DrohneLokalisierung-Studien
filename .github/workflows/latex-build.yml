@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
       - name: Generate PDF document
-        uses: hspaans/latexmk-action@v1
+        uses: xu-cheng/latex-action@v2
         with:
-          format: pdf
-          filename: ./Ausarbeitung/bericht.tex
+          root_file: bericht.tex
+          working-directory: ./Ausarbeitung
