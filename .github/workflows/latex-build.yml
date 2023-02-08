@@ -9,9 +9,10 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-
+        working-directory: ./Ausarbeitung
       - name: Generate PDF document
         uses: hspaans/latexmk-action@v1
+        working-directory: ./Ausarbeitung
         with:
           format: pdf
-          filename: article.tex
+          filename: bericht.tex
