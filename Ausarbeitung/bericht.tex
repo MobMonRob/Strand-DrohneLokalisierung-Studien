@@ -69,17 +69,18 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Wenn \includeonly{..} benutzt wird, werden nur diese Kaptitel ausgegeben.
+% Wenn \includeonly{..} benutzt wird, werden nur diese Kapitel ausgegeben.
 \includeonly{
-  abk
-  ,chapter1_einleitung
-  ,chapter2_problemstellung
-  ,chapter3_theoretische_grundlagen
-  ,chapter4_probleme
-  ,chapter5_hardware
-  ,chapter6_software
-  ,chapter7_fazit
-  ,changelog
+  abk,
+  abstract,
+  chapter1_einleitung,
+  chapter2_problemstellung,
+  chapter3_theoretische_grundlagen,
+  chapter4_probleme,
+  chapter5_hardware,
+  chapter6_software,
+  chapter7_fazit,
+  changelog
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -123,15 +124,21 @@ Gutachter der Studienarbeit	 & \BetreuerDHBW		\\
 % Nur für Bachelorarbeiten einfügen:
 \input{erklaerung.tex}
 
-\begin{abstract}
-Dieses \LaTeX-Dokument kann als Vorlage für einen Praxis- oder Projektbericht, eine Studien- oder
-Bachelorarbeit dienen.
+% print abstract
+\begin{onehalfspace}
+	\include{abstract}	
+\end{onehalfspace}
 
-Zusammengestellt von Prof. Dr. Jürgen Vollmer \email{vollmer@dhbw-karlsruhe.de}\\
-\url{http://www.dhbw-karlsruhe.de}
 
-\centering Stand \verb+$Date: 2016/03/16 16:59:41 $+
-\end{abstract}
+% \begin{abstract}
+% Dieses \LaTeX-Dokument kann als Vorlage für einen Praxis- oder Projektbericht, eine Studien- oder
+% Bachelorarbeit dienen.
+
+% Zusammengestellt von Prof. Dr. Jürgen Vollmer \email{vollmer@dhbw-karlsruhe.de}\\
+% \url{http://www.dhbw-karlsruhe.de}
+
+% \centering Stand \verb+$Date: 2016/03/16 16:59:41 $+
+% \end{abstract}
 
 \newpage
 \tableofcontents           % Inhaltsverzeichnis hier ausgeben

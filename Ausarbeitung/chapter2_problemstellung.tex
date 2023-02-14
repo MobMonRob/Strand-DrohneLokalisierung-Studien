@@ -6,7 +6,7 @@ Die Navigation anhand eines 3D Modell bringt gewisse theoretische Probleme mit s
 
 
 
-\section{Erwartete Probleme}
+\section{Erwartete Probleme} \label{erwartete_probleme:section}
 
 In der Vorbereitung der Arbeit wurden bereits Probleme erkannt, die auf jeden Fall gelöst oder Alternativen dazu gefunden werden müssen, um die erfolgreiche Umsetzung des Projekts zu ermöglichen. Im Folgendem werden diese Probleme erläutert.
 
@@ -15,11 +15,11 @@ In der Vorbereitung der Arbeit wurden bereits Probleme erkannt, die auf jeden Fa
     \item 
 \end{itemize}
 
-\subsection{Lokalisierung der Drohne}
+\subsection{Lokalisierung der Drohne} \label{lokalisierung_der_drohne:subsection}
 
 Von vorneherein war klar, dass die Lokalisierung der Drohne nicht über \ac{GPS} getätigt werden kann. Für die Aufgaben, welche die Drohne übernehmen soll, ist eine bestmögliche Positionserkennung vonnöten. Die Genauigkeit mittels \ac{GPS} unter den technischen Bedingungen der Drohne beträgt nur zwei Meter. Das weitaus größer Problem mit \ac{GPS} ist allerdings, dass man innerhalb von Gebäude keine Verbindung zu den Satelliten herstellen kann. Aufgrund dieser Probleme ist eine Verwendung von \ac{GPS} zur Lokalisierung der Drohne nicht möglich. Dazu mussten alternative Wege gefunden werden, um eine genaue Lokalisierung ohne \ac{GPS} in Gebäuden zu ermöglichen. Folgende Theoretischen Lösungsansätze konnten dabei verfolgt werden.
 
-Die verwendete COEX Clover Drohne \ref{COEX} verfügt standardmäßig über die in \ref{lst:coex-sensoren} aufgeführten Sensoren.
+Die verwendete COEX Clover Drohne (siehe Kapitel \ref{drohne:section}) verfügt standardmäßig über die in \ref{lst:coex-sensoren} aufgeführten Sensoren.
 
 \begin{center}
 \begin{itemize}
@@ -33,17 +33,17 @@ Die verwendete COEX Clover Drohne \ref{COEX} verfügt standardmäßig über die 
 \label{lst:coex-sensoren}
 \end{center}
 
-\subsection{Erfassung des 3D Modells}
+\subsection{Erfassung des 3D Modells} \label{erfassung_des_3d-modells:subsection}
 
 Das 3D Modell kann entweder von Hand erstellt werden oder mit einem Scanner erfasst werden. Es musste eine Lösung gefunden werden die 3D Modelle zu erstellen und die Drohne innerhalb dieser Modelle abzubilden, zu lokalisieren/tracken und zu navigieren. 
 
-\subsection{Nutzung der Software}
+\subsection{Nutzung der Software} \label{nutzung_der_software:subsection}
 
 Die Clover Drohne wird standardmäßig mit der PX4 Software betrieben, diese Software kann über eine Schnittstelle mit \ac{ROS} verbunden werden. \ac{ROS} wird für die Entwicklung der Navigationssytems, während PX4 die Steuerung der Drohnenhardware übernimmt. Zum Zeitpunkt der Studienarbeit ist \ac{ROS} Noetic Ninjemys die empfohlene  Version der Entwickler mit den ausgereiftesten Paketen.
 Für die Entwicklung mit \ac{ROS} muss eine entsprechende Entwicklungsumgebung installiert werden, die auch eine Simulation der Drohne ermöglicht. Auf der Clover Drohne ist ein Raspberry Pi 4 installiert, der die Ausführung der \ac{ROS} Programme ermöglicht, die Software muss jedoch ressourcenschonend sein, um mit den restriktiven Ressourcen des Raspberry Pis umgehen zu können. 
 
 
-\section{Gewünschtes Ergebniss}
+\section{Gewünschtes Ergebnis} \label{gewuenschtes_ergebnis:section} 
 
 
 
