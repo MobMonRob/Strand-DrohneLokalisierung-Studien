@@ -24,7 +24,7 @@
 
     \subsection{Abstandssensoren} \label{abstandssensoren:subsection}
 
-\section{ROS} \label{ros:section}
+\section{ROS - Robot Operating System} \label{ros:section}
 \ac{ROS} ist eine Open-Source-Plattform, die speziell für die Entwicklung von Robotersoftware entwickelt wurde. Es bietet eine Reihe von Bibliotheken, Tools und Frameworks, die es Entwicklern ermöglichen, komplexe Robotikanwendungen zu erstellen und zu betreiben. \ac{ROS} wurde von Willow Garage entwickelt und ist heute ein weit verbreitetes Framework in der Robotik-Community.
 
 \ac{ROS} besteht aus verschiedenen Modulen, die es ermöglichen, Roboterhard-  und software zu abstrahieren und zu standardisieren. Die Plattform bietet eine Vielzahl von Werkzeugen für die Entwicklung von Robotik-Software, einschließlich Visualisierungstools, Datenverarbeitungs- und Analysetools sowie eine umfassende Dokumentation.
@@ -47,6 +47,17 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
     Insgesamt sind Nodes eine zentrale Komponente von \ac{ROS} und ermöglichen es Entwicklern, komplexe Roboteranwendungen mit einer hohen Flexibilität und Modularität zu erstellen.
 
     \subsection{Topics} \label{topics:subsection}
+    In \ac{ROS} werden Daten zwischen Nodes durch sogenannte Topics ausgetauscht. Ein Topic ist eine benannte Kommunikationsleitung, über die Nodes Nachrichten senden und empfangen können. Topics ermöglichen die einfache und flexible Kommunikation zwischen Nodes, ohne dass die Nodes über die genaue Identität des Empfängers Bescheid wissen müssen.
+
+    Ein Topic hat einen bestimmten Datentyp, der definiert, welche Art von Daten zwischen Nodes ausgetauscht werden können. Es können beispielsweise Sensordaten wie Bilder oder Entfernungsmessungen, oder Steuerbefehle für Aktoren wie Motoren oder Greifer übertragen werden.
+
+    Nodes können sich auf ein Topic abonnieren, um die Nachrichten, die auf diesem Topic veröffentlicht werden, zu empfangen. Jedes Mal, wenn eine Nachricht auf einem Topic veröffentlicht wird, wird sie an alle Nodes weitergeleitet, die auf dieses Topic abonniert sind.
+
+    Topics können auch von Nodes veröffentlicht werden, um Nachrichten an andere Nodes zu senden. Eine Node, die ein Topic veröffentlicht, wird als Publisher bezeichnet. Der Publisher kann regelmäßig Nachrichten auf einem Topic veröffentlichen, um andere Nodes über Änderungen in der Umgebung oder im System zu informieren.
+
+    Die Verwendung von Topics in \ac{ROS} ermöglicht eine einfache und flexible Kommunikation zwischen Nodes, was besonders in komplexen Systemen von Vorteil ist. Nodes können sich auf mehrere Topics abonnieren und Nachrichten an mehrere Topics veröffentlichen, was eine effektive und modulare Datenverarbeitung ermöglicht. Zudem können Topics auf mehreren Hosts oder in verschiedenen Prozessen ausgeführt werden, was eine Skalierung des \ac{ROS}-Systems ermöglicht.
+
+    Insgesamt sind Topics eine wichtige Komponente von \ac{ROS} und ermöglichen es Entwicklern, eine einfache und effektive Kommunikation zwischen Nodes in Robotik-Anwendungen zu realisieren.
 
     \subsection{Publish and Subscripe Pattern} \label{publish_and_subscripe_pattern:subsection}
 
@@ -67,12 +78,6 @@ Bei der für das Projekt verwendete Drohne handelt es sich um eine Coex Clover D
 Zu Beginn erhält man hierbei einen Bausatz, welcher dann zu einem Quadrokopter zusammengebaut werden kann. Der Vorteil hierbei ist zudem, dass die gesamte Drohne ohne Löten zusammengesetzt werden kann. Zu den einzelnen Bestandteilen der Drohne kommen, noch eine Dokumentation sowie verschiedene Bibliotheken, die es ermöglichen, die Drohne zusammen bauen und fliegen lassen zu können. \\
 Die 
 Durch die Verwendung verschiedener Open-Source Komponenten lässt sich die Drohne programmieren, wodurch ein vielseitiger Einsatzbereich entsteht.\\
-
-
-
-
-
-Regenerate response
 
 \begin{figure}[htpb]
     \centering
