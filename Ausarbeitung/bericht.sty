@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Descr:       LaTeX Style für Vorlage für Berichte der DHBW-Karlsruhe
-%% Author:      Prof. Dr. Jürgen Vollmer, vollmer@dhbw-karlsruhe.de
+%% Descr:       LaTeX Style fï¿½r Vorlage fï¿½r Berichte der DHBW-Karlsruhe
+%% Author:      Prof. Dr. Jï¿½rgen Vollmer, vollmer@dhbw-karlsruhe.de
 %% $Id: bericht.sty,v 1.21 2016/03/16 16:51:27 vollmer Exp $
 %% -*- coding: utf-8 -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -14,7 +14,7 @@
 \usepackage[T1]{fontenc}% Interne LaTeX Codierungen
 
 \usepackage{csquotes}   % Context sensitive quotation facilities.
-\usepackage{babel}      % Sprachanpassungen für generierte Texte wie "Inhaltsverzeichnis" etc
+\usepackage{babel}      % Sprachanpassungen fï¿½r generierte Texte wie "Inhaltsverzeichnis" etc
 \usepackage{xspace}     % http://www.ctan.org/tex-archive/help/Catalogue/entries/xspace.html
 \usepackage{array}      % http://www.ctan.org/tex-archive/help/Catalogue/entries/array.html
 \usepackage{tabularx}   % http://www.ctan.org/tex-archive/help/Catalogue/entries/tabularx.html
@@ -35,6 +35,8 @@
 
 \usepackage{wrapfig}    % Bilder von textumfliessen lassen
 
+\usepackage{setspace}   % line spacing factor
+
 \usepackage[colorinlistoftodos]{todonotes}
                         % Einfache Verwaltung und Erstellung von TODO's Markierungen
 			% http://tug.ctan.org/tex-archive/macros/latex/contrib/todonotes/
@@ -52,7 +54,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% citation, bibliography, BIBLATEX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Wer etwas mehr "Kontrolle" über das Aussehen der Referenzen haben möchte, kann
+% Wer etwas mehr "Kontrolle" ï¿½ber das Aussehen der Referenzen haben mï¿½chte, kann
 % auch das "biblatex"-Paket benutzen.
 \usepackage{etoolbox}  % http://dante.ctan.org/tex-archive/help/Catalogue/entries/etoolbox.html
 \usepackage[
@@ -64,7 +66,7 @@
 	sorting=nty]{biblatex}  % http://dante.ctan.org/tex-archive/help/Catalogue/entries/biblatex.html
 \renewcommand{\mkbibnamelast}[1]{\textsc{#1}}
 
-% Abstand der einzelnen Einträge in der Literaturangaben
+% Abstand der einzelnen Eintrï¿½ge in der Literaturangaben
 \renewcommand{\bibitemsep}{1ex}
 
 % Welche Klammern soll \parencite{..} benutzen?
@@ -75,7 +77,7 @@
 % \parencite{..} gibt Klammern aus (die oben definiert sind)
 % Damit das "normale" Verhalten andere BibTeX-Stile realisiert wird, d.h. \cite{..}
 % gibt Klammen aus, wird folgendes definiert:
-% "Merke" ursprünliche Definition unter neuem Namen
+% "Merke" ursprï¿½nliche Definition unter neuem Namen
 \let\citeNoParen\cite
 % "Redefiniere" \cite:
 \let\cite\parencite
@@ -152,32 +154,32 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{listings}   % http://www.ctan.org/tex-archive/macros/latex/contrib/listings/
 
-% Wie sollen die Überschriften benannt werden:
+% Wie sollen die ï¿½berschriften benannt werden:
 \renewcommand{\lstlistingname}{Algorithmus}
 
 % Wie die Liste der Listings, s. \lstlistoflistings in bericht.tex
 \renewcommand{\lstlistlistingname}{Liste der Algorithmen}
 
-% So kann man einen Stil für alle  Algorithmen definieren
+% So kann man einen Stil fï¿½r alle  Algorithmen definieren
 \lstdefinestyle{algoBericht}{
-  numbers=left,              % Zeilennummern einfügen
+  numbers=left,              % Zeilennummern einfï¿½gen
   numberstyle=\tiny,         % wie werden sie gesetzt
   numbersep=5pt,             % Abstand der Nummern zum Text
-  numberblanklines=false,    % bei Leerzeilen keine Nummer ausgeben (aber zählen)
+  numberblanklines=false,    % bei Leerzeilen keine Nummer ausgeben (aber zï¿½hlen)
   basicstyle=\sffamily\small,         % Wie soll der Algorithmus gesetzt werden
 }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Abkürzungen, http://www.ctan.org/tex-archive/macros/latex/contrib/acronym/
+% Abkï¿½rzungen, http://www.ctan.org/tex-archive/macros/latex/contrib/acronym/
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[printonlyused,withpage]{acronym}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Formelverzeichnis, Dank an Andy Nöltner <ANoeltner@lstelcom.com>
+% Formelverzeichnis, Dank an Andy Nï¿½ltner <ANoeltner@lstelcom.com>
 % Leider versursacht float zusammen mit Hyperref Warnungen
 % siehe http://www.tex.ac.uk/cgi-bin/texfaq2html?label=hyperdupdest
-% Wenn also das Formelverzeichnis nicht benötigt, dann das folgende
+% Wenn also das Formelverzeichnis nicht benï¿½tigt, dann das folgende
 % auskommentieren
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{float}
@@ -194,7 +196,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Definitionen mit Ausgabe im Index
-% gibt #2 aus und fügt #1 bzw. #2 (wenn #1 nicht angegeben) in den Index ein
+% gibt #2 aus und fï¿½gt #1 bzw. #2 (wenn #1 nicht angegeben) in den Index ein
 \newcommand{\Def}[2][]{%
    \def\OPTARG{#1}%
    \def\EMPTY{}%
