@@ -1,2 +1,0 @@
-/usr/bin/ar qc /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/liblanding_slope.a  CMakeFiles/landing_slope.dir/Landingslope.cpp.o
-/usr/bin/ranlib /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/liblanding_slope.a

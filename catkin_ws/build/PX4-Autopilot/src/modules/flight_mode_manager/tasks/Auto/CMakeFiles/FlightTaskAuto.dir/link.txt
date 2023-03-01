@@ -1,2 +1,0 @@
-/usr/bin/ar qc /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libFlightTaskAuto.a  CMakeFiles/FlightTaskAuto.dir/FlightTaskAuto.cpp.o
-/usr/bin/ranlib /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libFlightTaskAuto.a

@@ -1,2 +1,0 @@
-/usr/bin/ar qc /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/liblib__rc__rc_tests.a  CMakeFiles/lib__rc__rc_tests.dir/RCTest.cpp.o
-/usr/bin/ranlib /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/liblib__rc__rc_tests.a

@@ -1,2 +1,0 @@
-/usr/bin/ar qc /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libdrivers__pwm_out_sim.a  CMakeFiles/drivers__pwm_out_sim.dir/PWMSim.cpp.o
-/usr/bin/ranlib /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libdrivers__pwm_out_sim.a

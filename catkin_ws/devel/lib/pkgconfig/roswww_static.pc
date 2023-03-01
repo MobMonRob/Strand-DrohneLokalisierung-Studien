@@ -1,8 +1,0 @@
-prefix=/home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel
-
-Name: roswww_static
-Description: Description of roswww_static
-Version: 0.23.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

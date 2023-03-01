@@ -1,2 +1,0 @@
-/usr/bin/ar qc /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libsystemcmds__motor_test.a  CMakeFiles/systemcmds__motor_test.dir/motor_test.cpp.o
-/usr/bin/ranlib /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libsystemcmds__motor_test.a

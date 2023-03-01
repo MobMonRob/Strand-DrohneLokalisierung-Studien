@@ -1,2 +1,0 @@
-/usr/bin/ar qc /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libvehicle_acceleration.a  CMakeFiles/vehicle_acceleration.dir/VehicleAcceleration.cpp.o
-/usr/bin/ranlib /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libvehicle_acceleration.a

@@ -1,2 +1,0 @@
-/usr/bin/ar qc /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libexamples__hello.a  CMakeFiles/examples__hello.dir/hello_main.cpp.o CMakeFiles/examples__hello.dir/hello_start.cpp.o CMakeFiles/examples__hello.dir/hello_example.cpp.o
-/usr/bin/ranlib /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libexamples__hello.a

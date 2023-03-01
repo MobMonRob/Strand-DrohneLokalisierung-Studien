@@ -1,7 +1,0 @@
-\subsubsection usage Usage
-\verbatim
-<node name="clover" pkg="clover" type="clover">
-  <param name="enabled" type="bool" value="True" />
-</node>
-\endverbatim
-

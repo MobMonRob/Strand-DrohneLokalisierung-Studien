@@ -1,2 +1,0 @@
-/usr/bin/ar qc /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libmodules__fw_pos_control_l1.a  CMakeFiles/modules__fw_pos_control_l1.dir/FixedwingPositionControl.cpp.o
-/usr/bin/ranlib /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libmodules__fw_pos_control_l1.a

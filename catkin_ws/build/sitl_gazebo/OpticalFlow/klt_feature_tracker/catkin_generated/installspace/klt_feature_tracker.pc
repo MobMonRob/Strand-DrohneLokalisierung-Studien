@@ -1,8 +1,0 @@
-prefix=/home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/install
-
-Name: klt_feature_tracker
-Description: Description of klt_feature_tracker
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib -lklt_feature_tracker
-Requires: 

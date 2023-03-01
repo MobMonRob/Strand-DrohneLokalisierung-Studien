@@ -1,2 +1,0 @@
-/usr/bin/ar qc /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libMagnetometerBiasEstimator.a  CMakeFiles/MagnetometerBiasEstimator.dir/MagnetometerBiasEstimator.cpp.o
-/usr/bin/ranlib /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libMagnetometerBiasEstimator.a

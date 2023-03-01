@@ -1,2 +1,0 @@
-/usr/bin/ar qc /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libmodules__simulator__battery_simulator.a  CMakeFiles/modules__simulator__battery_simulator.dir/BatterySimulator.cpp.o
-/usr/bin/ranlib /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libmodules__simulator__battery_simulator.a

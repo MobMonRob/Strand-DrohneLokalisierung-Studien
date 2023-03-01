@@ -1,8 +1,0 @@
-prefix=/home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/install
-
-Name: clover_simulation
-Description: Description of clover_simulation
-Version: 0.23.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: led_msgs gazebo_ros gazebo_plugins
