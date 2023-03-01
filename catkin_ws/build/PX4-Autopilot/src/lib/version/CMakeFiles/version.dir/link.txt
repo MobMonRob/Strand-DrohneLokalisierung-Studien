@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libversion.a  CMakeFiles/version.dir/version.c.o
+/usr/bin/ranlib /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libversion.a

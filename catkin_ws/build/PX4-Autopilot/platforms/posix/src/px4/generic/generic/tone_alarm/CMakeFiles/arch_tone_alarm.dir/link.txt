@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libarch_tone_alarm.a  CMakeFiles/arch_tone_alarm.dir/ToneAlarmInterface.cpp.o
+/usr/bin/ranlib /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libarch_tone_alarm.a

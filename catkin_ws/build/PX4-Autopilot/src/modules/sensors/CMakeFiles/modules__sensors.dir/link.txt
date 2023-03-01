@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libmodules__sensors.a  CMakeFiles/modules__sensors.dir/voted_sensors_update.cpp.o CMakeFiles/modules__sensors.dir/sensors.cpp.o
+/usr/bin/ranlib /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libmodules__sensors.a

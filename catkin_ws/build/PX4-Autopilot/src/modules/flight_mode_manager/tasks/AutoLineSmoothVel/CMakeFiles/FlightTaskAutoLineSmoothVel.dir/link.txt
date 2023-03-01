@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libFlightTaskAutoLineSmoothVel.a  CMakeFiles/FlightTaskAutoLineSmoothVel.dir/FlightTaskAutoLineSmoothVel.cpp.o
+/usr/bin/ranlib /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libFlightTaskAutoLineSmoothVel.a

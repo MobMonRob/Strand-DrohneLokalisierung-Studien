@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libdrivers_board.a  CMakeFiles/drivers_board.dir/board_shutdown.cpp.o CMakeFiles/drivers_board.dir/i2c.cpp.o CMakeFiles/drivers_board.dir/sitl_led.c.o CMakeFiles/drivers_board.dir/spi.cpp.o
+/usr/bin/ranlib /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libdrivers_board.a

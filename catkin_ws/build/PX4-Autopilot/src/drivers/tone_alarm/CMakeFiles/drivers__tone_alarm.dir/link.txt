@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libdrivers__tone_alarm.a  CMakeFiles/drivers__tone_alarm.dir/ToneAlarm.cpp.o
+/usr/bin/ranlib /home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/devel/lib/libdrivers__tone_alarm.a

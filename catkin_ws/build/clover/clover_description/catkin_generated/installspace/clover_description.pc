@@ -1,0 +1,8 @@
+prefix=/home/mburr/Strand-DrohneLokalisierung-Studien/catkin_ws/install
+
+Name: clover_description
+Description: Description of clover_description
+Version: 0.23.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
