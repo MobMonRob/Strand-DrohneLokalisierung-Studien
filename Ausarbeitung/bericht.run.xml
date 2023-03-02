@@ -65,6 +65,7 @@
     </requires>
   </internal>
   <external package="biblatex" priority="5" active="0">
+
     <generic>bibtex</generic>
     <cmdline>
       <binary>bibtex</binary>

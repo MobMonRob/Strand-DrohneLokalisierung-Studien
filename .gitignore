@@ -1,1 +1,315 @@
 .DS_STORE
+ros_vm/.vagrant/**
+# General
+.vagrant/
+
+# Log files (if you are creating logs in debug mode, uncomment this)
+# *.log
+ros_vm/.vagrant/bundler/global.sol
+
+.DS_STORE
+Ausarbeitung/*.pdf
+## Core latex/pdflatex auxiliary files:
+Ausarbeitung/*.aux
+Ausarbeitung/*.lof
+Ausarbeitung/*.log
+Ausarbeitung/*.lot
+Ausarbeitung/*.fls
+Ausarbeitung/*.out
+Ausarbeitung/*.toc
+Ausarbeitung/*.fmt
+Ausarbeitung/*.fot
+Ausarbeitung/*.cb
+Ausarbeitung/*.cb2
+Ausarbeitung/.*.lb
+
+## Intermediate documents:
+Ausarbeitung/*.dvi
+Ausarbeitung/*.xdv
+Ausarbeitung/*-converted-to.*
+# these rules might exclude image files for figures etc.
+# *.ps
+# *.eps
+# *.pdf
+
+## Generated if empty string is given at "Please type another file name for output:"
+Ausarbeitung/*.pdf
+
+## Bibliography auxiliary files (bibtex/biblatex/biber):
+Ausarbeitung/*.bbl
+Ausarbeitung/*.bcf
+Ausarbeitung/*.blg
+Ausarbeitung/*-blx.aux
+Ausarbeitung/*-blx.bib
+Ausarbeitung/*.run.xml
+
+## Build tool auxiliary files:
+Ausarbeitung/*.fdb_latexmk
+Ausarbeitung/*.synctex
+Ausarbeitung/*.synctex(busy)
+Ausarbeitung/*.synctex.gz
+Ausarbeitung/*.synctex.gz(busy)
+Ausarbeitung/*.pdfsync
+
+## Build tool directories for auxiliary files
+# latexrun
+Ausarbeitung/latex.out/
+
+## Auxiliary and intermediate files from other packages:
+# algorithms
+Ausarbeitung/*.alg
+Ausarbeitung/*.loa
+
+# achemso
+Ausarbeitung/acs-*.bib
+
+# amsthm
+Ausarbeitung/*.thm
+
+# beamer
+Ausarbeitung/*.nav
+Ausarbeitung/*.pre
+Ausarbeitung/*.snm
+Ausarbeitung/*.vrb
+
+# changes
+Ausarbeitung/*.soc
+
+# comment
+Ausarbeitung/*.cut
+
+# cprotect
+Ausarbeitung/*.cpt
+
+# elsarticle (documentclass of Elsevier journals)
+Ausarbeitung/*.spl
+
+# endnotes
+Ausarbeitung/*.ent
+
+# fixme
+Ausarbeitung/*.lox
+
+# feynmf/feynmp
+Ausarbeitung/*.mf
+Ausarbeitung/*.mp
+Ausarbeitung/*.t[1-9]
+Ausarbeitung/*.t[1-9][0-9]
+Ausarbeitung/*.tfm
+
+#(r)(e)ledmac/(r)(e)ledpar
+Ausarbeitung/*.end
+Ausarbeitung/*.?end
+Ausarbeitung/*.[1-9]
+Ausarbeitung/*.[1-9][0-9]
+Ausarbeitung/*.[1-9][0-9][0-9]
+Ausarbeitung/*.[1-9]R
+Ausarbeitung/*.[1-9][0-9]R
+Ausarbeitung/*.[1-9][0-9][0-9]R
+Ausarbeitung/*.eledsec[1-9]
+Ausarbeitung/*.eledsec[1-9]R
+Ausarbeitung/*.eledsec[1-9][0-9]
+Ausarbeitung/*.eledsec[1-9][0-9]R
+Ausarbeitung/*.eledsec[1-9][0-9][0-9]
+Ausarbeitung/*.eledsec[1-9][0-9][0-9]R
+
+# glossaries
+Ausarbeitung/*.acn
+Ausarbeitung/*.acr
+Ausarbeitung/*.glg
+Ausarbeitung/*.glo
+Ausarbeitung/*.gls
+Ausarbeitung/*.glsdefs
+Ausarbeitung/*.lzo
+Ausarbeitung/*.lzs
+Ausarbeitung/*.slg
+Ausarbeitung/*.slo
+Ausarbeitung/*.sls
+
+# uncomment this for glossaries-extra (will ignore makeindex's style files!)
+# *.ist
+
+# gnuplot
+Ausarbeitung/*.gnuplot
+Ausarbeitung/*.table
+
+# gnuplottex
+Ausarbeitung/*-gnuplottex-*
+
+# gregoriotex
+Ausarbeitung/*.gaux
+Ausarbeitung/*.glog
+Ausarbeitung/*.gtex
+
+# htlatex
+Ausarbeitung/*.4ct
+Ausarbeitung/*.4tc
+Ausarbeitung/*.idv
+Ausarbeitung/*.lg
+Ausarbeitung/*.trc
+Ausarbeitung/*.xref
+
+# hyperref
+Ausarbeitung/*.brf
+
+# knitr
+Ausarbeitung/*-concordance.tex
+# TODO Uncomment the next line if you use knitr and want to ignore its generated tikz files
+# *.tikz
+Ausarbeitung/*-tikzDictionary
+
+# listings
+Ausarbeitung/*.lol
+
+# luatexja-ruby
+Ausarbeitung/*.ltjruby
+
+# makeidx
+Ausarbeitung/*.idx
+Ausarbeitung/*.ilg
+Ausarbeitung/*.ind
+
+# minitoc
+Ausarbeitung/*.maf
+Ausarbeitung/*.mlf
+Ausarbeitung/*.mlt
+Ausarbeitung/*.mtc[0-9]*
+Ausarbeitung/*.slf[0-9]*
+Ausarbeitung/*.slt[0-9]*
+Ausarbeitung/*.stc[0-9]*
+
+# minted
+Ausarbeitung/_minted*
+Ausarbeitung/*.pyg
+
+# morewrites
+Ausarbeitung/*.mw
+
+# newpax
+Ausarbeitung/*.newpax
+
+# nomencl
+Ausarbeitung/*.nlg
+Ausarbeitung/*.nlo
+Ausarbeitung/*.nls
+
+# pax
+Ausarbeitung/*.pax
+
+# pdfpcnotes
+Ausarbeitung/*.pdfpc
+
+# sagetex
+Ausarbeitung/*.sagetex.sage
+Ausarbeitung/*.sagetex.py
+Ausarbeitung/*.sagetex.scmd
+
+# scrwfile
+Ausarbeitung/*.wrt
+
+# svg
+Ausarbeitung/svg-inkscape/
+
+# sympy
+Ausarbeitung/*.sout
+Ausarbeitung/*.sympy
+Ausarbeitung/sympy-plots-for-*.tex/
+
+# pdfcomment
+Ausarbeitung/*.upa
+Ausarbeitung/*.upb
+
+# pythontex
+Ausarbeitung/*.pytxcode
+Ausarbeitung/pythontex-files-*/
+
+# tcolorbox
+Ausarbeitung/*.listing
+
+# thmtools
+Ausarbeitung/*.loe
+
+# TikZ & PGF
+Ausarbeitung/*.dpth
+Ausarbeitung/*.md5
+Ausarbeitung/*.auxlock
+
+# titletoc
+Ausarbeitung/*.ptc
+
+# todonotes
+Ausarbeitung/*.tdo
+
+# vhistory
+Ausarbeitung/*.hst
+Ausarbeitung/*.ver
+
+# easy-todo
+Ausarbeitung/*.lod
+
+# xcolor
+Ausarbeitung/*.xcp
+
+# xmpincl
+Ausarbeitung/*.xmpi
+
+# xindy
+Ausarbeitung/*.xdy
+
+# xypic precompiled matrices and outlines
+Ausarbeitung/*.xyc
+Ausarbeitung/*.xyd
+
+# endfloat
+Ausarbeitung/*.ttt
+Ausarbeitung/*.fff
+
+# Latexian
+Ausarbeitung/TSWLatexianTemp*
+
+## Editors:
+# WinEdt
+Ausarbeitung/*.bak
+Ausarbeitung/*.sav
+
+# Texpad
+Ausarbeitung/.texpadtmp
+
+# LyX
+Ausarbeitung/*.lyx~
+
+# Kile
+Ausarbeitung/*.backup
+
+# gummi
+Ausarbeitung/.*.swp
+
+# KBibTeX
+Ausarbeitung/*~[0-9]*
+
+# TeXnicCenter
+Ausarbeitung/*.tps
+
+# auto folder when using emacs and auctex
+Ausarbeitung/./auto/*
+Ausarbeitung/*.el
+
+# expex forward references with \gathertags
+Ausarbeitung/*-tags.tex
+
+# standalone packages
+Ausarbeitung/*.sta
+
+# Makeindex log files
+Ausarbeitung/*.lpz
+
+# xwatermark package
+Ausarbeitung/*.xwm
+
+# Makefile
+Ausarbeitung/Makefile*
+
+# REVTeX puts footnotes in the bibliography by default, unless the nofootinbib
+# option is specified. Footnotes are the stored in a file with suffix Notes.bib.
+# Uncomment the next line to have this generated file ignored.
+#*Notes.bib
