@@ -91,7 +91,7 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
     Die Erkennung von QR-Codes in \ac{ROS}-Anwendungen kann für verschiedene Anwendungsfälle nützlich sein. Beispielsweise können QR-Codes als Marker verwendet werden
 
 \section{Drohne/Multicopter} \label{drohne:section}
-Bei der für das Projekt verwendete Drohne handelt es sich um eine Coex Clover Drohne. Dies ist eine programmierbare Drohne, die besonders für Bildungszwecke eingesetzt wird. Sie ist sowohl für den Einsatz draußen sowie auch in Gebäuden geeignet. \\
+Bei der für das Projekt verwendete Drohne handelt es sich um eine Coex Clover Drohne in der Version Clover 4.2. Dies ist eine programmierbare Drohne, die besonders für Bildungszwecke eingesetzt wird. Sie ist sowohl für den Einsatz draußen sowie auch in Gebäuden geeignet. \\
 
 \begin{figure}[htpb]
     \centering
@@ -126,12 +126,16 @@ Im Folgenden wird nun auf die wichtigsten Bestandteile der Coex Clover Drohne no
     \caption[Raspberry Pi 4]{\label{img raspberry_pi} Raspberry Pi 4 \cite{img_raspberry_pi}}
 \end{figure}
 
-Die Coex Clover Drohne enthält einen Raspberry Pi 4 Model B mit 1 GB Arbeitsspeicher.
+
+Die Coex Clover Drohne enthält einen Raspberry Pi 4 Model B mit 1 GB Arbeitsspeicher.\\
+Der Raspberry Pi beinhaltet zudem ein austasuschbare MicroSD-Karte, auf welche sich in diesem Fall das Raspberry Pi Betriebssysteme befindet.
+
 
 \subsection{Coex Pix} \label{coex_pix:subsection}
+Der Coex Pix Flight Controller wird für den Betrieb von Drohnen und anderen Fluggeräten verwendet werden. Hierbei basiert dieser auf der PX4 Software. Der Flight Controller einhaltet verschiedene Sensoren, hierzu gehören ein Accelerometer, Gyroskop und ein Magnetometer. Damit soll ein stabiler Flug ermöglicht werden, wobei verschiedene Modi genutzt werden können. Zu diesen zählen unter anderem ein Stabilisierungsmodus oder auch ein Modus, in dem eigene Flugmanöver getestet beziehungswiese genutzt werden können.
 
 
-
+\subsection{PX4} \label{px4:subsection}
 
 \section{3D-Modelle} \label{3d-modelle:section}
 
