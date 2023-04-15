@@ -10,17 +10,16 @@
     Meistens werden für diese Messungen Hall Sensoren oder Induktivitäts-Sensoren verwendet.
     Die Sensoren sind in der Lage, das Magnetfeld in drei Dimensionen zu messen und darzustellen.
 
-    Die Messung des Magnetfeldes erfolgt dabei in der Regel über einen Halbleiter, der durch das Magnetfeld beeinflusst wird.
-    und einer Elektronik, die das Signal aufbereitet und ausgibt.
+    Die Messung des Magnetfeldes erfolgt dabei in der Regel über einen Halbleiter, der durch das Magnetfeld beeinflusst wird und einer Elektronik, die das Signal aufbereitet und ausgibt.
     Magnetometer können jedoch nur die Richtung des Magnetfeldes messen, jedoch nicht die Stärke des Magnetfeldes.
-    Magnetometer werden verwendet um die Ausrichtung von Geräten in bestimmten Koordinatensystemen zu bestimmen.
+    Magnetometer werden verwendet, um die Ausrichtung von Geräten in bestimmten Koordinatensystemen zu bestimmen.
     Sie können für diese Ausrichtungsbestimmung auch in der Luft verwendet werden. 
 
     \subsection{Kamera} \label{kamera:section}
 
         \subsubsection{Bild Kamera} \label{bild_kamera:subsubsection}
 
-        \subsubsection{Infrarot Kamera} \label{infrarot_kamera:subsubsection}
+        \subsubsection{Infrarotkamera} \label{infrarot_kamera:subsubsection}
 
     \subsection{Abstandssensoren} \label{abstandssensoren:subsection}
 
@@ -40,7 +39,7 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
 
     Eine wichtige Funktion von Nodes ist ihre Fähigkeit zur Verteilung. In \ac{ROS} können Nodes auf verschiedenen Hosts oder in verschiedenen Prozessen ausgeführt werden. Dadurch können komplexe \ac{ROS}-Systeme erstellt werden, die aus vielen miteinander verbundenen Nodes bestehen.
 
-    Nodes können auch in einer \ac{ROS}-Graphenstruktur organisiert werden. Diese Struktur zeigt die Abhängigkeiten zwischen Nodes und die Art der Kommunikation zwischen ihnen an. Die \ac{ROS}-Graphenstruktur kann mit Werkzeugen wie rqt\_graph visualisiert werden, um eine bessere Übersicht über das System zu erhalten.
+    Nodes können auch in einer \ac{ROS}-Graphenstruktur organisiert werden. Diese Struktur zeigt die Abhängigkeiten zwischen Nodes und die Art der Kommunikation zwischen ihnen an. Die \ac{ROS}-Graphenstruktur kann mit Werkzeugen wie "rqt\_graph" visualisiert werden, um eine bessere Übersicht über das System zu erhalten.
 
     Die Verwendung von Nodes in \ac{ROS} ermöglicht eine hohe Flexibilität und Modularität bei der Entwicklung von Robotik-Anwendungen. Entwickler können einzelne Nodes erstellen, testen und optimieren, bevor sie sie in einem größeren System einsetzen. Darüber hinaus können Nodes wiederverwendet werden, um ähnliche Funktionen in verschiedenen Anwendungen auszuführen.
 
@@ -101,7 +100,6 @@ Bei der für das Projekt verwendete Drohne handelt es sich um eine Coex Clover D
 
 
 Zu Beginn erhält man hierbei einen Bausatz, welcher dann zu einem Quadrokopter zusammengebaut werden kann. Der Vorteil hierbei ist zudem, dass die gesamte Drohne ohne Löten zusammengesetzt werden kann. Zu den einzelnen Bestandteilen der Drohne kommen, noch eine Dokumentation sowie verschiedene Bibliotheken, die es ermöglichen, die Drohne zusammen bauen und fliegen lassen zu können. \\
-Die 
 Durch die Verwendung verschiedener Open-Source Komponenten lässt sich die Drohne programmieren, wodurch ein vielseitiger Einsatzbereich entsteht.\\
 
 \begin{figure}[htpb]
@@ -113,7 +111,7 @@ Durch die Verwendung verschiedener Open-Source Komponenten lässt sich die Drohn
 Die Coex Clover Drohne soll laut Herstellerinformationen bis zu 15 Minuten am Stück fliegen können und in dieser Zeit eine Maximalhöhe von 500 Metern bei einer Höchstgeschwindigkeit von bis zu 72 km/h erreichen können \cite[vgl.][]{coex_clover}.\\
 
 Zu den Hauptbestandteilen der Drohne zählen zum einen ein Raspberry Pi 4 sowie der Flightcontroller Coex Pix. Diese bilden die Grundlage zur Programmierung und Steuerung der Coex Clover Drohne und ermöglichen es zudem die Drohne über drahtlos per WLAN zu verbinden. \\
-Die Drohne ist ein Quadrokopter und besitzt somit vier Motoren, welche einzelnd angesteuert werden können. Sie besitzt zudem eine Vielzahl verschiedener Sensoren, auf welche in Kapitel \ref{sensoren:section} genauer eingegangen wird. Zu diesen zählen unter anderem ein Gyroskop, Magnetometer sowie ein Laseranstandssensor und eine Kamera, die unten an der Drohne angebracht sind.
+Die Drohne ist ein Quadrokopter und besitzt somit vier Motoren, welche einzeln angesteuert werden können. Sie besitzt zudem eine Vielzahl verschiedener Sensoren, auf welche in Kapitel \ref{sensoren:section} genauer eingegangen wird. Zu diesen zählen unter anderem ein Gyroskop, Magnetometer sowie ein Laseranstandssensor und eine Kamera, die unten an der Drohne angebracht sind.
 Zum Schutz befindet sich zudem außen einen Rahmen.
 Bei der Drohne war zudem ein 2300 mAh großer Akku dabei, der für vom Hersteller angegebene Flugdauer sorgen soll.
 Im Folgenden wird nun auf die wichtigsten Bestandteile der Coex Clover Drohne noch einmal genauer eingegangen:
@@ -128,7 +126,7 @@ Im Folgenden wird nun auf die wichtigsten Bestandteile der Coex Clover Drohne no
 
 
 Die Coex Clover Drohne enthält einen Raspberry Pi 4 Model B mit 1 GB Arbeitsspeicher.\\
-Der Raspberry Pi beinhaltet zudem ein austasuschbare MicroSD-Karte, auf welche sich in diesem Fall das Raspberry Pi Betriebssysteme befindet.
+Der Raspberry Pi beinhaltet zudem eine austauschbare MicroSD-Karte, auf welche sich in diesem Fall das Raspberry Pi Betriebssysteme befindet.
 
 
 \subsection{Coex Pix} \label{coex_pix:subsection}
@@ -163,6 +161,8 @@ Im Gegensatz zum klassischen EKF verwendet der EKF2 eine modifizierte Version de
 Darüber hinaus verwendet der EKF2 eine modifizierte Version der State Transition Matrix, die die Nichtlinearitäten des Systems besser modellieren kann. Diese modifizierte Matrix wird ebenfalls iterativ während des Filterbetriebs aktualisiert, um den Änderungen im Systemverhalten besser gerecht zu werden.
 
 In der Drohnensteuerung wird der EKF2-Algorithmus verwendet, um die aktuellen Zustände der Drohne (z.B. Position, Geschwindigkeit, Orientierung) in Echtzeit zu schätzen. Diese Schätzungen werden dann verwendet, um die Steuerbefehle der Drohne zu generieren, um sie auf Kurs zu halten und sicher zu navigieren.
+
+\section{SLAM} \label{SLAM:section}
 
 \section{Simulationstechnik} \label{simulationstechnik:section}
 
