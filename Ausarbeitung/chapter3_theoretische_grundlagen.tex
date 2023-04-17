@@ -24,6 +24,12 @@
     \subsection{Abstandssensoren} \label{abstandssensoren:subsection}
 
 \section{ROS - Robot Operating System} \label{ros:section}
+In den vergangenen Jahren hat die Wissenschaft im Bereich der Robotik enorme Fortschritte gemacht. Die Verfügbarkeit zuverlässiger und kostengünstiger Roboterhardware, angefangen bei mobilen Bodenrobotern über Quadrotor-Hubschrauber bis hin zu humanoiden Robotern, ist heute größer als jemals zuvor. Noch beeindruckender ist jedoch die Tatsache, dass Algorithmen entwickelt wurden, die diesen Robotern einen immer höheren Grad an Autonomie verleihen.
+
+Trotz dieser rasanten Fortschritte stehen Softwareentwickler jedoch noch immer vor großen Herausforderungen bei der Programmierung von Robotern. Die Komplexität der Aufgaben, die von Robotern ausgeführt werden können, erfordert eine Menge an spezialisiertem Wissen und Erfahrung in verschiedenen Bereichen wie Sensorik, Bildverarbeitung, Künstlicher Intelligenz und Robotik.
+
+Die Igeneure und Softwareentwickler haben jedoch die Herausforderungen erkannt und arbeitet intensiv daran, sie zu lösen. Neue Werkzeuge und Frameworks werden entwickelt, um Entwicklern zu helfen, Roboter schneller und effektiver zu programmieren. Eines der bekanntensten Tools in diesem Bereich ist das Robot Operating System \ac{ROS}
+
 \ac{ROS} ist eine Open-Source-Plattform, die speziell für die Entwicklung von Robotersoftware entwickelt wurde. Es bietet eine Reihe von Bibliotheken, Tools und Frameworks, die es Entwicklern ermöglichen, komplexe Robotikanwendungen zu erstellen und zu betreiben. \ac{ROS} wurde von Willow Garage entwickelt und ist heute ein weit verbreitetes Framework in der Robotik-Community.
 
 \ac{ROS} besteht aus verschiedenen Modulen, die es ermöglichen, Roboterhard-  und software zu abstrahieren und zu standardisieren. Die Plattform bietet eine Vielzahl von Werkzeugen für die Entwicklung von Robotik-Software, einschließlich Visualisierungstools, Datenverarbeitungs- und Analysetools sowie eine umfassende Dokumentation.
@@ -36,6 +42,9 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
     \ac{ROS} kann man nicht auf jedem Betriebssystem verwenden. Lauffähig ist es nur auf Unix basierenden Systemen. Am besten funktioniert hierbei Linux und hierbei Ubuntu. Aber auch auf Mac OS kann man ROS verwenden. Allerdings ist dies bislange nur experimentell. Unter Microsoft Windows direkt kann \ac{ROS} nicht verwenden. Allerdings kann man durch die Verwendung von Docker oder einer virtuellen Maschiene mit z.B. Linux als Gastsystem auch von Windows Computern \ac{ROS} verwenden.
 
     Die \ac{ROS} Version, welche für diese Arbeit verwendet wurde, ist die Version "ROS Noetic Ninjemys". Diese ist die neuste ROS 1 Version mit long term support. Das Betriebssystem, auf welches die Version abzielt, ist Ubuntu 20.04 (Focal). Dementsprechend wurde auch Ubuntu 20.04 für diese Arbeit verwendet.
+
+    \subsection{Ebenen von ROS} \label{Ebenen von ROS:subsection}
+    Wie in \cite{ROS_concepts}
 
     \subsection{Nodes} \label{nodes:subsection}
     In \ac{ROS} werden Funktionen und Prozesse durch sogenannte Nodes realisiert. Eine Node ist eine ausführbare Einheit, die in einem \ac{ROS}-System arbeitet und über eine eindeutige Identifikation verfügt. Jede Node hat eine spezifische Aufgabe, wie beispielsweise das Sammeln von Sensordaten, die Ausführung einer spezifischen Berechnung oder das Steuern eines Aktors.
