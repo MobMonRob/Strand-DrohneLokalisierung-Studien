@@ -71,6 +71,12 @@ Insgesamt ermöglicht die Integration einer \ac{IMU} dem Azure Kinect \ac{DK} ei
 
 
 \section{ROS - Robot Operating System} \label{ros:section}
+In den vergangenen Jahren hat die Wissenschaft im Bereich der Robotik enorme Fortschritte gemacht. Die Verfügbarkeit zuverlässiger und kostengünstiger Roboterhardware, angefangen bei mobilen Bodenrobotern über Quadrotor-Hubschrauber bis hin zu humanoiden Robotern, ist heute größer als jemals zuvor. Noch beeindruckender ist jedoch die Tatsache, dass Algorithmen entwickelt wurden, die diesen Robotern einen immer höheren Grad an Autonomie verleihen.
+
+Trotz dieser rasanten Fortschritte stehen Softwareentwickler jedoch noch immer vor großen Herausforderungen bei der Programmierung von Robotern. Die Komplexität der Aufgaben, die von Robotern ausgeführt werden können, erfordert eine Menge an spezialisiertem Wissen und Erfahrung in verschiedenen Bereichen wie Sensorik, Bildverarbeitung, Künstlicher Intelligenz und Robotik.
+
+Die Igeneure und Softwareentwickler haben jedoch die Herausforderungen erkannt und arbeitet intensiv daran, sie zu lösen. Neue Werkzeuge und Frameworks werden entwickelt, um Entwicklern zu helfen, Roboter schneller und effektiver zu programmieren. Eines der bekanntensten Tools in diesem Bereich ist das Robot Operating System \ac{ROS}
+
 \ac{ROS} ist eine Open-Source-Plattform, die speziell für die Entwicklung von Robotersoftware entwickelt wurde. Es bietet eine Reihe von Bibliotheken, Tools und Frameworks, die es Entwicklern ermöglichen, komplexe Robotikanwendungen zu erstellen und zu betreiben. \ac{ROS} wurde von Willow Garage entwickelt und ist heute ein weit verbreitetes Framework in der Robotik-Community.
 
 \ac{ROS} besteht aus verschiedenen Modulen, die es ermöglichen, Roboterhard-  und software zu abstrahieren und zu standardisieren. Die Plattform bietet eine Vielzahl von Werkzeugen für die Entwicklung von Robotik-Software, einschließlich Visualisierungstools, Datenverarbeitungs- und Analysetools sowie eine umfassende Dokumentation.
@@ -78,6 +84,14 @@ Insgesamt ermöglicht die Integration einer \ac{IMU} dem Azure Kinect \ac{DK} ei
 \ac{ROS} ist so konzipiert, dass es auf einer Vielzahl von Betriebssystemen und Hardwarearchitekturen laufen kann und bietet Unterstützung für eine breite Palette von Robotern und Sensoren. Es ist auch bekannt für seine Fähigkeit zur Zusammenarbeit zwischen verschiedenen Robotern, die miteinander kommunizieren und Aufgaben gemeinsam erledigen können.
 
 Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem der wichtigsten Frameworks für die Robotik-Entwicklung geworden und wird in vielen Anwendungen eingesetzt, von industriellen Robotern bis hin zu autonomen Fahrzeugen.
+
+    \subsection{Vorraussetzungen zur Verwendung von ROS} \label{Vorraussetzungen zur Verwendung von ROS:subsection}
+    \ac{ROS} kann man nicht auf jedem Betriebssystem verwenden. Lauffähig ist es nur auf Unix basierenden Systemen. Am besten funktioniert hierbei Linux und hierbei Ubuntu. Aber auch auf Mac OS kann man ROS verwenden. Allerdings ist die Version für Mac OS bislange nur experimentell. Unter Microsoft Windows direkt kann \ac{ROS} nicht verwenden. Allerdings kann man durch die Verwendung von Docker oder einer virtuellen Maschiene mit z.B. Linux als Gastsystem auch von Windows Computern \ac{ROS} verwenden. \cite{ROS_Introduction}
+
+    Die \ac{ROS} Version, welche für diese Arbeit verwendet wurde, ist die Version "ROS Noetic Ninjemys". Diese ist die neuste ROS 1 Version mit long term support. Das Betriebssystem, auf welches die Version abzielt, ist Ubuntu 20.04 (Focal). Dementsprechend wurde auch Ubuntu 20.04 für diese Arbeit verwendet.
+
+    \subsection{Ebenen von ROS} \label{Ebenen von ROS:subsection}
+    Wie in \cite{ROS_concepts}
 
     \subsection{Nodes} \label{nodes:subsection}
     In \ac{ROS} werden Funktionen und Prozesse durch sogenannte Nodes realisiert. Eine Node ist eine ausführbare Einheit, die in einem \ac{ROS}-System arbeitet und über eine eindeutige Identifikation verfügt. Jede Node hat eine spezifische Aufgabe, wie beispielsweise das Sammeln von Sensordaten, die Ausführung einer spezifischen Berechnung oder das Steuern eines Aktors.
@@ -104,6 +118,9 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
     Die Verwendung von Topics in \ac{ROS} ermöglicht eine einfache und flexible Kommunikation zwischen Nodes, was besonders in komplexen Systemen von Vorteil ist. Nodes können sich auf mehrere Topics abonnieren und Nachrichten an mehrere Topics veröffentlichen, was eine effektive und modulare Datenverarbeitung ermöglicht. Zudem können Topics auf mehreren Hosts oder in verschiedenen Prozessen ausgeführt werden, was eine Skalierung des \ac{ROS}-Systems ermöglicht.
 
     Insgesamt sind Topics eine wichtige Komponente von \ac{ROS} und ermöglichen es Entwicklern, eine einfache und effektive Kommunikation zwischen Nodes in Robotik-Anwendungen zu realisieren.
+
+    \subsection{Messages} \label{messages:subsection}
+    Die Messages sind Datenströme, die zwischen mindestens zwei Nodes ausgetauscht werden. Sie werden in sogenannten msg-Dateien definiert. Diese Nachrichten können sowohl aus primitiven Datentypen als auch aus Datenstrukturen bestehen. Der Datenfluss erfolgt immer nur in eine Richtung.
 
     \subsection{Publish and Subscripe Pattern} \label{publish_and_subscripe_pattern:subsection}
     Das Publish-Subscribe-Pattern ist ein grundlegendes Muster der \ac{ROS}-Kommunikation und ermöglicht eine effektive und modulare Datenverarbeitung in verteilten Systemen.
@@ -135,6 +152,15 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
     Ein weiteres \ac{ROS}-Paket, das die QR-Code-Erkennung erleichtert, ist das "ros\_qr\_detector" Paket. Dieses Paket basiert auf der OpenCV-Bibliothek und bietet eine einfache Möglichkeit, QR-Codes in \ac{ROS}-basierten Anwendungen zu erkennen. Das Paket bietet auch die Möglichkeit, QR-Codes aus der Kamerabildanzeige auszuschneiden und als separate Bilder zu speichern.
 
     Die Erkennung von QR-Codes in \ac{ROS}-Anwendungen kann für verschiedene Anwendungsfälle nützlich sein. Beispielsweise können QR-Codes als Marker verwendet werden
+
+    \subsection{Starten eines ROS Programms} \label{starten eines ROS Programms:subsection}
+    Zum Starten verschiedener Nodes in \ac{ROS} wird das ROS-eigene Tool roslaunch verwendet. Roslaunch ist ein mächtiges Werkzeug für die Konfiguration, das Starten und die Überwachung von ROS-Paketen und -Nodes. Mit roslaunch können Entwickler schnell und einfach Nodes starten, indem sie eine XML-Datei erstellen, die alle notwendigen Konfigurationen enthält. Die XML-Datei wird als Launch-Datei bezeichnet und wird in der Regel von Entwicklern erstellt, um eine oder mehrere ROS-Knoten gleichzeitig zu starten und zu konfigurieren.
+
+    Ein großer Vorteil von roslaunch ist seine Portabilität. Mit Launch-Dateien können Entwickler ROS-Pakete und -Nodes problemlos auf verschiedenen Systemen starten und konfigurieren, unabhängig von der Plattform oder Architektur. Dies erleichtert die Entwicklung von ROS-Software für verschiedene Roboter- und Hardware-Plattformen erheblich. \cite{roslaunch}
+
+    Der Befehl, mit welchem man roslauch aufruft, sieht wie folgt aus:
+    
+    \textit{\$ roslaunch package\_name file.launch}
 
 \section{Drohne/Multicopter} \label{drohne:section}
 Bei der für das Projekt verwendete Drohne handelt es sich um eine Coex Clover Drohne in der Version Clover 4.2. Dies ist eine programmierbare Drohne, die besonders für Bildungszwecke eingesetzt wird. Sie ist sowohl für den Einsatz draußen sowie auch in Gebäuden geeignet. \\
