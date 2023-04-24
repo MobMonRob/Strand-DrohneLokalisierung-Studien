@@ -29,6 +29,7 @@
 \usepackage{microtype}  % http://tug.ctan.org/tex-archive/macros/latex/contrib/microtype/
 \usepackage{lmodern}    % Computern-Modern Schriftfamilie
 \usepackage{amssymb}    % Symbole
+\usepackage{amsmath} % Matheformeln
 \usepackage{framed}     % Framed or shaded regions that can break across pages.
 		        % http://dante.ctan.org/tex-archive/help/Catalogue/entries/framed.html
 			% Benutzung siehe erklaerung.tex
@@ -61,12 +62,12 @@
 \usepackage{etoolbox}  % http://dante.ctan.org/tex-archive/help/Catalogue/entries/etoolbox.html
 \usepackage[
 	hyperref=true,          % Klickbare Referenzen in der PDF-Datei
-        backref=true,           % In der Literaturref. die Seiten angeben, wo ein \cite dazu steht
-        bibencoding=inputenc,   % s. inputenc-Paket
+  backref=true,           % In der Literaturref. die Seiten angeben, wo ein \cite dazu steht
+  bibencoding=inputenc,   % s. inputenc-Paket
 	style=authoryear-comp,
-        backend=bibtex,
+  backend=biber,
 	sorting=nty]{biblatex}  % http://dante.ctan.org/tex-archive/help/Catalogue/entries/biblatex.html
-\renewcommand{\mkbibnamelast}[1]{\textsc{#1}}
+\renewcommand{\mkbibnamefamily}[1]{\textsc{#1}}
 
 % Abstand der einzelnen Eintr�ge in der Literaturangaben
 \renewcommand{\bibitemsep}{1ex}

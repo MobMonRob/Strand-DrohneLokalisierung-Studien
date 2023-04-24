@@ -15,7 +15,7 @@ Sensoren sind entscheidend für die 3D Navigation anhand eines externen Umweltmo
     Magnetometer können jedoch nur die Richtung des Magnetfeldes messen, jedoch nicht die Stärke des Magnetfeldes.
     Magnetometer werden verwendet, um die Ausrichtung von Geräten in bestimmten Koordinatensystemen zu bestimmen.
     Sie können für diese Ausrichtungsbestimmung auch in der Luft verwendet werden. 
-    \subsection{Azure Kinect \ac{DK}}
+    \subsection{Azure Kinect DK}
 
     Das Azure Kinect DK ist ein System, das für die Erfassung von Tiefenbildern und 3D-Modellen eingesetzt wird. Das System besteht aus einer RGB-Kamera und einer Tiefenkamera, die in Kombination arbeiten, um präzise räumliche Tiefeninformationen zu erfassen und 3D-Modelle zu generieren.
     
@@ -51,7 +51,7 @@ Sensoren sind entscheidend für die 3D Navigation anhand eines externen Umweltmo
 Das Azure DK (Development Kit) enthält eine integrierte IMU (Inertial Measurement Unit), die aus einem 3-Achsen-Beschleunigungsmesser und einem 3-Achsen-Gyroskop besteht. Die IMU erfasst die Beschleunigung und Rotation des Geräts und liefert entsprechende Daten, die für die Navigation und Stabilisierung verwendet werden können.
 
 Die \ac{IMU} im Azure Kinect \ac{DK} ist speziell darauf ausgelegt, zusammen mit den Kameras des Systems zu arbeiten. Sie ist in der Lage, genaue Daten in Echtzeit zu liefern und kann zur Verbesserung der räumlichen Genauigkeit der Tiefenbilder beitragen. Die IMU kann auch in Kombination mit anderen Sensoren und Systemen genutzt werden, um die Bewegung und Position von Geräten und Robotern in Echtzeit zu verfolgen.
-Im Kapitel \ref{chp:slam}\todo{referenz} wird auf die Zusammenarbeit von Kamera und IMU eingegangen.
+Im Kapitel \todo{referenz} wird auf die Zusammenarbeit von Kamera und IMU eingegangen.
 
 Insgesamt ermöglicht die Integration einer \ac{IMU} dem Azure Kinect \ac{DK} eine noch präzisere und zuverlässigere Erfassung von Tiefeninformationen und Bewegungsdaten. Dies macht das System zu einem leistungsfähigen Werkzeug für eine Vielzahl von Anwendungen in der Robotik, virtuellen Realität, Augmented Reality und anderen Bereichen, in denen eine genaue räumliche Erfassung erforderlich ist.
 
@@ -114,15 +114,15 @@ Die Igeneure und Softwareentwickler haben jedoch die Herausforderungen erkannt u
 Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem der wichtigsten Frameworks für die Robotik-Entwicklung geworden und wird in vielen Anwendungen eingesetzt, von industriellen Robotern bis hin zu autonomen Fahrzeugen.
 
     \subsection{Vorraussetzungen zur Verwendung von ROS} \label{Vorraussetzungen zur Verwendung von ROS:subsection}
-    \ac{ROS} kann man nicht auf jedem Betriebssystem verwenden. Lauffähig ist es nur auf Unix basierenden Systemen. Am besten funktioniert hierbei Linux und hierbei Ubuntu. Aber auch auf Mac OS kann man ROS verwenden. Allerdings ist die Version für Mac OS bislange nur experimentell. Unter Microsoft Windows direkt kann \ac{ROS} nicht verwenden. Allerdings kann man durch die Verwendung von Docker oder einer virtuellen Maschiene mit z.B. Linux als Gastsystem auch von Windows Computern \ac{ROS} verwenden \cite[vgl.][]{ROS_Introduction}.
+    \ac{ROS} kann man nicht auf jedem Betriebssystem verwenden. Lauffähig ist es nur auf Unix basierenden Systemen. Am besten funktioniert hierbei Linux und hierbei Ubuntu. Aber auch auf Mac OS kann man ROS verwenden. Allerdings ist die Version für Mac OS bislange nur experimentell. Unter Microsoft Windows direkt kann \ac{ROS} nicht verwenden. Allerdings kann man durch die Verwendung von Docker oder einer virtuellen Maschiene mit z.B. Linux als Gastsystem auch von Windows Computern \ac{ROS} verwenden \cite[vgl.][]{ROSIntroduction}.
 
     Die \ac{ROS} Version, welche für diese Arbeit verwendet wurde, ist die Version "ROS Noetic Ninjemys". Diese ist die neuste ROS 1 Version mit long term support. Das Betriebssystem, auf welches die Version abzielt, ist Ubuntu 20.04 (Focal). Dementsprechend wurde auch Ubuntu 20.04 für diese Arbeit verwendet.
 
     \subsection{Ebenen von ROS} \label{Ebenen von ROS:subsection}
-    Wie in \cite{ROS_concepts}
+    Wie in \cite{ROSconcepts}
 
     \subsection{ROS-Distributionen} \label{ROS-Distributionen:subsection}
-    Eine ROS-Distribution besteht aus einem festgelegten und visionierten Set von ROS-Paketen. Vergelichbar ist dieses System mit den Linux-Distributionen wie z.B. Ubuntu. Der Hauptzweck von ROS-Distributionen besteht darin, Entwicklern eine relativ stabile Codebasis zu bieten, damit sie daran weiterarbeiten können. Sobald eine Distribution veröffentlicht wurde, werden Änderungen hauptsächlich auf Fehlerbehebungen und nicht-zerstörerische Verbesserungen für die Kernpakete (alles unter ros-desktop-full) beschränkt. Somit ist das "Umziehen" auf eine neue Distribution weniger Fehleranfällig und einfacher. Dies gilt im Allgemeinen für die gesamte ROS-Community, jedoch sind die Regeln für "höhere" Pakete weniger streng und somit liegt es an den Verantwortlichen eines spezifischen Pakets, zerstörende Änderungen zu vermeiden \cite[vgl.][]{ROS_contributions}.
+    Eine ROS-Distribution besteht aus einem festgelegten und visionierten Set von ROS-Paketen. Vergelichbar ist dieses System mit den Linux-Distributionen wie z.B. Ubuntu. Der Hauptzweck von ROS-Distributionen besteht darin, Entwicklern eine relativ stabile Codebasis zu bieten, damit sie daran weiterarbeiten können. Sobald eine Distribution veröffentlicht wurde, werden Änderungen hauptsächlich auf Fehlerbehebungen und nicht-zerstörerische Verbesserungen für die Kernpakete (alles unter ros-desktop-full) beschränkt. Somit ist das "Umziehen" auf eine neue Distribution weniger Fehleranfällig und einfacher. Dies gilt im Allgemeinen für die gesamte ROS-Community, jedoch sind die Regeln für "höhere" Pakete weniger streng und somit liegt es an den Verantwortlichen eines spezifischen Pakets, zerstörende Änderungen zu vermeiden \cite[vgl.][]{ROScontributions}.
 
     \subsection{Nodes} \label{nodes:subsection}
     In \ac{ROS} werden Funktionen und Prozesse durch sogenannte Nodes realisiert. Eine Node ist eine ausführbare Einheit, die in einem \ac{ROS}-System arbeitet und über eine eindeutige Identifikation verfügt. Jede Node hat eine spezifische Aufgabe, wie beispielsweise das Sammeln von Sensordaten, die Ausführung einer spezifischen Berechnung oder das Steuern eines Aktors.
@@ -199,7 +199,7 @@ Bei der für das Projekt verwendete Drohne handelt es sich um eine Coex Clover D
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=10cm,keepaspectratio,angle=0]{images/coex_clover.jpg}
-    \caption[Coex Clover Drohne]{\label{img coex_clover} Coex Clover Drohne \cite{img_coex_clover}}
+    \caption[Coex Clover Drohne]{\label{img coex_clover} Coex Clover Drohne \cite{imgcoexclover}}
 \end{figure}
 
 
@@ -209,7 +209,7 @@ Durch die Verwendung verschiedener Open-Source Komponenten lässt sich die Drohn
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=10cm,keepaspectratio,angle=0]{images/coex_clover_kit.jpg}
-    \caption[Bausatz Coex Clover Drohne]{\label{img coex_clover_kit} Bausatz Coex Clover Drohne \cite{img_coex_clover_kit}}
+    \caption[Bausatz Coex Clover Drohne]{\label{img coex_clover_kit} Bausatz Coex Clover Drohne \cite{imgcoexcloverkit}}
 \end{figure}
 
 Die Coex Clover Drohne soll laut Herstellerinformationen bis zu 15 Minuten am Stück fliegen können und in dieser Zeit eine Maximalhöhe von 500 Metern bei einer Höchstgeschwindigkeit von bis zu 72 km/h erreichen können \cite[vgl.][]{coex_clover}.\\
@@ -228,7 +228,7 @@ Der Raspberry Pi beinhaltet zudem eine austauschbare MicroSD-Karte, auf welche s
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=10cm,keepaspectratio,angle=0]{images/raspberry-pi-4-labelled.png}
-    \caption[Raspberry Pi 4]{\label{img raspberry_pi} Raspberry Pi 4 \cite{img_raspberry_pi}}
+    \caption[Raspberry Pi 4]{\label{img raspberry_pi} Raspberry Pi 4 \cite{imgraspberrypi}}
 \end{figure}
 
 % sets barrier between this subsections so the picture is above the next subsection
@@ -263,7 +263,8 @@ Die erfasste Punktwolke wird dann für verschiedene Anwendungen verwendet, wie z
 
 \section{Positionsbestimmung}
 Positionsbestimmung ist ein wichtiges Thema in vielen Bereichen, wie der Robotik, autonomem Fahren, Navigation und Augmented Reality. Eine der Herausforderungen bei der Positionsbestimmung ist die Erstellung einer genauen Karte der Umgebung, die es dem mobilen Gerät ermöglicht, seine Position darin zu bestimmen. Hier kommen Technologien wie SLAM (Simultaneous Localization and Mapping) und Spatial Mapping zum Einsatz. Beide Ansätze ermöglichen die Erstellung von 3D-Karten der Umgebung, aber sie unterscheiden sich in ihren Methoden und Anwendungen. In dieser Hinsicht sind SLAM und Spatial Mapping wichtige Technologien für die Positionsbestimmung und haben eine breite Anwendung in verschiedenen Branchen gefunden.
-
+\subsection{Spatial Mapping} \label{spatial_mapping:subsection}
+Spatial Mapping hingegen ist ein Prozess, bei dem eine 3D-Karte der Umgebung auf der Grundlage der Verarbeitung von Kameradaten erstellt wird. Im Gegensatz zum SLAM-Prozess muss das mobile Gerät, das die 3D-Karte erstellt, seine Position in der Umgebung bereits kennen, da es auf der Verarbeitung von Kameradaten basiert. Die Kameras nehmen Bilder auf und wandeln sie in 3D-Punktwolken um, die dann zu einer Karte kombiniert werden. Spatial Mapping wird in Augmented-Reality-Anwendungen und anderen Anwendungen eingesetzt, bei denen eine genaue 3D-Karte der Umgebung benötigt wird.
    
     \subsection{Inertielle Positionsbestimmung} \label{inertielle_positionsbestimmung:subsection}
     Inertiale Positionsbestimmung ist ein weiterer Ansatz zur Positionsbestimmung, der auf der Verwendung von Inertialsensoren wie Gyroskopen und Beschleunigungsmessern basiert. Inertialsensoren messen die Veränderungen der Beschleunigung und der Winkelgeschwindigkeit eines mobilen Geräts, was dazu verwendet werden kann, die Position und Orientierung des Geräts in der Umgebung zu bestimmen. Im Gegensatz zu SLAM und Spatial Mapping benötigt die inertielle Positionsbestimmung keine 3D-Karte der Umgebung und ist daher in der Lage, in Echtzeit eine präzise Positionsbestimmung durchzuführen.
@@ -275,23 +276,89 @@ Allerdings ist die inertielle Positionsbestimmung anfällig für Fehler, die auf
 Der SLAM-Prozess umfasst die simultane Bestimmung der Position eines mobilen Geräts in der Umgebung und die Erstellung einer Karte dieser Umgebung. Dies wird durch die Integration von Daten aus verschiedenen Sensoren wie Kameras, Inertialsensoren und Entfernungsmessern wie Laser-Scannern oder Time-of-Flight-Sensoren erreicht. Der SLAM-Prozess wird oft in der Robotik und in autonomen Fahrzeugen eingesetzt, um eine präzise Karte der Umgebung zu erstellen und sich gleichzeitig darin zu lokalisieren.
 Durch die Kombination der Inertialsensoren mit anderen Sensoren kann eine präzisere und robustere Positionsbestimmung erreicht werden, indem die Vorteile der verschiedenen Technologien kombiniert werden. Die Inertialsensoren können beispielsweise verwendet werden, um die Bewegung des mobilen Geräts zwischen den einzelnen Beobachtungen durch die anderen Sensoren zu messen und die Positions- und Orientierungsdaten der SLAM-Systeme zu korrigieren.
 
-Ein SLAM System besteht aus verschiedenen Teilsystemen.
+Ein SLAM System besteht aus verschiedenen Teilaspekten.
 
-\section{SLAM Meth}
-\subsection{Punktwolkengeneration}
-Ein Punktwolkengenerator erzeugt eine Punktwolke aus mehreren Bildern, die von einer Kamera aufgenommen wurden. Zunächst wird die intrinsische Matrix der Kamera benötigt, um die 2D-Bildpunkte in eine korrekte 3D-Repräsentation umzuwandeln. Diese Matrix beschreibt die Abbildungseigenschaften der Kamera und enthält Informationen wie Brennweite, Verschiebung und Verzerrung. Um diese Matrix zu erhalten, werden Kalibrierungsbilder von der Kamera aufgenommen und anschließend eine Kalibrierungssoftware verwendet, um die intrinsischen Parameter der Kamera zu berechnen. Sobald die intrinsische Matrix bekannt ist, kann die extrinsische Matrix bestimmt werden. Diese Matrix beschreibt die Position und Ausrichtung der Kamera im Raum relativ zum Weltkoordinatensystem. Um diese Matrix zu berechnen, werden mehrere Bilder von der Kamera aus verschiedenen Positionen aufgenommen und mithilfe von visuellen Odometrie- oder SLAM-Algorithmen verarbeitet, um die Kameraposition und -orientierung zu schätzen.Nachdem die intrinsischen und extrinsischen Matrizen bekannt sind, können die 2D-Bildpunkte in 3D-Objektpunkte umgewandelt werden. Dies geschieht durch die Rückprojektion von jedem 2D-Bildpunkt in den Raum entlang der Sichtlinie der Kamera. Die Position und Orientierung der Kamera sowie die intrinsischen Parameter bestimmen den Punkt, an dem die Sichtlinie des 2D-Punktes die 3D-Szene schneidet.
+\subsection{SLAM Grundlagen}
 
-Durch Wiederholung dieses Prozesses für jedes 2D-Bild wird eine Punktwolke erzeugt, die eine dreidimensionale Repräsentation der Szene darstellt. Die resultierende Punktwolke kann für verschiedene Anwendungen wie 3D-Rekonstruktion, Objekterkennung und Augmented Reality verwendet werden.
-
-
+\subsubsection{Datenaquirierung}
+\subsubsection{Punktwolkengeneration und Bildtransformation}
+Ein Punktwolkengenerator erzeugt eine Punktwolke aus mehreren Bildern, die von einer Kamera aufgenommen wurden. Die Punktwolke stellt eine dreidimensionale Repräsentation der Szene dar und kann für verschiedene Anwendungen wie 3D-Rekonstruktion, Objekterkennung und Augmented Reality verwendet werden.
 
 
+Um die Punktwolke zu erzeugen müssen 2D Koordinaten in ein 3D Koordinatensystem überführt werden, dazu benötigt man zunächst die intrinsische Matrix der Kamera. Diese Matrix beschreibt die Abbildungseigenschaften der Kamera und enthält Informationen wie Brennweite, Verschiebung und Verzerrung. Um diese Matrix zu erhalten, werden Kalibrierungsbilder von der Kamera aufgenommen und anschließend eine Kalibrierungssoftware verwendet, um die intrinsischen Parameter der Kamera zu berechnen.
+
+Sobald die intrinsische Matrix bekannt ist, kann die extrinsische Matrix bestimmt werden. Diese Matrix beschreibt die Position und Ausrichtung der Kamera im Raum relativ zum Weltkoordinatensystem. Um diese Matrix zu berechnen, werden mehrere Bilder von der Kamera aus verschiedenen Positionen aufgenommen und mithilfe von visuellen Odometrie- oder SLAM-Algorithmen verarbeitet, um die Kameraposition und -orientierung zu schätzen.
+
+Die extrinsische Matrix ist eine 4x4-Matrix, die in homogenen Koordinaten ausgedrückt wird und die Transformation von Kamerakoordinaten in Weltkoordinaten beschreibt. Diese Transformation umfasst die Translation der Kamera und die Rotation um die Achsen des Weltkoordinatensystems. Die extrinsische Matrix wird verwendet, um die 3D-Position jedes Punktes in der Szene relativ zur Kamera zu bestimmen.
+
+In Kombination mit der intrinsischen Matrix ermöglicht die extrinsische Matrix die Umwandlung von 2D-Bildpunkten in korrekte 3D-Objektpunkte. Die intrinsischen Parameter beschreiben die Abbildungseigenschaften der Kamera und die extrinsischen Parameter beschreiben die Position und Orientierung der Kamera relativ zum Weltkoordinatensystem. Zusammen ermöglichen sie die genaue Rückprojektion von 2D-Bildpunkten in den 3D-Raum und somit die Erzeugung einer genauen Punktwolke. 
+
+Die Transformationsmatrix, die die Transformation von Kamerakoordinaten in Weltkoordinaten beschreibt, kann aus der intrinsischen Matrix und der extrinsischen Matrix berechnet werden. Die Formel finden Sie in \ref{eq:transform-matrix}
+
+\cite{SWB-470983582}
+
+\begin{figure}
+\begin{equation*}
+T = K \begin{bmatrix}R & t\end{bmatrix}
+\end{equation*}
+\eqlabel{eq:transform-matrix}{Transformationsmatix}
+wobei $K$ die intrinsische Matrix, $R$ die 3x3 Rotationsmatrix aus der extrinsischen Matrix und $t$ der 3x1 Translationsvektor aus der extrinsischen Matrix ist. Das Symbol $\begin{bmatrix}R & t\end{bmatrix}$ bezeichnet die erweiterte Matrix, die aus der Kombination von $R$ und $t$ gebildet wird.
+\end{figure}
+
+Durch Wiederholung dieses Prozesses für jedes 2D-Bild wird eine Punktwolke erzeugt, die eine dreidimensionale Repräsentation der Szene darstellt. Ein wichtiger Aspekt bei der Erstellung einer Punktwolke ist es, dass die Bilder aus verschiedenen Blickwinkeln aufgenommen werden. Dadurch kann eine größere Menge an Information über die Szene erfasst werden, was zu einer genaueren und detaillierteren Punktwolke führt.
+
+Es ist auch zu beachten, dass bei der Erzeugung von Punktwolken aus RGBD-Bildern eine weitere wichtige Matrix verwendet wird: die Transformationsmatrix. Diese Matrix beschreibt die Beziehung zwischen der Kamera und dem Tiefensensor und ermöglicht es, die 3D-Position jedes Punktes in der Szene basierend auf der Tiefeninformation des Sensors zu bestimmen.
+
+Insgesamt ist die Erzeugung einer Punktwolke ein komplexer Prozess, der sowohl die intrinsischen als auch extrinsischen Parameter der Kamera erfordert. Es erfordert auch die Verarbeitung von mehreren Bildern aus verschiedenen Blickwinkeln und gegebenenfalls die Verwendung von Tiefensensoren. Trotzdem ist die Erzeugung von Punktwolken ein wichtiger Schritt für viele Anwendungen in der Computergrafik und -vision. Zum Beispiel kann die Punktwolke für die Erstellung von 3D-Modellen verwendet werden, um virtuelle Umgebungen für Computerspiele und Simulationen zu erstellen oder für die Erkennung von Objekten und Hindernissen in autonomen Fahrzeugen.
+
+Es gibt viele Algorithmen und Technologien, die für die Erzeugung von Punktwolken verwendet werden können, darunter Stereo-Vision, Structured-Light-Scanning und Time-of-Flight-Sensoren. Jede Methode hat ihre eigenen Vor- und Nachteile, und die Wahl der am besten geeigneten Methode hängt von den Anforderungen der Anwendung ab.
 
 
 
+\begin{figure}
+\begin{equation*}
+    K = \begin{bmatrix}
+    f_x & s & x_0 \\
+    0 & f_y & y_0 \\
+    0 & 0 & 1
+    \end{bmatrix}
+    \end{equation*}
+    \caption{Intrinsische Matrix für eine RGBD camera}
+    %\label{eq :intrinsic-matrix}
+    \eqlabel{eq:intrinsic-matrix}{Intrinsische Maxtrix}
+\end{figure}
 
-\subsection{Spatial Mapping} \label{spatial_mapping:subsection}
-Spatial Mapping hingegen ist ein Prozess, bei dem eine 3D-Karte der Umgebung auf der Grundlage der Verarbeitung von Kameradaten erstellt wird. Im Gegensatz zum SLAM-Prozess muss das mobile Gerät, das die 3D-Karte erstellt, seine Position in der Umgebung bereits kennen, da es auf der Verarbeitung von Kameradaten basiert. Die Kameras nehmen Bilder auf und wandeln sie in 3D-Punktwolken um, die dann zu einer Karte kombiniert werden. Spatial Mapping wird in Augmented-Reality-Anwendungen und anderen Anwendungen eingesetzt, bei denen eine genaue 3D-Karte der Umgebung benötigt wird.
+\begin{figure}
+    \begin{equation*}
+        T_{ext}=\begin{bmatrix}
+            r_{11} & r_{12} & r_{13} & t_x\\
+            r_{21} & r_{22} & r_{23} & t_y\\
+            r_{31} & r_{32} & r_{33} & t_z\\
+            0 & 0 & 0 & 1
+            \end{bmatrix}   
+    \end{equation*}
+    \eqlabel{eq:extrinsic-matrix}{Extrinsische Matrix}
+\end{figure}
+
+\subsection{SLAM-Verfahren}
+
+\subsubsection{OBD-SLAM3}
+
+BD-SLAM3 ist eine Erweiterung des OBD-SLAM (Oriented Bounding Box SLAM) Algorithmus, der für die simultane Lokalisierung und Kartierung (SLAM) in dreidimensionalen Umgebungen entwickelt wurde. Im Gegensatz zu OBD-SLAM verwendet OBD-SLAM3 jedoch eine tiefere Netzwerkarchitektur, um die Leistung und Genauigkeit der Odometrie und der visuellen Wahrnehmung zu verbessern.
+
+OBD-SLAM3 nutzt eine Kombination aus Tiefenkameras und RGB-Kameras, um eine 3D-Repräsentation der Umgebung zu erstellen und gleichzeitig die Bewegung des Roboters in der Umgebung zu schätzen. Der Algorithmus verwendet ein neuronales Netzwerk, um die Tiefeninformationen der Kameras zu verarbeiten und eine Schätzung der Kamerapositionen und -orientierungen zu generieren.
+
+Im Gegensatz zu anderen SLAM-Verfahren, die auf einer Vielzahl von Features wie Punkten oder Linien basieren, nutzt OBD-SLAM3 Oriented Bounding Boxen (OBBs), um eine robustere Schätzung der Kamerabewegungen und -positionen zu ermöglichen. Die OBBs erlauben eine genauere Modellierung der Umgebung und eine bessere Korrektur von Fehlern, die durch Ungenauigkeiten bei der Berechnung von 3D-Points entstehen können.
+
+Insgesamt ermöglicht OBD-SLAM3 eine genauere und robustere Lokalisierung und Kartierung in dreidimensionalen Umgebungen, was ihn zu einem vielversprechenden Ansatz für autonome Robotikanwendungen macht.
+
+\subsubsection{LSD-SLAM}
+
+LSD-SLAM (Large-Scale Direct Monocular SLAM) ist ein Algorithmus zur simultanen Lokalisierung und Kartierung (SLAM) in Echtzeit, der eine einzelne Kamera verwendet. Im Gegensatz zu anderen SLAM-Methoden, die Merkmale oder Punktwolken verwenden, um eine Karte der Umgebung zu erstellen, nutzt LSD-SLAM eine direkt auf den Bildern basierende Methode. Hierbei werden die Intensitäts- und Gradienteninformationen der Bilder genutzt, um die Kameraposition und -orientierung zu schätzen und eine dichte Punktwolke der Umgebung zu erstellen.
+
+LSD-SLAM wurde von Jakob Engel, Thomas Schöps und Daniel Cremers an der Technischen Universität München entwickelt und im Jahr 2014 vorgestellt. Es hat sich als eine effektive Methode zur SLAM-Problemstellung erwiesen, insbesondere in Umgebungen mit geringer Textur oder schlechter Beleuchtung.
+
+
 \section{Regelsysteme} \label{regelsysteme:section}
 
     \subsection{PID-Regler} \label{pid_regler:subsection}
@@ -305,7 +372,7 @@ Darüber hinaus verwendet der EKF2 eine modifizierte Version der State Transitio
 
 In der Drohnensteuerung wird der EKF2-Algorithmus verwendet, um die aktuellen Zustände der Drohne (z.B. Position, Geschwindigkeit, Orientierung) in Echtzeit zu schätzen. Diese Schätzungen werden dann verwendet, um die Steuerbefehle der Drohne zu generieren, um sie auf Kurs zu halten und sicher zu navigieren.
 
-
+\subsubsection{Anforderungen an \ac{SLAM} Systeme auf Multicoptern}
 \section{Simulationstechnik} \label{simulationstechnik:section}
 
 \section{Problembehebung} \label{problembehebung:section}
