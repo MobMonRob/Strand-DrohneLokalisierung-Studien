@@ -241,19 +241,19 @@ Der Coex Pix Flight Controller wird für den Betrieb von Drohnen und anderen Flu
 
 
 \subsubsection{PX4} \label{px4:subsection}
-PX 4 ist eine Open-Source-Software, welche zur Steuerung verschiedener Arten von Fahrzeugen genutzt werden kann, hierzu zählen beispielsweise verschedne Drohenarten, sowie auch Fahrzeuge auf dem Boden und Unterwasserfahrzeuge.\\ Es kann zum einen für bereits flugfähigen Drohen einesetztwerden. Aber es besteht auch die Möglichkeit eine neue Drohne in Verbindung mit PX4 zu bauen.\\
+PX 4 ist eine Open-Source-Software, welche zur Steuerung verschiedener Arten von Fahrzeugen genutzt werden kann, hierzu zählen beispielsweise verschiedene Drohnenarten, sowie auch Fahrzeuge auf dem Boden und Unterwasserfahrzeuge.\\ Es kann zum einen für bereits flugfähigen Drohen eingesetzt werden. Aber es besteht auch die Möglichkeit eine neue Drohne in Verbindung mit PX4 zu bauen.\\
 Für die Verwendung der PX4 Software kann QGroundControl (siehe Kapitel \ref{qGroundControl:subsection}) verwendet werden. \cite[vgl.][]{px4} \\
 Der PX4-Flugstack wurde ursprünglich nur dür die Pixhawk-Hardware entwickelt, allerdings ist es heutzutage auch möglich diesen auf Linux-Computern und anderen Hardware einzusetzen. Wie es auch bei der Coex Clover Drohne mit dem Coex Pix umgesetzt wird. \\
-Die Software setzt Sensoren, ein um den Zustand der Drohne zu bestimmen. Hierfür werden einige Sensoren vorrausgesetzt, zu diesen zählen ein Gyroskop, ein Beschleunigungssensor, ein Magnetometer sowie ein Barometer. Zudem ist GPS empfohlen um weitere Modis nutzen zu können. \cite[vgl.][]{px4}
+Die Software setzt Sensoren, ein um den Zustand der Drohne zu bestimmen. Hierfür werden einige Sensoren vorausgesetzt, zu diesen zählen ein Gyroskop, ein Beschleunigungssensor, ein Magnetometer sowie ein Barometer. Zudem ist GPS empfohlen um weitere Modi nutzen zu können. \cite[vgl.][]{px4}
 
 \subsubsection{QGroundControl}  \label{qGroundControl:subsection}
 QGroundControl ist eine Software, welche vor allem für Drohnen mit einem PX4 aber auch anderen Flight Controller genutzt werden kann. Hierbei bietet es verschiedene Funktionen. Zum einen gehört hierzu die Konfiguration der einzelnen  Drohnen. Desweiteren ist es möglich mit der Software verschiedene Flugmodi auszuwählen, sowie diese dann auch während des Fluges zu überwachen, beispielweise durch die Anzeige der Flugposition auf einer Karte sowie auch deren Geschwindigkeit und andere Sensordaten.
-Es ist auch möglich mit QGRoudnControl eine ganze Flugplanung zu machen, welche die Drohne daraufhi umsetzt. \cite[vgl.][]{qGroundControl}
+Es ist auch möglich mit QGroundControl eine ganze Flugplanung zu machen, welche die Drohne daraufhin umsetzt. \cite[vgl.][]{qGroundControl}
 
 \section{3D-Modelle} \label{3d-modelle:section}
 
 \subsection{Punktwolken}
-Eine Punktwolke ist eine räumliche Darstellung eines Objekts oder einer Szene in Form einer Sammlung von 3D-Koordinaten. Am Beispiel von \ac{RGBD} Kameras, erfasst eine Punktwolke sowohl Farb als auch Tiefeninformationen aus einer Szene.
+Eine Punktwolke ist eine räumliche Darstellung eines Objekts oder einer Szene in Form einer Sammlung von 3D-Koordinaten. Am Beispiel von \ac{RGBD} Kameras, erfasst eine Punktwolke sowohl Farb- als auch Tiefeninformationen aus einer Szene.
 Die Tiefeninformationen werden verwendet, um die räumliche Geometrie der Szene zu erfassen und eine Punktwolke zu erstellen.
 Die Punktwolke besteht aus einer Sammlung von Punkten, die jeweils eine Position im dreidimensionalen Raum repräsentieren. Jeder Punkt hat in der Regel drei Koordinaten (x, y, z), die seine Position im Raum beschreiben. Die Farbinformationen werden häufig als RGB-Werte (rot, grün, blau) oder als Grauwerte für jeden Punkt in der Punktwolke gespeichert.
 Eine RGBD-Kamera erfasst die Tiefeninformationen durch die Verwendung eines Strukturlichtverfahrens oder eines Zeitflugverfahrens. Strukturlichtverfahren arbeiten durch die Projektion von Lichtmuster auf die Szene und das Erfassen der Verzerrungen im Muster, um die Tiefeninformationen zu berechnen. Zeitflugverfahren funktionieren durch die Messung der Zeit, die benötigt wird, um ein Lichtsignal auszusenden und das reflektierte Signal wieder zu empfangen, um die Entfernung und damit die Tiefeninformationen zu berechnen.
