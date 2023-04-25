@@ -15,53 +15,50 @@ Sensoren sind entscheidend für die 3D Navigation anhand eines externen Umweltmo
     Magnetometer können jedoch nur die Richtung des Magnetfeldes messen, jedoch nicht die Stärke des Magnetfeldes.
     Magnetometer werden verwendet, um die Ausrichtung von Geräten in bestimmten Koordinatensystemen zu bestimmen.
     Sie können für diese Ausrichtungsbestimmung auch in der Luft verwendet werden. 
-    \subsection{Azure Kinect \ac{DK}}
-
-    Das Azure Kinect DK ist ein System, das für die Erfassung von Tiefenbildern und 3D-Modellen eingesetzt wird. Das System besteht aus einer RGB-Kamera und einer Tiefenkamera, die in Kombination arbeiten, um präzise räumliche Tiefeninformationen zu erfassen und 3D-Modelle zu generieren.
-    
-    \subsubsection{Kamera} \label{kamera:section}
-    Eine Kamera ist ein Gerät, das in der Lage ist, visuelle Informationen aufzunehmen und zu speichern. Die Funktionsweise einer Kamera basiert auf der Verwendung von optischen Linsen und einem Bildsensor. Das Licht fällt durch die Linse auf den Bildsensor, der das Licht in elektronische Signale umwandelt, die dann von einem Prozessor verarbeitet und in ein digitales Bild umgewandelt werden. Der Prozessor kann auch Funktionen wie Fokussierung, Belichtung und Weißabgleich steuern. Die resultierenden digitalen Bilder können dann gespeichert oder übertragen werden. 
-
-    Das Azure Kinect \ac{DK} verwendet 2 Kameras, wie in Auflistung \ref{azure-kamera}
-
-    \begin{description}
-
-        \label{azure-kamera}
-        \item[RGB Kamera] Die RGB-Kamera des Azure Kinect DK ist eine hochauflösende Farbkamera, die auf einem 1/2.5" CMOS-Sensor basiert. Die Kamera hat eine Auflösung von 3840 x 2160 Pixeln (4K) und verfügt über einen Rolling-Shutter, der die Bildaufnahme zeilenweise abarbeitet, um Bewegungsunschärfe zu reduzieren. Das System ist in der Lage, Farbinformationen und Texturdaten zu erfassen, die für die Erstellung von 3D-Modellen genutzt werden können.
-        \item[Depth Kamera] Die Tiefenkamera des Azure Kinect \ac{DK} nutzt einen Time-of-Flight-Sensor, um Tiefenbilder zu erfassen. Die Kamera sendet Infrarot-Licht aus, das vom Objekt reflektiert und von der Kamera empfangen wird. Die Zeit, die das Licht braucht, um zum Objekt und zurück zur Kamera zu gelangen, wird gemessen und zur Berechnung der Entfernung genutzt. Die Auflösung der Tiefenkamera beträgt 1024 x 1024 Pixel, was für eine präzise Erfassung der Tiefeninformationen ausreichend ist. Die Tiefenkamera untersützt verschiedene Modi. Folgende Modi werden unterstützt.
-    
-    \begin{itemize}
-            \item NFOV\_UNBINNED (NFOV): Normaler Sichtbereich, unbinär (ungebündelt) und unverzerrt. Eignet sich für die meisten Anwendungen und liefert eine präzise Tiefenkarte mit hoher räumlicher Auflösung.
-            \item NFOV\_BINNED (NFOV): Normaler Sichtbereich, binär (gebündelt) und unverzerrt. Bietet eine höhere Bildrate und eignet sich für Anwendungen, die keine hohe räumliche Auflösung benötigen, wie z.B. Körperverfolgung oder Objekterkennung.
-            \item WFOV\_UNBINNED (WFOV): Weitwinkel-Sichtbereich, unbinär und unverzerrt. Bietet eine größere Abdeckung des Sichtbereichs und ist ideal für Anwendungen wie z.B. Umgebungserkennung oder Indoor-Kartierung.
-            \item WFOV\_BINNED (WFOV): Weitwinkel-Sichtbereich, binär und unverzerrt. Bietet eine höhere Bildrate und ist nützlich für Anwendungen wie z.B. Körperverfolgung oder Objekterkennung in einem breiteren Sichtbereich.
-            \item PASSIVE\_IR (IR): Infrarot-Sichtbereich, binär und unverzerrt. Eignet sich für Anwendungen, bei denen Lichtbedingungen schlecht sind oder Infrarot-Signale genutzt werden, wie z.B. bei der Erfassung von Gesten.
-        \end{itemize}
-    \end{description}
-
-        
-    
-        Durch die Kombination von RGB- und Tiefenkamera ist das Azure Kinect \ac{DK} in der Lage, präzise räumliche Tiefeninformationen zu erfassen und 3D-Modelle zu generieren. Das System kann in einer Vielzahl von Anwendungen eingesetzt werden, wie zum Beispiel in der Robotik, virtuellen Realität und Augmented Reality. Es kann auch für die Erfassung von Bewegungen und Gesten genutzt werden, was in der Computergrafik und im Maschinenlernen von Vorteil ist.
-
-
-        Zusätzlich zur RGB- und Tiefenkamera verfügt das Azure Kinect \ac{DK} auch über eine integrierte Inertial Measurement Unit (\ac{IMU}). Die \ac{IMU} besteht aus einem Beschleunigungsmesser und einem Gyroskop, die Bewegungsdaten erfassen und zur Bestimmung der Orientierung und Position des Geräts im Raum genutzt werden können. Die \ac{IMU} kann auch zur Kompensation von Bewegungsunschärfe und zur Stabilisierung von 3D-Modellen genutzt werden.
-
-\subsubsection{\acl{IMU}}
-
-Das Azure DK (Development Kit) enthält eine integrierte IMU (Inertial Measurement Unit), die aus einem 3-Achsen-Beschleunigungsmesser und einem 3-Achsen-Gyroskop besteht. Die IMU erfasst die Beschleunigung und Rotation des Geräts und liefert entsprechende Daten, die für die Navigation und Stabilisierung verwendet werden können.
-
-Die \ac{IMU} im Azure Kinect \ac{DK} ist speziell darauf ausgelegt, zusammen mit den Kameras des Systems zu arbeiten. Sie ist in der Lage, genaue Daten in Echtzeit zu liefern und kann zur Verbesserung der räumlichen Genauigkeit der Tiefenbilder beitragen. Die IMU kann auch in Kombination mit anderen Sensoren und Systemen genutzt werden, um die Bewegung und Position von Geräten und Robotern in Echtzeit zu verfolgen.
-Im Kapitel \ref{chp:slam}\todo{referenz} wird auf die Zusammenarbeit von Kamera und IMU eingegangen.
-
-Insgesamt ermöglicht die Integration einer \ac{IMU} dem Azure Kinect \ac{DK} eine noch präzisere und zuverlässigere Erfassung von Tiefeninformationen und Bewegungsdaten. Dies macht das System zu einem leistungsfähigen Werkzeug für eine Vielzahl von Anwendungen in der Robotik, virtuellen Realität, Augmented Reality und anderen Bereichen, in denen eine genaue räumliche Erfassung erforderlich ist.
-
-        \todo{Quellen}
-
-
-
-    
-
+ 
     \subsection{Abstandssensoren} \label{abstandssensoren:subsection}
+
+    Distanzsensoren sind Sensoren, die den Abstand oder die Nähe eines Objekts zu einem anderen Objekt oder einer Oberfläche messen. Es gibt verschiedene Arten von Abstandssensoren, einschließlich Ultraschallsensoren, Infrarotsensoren, Lasersensoren und Laufzeitsensoren. Diese Sensoren werden in verschiedenen Anwendungen eingesetzt, z. B. in der Robotik, in der Automobilindustrie, in der industriellen Automatisierung, in Überwachungssystemen und in Navigationssystemen. Abstandssensoren spielen auch eine wichtige Rolle in der Robotik und Autonomie, insbesondere bei der Umgebungswahrnehmung, Navigation und Hindernisvermeidung. In dieser Studienarbeit werden Depth Kameras und Laser Range Finder für die Abstandsbestimmung verwendet.
+
+
+    \subsubsection{Laser Range Finder}
+    Ein Laser-Entfernungsmesser ist ein optoelektronisches Messinstrument, das zur Bestimmung der Entfernung zwischen einem Sender und einem Zielobjekt eingesetzt wird. Das grundlegende Prinzip der Messung beruht auf der Messung der Laufzeit eines ausgesandten Laserpulses, der auf das Zielobjekt trifft und reflektiert wird. Die Laufzeit des Laserpulses wird dann in eine Entfernung umgerechnet.
+    Die Messung erfolgt durch das Senden eines kurzen Laserimpulses auf das Zielobjekt, dessen Reflexion vom Empfänger des Entfernungsmessers aufgefangen wird. Die Zeit, die der Laserimpuls benötigt, um das Zielobjekt zu erreichen und zurückzukehren, wird gemessen und in eine Entfernung umgerechnet. Dabei wird die Laufzeit des Laserpulses mit der Lichtgeschwindigkeit multipliziert und durch zwei geteilt, um die Entfernung zum Zielobjekt zu bestimmen.
+    \begin{center}
+    $Entfernung = \frac{Laufzeit\ des\ Laserimpulses\ x\ Lichtgeschwindigkeit}{2}$
+    \end{center}
+
+
+    \subsection{RGBD Kameras}
+
+    Infrarot-Tiefenkameras, die auch bekannt als RGB-D-Kameras (RGB-Color-Depth) sind, sind optoelektronische Geräte, die zur Erfassung von Bildern verwendet werden und zusätzlich Tiefeninformationen liefern. Diese Kameras arbeiten mit einem optischen System, das einen projizierten Infrarotstrahl auf das zu erfassende Objekt lenkt und mit einer speziellen Kamera dessen Reflexionen erfasst. Auf diese Weise wird eine räumliche Tiefeninformation erstellt, die als Tiefenkarte bezeichnet wird.
+
+    Die Funktionsweise einer Infrarot-Tiefenkamera basiert auf dem Prinzip der Laufzeitmessung (Time-of-Flight, ToF). 
+    Es handelt sich dabei um ein Strukturlichtverfahren.
+    Dabei wird ein Lichtstrahl von einem Infrarotsender auf ein Objekt projiziert. Das Licht wird von der Oberfläche des Objekts reflektiert und von einem Infrarot-Empfänger in der Kamera aufgefangen. Die Zeit, die das Licht vom Sender zum Empfänger benötigt, wird gemessen und als "Laufzeit" bezeichnet.
+    
+    Da die Geschwindigkeit des Lichts konstant ist, kann die Entfernung zwischen Kamera und Objekt durch Messung der Flugzeit des Lichtstrahls berechnet werden. Diese Entfernungsinformationen werden in der Tiefenkarte abgebildet. Infrarot-Tiefenkameras können auch Farbinformationen aufnehmen, indem sie eine RGB-Kamera in das System integrieren. Durch die Kombination der Tiefenkarte mit der Farbinformation entsteht ein RGB-D-Bild, das die Form und die Farbe des Objekts in Echtzeit darstellt.
+
+    Um eine Infrarot-Tiefenkamera in ein System zur Positionsbestimmung oder Umgebungserfassung einzubinden, müssen sowohl die intrinsischen als auch die extrinsischen Parameter bekannt sein. Die intrinsischen Parameter beschreiben die Eigenschaften der Kamera selbst, wie zum Beispiel die Brennweite oder die Verzerrungen, die durch die Linse entstehen. Die extrinsischen Parameter beschreiben die Beziehung zwischen der Kamera und dem Objekt oder der Umgebung, in der sie sich befindet. Hierzu gehören der Abstand, die Ausrichtung und die Position der Kamera im Raum.
+
+    Die Kenntnis beider Parameter ist unerlässlich, um die Tiefenkarte und das RGB-Bild präzise miteinander zu verknüpfen und eine genaue 3D-Rekonstruktion der Umgebung zu erstellen. Die extrinsischen Parameter können durch Kalibrierung der Kamera relativ einfach ermittelt werden, indem bekannte Referenzobjekte im Raum angepeilt werden und die Positionen in der Tiefenkarte und im RGB-Bild verglichen werden. Die intrinsischen Parameter hingegen müssen oft aufwändiger bestimmt werden, beispielsweise durch Analyse von Mustern auf einer Kalibrierungsplatte.
+    
+    Insgesamt sind Infrarot-Tiefenkameras aufgrund ihrer Fähigkeit zur Erstellung von 3D-Punktwolken und zur gleichzeitigen Erfassung von Farbinformationen eine wertvolle Komponente in verschiedenen Anwendungen wie Robotik, Augmented Reality oder autonomen Fahrzeugen. 
+    \cite[vgl.][Kapitel 3]{Tychola2022}
+
+    \subsubsection{Vergleich}\label{chp:depth-sensor-compar}
+    Infrarot-Tiefenkameras (RGB-D-Kameras) und Laser-Entfernungsmesser finden auch Anwendung im Bereich der Drohnentechnologie.
+
+Infrarot-Tiefenkameras können beispielsweise in Drohnen eingesetzt werden, um eine präzise Hinderniserkennung und -vermeidung zu ermöglichen. Die Kameras können die räumliche Tiefe von Objekten erfassen und somit eine zuverlässige Entfernungsmessung durchführen. Damit kann die Drohne selbstständig Hindernisse erkennen und ausweichen, was insbesondere in unübersichtlichem Gelände oder in der Indoor-Navigation von Vorteil ist.
+
+ToF-Messungen haben in der Regel eine größere Blickfeldbreite als Laser-Entfernungsmessungen, was bedeutet, dass sie ein größeres Sichtfeld abdecken können. Dies liegt daran, dass ToF-Messungen Infrarotlicht verwenden, das breiter streut als Laserlicht. Dadurch können ToF-Sensoren größere Bereiche in einem einzigen Messvorgang abdecken und somit mehr Inhalte aufnehmen.
+
+Darüber hinaus haben ToF-Sensoren in der Regel auch eine höhere Bildrate als Laser-Entfernungsmesser. Dies bedeutet, dass sie schneller und kontinuierlicher messen können, was für Anwendungen wie Bewegungserkennung und -verfolgung nützlich sein kann.
+
+Laser-Entfernungsmesser werden häufig eingesetzt, um präzise Entfernungen zu messen, wie beispielsweise bei der Vermessung von Land oder Gebäuden. In der Drohnentechnologie können Laser-Entfernungsmesser eingesetzt werden, um präzise Landungen und Abflüge durchzuführen oder um die exakte Position der Drohne zu bestimmen.
+
+
+
 
 \section{ROS - Robot Operating System} \label{ros:section}
 In den vergangenen Jahren hat die Wissenschaft im Bereich der Robotik enorme Fortschritte gemacht. Die Verfügbarkeit zuverlässiger und kostengünstiger Roboterhardware, angefangen bei mobilen Bodenrobotern über Quadrotor-Hubschrauber bis hin zu humanoiden Robotern, ist heute größer als jemals zuvor. Noch beeindruckender ist jedoch die Tatsache, dass Algorithmen entwickelt wurden, die diesen Robotern einen immer höheren Grad an Autonomie verleihen.
@@ -79,15 +76,16 @@ Die Igeneure und Softwareentwickler haben jedoch die Herausforderungen erkannt u
 Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem der wichtigsten Frameworks für die Robotik-Entwicklung geworden und wird in vielen Anwendungen eingesetzt, von industriellen Robotern bis hin zu autonomen Fahrzeugen.
 
     \subsection{Vorraussetzungen zur Verwendung von ROS} \label{Vorraussetzungen zur Verwendung von ROS:subsection}
-    \ac{ROS} kann man nicht auf jedem Betriebssystem verwenden. Lauffähig ist es nur auf Unix basierenden Systemen. Am besten funktioniert hierbei Linux und hierbei Ubuntu. Aber auch auf Mac OS kann man ROS verwenden. Allerdings ist die Version für Mac OS bislange nur experimentell. Unter Microsoft Windows direkt kann \ac{ROS} nicht verwenden. Allerdings kann man durch die Verwendung von Docker oder einer virtuellen Maschiene mit z.B. Linux als Gastsystem auch von Windows Computern \ac{ROS} verwenden \cite[vgl.][]{ROS_Introduction}.
+    \ac{ROS} kann man nicht auf jedem Betriebssystem verwenden. Lauffähig ist es nur auf Unix basierenden Systemen. Am besten funktioniert hierbei Linux und hierbei Ubuntu. Aber auch auf Mac OS kann man ROS verwenden. Allerdings ist die Version für Mac OS bislange nur experimentell. Unter Microsoft Windows direkt kann \ac{ROS} nicht verwenden. Allerdings kann man durch die Verwendung von Docker oder einer virtuellen Maschiene mit z.B. Linux als Gastsystem auch von Windows Computern \ac{ROS} verwenden \cite[vgl.][]{ROSIntroduction}.
 
     Die \ac{ROS} Version, welche für diese Arbeit verwendet wurde, ist die Version "ROS Noetic Ninjemys". Diese ist die neuste ROS 1 Version mit long term support. Das Betriebssystem, auf welches die Version abzielt, ist Ubuntu 20.04 (Focal). Dementsprechend wurde auch Ubuntu 20.04 für diese Arbeit verwendet.
 
     \subsection{Ebenen von ROS} \label{Ebenen von ROS:subsection}
-    Wie in \cite{ROS_concepts}
+    Wie in \cite{ROSconcepts}
+    \todo{schreiben?}
 
     \subsection{ROS-Distributionen} \label{ROS-Distributionen:subsection}
-    Eine ROS-Distribution besteht aus einem festgelegten und visionierten Set von ROS-Paketen. Vergelichbar ist dieses System mit den Linux-Distributionen wie z.B. Ubuntu. Der Hauptzweck von ROS-Distributionen besteht darin, Entwicklern eine relativ stabile Codebasis zu bieten, damit sie daran weiterarbeiten können. Sobald eine Distribution veröffentlicht wurde, werden Änderungen hauptsächlich auf Fehlerbehebungen und nicht-zerstörerische Verbesserungen für die Kernpakete (alles unter ros-desktop-full) beschränkt. Somit ist das "Umziehen" auf eine neue Distribution weniger Fehleranfällig und einfacher. Dies gilt im Allgemeinen für die gesamte ROS-Community, jedoch sind die Regeln für "höhere" Pakete weniger streng und somit liegt es an den Verantwortlichen eines spezifischen Pakets, zerstörende Änderungen zu vermeiden \cite[vgl.][]{ROS_contributions}.
+    Eine ROS-Distribution besteht aus einem festgelegten und visionierten Set von ROS-Paketen. Vergelichbar ist dieses System mit den Linux-Distributionen wie z.B. Ubuntu. Der Hauptzweck von ROS-Distributionen besteht darin, Entwicklern eine relativ stabile Codebasis zu bieten, damit sie daran weiterarbeiten können. Sobald eine Distribution veröffentlicht wurde, werden Änderungen hauptsächlich auf Fehlerbehebungen und nicht-zerstörerische Verbesserungen für die Kernpakete (alles unter ros-desktop-full) beschränkt. Somit ist das "Umziehen" auf eine neue Distribution weniger Fehleranfällig und einfacher. Dies gilt im Allgemeinen für die gesamte ROS-Community, jedoch sind die Regeln für "höhere" Pakete weniger streng und somit liegt es an den Verantwortlichen eines spezifischen Pakets, zerstörende Änderungen zu vermeiden \cite[vgl.][]{ROScontributions}.
 
     \subsection{Nodes} \label{nodes:subsection}
     In \ac{ROS} werden Funktionen und Prozesse durch sogenannte Nodes realisiert. Eine Node ist eine ausführbare Einheit, die in einem \ac{ROS}-System arbeitet und über eine eindeutige Identifikation verfügt. Jede Node hat eine spezifische Aufgabe, wie beispielsweise das Sammeln von Sensordaten, die Ausführung einer spezifischen Berechnung oder das Steuern eines Aktors.
@@ -158,74 +156,17 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
     
     \textit{\$ roslaunch package\_name file.launch}
 
-\section{Drohne/Multicopter} \label{drohne:section}
-Bei der für das Projekt verwendete Drohne handelt es sich um eine Coex Clover Drohne in der Version Clover 4.2. Dies ist eine programmierbare Drohne, die besonders für Bildungszwecke eingesetzt wird. Sie ist sowohl für den Einsatz draußen sowie auch in Gebäuden geeignet. \\
+\section{Multicopter} \label{drohne:section}
 
-\begin{figure}[htpb]
-    \centering
-    \includegraphics[width=10cm,keepaspectratio,angle=0]{images/coex_clover.jpg}
-    \caption[Coex Clover Drohne]{\label{img coex_clover} Coex Clover Drohne \cite{img_coex_clover}}
-\end{figure}
+Multicopter sind eine Form von Drohnen, auch bekannt als \ac{UAV}s. Sie sind eine aufstrebende Technologie, die in einer Vielzahl von Anwendungen eingesetzt werden kann. Eine der wichtigsten Anwendungen ist die Überwachung und Kartierung von schwer zugänglichen Gebieten. Drohnen können mit hochauflösenden Kameras und Sensoren ausgestattet werden, um genaue Bilder und Daten zu liefern, die für die Erstellung von Karten und für die Beobachtung von Flora und Fauna verwendet werden können.
 
+Ein weiterer wichtiger Anwendungsbereich von Drohnen ist die Inspektion von Infrastrukturen wie Brücken, Windkraftanlagen und Pipelines. Drohnen können schnell und effektiv in schwer zugängliche Bereiche fliegen und visuelle Inspektionen durchführen, ohne dass ein Inspektor vor Ort sein muss. Dies kann die Inspektionszeit erheblich reduzieren und die Sicherheit für die Inspektoren erhöhen.
 
-Zu Beginn erhält man hierbei einen Bausatz, welcher dann zu einem Quadrokopter zusammengebaut werden kann. Der Vorteil hierbei ist zudem, dass die gesamte Drohne ohne Löten zusammengesetzt werden kann. Zu den einzelnen Bestandteilen der Drohne kommen, noch eine Dokumentation sowie verschiedene Bibliotheken, die es ermöglichen, die Drohne zusammen bauen und fliegen lassen zu können. \\
-Durch die Verwendung verschiedener Open-Source Komponenten lässt sich die Drohne programmieren, wodurch ein vielseitiger Einsatzbereich entsteht.\\
+Darüber hinaus können Drohnen auch für die Lieferung von Waren eingesetzt werden. Dies kann eine schnelle und effiziente Möglichkeit sein, Pakete und andere Waren zu transportieren, insbesondere in Gebieten mit schlechter Infrastruktur. Einige Unternehmen haben bereits begonnen, Drohnen für die Lieferung von Waren zu testen und es wird erwartet, dass diese Anwendung in Zukunft weiter wachsen wird.
 
-\begin{figure}[htpb]
-    \centering
-    \includegraphics[width=10cm,keepaspectratio,angle=0]{images/coex_clover_kit.jpg}
-    \caption[Bausatz Coex Clover Drohne]{\label{img coex_clover_kit} Bausatz Coex Clover Drohne \cite{img_coex_clover_kit}}
-\end{figure}
+Insgesamt bieten Drohnen eine Vielzahl von Anwendungsmöglichkeiten und werden voraussichtlich in Zukunft eine noch wichtigere Rolle spielen. Es ist jedoch wichtig, dass angemessene Regulierungsrahmen und technologische Verbesserungen vorhanden sind, um sicherzustellen, dass Drohnen sicher und effektiv eingesetzt werden können.
 
-Die Coex Clover Drohne soll laut Herstellerinformationen bis zu 15 Minuten am Stück fliegen können und in dieser Zeit eine Maximalhöhe von 500 Metern bei einer Höchstgeschwindigkeit von bis zu 72 km/h erreichen können \cite[vgl.][]{coex_clover}.\\
-
-Zu den Hauptbestandteilen der Drohne zählen zum einen ein Raspberry Pi 4 sowie der Flightcontroller Coex Pix. Diese bilden die Grundlage zur Programmierung und Steuerung der Coex Clover Drohne und ermöglichen es zudem die Drohne über drahtlos per WLAN zu verbinden. \\
-Die Drohne ist ein Quadrokopter und besitzt somit vier Motoren, welche einzeln angesteuert werden können. Sie besitzt zudem eine Vielzahl verschiedener Sensoren, auf welche in Kapitel \ref{sensoren:section} genauer eingegangen wird. Zu diesen zählen unter anderem ein Gyroskop, Magnetometer sowie ein Laseranstandssensor und eine Kamera, die unten an der Drohne angebracht sind.
-Zum Schutz befindet sich zudem außen einen Rahmen.
-Bei der Drohne war zudem ein 2300 mAh großer Akku dabei, der für vom Hersteller angegebene Flugdauer sorgen soll.
-Im Folgenden wird nun auf die wichtigsten Bestandteile der Coex Clover Drohne noch einmal genauer eingegangen:
-
-\subsection{Raspberry Pi 4} \label{raspberry_pi:subsection}
-
-Die Coex Clover Drohne, welche für diese Arbeit genutzt wurde, enthält einen Raspberry Pi 4 Model B mit 1 GB Arbeitsspeicher.\\
-Der Raspberry Pi beinhaltet zudem eine austauschbare MicroSD-Karte, auf welche sich in diesem Fall das Raspberry Pi Betriebssysteme befindet. \\
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=10cm,keepaspectratio,angle=0]{images/raspberry-pi-4-labelled.png}
-    \caption[Raspberry Pi 4]{\label{img raspberry_pi} Raspberry Pi 4 \cite{img_raspberry_pi}}
-\end{figure}
-
-% sets barrier between this subsections so the picture is above the next subsection
-\FloatBarrier
-
-\subsection{Coex Pix} \label{coex_pix:subsection}
-Der Coex Pix Flight Controller wird für den Betrieb von Drohnen und anderen Fluggeräten verwendet werden. Hierbei basiert dieser auf der PX4 Software. Der Flight Controller einhaltet verschiedene Sensoren, hierzu gehören ein Accelerometer, Gyroskop und ein Magnetometer.
-
-\todo{Benennung FlightController/FlugController/...}
-
-
-\subsubsection{PX4} \label{px4:subsection}
-PX 4 ist eine Open-Source-Software, welche zur Steuerung verschiedener Arten von Fahrzeugen genutzt werden kann, hierzu zählen beispielsweise verschedne Drohenarten, sowie auch Fahrzeuge auf dem Boden und Unterwasserfahrzeuge.\\ Es kann zum einen für bereits flugfähigen Drohen einesetztwerden. Aber es besteht auch die Möglichkeit eine neue Drohne in Verbindung mit PX4 zu bauen.\\
-Für die Verwendung der PX4 Software kann QGroundControl (siehe Kapitel \ref{qGroundControl:subsection}) verwendet werden. \cite[vgl.][]{px4} \\
-Der PX4-Flugstack wurde ursprünglich nur dür die Pixhawk-Hardware entwickelt, allerdings ist es heutzutage auch möglich diesen auf Linux-Computern und anderen Hardware einzusetzen. Wie es auch bei der Coex Clover Drohne mit dem Coex Pix umgesetzt wird. \\
-Die Software setzt Sensoren, ein um den Zustand der Drohne zu bestimmen. Hierfür werden einige Sensoren vorrausgesetzt, zu diesen zählen ein Gyroskop, ein Beschleunigungssensor, ein Magnetometer sowie ein Barometer. Zudem ist GPS empfohlen um weitere Modis nutzen zu können. \cite[vgl.][]{px4}
-
-\subsubsection{QGroundControl}  \label{qGroundControl:subsection}
-QGroundControl ist eine Software, welche vor allem für Drohnen mit einem PX4 aber auch anderen Flight Controller genutzt werden kann. Hierbei bietet es verschiedene Funktionen. Zum einen gehört hierzu die Konfiguration der einzelnen  Drohnen. Desweiteren ist es möglich mit der Software verschiedene Flugmodi auszuwählen, sowie diese dann auch während des Fluges zu überwachen, beispielweise durch die Anzeige der Flugposition auf einer Karte sowie auch deren Geschwindigkeit und andere Sensordaten.
-Es ist auch möglich mit QGRoudnControl eine ganze Flugplanung zu machen, welche die Drohne daraufhi umsetzt. \cite[vgl.][]{qGroundControl}
-
-\section{3D-Modelle} \label{3d-modelle:section}
-
-    \subsection{3D-Scanning} \label{3d-scanning:subsection}
-
-\section{Positionsbestimmung} \label{positionsbestimmung:section}
-
-    \subsection{Spatial Mapping} \label{spatial_mapping:subsection}
-
-    \subsection{Inertielle Positionsbestimmung} \label{inertielle_positionsbestimmung:subsection}
-
-\section{Regelsysteme} \label{regelsysteme:section}
+\subsection{Regelsysteme} \label{regelsysteme:section}
 
     \subsection{PID-Regler} \label{pid_regler:subsection}
 
@@ -238,7 +179,135 @@ Darüber hinaus verwendet der EKF2 eine modifizierte Version der State Transitio
 
 In der Drohnensteuerung wird der EKF2-Algorithmus verwendet, um die aktuellen Zustände der Drohne (z.B. Position, Geschwindigkeit, Orientierung) in Echtzeit zu schätzen. Diese Schätzungen werden dann verwendet, um die Steuerbefehle der Drohne zu generieren, um sie auf Kurs zu halten und sicher zu navigieren.
 
-\section{SLAM} \label{SLAM:section}
+\subsubsection{Anforderungen an \ac{SLAM} Systeme auf Multicoptern}
+
+\section{3D-Modelle} \label{3d-modelle:section}
+
+\subsection{Punktwolken}
+Eine Punktwolke ist eine räumliche Darstellung eines Objekts oder einer Szene in Form einer Sammlung von 3D-Koordinaten. Am Beispiel von \ac{RGBD} Kameras, erfasst eine Punktwolke sowohl Farb- als auch Tiefeninformationen aus einer Szene.
+Die Tiefeninformationen werden verwendet, um die räumliche Geometrie der Szene zu erfassen und eine Punktwolke zu erstellen.
+Die Punktwolke besteht aus einer Sammlung von Punkten, die jeweils eine Position im dreidimensionalen Raum repräsentieren. Jeder Punkt hat in der Regel drei Koordinaten (x, y, z), die seine Position im Raum beschreiben. Die Farbinformationen werden häufig als RGB-Werte (rot, grün, blau) oder als Grauwerte für jeden Punkt in der Punktwolke gespeichert.
+Eine RGBD-Kamera erfasst die Tiefeninformationen durch die Verwendung eines Strukturlichtverfahrens oder eines Zeitflugverfahrens. Strukturlichtverfahren arbeiten durch die Projektion von Lichtmuster auf die Szene und das Erfassen der Verzerrungen im Muster, um die Tiefeninformationen zu berechnen. Zeitflugverfahren funktionieren durch die Messung der Zeit, die benötigt wird, um ein Lichtsignal auszusenden und das reflektierte Signal wieder zu empfangen, um die Entfernung und damit die Tiefeninformationen zu berechnen.
+
+Die erfasste Punktwolke wird dann für verschiedene Anwendungen verwendet, wie z.B. für die Erstellung von 3D-Modellen, für die Positionsbestimmung von Robotern oder für die Objekterkennung in der Robotik. Da die Punktwolken alle Informationen über die räumliche Geometrie einer Szene enthalten, sind sie ein wichtiges Instrument für viele Anwendungen in der Robotik, der Computer Vision und der Augmented Reality.
+
+
+\section{Positionsbestimmung und Kartenerstellung}
+Positionsbestimmung ist ein wichtiges Thema in vielen Bereichen, wie der Robotik, autonomem Fahren, Navigation und Augmented Reality. Eine der Herausforderungen bei der Positionsbestimmung ist die Erstellung einer genauen Karte der Umgebung, die es dem mobilen Gerät ermöglicht, seine Position darin zu bestimmen. Hier kommen Technologien wie SLAM (Simultaneous Localization and Mapping) und Spatial Mapping zum Einsatz. Beide Ansätze ermöglichen die Erstellung von 3D-Karten der Umgebung, aber sie unterscheiden sich in ihren Methoden und Anwendungen. In dieser Hinsicht sind SLAM und Spatial Mapping wichtige Technologien für die Positionsbestimmung und haben eine breite Anwendung in verschiedenen Branchen gefunden.
+
+    \subsection{Koordinatensysteme}
+
+    \cite[vgl. ]{SWB-1841134112}
+    \todo{schreiben?}
+
+
+    
+    \subsection{Spatial Mapping} \label{spatial_mapping:subsection}
+    Spatial Mapping hingegen ist ein Prozess, bei dem eine 3D-Karte der Umgebung auf der Grundlage der Verarbeitung von Kameradaten erstellt wird. Im Gegensatz zum SLAM-Prozess muss das mobile Gerät, das die 3D-Karte erstellt, seine Position in der Umgebung bereits kennen, da es auf der Verarbeitung von Kameradaten basiert. Die Kameras nehmen Bilder auf und wandeln sie in 3D-Punktwolken um, die dann zu einer Karte kombiniert werden. Spatial Mapping wird in Augmented-Reality-Anwendungen und anderen Anwendungen eingesetzt, bei denen eine genaue 3D-Karte der Umgebung benötigt wird.
+    Spatial Mapping hat jedoch einige Einschränkungen.
+    Es ist schwierig eine genaue Karte zu erstellen, wenn sich das mobile Gerät schnell bewegt oder die Umgebung stark verändert. Außerdem ist die Anwendungsbreite von Spatial Mapping auf Anwendungen beschränkt, bei denen eine genaue Karte ausreichend ist, ohne das eine kontinuierliche Positionsschätzung erforderlich ist.
+   
+    \subsection{Inertielle Positionsbestimmung} \label{inertielle_positionsbestimmung:subsection}
+    Inertiale Positionsbestimmung ist ein weiterer Ansatz zur Positionsbestimmung, der auf der Verwendung von Inertialsensoren wie Gyroskopen und Beschleunigungsmessern basiert. Inertialsensoren messen die Veränderungen der Beschleunigung und der Winkelgeschwindigkeit eines mobilen Geräts, was dazu verwendet werden kann, die Position und Orientierung des Geräts in der Umgebung zu bestimmen. Die Inertiale Positionsbestimmung hat jedoch auch einige Herausforderungen, da die Inertialsensoren anfällig für Driftfehler sind. Diese Fehler können durch die Integration der Beschleunigung und der Winkelgeschwindigkeit über die Zeit entstehen und zu Ungenauigkeiten bei der Positionsbestimmung führen. Um diesen Fehler zu korrigieren können Inertialsensoren mit anderen Sensoren wie Magnetometern oder GPS kombiniert werden.
+    Eine andere Möglichkeit besteht darin, die Inertialsensor-DAten in einen SLAM- oder Spatial Mapping-Prozess zu integrieren, um eine genauere Positionsbestimmung zu erzielen. Durch die Kombination von Inertialsensor-DAten mit visuellen DAten können die Vorteile beider Ansätze genutzt werden und die Nachteile minimiert werden.
+
+
+Allerdings ist die inertielle Positionsbestimmung anfällig für Fehler, die aufgrund von Drift und Ungenauigkeiten der Inertialsensoren entstehen können. Um diese Fehler zu minimieren, wird die inertielle Positionsbestimmung oft mit anderen Technologien wie GPS oder visuellen Systemen kombiniert. Diese Kombination von Technologien wird auch als Sensorfusion bezeichnet und ermöglicht eine präzisere und robustere Positionsbestimmung in verschiedenen Anwendungen wie Drohnen, autonomen Fahrzeugen und Wearables.
+
+\subsection{SLAM}\label{SLAM:section} \label{positionsbestimmung:section}
+
+Der SLAM-Prozess umfasst die simultane Bestimmung der Position eines mobilen Geräts in der Umgebung und die Erstellung einer Karte dieser Umgebung. Dies wird durch die Integration von Daten aus verschiedenen Sensoren wie Kameras, Inertialsensoren und Entfernungsmessern wie Laser-Scannern oder Time-of-Flight-Sensoren erreicht. Der SLAM-Prozess wird oft in der Robotik und in autonomen Fahrzeugen eingesetzt, um eine präzise Karte der Umgebung zu erstellen und sich gleichzeitig darin zu lokalisieren.
+Durch die Kombination der Inertialsensoren mit anderen Sensoren kann eine präzisere und robustere Positionsbestimmung erreicht werden, indem die Vorteile der verschiedenen Technologien kombiniert werden. Die Inertialsensoren können beispielsweise verwendet werden, um die Bewegung des mobilen Geräts zwischen den einzelnen Beobachtungen durch die anderen Sensoren zu messen und die Positions- und Orientierungsdaten der SLAM-Systeme zu korrigieren.
+
+Ein SLAM System besteht aus verschiedenen Teilaspekten.
+
+\subsubsection{SLAM Grundlagen}
+
+\subsubsection{Datenaquirierung}
+
+\subsubsection{Punktwolken}
+
+Punktwolken sind ein zentraler Bestandteil von 3D-Modellen und werden in verschiedenen Anwendungen wie 3D-Rekonstruktion, Objekterkennung und Augmented Reality eingesetzt. Sie stellen eine dreidimensionale Repräsentation der realen Welt dar und bestehen aus einer großen Anzahl von Punkten, die die räumliche Struktur und Form der Objekte in der Szene beschreiben.
+
+Ein Punktwolkengenerator erzeugt eine Punktwolke aus mehreren Bildern, die von einer Kamera aufgenommen wurden.
+
+Um die Punktwolke zu erzeugen müssen 2D Koordinaten in ein 3D Koordinatensystem überführt werden, dazu benötigt man zunächst die intrinsische Matrix der Kamera. Diese Matrix beschreibt die Abbildungseigenschaften der Kamera und enthält Informationen wie Brennweite, Verschiebung und Verzerrung. Um diese Matrix zu erhalten, werden Kalibrierungsbilder von der Kamera aufgenommen und anschließend eine Kalibrierungssoftware verwendet, um die intrinsischen Parameter der Kamera zu berechnen.
+
+Sobald die intrinsische Matrix bekannt ist, kann die extrinsische Matrix bestimmt werden. Diese Matrix beschreibt die Position und Ausrichtung der Kamera im Raum relativ zum Weltkoordinatensystem. Um diese Matrix zu berechnen, werden mehrere Bilder von der Kamera aus verschiedenen Positionen aufgenommen und mithilfe von visuellen Odometrie- oder SLAM-Algorithmen verarbeitet, um die Kameraposition und -orientierung zu schätzen.
+
+Die extrinsische Matrix ist eine 4x4-Matrix, die in homogenen Koordinaten ausgedrückt wird und die Transformation von Kamerakoordinaten in Weltkoordinaten beschreibt. Diese Transformation umfasst die Translation der Kamera und die Rotation um die Achsen des Weltkoordinatensystems. Die extrinsische Matrix wird verwendet, um die 3D-Position jedes Punktes in der Szene relativ zur Kamera zu bestimmen.
+
+In Kombination mit der intrinsischen Matrix ermöglicht die extrinsische Matrix die Umwandlung von 2D-Bildpunkten in korrekte 3D-Objektpunkte. Die intrinsischen Parameter beschreiben die Abbildungseigenschaften der Kamera und die extrinsischen Parameter beschreiben die Position und Orientierung der Kamera relativ zum Weltkoordinatensystem. Zusammen ermöglichen sie die genaue Rückprojektion von 2D-Bildpunkten in den 3D-Raum und somit die Erzeugung einer genauen Punktwolke. 
+
+Die Transformationsmatrix, die die Transformation von Kamerakoordinaten in Weltkoordinaten beschreibt, kann aus der intrinsischen Matrix und der extrinsischen Matrix berechnet werden. Die Formel finden Sie in \ref{eq:transform-matrix}
+
+\cite{SWB-470983582}
+
+\begin{figure}
+\begin{equation*}
+T = K \begin{bmatrix}R & t\end{bmatrix}
+\end{equation*}
+\eqlabel{eq:transform-matrix}{Transformationsmatix}
+wobei $K$ die intrinsische Matrix, $R$ die 3x3 Rotationsmatrix aus der extrinsischen Matrix und $t$ der 3x1 Translationsvektor aus der extrinsischen Matrix ist. Das Symbol $\begin{bmatrix}R & t\end{bmatrix}$ bezeichnet die erweiterte Matrix, die aus der Kombination von $R$ und $t$ gebildet wird.
+\end{figure}
+
+Durch Wiederholung dieses Prozesses für jedes 2D-Bild wird eine Punktwolke erzeugt, die eine dreidimensionale Repräsentation der Szene darstellt. Ein wichtiger Aspekt bei der Erstellung einer Punktwolke ist es, dass die Bilder aus verschiedenen Blickwinkeln aufgenommen werden. Dadurch kann eine größere Menge an Information über die Szene erfasst werden, was zu einer genaueren und detaillierteren Punktwolke führt.
+
+Es ist auch zu beachten, dass bei der Erzeugung von Punktwolken aus RGBD-Bildern eine weitere wichtige Matrix verwendet wird: die Transformationsmatrix. Diese Matrix beschreibt die Beziehung zwischen der Kamera und dem Tiefensensor und ermöglicht es, die 3D-Position jedes Punktes in der Szene basierend auf der Tiefeninformation des Sensors zu bestimmen.
+
+Insgesamt ist die Erzeugung einer Punktwolke ein komplexer Prozess, der sowohl die intrinsischen als auch extrinsischen Parameter der Kamera erfordert. Es erfordert auch die Verarbeitung von mehreren Bildern aus verschiedenen Blickwinkeln und gegebenenfalls die Verwendung von Tiefensensoren. Trotzdem ist die Erzeugung von Punktwolken ein wichtiger Schritt für viele Anwendungen in der Computergrafik und -vision. Zum Beispiel kann die Punktwolke für die Erstellung von 3D-Modellen verwendet werden, um virtuelle Umgebungen für Computerspiele und Simulationen zu erstellen oder für die Erkennung von Objekten und Hindernissen in autonomen Fahrzeugen.
+
+Es gibt viele Algorithmen und Technologien, die für die Erzeugung von Punktwolken verwendet werden können, darunter Stereo-Vision, Structured-Light-Scanning und Time-of-Flight-Sensoren. Jede Methode hat ihre eigenen Vor- und Nachteile, und die Wahl der am besten geeigneten Methode hängt von den Anforderungen der Anwendung ab.
+
+
+
+\begin{figure}
+\begin{equation*}
+    K = \begin{bmatrix}
+    f_x & s & x_0 \\
+    0 & f_y & y_0 \\
+    0 & 0 & 1
+    \end{bmatrix}
+    \end{equation*}
+    \caption{Intrinsische Matrix für eine RGBD camera}
+    %\label{eq :intrinsic-matrix}
+    \eqlabel{eq:intrinsic-matrix}{Intrinsische Maxtrix}
+\end{figure}
+
+\begin{figure}
+    \begin{equation*}
+        T_{ext}=\begin{bmatrix}
+            r_{11} & r_{12} & r_{13} & t_x\\
+            r_{21} & r_{22} & r_{23} & t_y\\
+            r_{31} & r_{32} & r_{33} & t_z\\
+            0 & 0 & 0 & 1
+            \end{bmatrix}   
+    \end{equation*}
+    \eqlabel{eq:extrinsic-matrix}{Extrinsische Matrix}
+\end{figure}
+
+\subsubsection{Odometrie und Bewegunsschätzung}
+
+
+\subsection{SLAM-Verfahren}
+
+\subsubsection{OBD-SLAM3}
+
+BD-SLAM3 ist eine Erweiterung des OBD-SLAM (Oriented Bounding Box SLAM) Algorithmus, der für die simultane Lokalisierung und Kartierung (SLAM) in dreidimensionalen Umgebungen entwickelt wurde. Im Gegensatz zu OBD-SLAM verwendet OBD-SLAM3 jedoch eine tiefere Netzwerkarchitektur, um die Leistung und Genauigkeit der Odometrie und der visuellen Wahrnehmung zu verbessern.
+
+OBD-SLAM3 nutzt eine Kombination aus Tiefenkameras und RGB-Kameras, um eine 3D-Repräsentation der Umgebung zu erstellen und gleichzeitig die Bewegung des Roboters in der Umgebung zu schätzen. Der Algorithmus verwendet ein neuronales Netzwerk, um die Tiefeninformationen der Kameras zu verarbeiten und eine Schätzung der Kamerapositionen und -orientierungen zu generieren.
+
+Im Gegensatz zu anderen SLAM-Verfahren, die auf einer Vielzahl von Features wie Punkten oder Linien basieren, nutzt OBD-SLAM3 Oriented Bounding Boxen (OBBs), um eine robustere Schätzung der Kamerabewegungen und -positionen zu ermöglichen. Die OBBs erlauben eine genauere Modellierung der Umgebung und eine bessere Korrektur von Fehlern, die durch Ungenauigkeiten bei der Berechnung von 3D-Points entstehen können.
+
+Insgesamt ermöglicht OBD-SLAM3 eine genauere und robustere Lokalisierung und Kartierung in dreidimensionalen Umgebungen, was ihn zu einem vielversprechenden Ansatz für autonome Robotikanwendungen macht.
+
+\subsubsection{LSD-SLAM}
+
+LSD-SLAM (Large-Scale Direct Monocular SLAM) ist ein Algorithmus zur simultanen Lokalisierung und Kartierung (SLAM) in Echtzeit, der eine einzelne Kamera verwendet. Im Gegensatz zu anderen SLAM-Methoden, die Merkmale oder Punktwolken verwenden, um eine Karte der Umgebung zu erstellen, nutzt LSD-SLAM eine direkt auf den Bildern basierende Methode. Hierbei werden die Intensitäts- und Gradienteninformationen der Bilder genutzt, um die Kameraposition und -orientierung zu schätzen und eine dichte Punktwolke der Umgebung zu erstellen.
+
+LSD-SLAM wurde von Jakob Engel, Thomas Schöps und Daniel Cremers an der Technischen Universität München entwickelt und im Jahr 2014 vorgestellt. Es hat sich als eine effektive Methode zur SLAM-Problemstellung erwiesen, insbesondere in Umgebungen mit geringer Textur oder schlechter Beleuchtung.
+
+
 
 \section{Simulationstechnik} \label{simulationstechnik:section}
 
