@@ -175,7 +175,11 @@ Der Flugcontroller ist das Herzstück des Regelungssystems und ist in der Lage, 
 \subsection{Regelsysteme} \label{regelsysteme:section}
 
     \subsection{PID-Regler} \label{pid_regler:subsection}
+    Ein PID-Regler ist ein häufig verwendeter Reglertyp in der Regelungstechnik. Die Abkürzung PID steht für Proportional-Integral-Derivative, was die drei Hauptkomponenten des Reglers beschreibt. Der proportionale Teil des Reglers reagiert proportional zur Abweichung zwischen der gemessenen Prozessgröße und dem gewünschten Wert, der integrale Teil berücksichtigt die vergangene Abweichung und der derivativen Teil reagiert auf die Geschwindigkeit, mit der sich die Abweichung ändert.
 
+Die Kombination dieser drei Komponenten ermöglicht es dem PID-Regler, schnell auf Veränderungen des Prozesses zu reagieren und gleichzeitig stabile Regelungsergebnisse zu erzielen. Die Einstellung der Reglerparameter, wie z.B. des Proportionalitätsfaktors, des Integrationszeitraums und des Differentiationszeitraums, ist jedoch eine wichtige Herausforderung bei der Anwendung von PID-Reglern.
+
+PID-Regler finden in vielen Anwendungen Anwendung, einschließlich Temperaturregelung, Geschwindigkeitsregelung, Positionierung und Flugzeugsteuerung.d
     \subsection{Extended Kalman Filter 2}
     Der \ac{EKF}2-Algorithmus, der in der Drohnensteuerung verwendet wird, ist eine Erweiterung des klassischen erweiterten Kalman-Filters, die speziell auf die Bedürfnisse der Drohnensteuerung zugeschnitten ist. Der EKF2 ist ein geschätzter Zustandsregler, der die aktuellen Zustände (z.B. Position, Geschwindigkeit, Orientierung) einer Drohne schätzt, basierend auf Messungen von Sensoren (z.B. \ac{GPS}, \ac{IMU}, Magnetometer).
 
