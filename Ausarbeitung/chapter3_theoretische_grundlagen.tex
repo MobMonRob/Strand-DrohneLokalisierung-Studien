@@ -63,41 +63,6 @@ Insgesamt ermöglicht die Integration einer \ac{IMU} dem Azure Kinect \ac{DK} ei
 
     \subsection{Abstandssensoren} \label{abstandssensoren:subsection}
 
-    Distanzsensoren sind Sensoren, die den Abstand oder die Nähe eines Objekts zu einem anderen Objekt oder einer Oberfläche messen. Es gibt verschiedene Arten von Abstandssensoren, einschließlich Ultraschallsensoren, Infrarotsensoren, Lasersensoren und Laufzeitsensoren. Diese Sensoren werden in verschiedenen Anwendungen eingesetzt, z. B. in der Robotik, in der Automobilindustrie, in der industriellen Automatisierung, in Überwachungssystemen und in Navigationssystemen. Abstandssensoren spielen auch eine wichtige Rolle in der Robotik und Autonomie, insbesondere bei der Umgebungswahrnehmung, Navigation und Hindernisvermeidung. In dieser Studienarbeit werden Depth Kameras und Laser Range Finder für die Abstandsbestimmung verwendet.
-
-    
-
-    \subsubsection{Laser Range Finder}
-    Ein Laser-Entfernungsmesser ist ein optoelektronisches Messinstrument, das zur Bestimmung der Entfernung zwischen einem Sender und einem Zielobjekt eingesetzt wird. Das grundlegende Prinzip der Messung beruht auf der Messung der Laufzeit eines ausgesandten Laserpulses, der auf das Zielobjekt trifft und reflektiert wird. Die Laufzeit des Laserpulses wird dann in eine Entfernung umgerechnet.
-    Die Messung erfolgt durch das Senden eines kurzen Laserimpulses auf das Zielobjekt, dessen Reflexion vom Empfänger des Entfernungsmessers aufgefangen wird. Die Zeit, die der Laserimpuls benötigt, um das Zielobjekt zu erreichen und zurückzukehren, wird gemessen und in eine Entfernung umgerechnet. Dabei wird die Laufzeit des Laserpulses mit der Lichtgeschwindigkeit multipliziert und durch zwei geteilt, um die Entfernung zum Zielobjekt zu bestimmen.
-    \begin{center}
-    $Entfernung = \frac{Laufzeit\ des\ Laserimpulses\ x\ Lichtgeschwindigkeit}{2}$
-    \end{center}
-
-
-    \subsubsection{\ac{RGBD} Kameras}
-    Infrarot-Tiefenkameras, auch bekannt als RGB-D-Kameras (RGB-Color-Depth), sind optoelektronische Geräte, die zur Erfassung von Bildern verwendet werden und zusätzlich Tiefeninformationen liefern. Diese Kameras arbeiten mit einem optischen System, das einen projizierten Infrarotstrahl auf das zu erfassende Objekt lenkt und mit einer speziellen Kamera dessen Reflexionen erfasst. Auf diese Weise wird eine räumliche Tiefeninformation erstellt, die als Tiefenkarte bezeichnet wird.
-
-    Die Funktionsweise einer Infrarot-Tiefenkamera basiert auf dem Prinzip der Laufzeitmessung (Time-of-Flight, ToF). 
-    Es handelt sich dabei um ein Strukturlichtverfahren.
-    Dabei wird ein Lichtstrahl von einem Infrarotsender auf ein Objekt projiziert. Das Licht wird von der Oberfläche des Objekts reflektiert und von einem Infrarot-Empfänger in der Kamera aufgefangen. Die Zeit, die das Licht vom Sender zum Empfänger benötigt, wird gemessen und als "Laufzeit" bezeichnet.
-    
-    Da die Geschwindigkeit des Lichts konstant ist, kann die Entfernung zwischen Kamera und Objekt durch Messung der Flugzeit des Lichtstrahls berechnet werden. Diese Entfernungsinformationen werden in der Tiefenkarte abgebildet. Infrarot-Tiefenkameras können auch Farbinformationen aufnehmen, indem sie eine RGB-Kamera in das System integrieren. Durch die Kombination der Tiefenkarte mit der Farbinformation entsteht ein RGB-D-Bild, das die Form und die Farbe des Objekts in Echtzeit darstellt.
-
-    \subsubsection{Vergleich}\label{chp:depth-sensor-compar}
-    Infrarot-Tiefenkameras (RGB-D-Kameras) und Laser-Entfernungsmesser finden auch Anwendung im Bereich der Drohnentechnologie.
-
-Infrarot-Tiefenkameras können beispielsweise in Drohnen eingesetzt werden, um eine präzise Hinderniserkennung und -vermeidung zu ermöglichen. Die Kameras können die räumliche Tiefe von Objekten erfassen und somit eine zuverlässige Entfernungsmessung durchführen. Damit kann die Drohne selbstständig Hindernisse erkennen und ausweichen, was insbesondere in unübersichtlichem Gelände oder in der Indoor-Navigation von Vorteil ist.
-
-ToF-Messungen haben in der Regel eine größere Blickfeldbreite als Laser-Entfernungsmessungen, was bedeutet, dass sie ein größeres Sichtfeld abdecken können. Dies liegt daran, dass ToF-Messungen Infrarotlicht verwenden, das breiter streut als Laserlicht. Dadurch können ToF-Sensoren größere Bereiche in einem einzigen Messvorgang abdecken und somit mehr Inhalte aufnehmen.
-
-Darüber hinaus haben ToF-Sensoren in der Regel auch eine höhere Bildrate als Laser-Entfernungsmesser. Dies bedeutet, dass sie schneller und kontinuierlicher messen können, was für Anwendungen wie Bewegungserkennung und -verfolgung nützlich sein kann.
-
-Laser-Entfernungsmesser werden häufig eingesetzt, um präzise Entfernungen zu messen, wie beispielsweise bei der Vermessung von Land oder Gebäuden. In der Drohnentechnologie können Laser-Entfernungsmesser eingesetzt werden, um präzise Landungen und Abflüge durchzuführen oder um die exakte Position der Drohne zu bestimmen.
-
-
-
-
 \section{ROS - Robot Operating System} \label{ros:section}
 In den vergangenen Jahren hat die Wissenschaft im Bereich der Robotik enorme Fortschritte gemacht. Die Verfügbarkeit zuverlässiger und kostengünstiger Roboterhardware, angefangen bei mobilen Bodenrobotern über Quadrotor-Hubschrauber bis hin zu humanoiden Robotern, ist heute größer als jemals zuvor. Noch beeindruckender ist jedoch die Tatsache, dass Algorithmen entwickelt wurden, die diesen Robotern einen immer höheren Grad an Autonomie verleihen.
 
@@ -252,43 +217,14 @@ Es ist auch möglich mit QGRoudnControl eine ganze Flugplanung zu machen, welche
 
 \section{3D-Modelle} \label{3d-modelle:section}
 
-\subsection{Punktwolken}
-Eine Punktwolke ist eine räumliche Darstellung eines Objekts oder einer Szene in Form einer Sammlung von 3D-Koordinaten. Am Beispiel von \ac{RGBD} Kameras, erfasst eine Punktwolke sowohl Farb als auch Tiefeninformationen aus einer Szene.
-Die Tiefeninformationen werden verwendet, um die räumliche Geometrie der Szene zu erfassen und eine Punktwolke zu erstellen.
-Die Punktwolke besteht aus einer Sammlung von Punkten, die jeweils eine Position im dreidimensionalen Raum repräsentieren. Jeder Punkt hat in der Regel drei Koordinaten (x, y, z), die seine Position im Raum beschreiben. Die Farbinformationen werden häufig als RGB-Werte (rot, grün, blau) oder als Grauwerte für jeden Punkt in der Punktwolke gespeichert.
-Eine RGBD-Kamera erfasst die Tiefeninformationen durch die Verwendung eines Strukturlichtverfahrens oder eines Zeitflugverfahrens. Strukturlichtverfahren arbeiten durch die Projektion von Lichtmuster auf die Szene und das Erfassen der Verzerrungen im Muster, um die Tiefeninformationen zu berechnen. Zeitflugverfahren funktionieren durch die Messung der Zeit, die benötigt wird, um ein Lichtsignal auszusenden und das reflektierte Signal wieder zu empfangen, um die Entfernung und damit die Tiefeninformationen zu berechnen.
+    \subsection{3D-Scanning} \label{3d-scanning:subsection}
 
-Die erfasste Punktwolke wird dann für verschiedene Anwendungen verwendet, wie z.B. für die Erstellung von 3D-Modellen, für die Positionsbestimmung von Robotern oder für die Objekterkennung in der Robotik. Da die Punktwolken alle Informationen über die räumliche Geometrie einer Szene enthalten, sind sie ein wichtiges Instrument für viele Anwendungen in der Robotik, der Computer Vision und der Augmented Reality.
+\section{Positionsbestimmung} \label{positionsbestimmung:section}
 
+    \subsection{Spatial Mapping} \label{spatial_mapping:subsection}
 
-\section{Positionsbestimmung}
-Positionsbestimmung ist ein wichtiges Thema in vielen Bereichen, wie der Robotik, autonomem Fahren, Navigation und Augmented Reality. Eine der Herausforderungen bei der Positionsbestimmung ist die Erstellung einer genauen Karte der Umgebung, die es dem mobilen Gerät ermöglicht, seine Position darin zu bestimmen. Hier kommen Technologien wie SLAM (Simultaneous Localization and Mapping) und Spatial Mapping zum Einsatz. Beide Ansätze ermöglichen die Erstellung von 3D-Karten der Umgebung, aber sie unterscheiden sich in ihren Methoden und Anwendungen. In dieser Hinsicht sind SLAM und Spatial Mapping wichtige Technologien für die Positionsbestimmung und haben eine breite Anwendung in verschiedenen Branchen gefunden.
-
-   
     \subsection{Inertielle Positionsbestimmung} \label{inertielle_positionsbestimmung:subsection}
-    Inertiale Positionsbestimmung ist ein weiterer Ansatz zur Positionsbestimmung, der auf der Verwendung von Inertialsensoren wie Gyroskopen und Beschleunigungsmessern basiert. Inertialsensoren messen die Veränderungen der Beschleunigung und der Winkelgeschwindigkeit eines mobilen Geräts, was dazu verwendet werden kann, die Position und Orientierung des Geräts in der Umgebung zu bestimmen. Im Gegensatz zu SLAM und Spatial Mapping benötigt die inertielle Positionsbestimmung keine 3D-Karte der Umgebung und ist daher in der Lage, in Echtzeit eine präzise Positionsbestimmung durchzuführen.
 
-Allerdings ist die inertielle Positionsbestimmung anfällig für Fehler, die aufgrund von Drift und Ungenauigkeiten der Inertialsensoren entstehen können. Um diese Fehler zu minimieren, wird die inertielle Positionsbestimmung oft mit anderen Technologien wie GPS oder visuellen Systemen kombiniert. Diese Kombination von Technologien wird auch als Sensorfusion bezeichnet und ermöglicht eine präzisere und robustere Positionsbestimmung in verschiedenen Anwendungen wie Drohnen, autonomen Fahrzeugen und Wearables.
-\subsection{SLAM} \label{SLAM:section} \label{positionsbestimmung:section}
-Der SLAM-Prozess umfasst die simultane Bestimmung der Position eines mobilen Geräts in der Umgebung und die Erstellung einer Karte dieser Umgebung. Dies wird durch die Integration von Daten aus verschiedenen Sensoren wie Kameras, Inertialsensoren und Entfernungsmessern wie Laser-Scannern oder Time-of-Flight-Sensoren erreicht. Der SLAM-Prozess wird oft in der Robotik und in autonomen Fahrzeugen eingesetzt, um eine präzise Karte der Umgebung zu erstellen und sich gleichzeitig darin zu lokalisieren.
-Durch die Kombination der Inertialsensoren mit anderen Sensoren kann eine präzisere und robustere Positionsbestimmung erreicht werden, indem die Vorteile der verschiedenen Technologien kombiniert werden. Die Inertialsensoren können beispielsweise verwendet werden, um die Bewegung des mobilen Geräts zwischen den einzelnen Beobachtungen durch die anderen Sensoren zu messen und die Positions- und Orientierungsdaten der SLAM-Systeme zu korrigieren.
-
-Ein SLAM System besteht aus verschiedenen Teilsystemen.
-
-\subsubsection{Punktwolkengeneration}
-Ein Punktwolkengenerator erzeugt eine Punktwolke aus mehreren Bildern, die von einer Kamera aufgenommen wurden. Zunächst wird die intrinsische Matrix der Kamera benötigt, um die 2D-Bildpunkte in eine korrekte 3D-Repräsentation umzuwandeln. Diese Matrix beschreibt die Abbildungseigenschaften der Kamera und enthält Informationen wie Brennweite, Verschiebung und Verzerrung. Um diese Matrix zu erhalten, werden Kalibrierungsbilder von der Kamera aufgenommen und anschließend eine Kalibrierungssoftware verwendet, um die intrinsischen Parameter der Kamera zu berechnen. Sobald die intrinsische Matrix bekannt ist, kann die extrinsische Matrix bestimmt werden. Diese Matrix beschreibt die Position und Ausrichtung der Kamera im Raum relativ zum Weltkoordinatensystem. Um diese Matrix zu berechnen, werden mehrere Bilder von der Kamera aus verschiedenen Positionen aufgenommen und mithilfe von visuellen Odometrie- oder SLAM-Algorithmen verarbeitet, um die Kameraposition und -orientierung zu schätzen.Nachdem die intrinsischen und extrinsischen Matrizen bekannt sind, können die 2D-Bildpunkte in 3D-Objektpunkte umgewandelt werden. Dies geschieht durch die Rückprojektion von jedem 2D-Bildpunkt in den Raum entlang der Sichtlinie der Kamera. Die Position und Orientierung der Kamera sowie die intrinsischen Parameter bestimmen den Punkt, an dem die Sichtlinie des 2D-Punktes die 3D-Szene schneidet.
-
-Durch Wiederholung dieses Prozesses für jedes 2D-Bild wird eine Punktwolke erzeugt, die eine dreidimensionale Repräsentation der Szene darstellt. Die resultierende Punktwolke kann für verschiedene Anwendungen wie 3D-Rekonstruktion, Objekterkennung und Augmented Reality verwendet werden.
-
-
-
-
-
-
-
-
-\subsection{Spatial Mapping} \label{spatial_mapping:subsection}
-Spatial Mapping hingegen ist ein Prozess, bei dem eine 3D-Karte der Umgebung auf der Grundlage der Verarbeitung von Kameradaten erstellt wird. Im Gegensatz zum SLAM-Prozess muss das mobile Gerät, das die 3D-Karte erstellt, seine Position in der Umgebung bereits kennen, da es auf der Verarbeitung von Kameradaten basiert. Die Kameras nehmen Bilder auf und wandeln sie in 3D-Punktwolken um, die dann zu einer Karte kombiniert werden. Spatial Mapping wird in Augmented-Reality-Anwendungen und anderen Anwendungen eingesetzt, bei denen eine genaue 3D-Karte der Umgebung benötigt wird.
 \section{Regelsysteme} \label{regelsysteme:section}
 
     \subsection{PID-Regler} \label{pid_regler:subsection}
@@ -302,6 +238,7 @@ Darüber hinaus verwendet der EKF2 eine modifizierte Version der State Transitio
 
 In der Drohnensteuerung wird der EKF2-Algorithmus verwendet, um die aktuellen Zustände der Drohne (z.B. Position, Geschwindigkeit, Orientierung) in Echtzeit zu schätzen. Diese Schätzungen werden dann verwendet, um die Steuerbefehle der Drohne zu generieren, um sie auf Kurs zu halten und sicher zu navigieren.
 
+\section{SLAM} \label{SLAM:section}
 
 \section{Simulationstechnik} \label{simulationstechnik:section}
 
