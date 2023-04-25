@@ -69,8 +69,22 @@ Der Coex Pix Flight Controller wird für den Betrieb von Drohnen und anderen Flu
 \subsection{Kamera}
 
 \section{3D Scanner}
+Damit die Drohne auch ihre Umgebung scannen kann und damit sie sich im 3D-Raum lokalisien kann, müssen entsprechende Scanner verwednet werden. Die Drohne selbst besitz solche Scanner nicht. Dementsprechend haben wir nach verwendbarer Hardware ausschau gehalten und uns für die Microsoft Hololens und die Azure Kiniect entschieden.
 
 \subsection{Microsoft Hololens}
+Die Hololens 2 von Microsoft ist ein Augmented-Reality-Headset, das eine Vielzahl von Sensoren verwendet, um seine Umgebung zu scannen und ein 3D-Modell der Umgebung zu erstellen. Diese 3D-Modelle werden dann verwendet, um virtuelle Objekte in die reale Welt zu integrieren.
+
+Die Hololens 2 verwendet mehrere Sensoren, um die Umgebung zu scannen, darunter:
+
+Time-of-Flight (ToF) Kamera: Die ToF-Kamera projiziert ein Infrarotlicht auf die Umgebung und misst die Zeit, die das Licht benötigt, um zurückzukehren. Diese Informationen werden verwendet, um die Entfernung zu Objekten in der Umgebung zu berechnen und ein Tiefenbild zu erstellen.
+
+Stereokamera: Die Stereokamera verwendet zwei Kameras, um eine dreidimensionale Ansicht der Umgebung zu erstellen. Durch die Verwendung von zwei Kameras können die Abstände zwischen Objekten in der Umgebung berechnet werden, um ein 3D-Modell zu erstellen.
+
+IMU-Sensoren: Die Hololens 2 verfügt über eine Inertial Measurement Unit (IMU), die aus Beschleunigungsmessern und Gyroskopen besteht. Diese Sensoren messen die Bewegung des Headsets, um zu verfolgen, wie es sich im Raum bewegt. Diese Informationen werden verwendet, um das 3D-Modell der Umgebung zu aktualisieren, während sich der Benutzer bewegt.
+
+Umgebungslichtsensor: Der Umgebungslichtsensor misst die Helligkeit der Umgebung, um das 3D-Modell der Umgebung entsprechend anzupassen.
+
+Durch die Verwendung dieser Sensoren kann die Hololens 2 ein genaues und detailliertes 3D-Modell der Umgebung erstellen und virtuelle Objekte nahtlos in die reale Welt integrieren.
 
 \section{Azure Kinect DK}
 

@@ -192,6 +192,53 @@ In der Drohnensteuerung wird der EKF2-Algorithmus verwendet, um die aktuellen Zu
 \subsubsection{Anforderungen an \ac{SLAM} Systeme auf Multicoptern}
 
 \section{3D-Modelle} \label{3d-modelle:section}
+3D-Modelle sind digitale Nachbildungen von physischen Objekten oder Szenen in drei Dimensionen. Diese Modelle werden in verschiedenen Branchen und Anwendungen eingesetzt, von der Architektur und Ingenieurwesen über Film und Gaming bis hin zur Medizin und dem Design von Produkten.
+
+Die Erstellung von 3D-Modellen erfolgt in der Regel durch eine Kombination von verschiedenen Technologien und Software-Tools. Zum Beispiel können 3D-Scanner verwendet werden, um physische Objekte zu scannen und daraus digitale Modelle zu erstellen. Alternativ können 3D-Modelle auch von Grund auf neu erstellt werden, indem man eine 2D-Zeichnung oder ein Konzept in einer 3D-Software modelliert.
+
+Ein wichtiger Vorteil von 3D-Modellen ist, dass sie interaktiv und manipulierbar sind. Das bedeutet, dass man sie drehen, skalieren und animieren kann, um verschiedene Perspektiven oder Bewegungen zu erzeugen. Darüber hinaus können 3D-Modelle auch für Simulationen und Analysen verwendet werden. Zum Beispiel können Architekten und Ingenieure 3D-Modelle von Gebäuden erstellen, um die Belastung bei Erdbeben oder starkem Wind zu simulieren.
+
+Insgesamt sind 3D-Modelle eine äußerst vielseitige Technologie, die in vielen verschiedenen Branchen und Anwendungen eingesetzt werden kann. Sie ermöglichen es, physische Objekte und Szenen digital darzustellen und zu manipulieren, was zahlreiche Möglichkeiten für Design, Simulation und Analyse bietet.
+
+\subsection{3D-Scanner}
+Ein 3D-Scanner ist ein Gerät, das Objekte oder Umgebungen erfasst und digitale 3D-Modelle erstellt. Im Gegensatz zu einem herkömmlichen Scanner, der nur flache Bilder erzeugt, kann ein 3D-Scanner eine vollständige dreidimensionale Darstellung eines Objekts erstellen.
+
+Es gibt verschiedene Arten von 3D-Scannern, darunter Laserscanner, Strukturiertes Licht, Photogrammetrie und Time-of-Flight-Scanner. Jeder dieser Scanner verwendet unterschiedliche Technologien und Methoden zur Erfassung von Daten.
+
+Laserscanner verwenden Laserlicht, um die Form eines Objekts zu erfassen, während strukturiertes Licht eine Reihe von Mustern projiziert, um die Oberfläche eines Objekts zu messen. Photogrammetrie nutzt Bilder, die von verschiedenen Blickwinkeln aufgenommen werden, um ein 3D-Modell zu erstellen, während Time-of-Flight-Scanner die Zeit messen, die benötigt wird, um einen Lichtpuls zu reflektieren, um Entfernungen zu messen.
+
+Die Verwendung von 3D-Scannern ist in vielen Branchen und Anwendungen weit verbreitet, einschließlich Reverse Engineering, Architektur, Medizin, Unterhaltung, Kunst und Design. 3D-Scanner ermöglichen es den Benutzern, genaue Messungen von Objekten zu erhalten, die in der realen Welt existieren, und diese in digitale Formate zu konvertieren, die leichter zu bearbeiten und zu teilen sind.
+
+Es gibt auch mobile 3D-Scanner, die in Handys und Tablets integriert sind, und diese ermöglichen es Benutzern, schnell und einfach 3D-Modelle von Objekten zu erstellen, ohne dass zusätzliche Geräte erforderlich sind.
+
+Obwohl 3D-Scanner ein unglaublich leistungsfähiges Werkzeug sind, haben sie auch einige Einschränkungen. Zum Beispiel können sie Schwierigkeiten haben, sehr dunkle oder glänzende Objekte genau zu erfassen. Trotzdem sind 3D-Scanner ein wertvolles Instrument für jeden, der in der Lage sein möchte, genaue 3D-Modelle von Objekten oder Räumen zu erstellen und sie in digitale Formate zu konvertieren.
+
+\subsubsection{Lasertriangulation}
+Bei der Lasertriangulation wird ein Laserstrahl wird an der Oberfläche des Messobjektes reflektiert und über eine Optik und einen Umlenkspiegel auf eine lichtempfindliche Zeilenkamera projiziert. Abhängig von der Entfernung des Messobjektes verändert sich die Position des Lichtpunktes. Hieraus ermittelt der Signalprozessor den Abstand zwischen dem Sensor und der Oberfläche der Stahlprodukte.
+
+\subsubsection{3D-Scanner mit strukturiertem Licht}
+Scanner für strukturiertes Licht verwenden ebenfalls die trigonometrische Triangulation. Allerdings verwenden sie keinen Laser. Das System pojeziert eine Reihe an linienförmigen Mustern of auf Objekt. Zum Erkennen des Abtandes werden die Kanten jeder Linie des Musters untersucht. Anhand dieser Kanten kann dann dier Abstand vom Scanner zum Objekt berechnet werden. Im Wesentlichen „sieht“ die Kamera nicht eine Laserlinie, sondern den Rand des projizierten Musters
+
+\subsubsection{Time-of-flight-Scanner}
+Time-of-Flight (ToF) Scanner sind eine Art von 3D-Scanner, die mithilfe von Lichtimpulsen die Entfernung zu Objekten in Echtzeit messen können. Sie haben in den letzten Jahren aufgrund ihrer hohen Genauigkeit und ihrer Fähigkeit, schnelle und präzise Messungen durchzuführen, eine breite Anwendung in verschiedenen Branchen gefunden.
+
+ToF-Scanner verwenden in der Regel eine Kombination aus Infrarot-Licht und Kameras, um Tiefeninformationen zu sammeln. Der Scanner sendet einen kurzen Lichtimpuls aus und misst dann die Zeit, die benötigt wird, um zum Objekt zurückzukehren. Durch die Messung der Zeit und die Analyse des reflektierten Lichts kann der Scanner die Entfernung zum Objekt bestimmen und daraus ein 3D-Modell des Objekts erstellen.
+
+\subsubsection{Laser-Phasenverschiebungs-Scanner}
+Laser-Phasenverschiebungs-Scanner arbeiten auf eine sehr ähnliche Art wie die Time-of-flight-Scanner. Der Scanner verwendet nicht nur die Zeit, die der Laser braucht, sondern wertet auch seine Phasenverschiebung, welche auf dem Weg vom Senden und Empfangen entsteht aus.
+
+Der Laserstrahl wird auf das Objekt gerichtet und reflektiert zurück zur Kamera. Das reflektierte Licht enthält Informationen über die Form des Objekts, die durch die Phasenverschiebung des Lichts bestimmt werden kann. Die Phasenverschiebung wird gemessen, indem der Laserstrahl in unterschiedlichen Winkeln auf das Objekt gerichtet wird, was zu unterschiedlichen Phasenverschiebungen führt. Die Kamera nimmt Bilder des reflektierten Lichts auf und die Phasenverschiebung der reflektierten Lichtwellen wird berechnet. Diese Informationen werden dann verwendet, um ein 3D-Modell des Objekts zu erstellen.
+
+Der Scanner vergleicht die Phase des Aussendens des Lasers mit der Rückführung des Lasers zum Sensor. Die Messung der Phasenverschiebung ist eine präzisere Methode.
+
+\subsection{Tiefenkammera}
+Eine Tiefenkamera ist eine Art von Kamera, die mithilfe von verschiedenen Technologien wie beispielsweise Stereovision oder Time-of-Flight (ToF) die Entfernung von Objekten im Bild ermitteln kann.
+
+Bei der Stereovision werden zwei Kameras verwendet, die jeweils dasselbe Objekt aus einer etwas anderen Perspektive betrachten. Durch die Analyse der Unterschiede in den beiden Bildern kann die Tiefenkamera die Entfernung zu den Objekten im Bild bestimmen.
+
+Die Time-of-Flight-Technologie verwendet dagegen einen Laser oder eine LED, um Lichtimpulse auf die Umgebung zu senden und die Zeit zu messen, die benötigt wird, um vom Objekt zurückzukehren. Je länger das Licht braucht, um zurückzukehren, desto weiter entfernt ist das Objekt. Diese Technologie ermöglicht es der Tiefenkamera, die Entfernung zu Objekten in Echtzeit zu messen und sogar Bewegungen in Echtzeit zu verfolgen.
+
+Die erfassten Tiefendaten können dann verwendet werden, um beispielsweise 3D-Modelle von Objekten oder Umgebungen zu erstellen.
 
 \subsection{Punktwolken}
 Eine Punktwolke ist eine räumliche Darstellung eines Objekts oder einer Szene in Form einer Sammlung von 3D-Koordinaten. Am Beispiel von \ac{RGBD} Kameras, erfasst eine Punktwolke sowohl Farb- als auch Tiefeninformationen aus einer Szene.
