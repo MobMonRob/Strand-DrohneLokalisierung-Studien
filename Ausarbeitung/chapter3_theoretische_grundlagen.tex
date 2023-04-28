@@ -180,16 +180,9 @@ Der Flugcontroller ist das Herzstück des Regelungssystems und ist in der Lage, 
 Die Kombination dieser drei Komponenten ermöglicht es dem PID-Regler, schnell auf Veränderungen des Prozesses zu reagieren und gleichzeitig stabile Regelungsergebnisse zu erzielen. Die Einstellung der Reglerparameter, wie z.B. des Proportionalitätsfaktors, des Integrationszeitraums und des Differentiationszeitraums, ist jedoch eine wichtige Herausforderung bei der Anwendung von PID-Reglern.
 
 PID-Regler finden in vielen Anwendungen Anwendung, einschließlich Temperaturregelung, Geschwindigkeitsregelung, Positionierung und Flugzeugsteuerung.d
-    \subsection{Extended Kalman Filter 2}
-    Der \ac{EKF}2-Algorithmus, der in der Drohnensteuerung verwendet wird, ist eine Erweiterung des klassischen erweiterten Kalman-Filters, die speziell auf die Bedürfnisse der Drohnensteuerung zugeschnitten ist. Der EKF2 ist ein geschätzter Zustandsregler, der die aktuellen Zustände (z.B. Position, Geschwindigkeit, Orientierung) einer Drohne schätzt, basierend auf Messungen von Sensoren (z.B. \ac{GPS}, \ac{IMU}, Magnetometer).
-
-Im Gegensatz zum klassischen EKF verwendet der EKF2 eine modifizierte Version der Kalman-Filter-Formeln, um den Einfluss von Sensorrauschen und Messfehlern besser zu berücksichtigen. Insbesondere verwendet der EKF2 eine sogenannte "Innovation Covariance Matrix", die die Varianz der Messfehler repräsentiert und in die Filtergleichungen eingebaut wird. Diese Innovation Covariance Matrix wird iterativ während des Betriebs des Filters aktualisiert, um den Sensorrauschen und Messfehlern besser gerecht zu werden.
-
-Darüber hinaus verwendet der EKF2 eine modifizierte Version der State Transition Matrix, die die Nichtlinearitäten des Systems besser modellieren kann. Diese modifizierte Matrix wird ebenfalls iterativ während des Filterbetriebs aktualisiert, um den Änderungen im Systemverhalten besser gerecht zu werden.
-
-In der Drohnensteuerung wird der EKF2-Algorithmus verwendet, um die aktuellen Zustände der Drohne (z.B. Position, Geschwindigkeit, Orientierung) in Echtzeit zu schätzen. Diese Schätzungen werden dann verwendet, um die Steuerbefehle der Drohne zu generieren, um sie auf Kurs zu halten und sicher zu navigieren.
-
-\subsubsection{Anforderungen an \ac{SLAM} Systeme auf Multicoptern}
+   
+\subsection{Flightstack}
+\subsection{Anforderungen an SLAM Systeme auf Multicoptern}
 
 \section{3D-Modelle} \label{3d-modelle:section}
 3D-Modelle sind digitale Nachbildungen von physischen Objekten oder Szenen in drei Dimensionen. Diese Modelle werden in verschiedenen Branchen und Anwendungen eingesetzt, von der Architektur und Ingenieurwesen über Film und Gaming bis hin zur Medizin und dem Design von Produkten.
@@ -203,9 +196,9 @@ Insgesamt sind 3D-Modelle eine äußerst vielseitige Technologie, die in vielen 
 \subsection{3D-Scanner}
 Ein 3D-Scanner ist ein Gerät, das Objekte oder Umgebungen erfasst und digitale 3D-Modelle erstellt. Im Gegensatz zu einem herkömmlichen Scanner, der nur flache Bilder erzeugt, kann ein 3D-Scanner eine vollständige dreidimensionale Darstellung eines Objekts erstellen.
 
-Es gibt verschiedene Arten von 3D-Scannern, darunter Laserscanner, Strukturiertes Licht, Photogrammetrie und Time-of-Flight-Scanner. Jeder dieser Scanner verwendet unterschiedliche Technologien und Methoden zur Erfassung von Daten.
+Es gibt verschiedene Arten von 3D-Scannern, darunter Laserscanner, strukturiertes Licht, Fotogrammetrie und Time-of-Flight-Scanner. Jeder dieser Scanner verwendet unterschiedliche Technologien und Methoden zur Erfassung von Daten.
 
-Laserscanner verwenden Laserlicht, um die Form eines Objekts zu erfassen, während strukturiertes Licht eine Reihe von Mustern projiziert, um die Oberfläche eines Objekts zu messen. Photogrammetrie nutzt Bilder, die von verschiedenen Blickwinkeln aufgenommen werden, um ein 3D-Modell zu erstellen, während Time-of-Flight-Scanner die Zeit messen, die benötigt wird, um einen Lichtpuls zu reflektieren, um Entfernungen zu messen.
+Laserscanner verwenden Laserlicht, um die Form eines Objekts zu erfassen, während strukturiertes Licht eine Reihe von Mustern projiziert, um die Oberfläche eines Objekts zu messen. Fotogrammetrie nutzt Bilder, die von verschiedenen Blickwinkeln aufgenommen werden, um ein 3D-Modell zu erstellen, während Time-of-Flight-Scanner die Zeit messen, die benötigt wird, um einen Lichtpuls zu reflektieren, um Entfernungen zu messen.
 
 Die Verwendung von 3D-Scannern ist in vielen Branchen und Anwendungen weit verbreitet, einschließlich Reverse Engineering, Architektur, Medizin, Unterhaltung, Kunst und Design. 3D-Scanner ermöglichen es den Benutzern, genaue Messungen von Objekten zu erhalten, die in der realen Welt existieren, und diese in digitale Formate zu konvertieren, die leichter zu bearbeiten und zu teilen sind.
 
@@ -254,10 +247,19 @@ Positionsbestimmung ist ein wichtiges Thema in vielen Bereichen, wie der Robotik
 
     \subsection{Koordinatensysteme}
 
+
+
     \cite[vgl. ]{SWB-1841134112}
     \todo{schreiben?}
 
+ \subsection{Extended Kalman Filter 2}
+    Der \ac{EKF}2-Algorithmus, der in der Drohnensteuerung verwendet wird, ist eine Erweiterung des klassischen erweiterten Kalman-Filters, die speziell auf die Bedürfnisse der Drohnensteuerung zugeschnitten ist. Der EKF2 ist ein geschätzter Zustandsregler, der die aktuellen Zustände (z.B. Position, Geschwindigkeit, Orientierung) einer Drohne schätzt, basierend auf Messungen von Sensoren (z.B. \ac{GPS}, \ac{IMU}, Magnetometer).
 
+Im Gegensatz zum klassischen EKF verwendet der EKF2 eine modifizierte Version der Kalman-Filter-Formeln, um den Einfluss von Sensorrauschen und Messfehlern besser zu berücksichtigen. Insbesondere verwendet der EKF2 eine sogenannte "Innovation Covariance Matrix", die die Varianz der Messfehler repräsentiert und in die Filtergleichungen eingebaut wird. Diese Innovation Covariance Matrix wird iterativ während des Betriebs des Filters aktualisiert, um den Sensorrauschen und Messfehlern besser gerecht zu werden.
+
+Darüber hinaus verwendet der EKF2 eine modifizierte Version der State Transition Matrix, die die Nichtlinearitäten des Systems besser modellieren kann. Diese modifizierte Matrix wird ebenfalls iterativ während des Filterbetriebs aktualisiert, um den Änderungen im Systemverhalten besser gerecht zu werden.
+
+In der Drohnensteuerung wird der EKF2-Algorithmus verwendet, um die aktuellen Zustände der Drohne (z.B. Position, Geschwindigkeit, Orientierung) in Echtzeit zu schätzen. Diese Schätzungen werden dann verwendet, um die Steuerbefehle der Drohne zu generieren, um sie auf Kurs zu halten und sicher zu navigieren.z
     
     \subsection{Spatial Mapping} \label{spatial_mapping:subsection}
     Spatial Mapping hingegen ist ein Prozess, bei dem eine 3D-Karte der Umgebung auf der Grundlage der Verarbeitung von Kameradaten erstellt wird. Im Gegensatz zum SLAM-Prozess muss das mobile Gerät, das die 3D-Karte erstellt, seine Position in der Umgebung bereits kennen, da es auf der Verarbeitung von Kameradaten basiert. Die Kameras nehmen Bilder auf und wandeln sie in 3D-Punktwolken um, die dann zu einer Karte kombiniert werden. Spatial Mapping wird in Augmented-Reality-Anwendungen und anderen Anwendungen eingesetzt, bei denen eine genaue 3D-Karte der Umgebung benötigt wird.
@@ -345,6 +347,15 @@ Es gibt viele Algorithmen und Technologien, die für die Erzeugung von Punktwolk
 
 \subsubsection{Odometrie und Bewegunsschätzung}
 
+Die Odometrie ist ein Verfahren zur Bestimmung der Position und Bewegung eines Roboters auf der Grundlage der Messung von Raddrehungen. Da Multicopter keine Räder zur Fortbewegung einsetzen müssen andere Arten von Odometrie eingesetzt werden. Bei Multicoptern können drei Arten von Odometrie eingesetzt werden: die visuelle Odometrie, die inerzielle Odometrie und die GPS-basierte Odometrie.
+
+\todo{Odometrie mit Raddrehungen anpassen für Multicopter}
+
+Bei der visuellen Odometrie werden Kameras verwendet, um die Bewegung des Multicopters zu verfolgen. Die Kamera erfasst Bilder der Umgebung und berechnet anhand von Merkmalen in den Bildern, wie sich der Multicopter bewegt. Die inertielle Odometrie nutzt Beschleunigungsmesser und Drehratenmesser, um die Beschleunigung und Drehung des Multicopters zu messen. Die GPS-basierte Odometrie verwendet Satellitensignale, um die Position und Bewegung des Multicopters zu bestimmen.
+
+SLAM (Simultaneous Localization and Mapping) kann für die Verwendung von Odometrie bei Multicoptern eingesetzt werden. SLAM ist ein Verfahren, bei dem ein Roboter seine Position in Echtzeit bestimmt und gleichzeitig eine Karte der Umgebung erstellt. Bei Verwendung von SLAM mit der Odometrie können Fehler bei der Odometrie-Kartierung durch Korrektur der Odometrie-Schätzungen mit anderen Sensorinformationen, wie GPS oder visuelle Daten, korrigiert werden.
+
+Zusammenfassend ermöglicht die Odometrie bei Multicoptern eine präzise Bestimmung der Position und Bewegung des Roboters, insbesondere in Umgebungen, in denen GPS-Signale nicht verfügbar oder unzuverlässig sind. Die Verwendung von SLAM mit Odometrie ermöglicht es, die Genauigkeit der Lokalisierung zu verbessern und eine Karte der Umgebung zu erstellen.
 
 \subsection{SLAM-Verfahren}
 
@@ -367,5 +378,9 @@ LSD-SLAM wurde von Jakob Engel, Thomas Schöps und Daniel Cremers an der Technis
 
 
 \section{Simulationstechnik} \label{simulationstechnik:section}
+
+\subsection{SITL}
+
+
 
 \section{Problembehebung} \label{problembehebung:section}
