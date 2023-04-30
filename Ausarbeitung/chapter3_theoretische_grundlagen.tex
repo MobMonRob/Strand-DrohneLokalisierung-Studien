@@ -172,6 +172,8 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
 
 \section{Multicopter} \label{drohne:section}
 
+
+
 Multicopter sind eine Form von Drohnen, auch bekannt als \ac{UAV}s. Sie sind eine aufstrebende Technologie, die in einer Vielzahl von Anwendungen eingesetzt werden kann. Eine der wichtigsten Anwendungen ist die Überwachung und Kartierung von schwer zugänglichen Gebieten. Drohnen können mit hochauflösenden Kameras und Sensoren ausgestattet werden, um genaue Bilder und Daten zu liefern, die für die Erstellung von Karten und für die Beobachtung von Flora und Fauna verwendet werden können.
 
 Ein weiterer wichtiger Anwendungsbereich von Drohnen ist die Inspektion von Infrastrukturen wie Brücken, Windkraftanlagen und Pipelines. Drohnen können schnell und effektiv in schwer zugängliche Bereiche fliegen und visuelle Inspektionen durchführen, ohne dass ein Inspektor vor Ort sein muss. Dies kann die Inspektionszeit erheblich reduzieren und die Sicherheit für die Inspektoren erhöhen.
@@ -181,10 +183,48 @@ Darüber hinaus können Drohnen auch für die Lieferung von Waren eingesetzt wer
 Insgesamt bieten Drohnen eine Vielzahl von Anwendungsmöglichkeiten und werden voraussichtlich in Zukunft eine noch wichtigere Rolle spielen. Es ist jedoch wichtig, dass angemessene Regulierungsrahmen und technologische Verbesserungen vorhanden sind, um sicherzustellen, dass Drohnen sicher und effektiv eingesetzt werden können.
 
 Multicopter, auch bekannt als Quadrocopter, sind eine Art von Drohne, die durch vier Rotoren stabilisiert und gesteuert werden. Die Rotoren können unabhängig voneinander gesteuert werden, um Aufstieg, Abstieg, Drehung und Vorwärts- und Rückwärtsbewegungen zu ermöglichen. Die Regelung und Positionierung von Multicoptern ist eine komplexe Angelegenheit, die eine Kombination aus Sensoren, Steuerungsalgorithmen und Regelungssystemen erfordert. 
-Der Flugcontroller ist das Herzstück des Regelungssystems und ist in der Lage, die Daten der Sensoren zu verarbeiten und die Steuerung des Multicopters anzupassen, um eine stabile Fluglage und eine genaue Positionierung zu gewährleisten. Die Steuerungsalgorithmen, die im Flugcontroller verwendet werden, können komplex sein und beinhalten oft eine Kombination aus PID-Reglern (Proportional-Integral-Derivative) und anderen Regelungstechniken.
-Der Flugcontroller ist das Herzstück des Regelungssystems und ist in der Lage, die Daten der Sensoren zu verarbeiten und die Steuerung des Multicopters anzupassen, um eine stabile Fluglage und eine genaue Positionierung zu gewährleisten. Die Steuerungsalgorithmen, die im Flugcontroller verwendet werden, können komplex sein und beinhalten oft eine Kombination aus \ac{PID}-Reglern und anderen Regelungstechniken.
+Der Flugcontroller ist das Herzstück des Regelungssystems und ist in der Lage, die Daten der Sensoren zu verarbeiten und die Steuerung des Multicopters anzupassen, um eine stabile Fluglage und eine genaue Positionierung zu gewährleisten. Die Steuerungsalgorithmen, die im Flugcontroller verwendet werden, können komplex sein und beinhalten oft eine Kombination aus \ac{PID}-Reglern \ref{chp:pid} und anderen Regelungstechniken.
 
-Der Flugcontroller ist das Herzstück des Regelungssystems und ist in der Lage, die Daten der Sensoren zu verarbeiten und die Steuerung des Multicopters anzupassen, um eine stabile Fluglage und eine genaue Positionierung zu gewährleisten. Die Steuerungsalgorithmen, die im Flugcontroller verwendet werden, können komplex sein und beinhalten oft eine Kombination aus PID-Reglern (Proportional-Integral-Derivative) und anderen Regelungstechniken.
+\todo{Unterscheidung Quadrocopter und Multicopter}
+
+\subsection{Aufbau Quadrocopter}
+
+Quadroco
+\begin{figure}
+    \begin{centering}
+        \includegraphics[scale=0.6]{images/inertial_body_frames.png}
+        \caption{\label{fig:frames}Rotationskraefte vgl. \cite{luukkonen2011modelling}}
+    \end{centering}
+\end{figure}
+
+
+\subsection{Freiheitsgrade}
+
+Ein Multicopter besitzt 6 Freiheitsgrade, genauso wie Flugzeuge. Sie haben jedoch andere Möglichkeiten diese Freiheitsgrade zu nutzen.
+Multicopter können jedoch im Gegensatz zu Flugzeugen direkt mit diesen Freiheitsgraden navigieren. In \ref{fig:freiheitsgrade} sehen Sie ein Schaubild der Freiheitsgrade.
+Folgende Freiheitsgrade kann ein Multicopter verwenden.
+
+\begin{description}
+    \item[Pitch] Der Pitch-Freiheitsgrad gibt an, ob sich der Multicopter nach vorne oder nach hinten neigt. Wenn der Copter nach vorne geneigt ist, beschleunigt er nach vorne, wenn er nach hinten geneigt ist, bremst er ab. Der Pitch wird durch unterschiedliche Drehzahlen der Rotoren auf der Vorder- und Hinterseite des Multicopters gesteuert.
+    \item[Yaw] Der Yaw-Freiheitsgrad gibt an, ob sich der Multicopter um die Hochachse dreht. Eine Veränderung des Yaw-Freiheitsgrads erfolgt durch unterschiedliche Drehzahlen der Rotoren auf gegenüberliegenden Seiten des Multicopters. Dies ermöglicht dem Multicopter, seine Ausrichtung im Raum zu ändern und zu drehen.
+    \item[Roll] Der Roll-Freiheitsgrad gibt an, ob sich der Multicopter nach links oder rechts neigt. Eine Neigung nach rechts führt zu einer Beschleunigung in diese Richtung, während eine Neigung nach links eine Verzögerung oder Bremsung bewirkt. Der Roll wird durch unterschiedliche Drehzahlen der Rotoren auf der linken und rechten Seite des Multicopters gesteuert.
+    \item[Sideslip] Der Sideslip-Freiheitsgrad gibt an, ob sich der Multicopter seitlich bewegt, ohne dabei zu rollen oder zu neigen. Eine Bewegung in eine Richtung führt zu einem Drift in diese Richtung. Der Sideslip kann durch unterschiedliche Drehzahlen der Rotoren auf gegenüberliegenden Seiten des Multicopters gesteuert werden.
+    \item[Tilt] Der Tilt-Freiheitsgrad bezieht sich auf die Fähigkeit des Multicopters, sich um eine Achse zu drehen, die zwischen den Rotoren verläuft. Dies ermöglicht dem Multicopter, sich in eine bestimmte Richtung zu neigen und seine Ausrichtung im Raum zu ändern.
+    \item[Lift] Der Lift-Freiheitsgrad bezieht sich auf die Fähigkeit des Multicopters, vertikal zu steigen oder zu sinken. Der Lift wird durch die Änderung der Drehzahlen aller Rotoren gleichzeitig gesteuert.    
+\end{description}
+
+\begin{figure}[H]
+\begin{centering}
+    \includegraphics[scale=0.2]{images/multicopter_freiheitsgrade.png}
+    
+    \caption{\label{fig:freiheitsgrade}Multicopter Freiheitsgrade \cite{imgfreiheitsgrade}}
+\end{centering}
+   
+\end{figure}
+    
+
+
+
 
 \section{Regelsysteme} \label{regelsysteme:section}
 
@@ -243,7 +283,7 @@ Durch einen höheren $K_i$ Faktor reagiert der Regler stärker, führt jedoch au
     \end{figure}
 
 
-    \subsection{PID-Regler} \label{pid_regler:subsection}
+    \subsection{PID-Regler} \label{chp:pid}
     Ein PID-Regler ist ein häufig verwendeter Reglertyp in der Regelungstechnik. Die Abkürzung PID steht für Proportional-Integral-Derivative, was die drei Hauptkomponenten des Reglers beschreibt. Der proportionale Teil des Reglers reagiert proportional zur Abweichung zwischen der gemessenen Prozessgröße und dem gewünschten Wert, der integrale Teil berücksichtigt die vergangene Abweichung und der derivativen Teil reagiert auf die Geschwindigkeit, mit der sich die Abweichung ändert.
 
     Eine genauere Beschreibung der einzelnen Regelglieder finden Sie in den Kapiteln: 
