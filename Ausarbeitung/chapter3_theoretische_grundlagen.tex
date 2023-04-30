@@ -2,7 +2,7 @@
 
 \section{Sensoren} \label{sensoren:section}
 
-Sensoren sind entscheidend für die 3D Navigation anhand eines externen Umweltmodells. Diese Sensoren werden verwendet, um präzise Informationen über die Umgebung eines Geräts zu erfassen, die dann zur Erstellung des Umweltmodells genutzt werden können. Zu den am häufigsten verwendeten Sensoren gehören Kameras, die RGB- und Tiefeninformationen erfassen, sowie LiDAR-Sensoren, die Entfernungsmessungen durchführen. Diese Sensoren werden in der Robotik, autonomen Fahrzeugen und anderen Anwendungen eingesetzt, um genaue Karten und Modelle der Umgebung zu erstellen, die für eine präzise Navigation erforderlich sind. Die Verwendung von Sensoren ermöglicht es Geräten, ihre Umgebung wahrzunehmen und sich darin zu orientieren, was für eine Vielzahl von Anwendungen von entscheidender Bedeutung ist.
+Sensoren sind entscheidend für die 3D Navigation anhand eines 3D Umweltmodells. Diese Sensoren werden verwendet, um präzise Informationen über die Umgebung eines Geräts zu erfassen, die dann zur Erstellung des Umweltmodells genutzt werden können. Zu den am häufigsten verwendeten Sensoren gehören Kameras, die RGB- und Tiefeninformationen erfassen, sowie LiDAR-Sensoren, die Entfernungsmessungen durchführen. Diese Sensoren werden in der Robotik, autonomen Fahrzeugen und anderen Anwendungen eingesetzt, um genaue Karten und Modelle der Umgebung zu erstellen, die für eine präzise Navigation erforderlich sind. Die Verwendung von Sensoren ermöglicht es Geräten, ihre Umgebung wahrzunehmen und sich darin zu orientieren, was für eine Vielzahl von Anwendungen von entscheidender Bedeutung ist.
 
     \subsection{Magnetometer} \label{magnetometer:subsection}
 
@@ -18,40 +18,54 @@ Sensoren sind entscheidend für die 3D Navigation anhand eines externen Umweltmo
  
     \subsection{Abstandssensoren} \label{abstandssensoren:subsection}
 
-    Distanzsensoren sind Sensoren, die den Abstand oder die Nähe eines Objekts zu einem anderen Objekt oder einer Oberfläche messen. Es gibt verschiedene Arten von Abstandssensoren, einschließlich Ultraschallsensoren, Infrarotsensoren, Lasersensoren und Laufzeitsensoren. Diese Sensoren werden in verschiedenen Anwendungen eingesetzt, z. B. in der Robotik, in der Automobilindustrie, in der industriellen Automatisierung, in Überwachungssystemen und in Navigationssystemen. Abstandssensoren spielen auch eine wichtige Rolle in der Robotik und Autonomie, insbesondere bei der Umgebungswahrnehmung, Navigation und Hindernisvermeidung. In dieser Studienarbeit werden Depth Kameras und Laser Range Finder für die Abstandsbestimmung verwendet.
+    Distanzsensoren sind Sensoren, die den Abstand oder die Nähe eines Objekts zu einem anderen Objekt oder einer Oberfläche messen. Es gibt verschiedene Arten von Abstandssensoren, einschließlich Ultraschallsensoren, Infrarotsensoren, Lasersensoren und Laufzeitsensoren. Diese Sensoren werden in verschiedenen Anwendungen eingesetzt, z. B. in der Robotik, in der Automobilindustrie, in der industriellen Automatisierung, in Überwachungssystemen und in Navigationssystemen. Abstandssensoren spielen auch eine wichtige Rolle in der Robotik und Autonomie, insbesondere bei der Umgebungswahrnehmung, Navigation und Hindernisvermeidung. In dieser Studienarbeit werden Tiefenbildkameras und Lasersensoren für die Abstandsbestimmung verwendet.
 
 
-    \subsubsection{Laser Range Finder}
+    \subsection{Lasersensor}
+    \label{chp:lasersensor}
+
     Ein Laser-Entfernungsmesser ist ein optoelektronisches Messinstrument, das zur Bestimmung der Entfernung zwischen einem Sender und einem Zielobjekt eingesetzt wird. Das grundlegende Prinzip der Messung beruht auf der Messung der Laufzeit eines ausgesandten Laserpulses, der auf das Zielobjekt trifft und reflektiert wird. Die Laufzeit des Laserpulses wird dann in eine Entfernung umgerechnet.
     Die Messung erfolgt durch das Senden eines kurzen Laserimpulses auf das Zielobjekt, dessen Reflexion vom Empfänger des Entfernungsmessers aufgefangen wird. Die Zeit, die der Laserimpuls benötigt, um das Zielobjekt zu erreichen und zurückzukehren, wird gemessen und in eine Entfernung umgerechnet. Dabei wird die Laufzeit des Laserpulses mit der Lichtgeschwindigkeit multipliziert und durch zwei geteilt, um die Entfernung zum Zielobjekt zu bestimmen.
     \begin{center}
+    \label{math:distance}
     $Entfernung = \frac{Laufzeit\ des\ Laserimpulses\ x\ Lichtgeschwindigkeit}{2}$
     \end{center}
 
 
     \subsection{RGBD Kameras}
 
-    Infrarot-Tiefenkameras, die auch bekannt als RGB-D-Kameras (RGB-Color-Depth) sind, sind optoelektronische Geräte, die zur Erfassung von Bildern verwendet werden und zusätzlich Tiefeninformationen liefern. Diese Kameras arbeiten mit einem optischen System, das einen projizierten Infrarotstrahl auf das zu erfassende Objekt lenkt und mit einer speziellen Kamera dessen Reflexionen erfasst. Auf diese Weise wird eine räumliche Tiefeninformation erstellt, die als Tiefenkarte bezeichnet wird.
+    Infrarot-Tiefenbildkameras, die auch als RGB-D-Kameras (RGB-Color-Depth) bekannt sind, sind optoelektronische Geräte, die zur Erfassung von Bildern verwendet werden und zusätzlich Tiefeninformationen liefern. Diese Kameras arbeiten mit einem optischen System, das einen projizierten Infrarotstrahl auf das zu erfassende Objekt lenkt und mit einer speziellen Kamera dessen Reflexionen erfasst. Auf diese Weise wird eine räumliche Tiefeninformation erstellt, die als Tiefenkarte bezeichnet wird.
 
-    Die Funktionsweise einer Infrarot-Tiefenkamera basiert auf dem Prinzip der Laufzeitmessung (Time-of-Flight, ToF). 
-    Es handelt sich dabei um ein Strukturlichtverfahren.
-    Dabei wird ein Lichtstrahl von einem Infrarotsender auf ein Objekt projiziert. Das Licht wird von der Oberfläche des Objekts reflektiert und von einem Infrarot-Empfänger in der Kamera aufgefangen. Die Zeit, die das Licht vom Sender zum Empfänger benötigt, wird gemessen und als "Laufzeit" bezeichnet.
+    Die Funktionsweise einer \ac{RGB-D} Kamera basiert auf dem Prinzip der Laufzeitmessung auch \ac{ToF} genannt.  Dabei wird ein Lichtstrahl von einem Infrarotsender auf ein Objekt projiziert. Das Licht wird von der Oberfläche des Objekts reflektiert und von einem Infrarot-Empfänger in der Kamera aufgefangen.
     
-    Da die Geschwindigkeit des Lichts konstant ist, kann die Entfernung zwischen Kamera und Objekt durch Messung der Flugzeit des Lichtstrahls berechnet werden. Diese Entfernungsinformationen werden in der Tiefenkarte abgebildet. Infrarot-Tiefenkameras können auch Farbinformationen aufnehmen, indem sie eine RGB-Kamera in das System integrieren. Durch die Kombination der Tiefenkarte mit der Farbinformation entsteht ein RGB-D-Bild, das die Form und die Farbe des Objekts in Echtzeit darstellt.
+    Da die Geschwindigkeit des Lichts konstant ist, kann die Entfernung zwischen Kamera und Objekt durch Messung der Flugzeit des Lichtstrahls berechnet werden.
+    Die Zeit, die das Licht vom Sender zum Empfänger benötigt, wird gemessen und als "Laufzeit" bezeichnet.
+    Die Entfernung berechnet sich nach der gleichen Formel \ref{math:distance} wie auch beim Laser-Entfernungsmesser. 
+
+
+    Bei \ac{RGB-D} Kameras handelt es sich um Kameras, die ein Strukturlichtverfahren verwenden.
+    Bei einem Strukturlichtverfahren werden Lichtmuster auf das zu rekonstruierende Projekt projeziert um das zusätzlich aufgenommene RGB Bild mit Tiefeninformationen zu versehen. Das in Kapitel \ref{chp:lasersensor} verwendete Prinzip wird auf das gesamte Bild angewendet. 
+    
+    Mithilfe der so gewonnenen Entfernungsinformationen wird eine Tiefenkarte erstellt, die eine 3D Rekonstruktion der Umgebung ermöglicht.
+
+    
+    
+   Infrarot-Tiefenkameras können auch Farbinformationen aufnehmen, indem sie eine RGB-Kamera in das System integrieren. Durch die Kombination der Tiefenkarte mit der Farbinformation entsteht ein RGB-D-Bild, das die Form und die Farbe des Objekts in Echtzeit darstellt.
 
     Um eine Infrarot-Tiefenkamera in ein System zur Positionsbestimmung oder Umgebungserfassung einzubinden, müssen sowohl die intrinsischen als auch die extrinsischen Parameter bekannt sein. Die intrinsischen Parameter beschreiben die Eigenschaften der Kamera selbst, wie zum Beispiel die Brennweite oder die Verzerrungen, die durch die Linse entstehen. Die extrinsischen Parameter beschreiben die Beziehung zwischen der Kamera und dem Objekt oder der Umgebung, in der sie sich befindet. Hierzu gehören der Abstand, die Ausrichtung und die Position der Kamera im Raum.
 
     Die Kenntnis beider Parameter ist unerlässlich, um die Tiefenkarte und das RGB-Bild präzise miteinander zu verknüpfen und eine genaue 3D-Rekonstruktion der Umgebung zu erstellen. Die extrinsischen Parameter können durch Kalibrierung der Kamera relativ einfach ermittelt werden, indem bekannte Referenzobjekte im Raum angepeilt werden und die Positionen in der Tiefenkarte und im RGB-Bild verglichen werden. Die intrinsischen Parameter hingegen müssen oft aufwändiger bestimmt werden, beispielsweise durch Analyse von Mustern auf einer Kalibrierungsplatte.
     
     Insgesamt sind Infrarot-Tiefenkameras aufgrund ihrer Fähigkeit zur Erstellung von 3D-Punktwolken und zur gleichzeitigen Erfassung von Farbinformationen eine wertvolle Komponente in verschiedenen Anwendungen wie Robotik, Augmented Reality oder autonomen Fahrzeugen. 
+
     \cite[vgl.][Kapitel 3]{Tychola2022}
 
-    \subsubsection{Vergleich}\label{chp:depth-sensor-compar}
+\subsection{Vergleich}\label{chp:depth-sensor-compar}
     Infrarot-Tiefenkameras (RGB-D-Kameras) und Laser-Entfernungsmesser finden auch Anwendung im Bereich der Drohnentechnologie.
 
 Infrarot-Tiefenkameras können beispielsweise in Drohnen eingesetzt werden, um eine präzise Hinderniserkennung und -vermeidung zu ermöglichen. Die Kameras können die räumliche Tiefe von Objekten erfassen und somit eine zuverlässige Entfernungsmessung durchführen. Damit kann die Drohne selbstständig Hindernisse erkennen und ausweichen, was insbesondere in unübersichtlichem Gelände oder in der Indoor-Navigation von Vorteil ist.
 
-ToF-Messungen haben in der Regel eine größere Blickfeldbreite als Laser-Entfernungsmessungen, was bedeutet, dass sie ein größeres Sichtfeld abdecken können. Dies liegt daran, dass ToF-Messungen Infrarotlicht verwenden, das breiter streut als Laserlicht. Dadurch können ToF-Sensoren größere Bereiche in einem einzigen Messvorgang abdecken und somit mehr Inhalte aufnehmen.
+ToF-Messungen haben in der Regel eine größere Blickfeldbreite als Laser Entfernungsmessungen, was bedeutet, dass sie ein größeres Sichtfeld abdecken können. Dies liegt daran, dass ToF-Messungen Infrarotlicht verwenden, das breiter streut als Laserlicht. Dadurch können ToF-Sensoren größere Bereiche in einem einzigen Messvorgang abdecken und somit mehr Inhalte aufnehmen.
 
 Darüber hinaus haben ToF-Sensoren in der Regel auch eine höhere Bildrate als Laser-Entfernungsmesser. Dies bedeutet, dass sie schneller und kontinuierlicher messen können, was für Anwendungen wie Bewegungserkennung und -verfolgung nützlich sein kann.
 
@@ -172,17 +186,47 @@ Der Flugcontroller ist das Herzstück des Regelungssystems und ist in der Lage, 
 
 Der Flugcontroller ist das Herzstück des Regelungssystems und ist in der Lage, die Daten der Sensoren zu verarbeiten und die Steuerung des Multicopters anzupassen, um eine stabile Fluglage und eine genaue Positionierung zu gewährleisten. Die Steuerungsalgorithmen, die im Flugcontroller verwendet werden, können komplex sein und beinhalten oft eine Kombination aus PID-Reglern (Proportional-Integral-Derivative) und anderen Regelungstechniken.
 
-\subsection{Regelsysteme} \label{regelsysteme:section}
+\section{Regelsysteme} \label{regelsysteme:section}
 
+
+    \subsection{P-Glied}
+    
+    P-Glied verstärken die Eingangsgröße proportional
+    
+    \subsection{I-Glied}
+
+    \subsection{D-Glied}
     \subsection{PID-Regler} \label{pid_regler:subsection}
     Ein PID-Regler ist ein häufig verwendeter Reglertyp in der Regelungstechnik. Die Abkürzung PID steht für Proportional-Integral-Derivative, was die drei Hauptkomponenten des Reglers beschreibt. Der proportionale Teil des Reglers reagiert proportional zur Abweichung zwischen der gemessenen Prozessgröße und dem gewünschten Wert, der integrale Teil berücksichtigt die vergangene Abweichung und der derivativen Teil reagiert auf die Geschwindigkeit, mit der sich die Abweichung ändert.
 
+    Eine genauere Beschreibung der einzelnen Regelglieder finden Sie in den Kapiteln: 
+    \begin{itemize}
+        \item{P-Glied \ref{chp:p-part}}
+        \item{I-Glied \ref{chp:i-part}}
+        \item{D-Glied \ref{chp:d-part}}
+    \end{itemize}
+
+
 Die Kombination dieser drei Komponenten ermöglicht es dem PID-Regler, schnell auf Veränderungen des Prozesses zu reagieren und gleichzeitig stabile Regelungsergebnisse zu erzielen. Die Einstellung der Reglerparameter, wie z.B. des Proportionalitätsfaktors, des Integrationszeitraums und des Differentiationszeitraums, ist jedoch eine wichtige Herausforderung bei der Anwendung von PID-Reglern.
 
-PID-Regler finden in vielen Anwendungen Anwendung, einschließlich Temperaturregelung, Geschwindigkeitsregelung, Positionierung und Flugzeugsteuerung.d
+PID-Regler finden in vielen Anwendungen Anwendung, einschließlich Temperaturregelung, Geschwindigkeitsregelung, Positionierung und Flugzeugsteuerung.
    
 \subsection{Flightstack}
+
+Der Flightstack eines Multicopters besteht aus mehreren Systemen. Üblicherweise besteht der Flightstack aus Mikrocontrollern, Sensoren, Aktuatoren, GPS-Modul und einer Stromversorgung. Die Sensoren sind dafür zuständig Daten über die aktuelle Fluglage des Multicopters zu sammeln. Daten die gesammelt werden sind Beschleunigung, Neigung, Lage und GPS-Position. Diese Daten werden vom Mikrocontroller verarbeitet um die Steuerung der Aktuatoren zu optimieren. Im Outdoor Flug ermöglicht die Verwendung eines GPS-Moduls die Position des Multicopters zu bestimmen und zu verfolgen.
+
+Da die verbaute Technik auch mit Strom versorgt werden muss, ist ein Akkumulator auf dem Multicopter verbaut. Der Akkumulator stellt die nötige Energie für den Betrieb des Multicopters bereit. Insgesamt ist der FlightStack ein zentrales Element zur Steuerung des Multicopters und erfordert eine sorgfältige Integration und Abstimmung aller Komponenten, um eine zuverlässige und sichere Steuerung zu gewährleisten.
 \subsection{Anforderungen an SLAM Systeme auf Multicoptern}
+
+\begin{itemize}
+    \item[Echtzeitfähigkeit]{Da Multicopter sehr schnell auf Änderungen reagieren müssen, muss der SLAM Algorithmus in Echtzeit arbeiten können. Somit wird sichergestellt, dass genaue und aktuelle Informationen zur Verfügung stehen}
+    \item[Effizienz]
+    \item[Genauigkeit]
+    \item[Robustheit]
+    \item[Skalierbarkeit]    
+\end{itemize}
+
+\ac{SLAM} Systeme auf Multicoptern 
 
 \section{3D-Modelle} \label{3d-modelle:section}
 3D-Modelle sind digitale Nachbildungen von physischen Objekten oder Szenen in drei Dimensionen. Diese Modelle werden in verschiedenen Branchen und Anwendungen eingesetzt, von der Architektur und Ingenieurwesen über Film und Gaming bis hin zur Medizin und dem Design von Produkten.
@@ -234,10 +278,10 @@ Die Time-of-Flight-Technologie verwendet dagegen einen Laser oder eine LED, um L
 Die erfassten Tiefendaten können dann verwendet werden, um beispielsweise 3D-Modelle von Objekten oder Umgebungen zu erstellen.
 
 \subsection{Punktwolken}
-Eine Punktwolke ist eine räumliche Darstellung eines Objekts oder einer Szene in Form einer Sammlung von 3D-Koordinaten. Am Beispiel von \ac{RGBD} Kameras, erfasst eine Punktwolke sowohl Farb- als auch Tiefeninformationen aus einer Szene.
+Eine Punktwolke ist eine räumliche Darstellung eines Objekts oder einer Szene in Form einer Sammlung von 3D-Koordinaten. Am Beispiel von \ac{RGB-D} Kameras, erfasst eine Punktwolke sowohl Farb- als auch Tiefeninformationen aus einer Szene.
 Die Tiefeninformationen werden verwendet, um die räumliche Geometrie der Szene zu erfassen und eine Punktwolke zu erstellen.
 Die Punktwolke besteht aus einer Sammlung von Punkten, die jeweils eine Position im dreidimensionalen Raum repräsentieren. Jeder Punkt hat in der Regel drei Koordinaten (x, y, z), die seine Position im Raum beschreiben. Die Farbinformationen werden häufig als RGB-Werte (rot, grün, blau) oder als Grauwerte für jeden Punkt in der Punktwolke gespeichert.
-Eine RGBD-Kamera erfasst die Tiefeninformationen durch die Verwendung eines Strukturlichtverfahrens oder eines Zeitflugverfahrens. Strukturlichtverfahren arbeiten durch die Projektion von Lichtmuster auf die Szene und das Erfassen der Verzerrungen im Muster, um die Tiefeninformationen zu berechnen. Zeitflugverfahren funktionieren durch die Messung der Zeit, die benötigt wird, um ein Lichtsignal auszusenden und das reflektierte Signal wieder zu empfangen, um die Entfernung und damit die Tiefeninformationen zu berechnen.
+Eine \ac{RGB-D}-Kamera erfasst die Tiefeninformationen durch die Verwendung eines Strukturlichtverfahrens oder eines Zeitflugverfahrens. Strukturlichtverfahren arbeiten durch die Projektion von Lichtmuster auf die Szene und das Erfassen der Verzerrungen im Muster, um die Tiefeninformationen zu berechnen. Zeitflugverfahren funktionieren durch die Messung der Zeit, die benötigt wird, um ein Lichtsignal auszusenden und das reflektierte Signal wieder zu empfangen, um die Entfernung und damit die Tiefeninformationen zu berechnen.
 
 Die erfasste Punktwolke wird dann für verschiedene Anwendungen verwendet, wie z.B. für die Erstellung von 3D-Modellen, für die Positionsbestimmung von Robotern oder für die Objekterkennung in der Robotik. Da die Punktwolken alle Informationen über die räumliche Geometrie einer Szene enthalten, sind sie ein wichtiges Instrument für viele Anwendungen in der Robotik, der Computer Vision und der Augmented Reality.
 
@@ -246,6 +290,11 @@ Die erfasste Punktwolke wird dann für verschiedene Anwendungen verwendet, wie z
 Positionsbestimmung ist ein wichtiges Thema in vielen Bereichen, wie der Robotik, autonomem Fahren, Navigation und Augmented Reality. Eine der Herausforderungen bei der Positionsbestimmung ist die Erstellung einer genauen Karte der Umgebung, die es dem mobilen Gerät ermöglicht, seine Position darin zu bestimmen. Hier kommen Technologien wie SLAM (Simultaneous Localization and Mapping) und Spatial Mapping zum Einsatz. Beide Ansätze ermöglichen die Erstellung von 3D-Karten der Umgebung, aber sie unterscheiden sich in ihren Methoden und Anwendungen. In dieser Hinsicht sind SLAM und Spatial Mapping wichtige Technologien für die Positionsbestimmung und haben eine breite Anwendung in verschiedenen Branchen gefunden.
 
     \subsection{Koordinatensysteme}
+
+\begin{description}
+    \item[Welt Koordinatensystem] 
+\end{description}
+    \todo{Koordinatensysteme}
 
 
 
@@ -284,13 +333,15 @@ Ein SLAM System besteht aus verschiedenen Teilaspekten.
 
 \subsubsection{Datenaquirierung}
 
+
+
 \subsubsection{Punktwolken}
 
 Punktwolken sind ein zentraler Bestandteil von 3D-Modellen und werden in verschiedenen Anwendungen wie 3D-Rekonstruktion, Objekterkennung und Augmented Reality eingesetzt. Sie stellen eine dreidimensionale Repräsentation der realen Welt dar und bestehen aus einer großen Anzahl von Punkten, die die räumliche Struktur und Form der Objekte in der Szene beschreiben.
 
 Ein Punktwolkengenerator erzeugt eine Punktwolke aus mehreren Bildern, die von einer Kamera aufgenommen wurden.
 
-Um die Punktwolke zu erzeugen müssen 2D Koordinaten in ein 3D Koordinatensystem überführt werden, dazu benötigt man zunächst die intrinsische Matrix der Kamera. Diese Matrix beschreibt die Abbildungseigenschaften der Kamera und enthält Informationen wie Brennweite, Verschiebung und Verzerrung. Um diese Matrix zu erhalten, werden Kalibrierungsbilder von der Kamera aufgenommen und anschließend eine Kalibrierungssoftware verwendet, um die intrinsischen Parameter der Kamera zu berechnen.
+Um die Punktwolke zu erzeugen müssen 2D Koordinaten in ein 3D Koordinatensystem überführt werden, dazu benötigt man zunächst die intrinsische Matrix der Kamera. Diese Matrix beschreibt die Abbildungseigenschaften der Kamera und enthält Informationen wie Brennweite, Verschiebung und Verzerrung. Um diese Matrix zu erhalten, werden Kalibrierungsbilder von der Kamera aufgenommen und anschließend eine Kalibrierungssoftware verwendet, um die intrinsischen Parameter der Kamera zu berechnen. Die intrinsischen Parameter
 
 Sobald die intrinsische Matrix bekannt ist, kann die extrinsische Matrix bestimmt werden. Diese Matrix beschreibt die Position und Ausrichtung der Kamera im Raum relativ zum Weltkoordinatensystem. Um diese Matrix zu berechnen, werden mehrere Bilder von der Kamera aus verschiedenen Positionen aufgenommen und mithilfe von visuellen Odometrie- oder SLAM-Algorithmen verarbeitet, um die Kameraposition und -orientierung zu schätzen.
 
@@ -312,7 +363,7 @@ wobei $K$ die intrinsische Matrix, $R$ die 3x3 Rotationsmatrix aus der extrinsis
 
 Durch Wiederholung dieses Prozesses für jedes 2D-Bild wird eine Punktwolke erzeugt, die eine dreidimensionale Repräsentation der Szene darstellt. Ein wichtiger Aspekt bei der Erstellung einer Punktwolke ist es, dass die Bilder aus verschiedenen Blickwinkeln aufgenommen werden. Dadurch kann eine größere Menge an Information über die Szene erfasst werden, was zu einer genaueren und detaillierteren Punktwolke führt.
 
-Es ist auch zu beachten, dass bei der Erzeugung von Punktwolken aus RGBD-Bildern eine weitere wichtige Matrix verwendet wird: die Transformationsmatrix. Diese Matrix beschreibt die Beziehung zwischen der Kamera und dem Tiefensensor und ermöglicht es, die 3D-Position jedes Punktes in der Szene basierend auf der Tiefeninformation des Sensors zu bestimmen.
+Es ist auch zu beachten, dass bei der Erzeugung von Punktwolken aus \ac{RGB-D}-Bildern eine weitere wichtige Matrix verwendet wird: die Transformationsmatrix. Diese Matrix beschreibt die Beziehung zwischen der Kamera und dem Tiefensensor und ermöglicht es, die 3D-Position jedes Punktes in der Szene basierend auf der Tiefeninformation des Sensors zu bestimmen.
 
 Insgesamt ist die Erzeugung einer Punktwolke ein komplexer Prozess, der sowohl die intrinsischen als auch extrinsischen Parameter der Kamera erfordert. Es erfordert auch die Verarbeitung von mehreren Bildern aus verschiedenen Blickwinkeln und gegebenenfalls die Verwendung von Tiefensensoren. Trotzdem ist die Erzeugung von Punktwolken ein wichtiger Schritt für viele Anwendungen in der Computergrafik und -vision. Zum Beispiel kann die Punktwolke für die Erstellung von 3D-Modellen verwendet werden, um virtuelle Umgebungen für Computerspiele und Simulationen zu erstellen oder für die Erkennung von Objekten und Hindernissen in autonomen Fahrzeugen.
 
@@ -328,7 +379,7 @@ Es gibt viele Algorithmen und Technologien, die für die Erzeugung von Punktwolk
     0 & 0 & 1
     \end{bmatrix}
     \end{equation*}
-    \caption{Intrinsische Matrix für eine RGBD camera}
+    \caption{Intrinsische Matrix für eine \ac{RGBD} camera}
     %\label{eq :intrinsic-matrix}
     \eqlabel{eq:intrinsic-matrix}{Intrinsische Maxtrix}
 \end{figure}
