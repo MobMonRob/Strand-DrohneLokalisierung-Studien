@@ -189,13 +189,57 @@ Der Flugcontroller ist das Herzstück des Regelungssystems und ist in der Lage, 
 \section{Regelsysteme} \label{regelsysteme:section}
 
 
-    \subsection{P-Glied}
-    
-    P-Glied verstärken die Eingangsgröße proportional
-    
-    \subsection{I-Glied}
+    \subsection{P-Regler}
 
-    \subsection{D-Glied}
+    
+    Ein \ac{P-Regler} ist eine grundlegende Form der Regelungstechnik, die oft in industriellen Anwendungen verwendet wird. Der \ac{P-Regler} basiert auf dem Prinzip der proportionalen Rückkopplung. Er wirkt, indem der Regler die Differenz zwischen dem Ist und Sollwert signalisiert und dann eine proportionale Regelgröße zum Fehler signalisiert.
+    Es gibt eine direkte proportionale Beziehung zwischen der Ausgangsleistung des Reglers und dem Fehler. Die mathematische Formel für den P-Regler ist: 
+
+    \begin{figure}[H]
+    \begin{equation*}
+        u(t) = K_p e(t)
+    \end{equation*}
+    \eqlabel{eq:p-regler}{P-Regler}
+
+\end{figure}
+
+    wo $u(t)$ das Signal des Reglers, $K_p$ der Proportionalitätsfaktor und $e(t)$ der Fehler zwischen der Ist- und Sollwert der Regelgrößen ist.
+
+    \subsection{I-Regler}
+
+    Neben \ac{P-Regler}n gibt es \ac{I-Regler}.
+    Aus dem Name \ac{I-Regler}, lässt sich das Wort \textit{Integral} ableiten. Ein \ac{I-Regler} ist eine Form der Regelungstechnik, die verwendet wird, um den Regelgrößenfehler zwischen Soll- und Istwert zu minimieren und das System auf den Sollwert zu bringen. 
+
+    Der I-Regler basiert auf dem Prinzip der Integration des Regelgrößenfehlers über die Zeit. Die mathematische Gleichung für den I-Regler ist:
+
+    \begin{figure}[H]
+        \begin{equation*}
+            u(t) = K_i \int_{0}^{t} e(\tau) d\tau
+        \end{equation*}
+    \end{figure}
+
+    wo $u(t)$ das Signal des Reglers, $K_i$ der Integrationsfaktor und $e(t)$ der Regelgrößenfehler ist. Der Integrationsfaktor ist ein Maß für die Empfindlichkeit des Reglers auf den Regelgrößenfehler.
+
+Durch einen höheren $K_i$ Faktor reagiert der Regler stärker, führt jedoch auch zu langsameren Reaktionszeiten des Reglers.
+
+    Das \ac{I-Glied} summiert Regeldifferenzen auf, dies resultiert darin, dass die Regeldifferenz im geschlossenen Regelkreis gegen den Wert 0 läuft.
+
+
+
+    \subsection{D-Regler}
+    
+    Ein weiterer wichtiger Regler ist der \ac{D-Regler}. Ein \ac{D-Regler} wird verwendet um den Regelgrößefehler zwischen Soll- und Istwert zu minimieren.
+
+    Der \ac{D-Regler} wird verwendet, um das System zu stabilisieren und auf Störungen zu reagieren. Die mathematische Gleichung für den D-Regler lautet:
+
+    \begin{figure}
+        \begin{equation*}
+            u(t) = K_d \frac{de(t)}{dt}
+        \end{equation*}
+        \eqlabel{eq:d-regler}{D-Regler}
+    \end{figure}
+
+
     \subsection{PID-Regler} \label{pid_regler:subsection}
     Ein PID-Regler ist ein häufig verwendeter Reglertyp in der Regelungstechnik. Die Abkürzung PID steht für Proportional-Integral-Derivative, was die drei Hauptkomponenten des Reglers beschreibt. Der proportionale Teil des Reglers reagiert proportional zur Abweichung zwischen der gemessenen Prozessgröße und dem gewünschten Wert, der integrale Teil berücksichtigt die vergangene Abweichung und der derivativen Teil reagiert auf die Geschwindigkeit, mit der sich die Abweichung ändert.
 
