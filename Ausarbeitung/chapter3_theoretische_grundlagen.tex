@@ -190,7 +190,7 @@ Der Flugcontroller ist das Herzstück des Regelungssystems und ist in der Lage, 
 
 
     \subsection{P-Regler}
-
+    \label{chp:p-regler}
     
     Ein \ac{P-Regler} ist eine grundlegende Form der Regelungstechnik, die oft in industriellen Anwendungen verwendet wird. Der \ac{P-Regler} basiert auf dem Prinzip der proportionalen Rückkopplung. Er wirkt, indem der Regler die Differenz zwischen dem Ist und Sollwert signalisiert und dann eine proportionale Regelgröße zum Fehler signalisiert.
     Es gibt eine direkte proportionale Beziehung zwischen der Ausgangsleistung des Reglers und dem Fehler. Die mathematische Formel für den P-Regler ist: 
@@ -206,6 +206,7 @@ Der Flugcontroller ist das Herzstück des Regelungssystems und ist in der Lage, 
     wo $u(t)$ das Signal des Reglers, $K_p$ der Proportionalitätsfaktor und $e(t)$ der Fehler zwischen der Ist- und Sollwert der Regelgrößen ist.
 
     \subsection{I-Regler}
+\label{chp:i-regler}
 
     Neben \ac{P-Regler}n gibt es \ac{I-Regler}.
     Aus dem Name \ac{I-Regler}, lässt sich das Wort \textit{Integral} ableiten. Ein \ac{I-Regler} ist eine Form der Regelungstechnik, die verwendet wird, um den Regelgrößenfehler zwischen Soll- und Istwert zu minimieren und das System auf den Sollwert zu bringen. 
@@ -223,11 +224,12 @@ Der Flugcontroller ist das Herzstück des Regelungssystems und ist in der Lage, 
 
 Durch einen höheren $K_i$ Faktor reagiert der Regler stärker, führt jedoch auch zu langsameren Reaktionszeiten des Reglers.
 
-    Das \ac{I-Glied} summiert Regeldifferenzen auf, dies resultiert darin, dass die Regeldifferenz im geschlossenen Regelkreis gegen den Wert 0 läuft.
+    Das \ac{I-Regler} summiert Regeldifferenzen auf, dies resultiert darin, dass die Regeldifferenz im geschlossenen Regelkreis gegen den Wert 0 läuft.
 
 
 
     \subsection{D-Regler}
+    \label{chp:d-regler}
     
     Ein weiterer wichtiger Regler ist der \ac{D-Regler}. Ein \ac{D-Regler} wird verwendet um den Regelgrößefehler zwischen Soll- und Istwert zu minimieren.
 
@@ -246,9 +248,9 @@ Durch einen höheren $K_i$ Faktor reagiert der Regler stärker, führt jedoch au
 
     Eine genauere Beschreibung der einzelnen Regelglieder finden Sie in den Kapiteln: 
     \begin{itemize}
-        \item{P-Glied \ref{chp:p-part}}
-        \item{I-Glied \ref{chp:i-part}}
-        \item{D-Glied \ref{chp:d-part}}
+        \item{P-Glied \ref{chp:p-regler}}
+        \item{I-Glied \ref{chp:i-regler}}
+        \item{D-Glied \ref{chp:d-regler}}
     \end{itemize}
 
 
@@ -424,7 +426,7 @@ Es gibt viele Algorithmen und Technologien, die für die Erzeugung von Punktwolk
     0 & 0 & 1
     \end{bmatrix}
     \end{equation*}
-    \caption{Intrinsische Matrix für eine \ac{RGBD} camera}
+    \caption{Intrinsische Matrix für eine \ac{RGB-D} camera}
     %\label{eq :intrinsic-matrix}
     \eqlabel{eq:intrinsic-matrix}{Intrinsische Maxtrix}
 \end{figure}
