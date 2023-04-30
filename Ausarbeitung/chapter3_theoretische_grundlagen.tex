@@ -493,7 +493,10 @@ Die durch eine Simulation erlangten Erkenntnisse können unter anderem folgende 
 
 Simulationstechnik wird verwendet, um die Leistung von Produkten, Maschinen oder Systemen in einer virtuellen Umgebung zu testen und zu optimieren, bevor sie in der realen Welt eingesetzt werden. Mithilfe von Simulationstechnik können Ingenieure und Designer schnell und kosteneffizient verschiedene Designs, Prototypen oder Konfigurationen testen, bevor sie sich auf eine endgültige Lösung festlegen.
 
+\subsection{Simulationsarten}
+
 \subsection{Simulationssoftware}
+Simulationssoftware ist eine Art von Software, die entwickelt wurde, um das Verhalten eines Systems oder Prozesses in einer virtuellen Umgebung zu simulieren. Mit Simulationssoftware können Benutzer verschiedene Szenarien und Bedingungen testen, ohne physische Ressourcen oder teure Experimente einzusetzen.
 
 \subsubsection{Gazebo}
 Gazebo ist ein leistungsfähiger 3D-Simulator, der speziell für die Simulation von Robotern in komplexen Innen- und Außenumgebungen entwickelt wurde. Im Gegensatz zu herkömmlichen Spiele-Engines bietet Gazebo eine physikalische Simulation mit einem hohen Grad an Genauigkeit, die es Entwicklern ermöglicht, die Leistung von Robotern in realistischen Umgebungen zu testen.
@@ -501,10 +504,13 @@ Gazebo ist ein leistungsfähiger 3D-Simulator, der speziell für die Simulation 
 Eine der herausragenden Eigenschaften von Gazebo ist seine Fähigkeit, Roboterpopulationen in komplexen Umgebungen zu simulieren. Die Software ermöglicht es Entwicklern, mehrere Roboter gleichzeitig zu simulieren und ihr Verhalten in einer Vielzahl von Szenarien zu testen. Dies ist besonders nützlich für die Entwicklung von autonomen Robotersystemen, bei denen die Interaktion und Zusammenarbeit zwischen mehreren Robotern in einer Umgebung von entscheidender Bedeutung ist.
 
 Gazebo bietet auch eine Vielzahl von Sensoren und Schnittstellen für Benutzer und Programme. Dazu gehören Kamera-, Lidar- und GPS-Sensoren sowie ROS-Interfaces für die Integration mit anderen Robotersoftware-Tools. Diese Sensoren und Schnittstellen ermöglichen es Entwicklern, die Leistung von Robotern in verschiedenen Situationen zu testen und zu optimieren.
+\cite[vgl.][]{gazebosim}
 
+\subsection{SIL - Software-in-the-loop}
 
-\subsection{SIL - Software in the loop}
+\ac{SIL} ist eine Technik zur Überprüfung und Validierung von Code in einer Simulationsumgebung, um effektiv und kosteneffizient Fehler zu finden und die Code-Qualität zu verbessern. Die SIL-Tests werden typischerweise in den frühen Phasen des Software-Entwicklungsprozesses durchgeführt, um sicherzustellen, dass der Code den Anforderungen entspricht und fehlerfrei ist. Diese Methode kann dazu beitragen, Zeit und Geld zu sparen, da Fehler frühzeitig erkannt und behoben werden können, bevor teure Hardware-Tests durchgeführt werden müssen.
 
+Im Gegensatz zum \ac{HIL}-Ansatz, bei dem die Software auf echten Hardwarekomponenten getestet wird, verwendet \ac{SIL} Simulationen, um die Hardware-Plattformen zu ersetzen. Dies ermöglicht es Entwicklern, die Software auf unterschiedlichen Szenarien und Bedingungen zu testen, ohne tatsächliche Hardwarekomponenten zu benötigen. Darüber hinaus können Entwickler durch \ac{SIL}-Tests den Code in einer Vielzahl von Szenarien testen und Fehler beheben, bevor er in den \ac{HIL}-Test übergeht.
 
 
 \section{Problembehebung} \label{problembehebung:section}
