@@ -14,6 +14,12 @@ Ausarbeitung/*.cb
 Ausarbeitung/*.cb2
 Ausarbeitung/.*.lb
 
+Ausarbeitung/literatur/*
+
+
+
+Ausarbeitung/*.for
+
 ## Intermediate documents:
 Ausarbeitung/*.dvi
 Ausarbeitung/*.xdv
@@ -30,7 +36,7 @@ Ausarbeitung/*.pdf
 Ausarbeitung/*.bbl
 Ausarbeitung/*.bcf
 Ausarbeitung/*.blg
-Ausarbeitung/*-blx.aux
+Ausarbeitung/*-blx.auxAusarbeitung/.*.lb
 Ausarbeitung/*-blx.bib
 Ausarbeitung/*.run.xml
 
@@ -162,9 +168,7 @@ Ausarbeitung/*.ind
 
 # minitoc
 Ausarbeitung/*.maf
-Ausarbeitung/*.mlf
-Ausarbeitung/*.mlt
-Ausarbeitung/*.mtc[0-9]*
+Ausarbeitung/*.mlfAusarbeitung/.*.lb
 Ausarbeitung/*.slf[0-9]*
 Ausarbeitung/*.slt[0-9]*
 Ausarbeitung/*.stc[0-9]*
@@ -217,7 +221,7 @@ Ausarbeitung/pythontex-files-*/
 # tcolorbox
 Ausarbeitung/*.listing
 
-# thmtools
+# thmtoolsAusarbeitung/.*.lb
 Ausarbeitung/*.loe
 
 # TikZ & PGF
@@ -303,4 +307,5 @@ Ausarbeitung/Makefile*
 # REVTeX puts footnotes in the bibliography by default, unless the nofootinbib
 # option is specified. Footnotes are the stored in a file with suffix Notes.bib.
 # Uncomment the next line to have this generated file ignored.
-#*Notes.bib
+#*Notes.bib 
+texput.log
