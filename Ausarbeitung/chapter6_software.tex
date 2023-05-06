@@ -3,16 +3,23 @@
 \section{Systemarchitektur}
 
 \section{Softwarearchitektur}
-
+\todo{Beschreibung Mavros}
 
     %\includepdf[landscape=true]{images/graph_ros.pdf}
     %\caption[Übersicht ROS Nodes]{\label{img ros_nodes_graph} Übersicht ROS Nodes [eigene Darstellung]}
     \begin{landscape}
         \begin{figure}
             \includegraphics[width=\paperwidth,keepaspectratio]{images/graph_ros.pdf}
-            \caption[Übersicht ROS Nodes]{\label{img ros_nodes} Übersicht ROS Nodes [eigene Darstellung]}
+            \caption[Übersicht ROS Kommunikation]{\label{img ros_communication} Übersicht ROS Kommunikation [eigene Darstellung]}
         \end{figure}
     \end{landscape}
+
+In der Abbildung \ref{img ros_communication} ist eine Übersicht der Kommunikation zwischen den verschiedenen Komponenten in \ac{ROS} zu sehen. \\
+Hauptbestandteil sind hierbei vor allem die Nodes der Hauptkamera beziehungsweise der Azure Kinect sowie auch die Mavros Nodes. \\
+Mavros ist hierbei ein ROS-Paket, welches die Kommunikation zwischen dem Raspberry Pi und der Drohne mit Hilfe des MAVLink-Protokolls (siehe Kapitel \ref{mavlink}) ermöglicht.
+%https://clover.coex.tech/en/mavros.html
+
+
 \section{Kalibrierung der COEX Drohne}
 
 \section{Drohnen Autopilot}

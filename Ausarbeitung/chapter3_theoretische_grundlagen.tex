@@ -172,6 +172,24 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
     
     \textit{\$ roslaunch package\_name file.launch}
 
+\section{MAVLink} \label{mavlink}
+\ac{MAVLink} ist ein Nachrichtenprotokoll, welches vor allem zur Kommunikation zwischen einer Drohnen und einer Bodenstation eingesetzt wird. Der Einsatz dieses Protokolls ist besonders für Systeme konzipiert, die wenige Ressourcen und eine geringe Bandbreite aufweisen.\\
+Die Kommunikation kann über verschiedene Wege stattfinden, hierzu gehören beispielsweise \ac{USB}, aber auch drahtlose Verbindungen über Wifi sind möglich. Das Protokoll überträgt Telemetriedatenströme mit Hilfe des Publisher/Subscriber Modells. Protokolle die Änderungen an der Systemkofiguration bewirken, wie beispielsweise ein Parameter- oder auch ein Missionsprotokoll und dadurch eine garantierte Zustellung erfordern, werden hingegen Punkt-zu-Punkt mit Retransmission übertragen. 
+\todo{Retransmission,übersetzung??}
+\\
+Der Sender so wie der Empfänger der Nachricht haben jeweils eine einzigartige ID, sodass sie nachvollziehen können, von dem die Nachricht geschickt wurde. Sobald eine Verbindung zwischen der Station und der Drohne besteht, senden sich die zwei Systeme gegenseitig in bestimmten Abständen einen sogenannten Heartbeat, um sicherzustellen, dass die Verbindung noch besteht.
+\todo{Heartbeat Benennung?}
+\\
+Will die Bodenstation verschiedene Telemetriedaten der Drohne, so sendet die Station eine Anfrage an die Drohne, welche daraufhin dann die angefordeten Daten sendet. \cite{mavlink}
+
+\begin{figure}[H]
+    \begin{centering}
+        \includegraphics[scale=0.4]{images/mavlink-message-flow.png}
+        \caption{\label{img mavlink}Nachrichten MAVLink \cite{imgmavlink}}
+    \end{centering}
+\end{figure}
+
+
 \section{Multicopter} \label{drohne:section}
 
 
@@ -322,7 +340,7 @@ Da die verbaute Technik auch mit Strom versorgt werden muss, ist ein Akkumulator
 
 Die Erstellung von 3D-Modellen erfolgt in der Regel durch eine Kombination von verschiedenen Technologien und Software-Tools. Zum Beispiel können 3D-Scanner verwendet werden, um physische Objekte zu scannen und daraus digitale Modelle zu erstellen. Alternativ können 3D-Modelle auch von Grund auf neu erstellt werden, indem man eine 2D-Zeichnung oder ein Konzept in einer 3D-Software modelliert.
 
-Ein wichtiger Vorteil von 3D-Modellen ist, dass sie interaktiv und manipulierbar sind. Das bedeutet, dass man sie drehen, skalieren und animieren kann, um verschiedene Perspektiven oder Bewegungen zu erzeugen. Darüber hinaus können 3D-Modelle auch für Simulationen und Analysen verwendet werden. Zum Beispiel können Architekten und Ingenieure 3D-Modelle von Gebäuden erstellen, um die Belastung bei Erdbeben oder starkem Wind zu simulieren.
+Ein wichtiger Vorteil von 3D-Modellen ist, dass sie interaktiv und manipulierbar sind. Das bedeutet, dass man sie drehen, skalieren und animieren kann, um verschiedene Perspektiven oder Bewegungen zu erzeugen. Darüber hinaus können 3D-Modelle auch für Simulationen und Analysen verwendet werden. Zum Beispiel können Architekten und Ingenieure 3D-Modelle von Gebäuden erstellen, Verein Deutscher Ingeneureum die Belastung bei Erdbeben oder starkem Wind zu simulieren.
 
 Insgesamt sind 3D-Modelle eine äußerst vielseitige Technologie, die in vielen verschiedenen Branchen und Anwendungen eingesetzt werden kann. Sie ermöglichen es, physische Objekte und Szenen digital darzustellen und zu manipulieren, was zahlreiche Möglichkeiten für Design, Simulation und Analyse bietet.
 
