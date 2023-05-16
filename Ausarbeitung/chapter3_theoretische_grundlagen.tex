@@ -174,13 +174,13 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
 
 \section{MAVLink} \label{mavlink}
 \ac{MAVLink} ist ein Nachrichtenprotokoll, welches vor allem zur Kommunikation zwischen einer Drohnen und einer Bodenstation eingesetzt wird. Der Einsatz dieses Protokolls ist besonders für Systeme konzipiert, die wenige Ressourcen und eine geringe Bandbreite aufweisen.\\
-Die Kommunikation kann über verschiedene Wege stattfinden, hierzu gehören beispielsweise \ac{USB}, aber auch drahtlose Verbindungen über Wifi sind möglich. Das Protokoll überträgt Telemetriedatenströme mit Hilfe des Publisher/Subscriber Modells. Protokolle die Änderungen an der Systemkofiguration bewirken, wie beispielsweise ein Parameter- oder auch ein Missionsprotokoll und dadurch eine garantierte Zustellung erfordern, werden hingegen Punkt-zu-Punkt mit Retransmission übertragen. 
+Die Kommunikation kann über verschiedene Wege stattfinden, hierzu gehören beispielsweise \ac{USB}, aber auch drahtlose Verbindungen über Wifi, mit \ac{UDP} sowie auch \ac{TCP}, sind möglich. Das Protokoll überträgt Telemetriedaten mit Hilfe des Publisher/Subscriber Modells. Protokolle die Änderungen an der Systemkofiguration bewirken, wie beispielsweise ein Parameter- oder auch ein Missionsprotokoll und dadurch eine garantierte Zustellung erfordern, werden hingegen Punkt-zu-Punkt mit Retransmission übertragen. 
 \todo{Retransmission,übersetzung??}
 \\
 Der Sender so wie der Empfänger der Nachricht haben jeweils eine einzigartige ID, sodass sie nachvollziehen können, von dem die Nachricht geschickt wurde. Sobald eine Verbindung zwischen der Station und der Drohne besteht, senden sich die zwei Systeme gegenseitig in bestimmten Abständen einen sogenannten Heartbeat, um sicherzustellen, dass die Verbindung noch besteht.
 \todo{Heartbeat Benennung?}
 \\
-Will die Bodenstation verschiedene Telemetriedaten der Drohne, so sendet die Station eine Anfrage an die Drohne, welche daraufhin dann die angefordeten Daten sendet. \cite{mavlink}
+Benötigt die Bodenstation Telemetriedaten der Drohne, so sendet die Station eine Anfrage an die Drohne, welche daraufhin die angeforderten Daten sendet. \cite{mavlink}
 
 \begin{figure}[H]
     \begin{centering}
