@@ -556,18 +556,50 @@ Die durch eine Simulation erlangten Erkenntnisse können unter anderem folgende 
 
 Simulationstechnik wird verwendet, um die Leistung von Produkten, Maschinen oder Systemen in einer virtuellen Umgebung zu testen und zu optimieren, bevor sie in der realen Welt eingesetzt werden. Mithilfe von Simulationstechnik können Ingenieure und Designer schnell und kosteneffizient verschiedene Designs, Prototypen oder Konfigurationen testen, bevor sie sich auf eine endgültige Lösung festlegen.
 
-Es gibt viele Arten der Simulation: \todo{Umschreiben}
-\begin{description}
-    \item[Statische Simulation] 
-    \item[Dynamische Simulation] 
-    \item[Diskrete Simulation] 
-    \item[Kontinuierliche Simulation] 
-    \item[Hybride Simulation] 
-    \item[Monte-Carlo-Simulation] 
-    \item[System Dynamics] 
-\end{description}
-
 \subsection{Simulationsarten}
+Simulationen werden in vielen verschiedenen Bereichen verwendet. Dadurch haben die Anwendungen und Systeme, welche Simuliert werden auch unterschiedliche Eigenschaften. Um auf all diese Eigenschaften einzugehen, existieren viele verschiedene Arten der Simulation. Die bekannstesten und meist verwendeten Simulationsarten sind Folgende:
+
+\begin{description}
+    \item[Statische Simulation]
+    Die statische Simulation ist ein leistungsfähiges Werkzeug, das in verschiedenen Bereichen eingesetzt wird, um das Verhalten von Strukturen oder Systemen unter statischen Lastbedingungen vorherzusagen und zu analysieren.
+    
+    Bei der statischen Simulation geht es in erster Linie darum, zu bewerten, wie eine Struktur oder ein System auf verschiedene Kräfte und Lasten wie Schwerkraft, Druck oder äußere Kräfte reagieren wird. Durch die Anwendung von mathematischen Modellen und Computertechniken kann man das Verhalten des Entwurfs simulieren, ohne ihn physisch zu konstruieren und zu testen.
+    \cite[vgl.][]{statischeSim}
+
+    \item[Dynamische Simulation]
+    Die dynamische Simulation ist eine Rechentechnik, mit der das Verhalten von Systemen oder Strukturen als Reaktion auf zeitlich veränderliche Kräfte, Bewegungen oder Eingaben untersucht und analysiert werden kann. Im Gegensatz zur statischen Simulation, die sich auf die Reaktion auf statische Lasten konzentriert, werden bei der dynamischen Simulation die Auswirkungen von Trägheit, Beschleunigung und zeitabhängigen Bedingungen berücksichtigt.
+    \cite[vgl.][]{dynamischeSim}
+    
+    \item[Diskrete Simulation] 
+    Die diskrete Simulation, auch bekannt als diskrete Ereignissimulation, ist eine Rechentechnik zur Modellierung und Analyse von Systemen, die sich im Laufe der Zeit schrittweise entwickeln. Sie ist besonders nützlich für die Untersuchung von Systemen, bei denen Ereignisse zu bestimmten Zeitpunkten auftreten und sich der Zustand des Systems nur dann ändert, wenn diese Ereignisse eintreten.
+
+    Bei der diskreten Simulation wird das Verhalten des Systems durch eine Reihe von Regeln, Ereignissen und Entitäten dargestellt. Der Zustand des Systems wird zu diskreten Zeitpunkten, den so genannten Ereigniszeiten, auf der Grundlage des Auftretens bestimmter Ereignisse aktualisiert. Diese Ereignisse können ein breites Spektrum an Aktionen darstellen, wie z. B. Ankünfte, Abfahrten, Ausfälle oder andere wichtige Ereignisse innerhalb des Systems.
+    \cite[vgl.][]{mattern-diskrete-simulation}
+
+    \item[Kontinuierliche Simulation] 
+    Die kontinuierliche Simulation, auch bekannt als zeitkontinuierliche Simulation, ist eine Rechentechnik, die zur Modellierung und Analyse von Systemen verwendet wird, die sich kontinuierlich über die Zeit entwickeln. Sie ist besonders nützlich für die Untersuchung von Systemen, bei denen sich die Variablen gleichmäßig und kontinuierlich verändern, ohne diskrete Ereignisse oder Sprünge.
+
+    Bei der kontinuierlichen Simulation wird das Verhalten des Systems durch mathematische Gleichungen beschrieben, die die Dynamik der Variablen des Systems darstellen. Bei diesen Gleichungen handelt es sich in der Regel um Differentialgleichungen oder Differenzialgleichungen, die die Änderungsrate der Variablen mit ihren aktuellen Werten und anderen relevanten Faktoren in Beziehung setzen.
+    \cite[vgl.][]{mattern-diskrete-simulation}
+
+    \item[Hybride Simulation] 
+    Die hybride Simulation, auch bekannt als gekoppelte Simulation, ist eine Rechentechnik, die verschiedene Simulationsansätze kombiniert, um komplexe Systeme zu modellieren und zu analysieren. Sie integriert die Stärken mehrerer Simulationsmethoden, z. B. der diskreten Ereignissimulation und der kontinuierlichen Simulation, um sowohl diskrete Ereignisse als auch kontinuierliche Dynamik in einem einzigen Rahmen zu erfassen.
+
+    Bei der hybriden Simulation wird das System in verschiedene Komponenten oder Subsysteme unterteilt, die jeweils mit einem geeigneten Simulationsansatz auf der Grundlage ihrer Eigenschaften modelliert werden. Die diskrete Ereignissimulation wird typischerweise für die Modellierung von Komponenten mit diskreten Ereignissen und Interaktionen verwendet, während die kontinuierliche Simulation für Komponenten mit kontinuierlichen Verhaltensweisen und Dynamiken eingesetzt wird.
+
+    \item[Monte-Carlo-Simulation] 
+    Die Monte-Carlo-Simulation ist eine Computertechnik, die zur Modellierung und Analyse von Systemen oder Prozessen verwendet wird, die mit Zufälligkeit und Unsicherheit verbunden sind. Der Name leitet sich von dem berühmten Monte-Carlo-Kasino in Monaco ab, das für seine Glücks- und Zufallsspiele bekannt ist.
+
+    Die Monte-Carlo-Simulation ermöglicht die Analyse verschiedener Systemeigenschaften, wie z. B. Erwartungswerte, Wahrscheinlichkeiten, Risikomaße, Empfindlichkeit gegenüber Eingabeparametern und Optimierung. Sie hilft Entscheidungsträgern, die potenziellen Risiken zu verstehen, fundierte Entscheidungen zu treffen und die Auswirkungen verschiedener Szenarien oder Strategien zu bewerten.
+    \cite[vgl.][]{monte-carlo-sim}
+
+    \item[System Dynamics] 
+    Die System Dynamics ist ein computergestützter Modellierungs- und Simulationsansatz, der sich auf das Verständnis und die Analyse des Verhaltens komplexer Systeme im Zeitverlauf konzentriert. Sie bietet einen ganzheitlichen Rahmen für die Untersuchung der dynamischen Interaktionen zwischen verschiedenen Komponenten und Rückkopplungsschleifen innerhalb eines Systems.
+
+    Die von Jay W. Forrester in den 1950er Jahren entwickelte System Dynamics zielt darauf ab, die Struktur, das Verhalten und die zugrunde liegenden Ursachen des Systemverhaltens zu erfassen. Sie ist besonders nützlich für die Untersuchung dynamischer Systeme, die durch Nichtlinearität, Verzögerungen, Rückkopplungsschleifen und Abhängigkeiten zwischen Variablen gekennzeichnet sind.
+    \cite[vgl.][]{system-dynamics}
+
+\end{description}
 
 \subsection{Simulationssoftware}
 Simulationssoftware ist eine Art von Software, die entwickelt wurde, um das Verhalten eines Systems oder Prozesses in einer virtuellen Umgebung zu simulieren. Mit Simulationssoftware können Benutzer verschiedene Szenarien und Bedingungen testen, ohne physische Ressourcen oder teure Experimente einzusetzen.
