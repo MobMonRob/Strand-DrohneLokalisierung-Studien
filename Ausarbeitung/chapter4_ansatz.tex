@@ -10,6 +10,91 @@ Ziel dieser Arbeit ist es, bestenfalls den bereits vorhandenen Quadrokopter mit 
 
 \section{Vorgehensweise}
 Die Vorgehensweise ist in der folgenden Abbildung dargstellt:
-\todo{Abbildung Vorgehenweise?}
+
+\subsection{Auswahl Navigationssystem}
+
+Die in Kapitel \ref{lst:navigation-types} vorgestellten Vorgehensweisen sind mehr oder weniger geeignet für den Einsatz auf der Drohne und für dein Einsatz mit \ac{SLAM}
+In einer gewichteten Analyse wurden die einzelnen Vorgehensweisen verglichen und der Gewinner ausgewählt.
+
+Verglichen wurden Navigationstypen nach den in Tabelle \ref{tab:vergleich-kriterien} genannten Kiterien.
+
+Die Kriterien werden in Tabelle \ref{tab:vergleich} gegenübergestellt und in Tabelle \ref{tab:vergleich-gewichtung} werden Sie gewichtet.
+
+Die Einschätzungen für die Gewichtungen in der Tabelle basieren auf der subjektiven Einschätzung der Bedeutung jedes Kriteriums für das \ac{SLAM}-Navigationssystem. Die Gewichtungen können auf verschiedenen Faktoren basieren, darunter:
+
+\begin{itemize}
+\item \textbf{Anforderungen des Projekts:} Die Gewichtungen können durch die spezifischen Anforderungen des Projekts bestimmt werden. Wenn beispielsweise eine besonders hohe Genauigkeit erforderlich ist, kann diesem Kriterium eine höhere Gewichtung zugeordnet werden.
+
+\item \textbf{Wichtigkeit für den Einsatzzweck:} Die Gewichtungen können auf der Wichtigkeit jedes Kriteriums für den vorgesehenen Einsatzzweck des SLAM-Navigationssystems basieren. Wenn beispielsweise das System in einer Umgebung mit vielen Störungen eingesetzt wird, kann der Anfälligkeit für Störungen eine höhere Gewichtung zugeordnet werden.
+\item \textbf{Expertenmeinungen} Expertenmeinungen: Die Gewichtungen können auf Expertenmeinungen basieren, die auf ihrer Erfahrung und Fachkenntnis in der Navigationstechnologie beruhen.
+\end{itemize}
+
+Aufgrund des Ergebnisses aus Tabelle \ref{tab:vergleich-gewichtung} wird ersichtlich das folgende Lokalisierungsvorgehensweisen für den Einsatz mit der Drohne und SLAM am besten eingesetzt werden können.
+
+\begin{itemize}
+    \item Optical Sensoren
+    \item Inertial Navigation
+\end{itemize}
+
+Aufgrund der Tatsache, dass die zur Verfügung stehende COEX Drohne bereits auch über Inertial Sensoren verfügt, kann damit die Qualität von \ac{SLAM} noch weiter verbessert werden.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
+        \hline
+        \textbf{Kriterien} & \textbf{Gewichtung} & \textbf{Begründung} \\
+        \hline
+        Genauigkeit & 5 & Um eine möglichst akkurate Hindernisserkennung zu ermöglichen, sollte das Lokalisierungssystem genau sein. \\
+        \hline
+        Ungenauigkeitsakkumulation & 5 & Wie stark summieren sich die Fehler auf? \\
+        \hline
+        Umgebungserfordernisse & 10 & Welche Anforderungen werden an die Umgebung gestellt? Müssen spezielle Eigenschaften der Umgebung beachtet werden? \\
+        \hline
+        Anfälligkeit für Störungen & 2 & Wie anfällig ist das System für Störungen? \\
+        \hline
+        Anwendungsbereiche & 20 & In welchen Anwendungsbereichen kann das System eingesetzt werden? \\
+        \hline
+    \end{tabular}
+    \caption{Vergleichskriterien}
+    \label{tab:vergleich-kriterien}
+\end{table}
+\begin{table}
+
+
+\begin{center}
+   \fontsize{7}{11}\selectfont
+    \begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{3cm}|p{2cm}|p{3cm}|}
+    \hline
+    \textbf{Lokalisier\-ungsart} & \textbf{Genauigkeit} & \textbf{Ungenauigkeits\-akkumulation} & \textbf{Umgebungs\-erfordernisse} & \textbf{Anfälligkeit für Störungen} & \textbf{Anwendungsbereiche} \\\hline
+    Inertial Navigation & Mittel bis hoch & Ja & Keine spezifischen Anforderungen & Gering & Innen- und Außenbereiche, aber keine Erkennung der Umgebung \\\hline
+    Optische Sensoren & Mittel bis hoch & Nein & Gut strukturierte Umgebung mit markanten Merkmalen & Mittel bis hoch & Innen- und Außenbereiche \\\hline
+    Ultraschall- oder Infrarotsensoren & Niedrig bis mittel & Ja & Hindernisse müssen reflektierend sein & Mittel bis hoch & Innenbereiche \\\hline
+    Magnetfeld\-sensoren & Niedrig bis mittel & Ja & Geringe Magnetfeldstörungen & Hoch & Innenbereiche ohne starke magnetische Störungen, aber keine Erkennung der Umgebung \\\hline
+    Funkbasierte Lokalisierung & Niedrig bis mittel & Nein & Ausreichende Abdeckung mit Funkquellen & Gering & Innen- und Außenbereiche, aber keine Erkennung der Umgebung \\\hline
+    \end{tabular}
+    \caption{Vergleich Lokalisierungsmethoden}\label{tab:vergleich}
+    \end{center}
+\end{table}
+
+\begin{table}[ht]
+    \fontsize{6}{11}\selectfont
+    \begin{center}
+        \begin{tabular}{|p{2cm}|p{1.3cm}|p{2cm}|p{1.5cm}|p{2cm}|p{2cm}|p{1.5cm}|}
+            \hline
+            \textbf{Lokalisier\-ungsart} & \textbf{Genauig\-keit} & \textbf{Ungenauigkeits\-akkumulation 0=Ja 10=Nein} & \textbf{Umgebungs\-erfordernisse} & \textbf{Anfälligkeit für Störungen} & \textbf{Anwendungs\-bereiche} & \textbf{Summe der Punkte} \\\hline
+            \rowcolor{green}
+            Inertial Navigation & $8*5=40$ & $0*10=0$ & $10*10=100$ & $9*2=18$ & $10*20=200$ & 358 \\\hline
+            \rowcolor{green}
+            Optische Sensoren & $7*5=35$ & $10*10=100$ & $7*10=70$ & $3*2=6$ & $10*20=200$& 411 \\\hline
+            Ultraschall- oder Infrarotsensoren & $4*5=20$ & $0*10=0$ & $3*10=30$ & $3*2=6$ & $10*20=200$& 256 \\\hline
+            Magnetfeldsensoren & $2*5=10$ & $0*10=0$ & $2*10=20$ & $1*2=2$ & $7*20=140$ & 172 \\\hline
+            Funkbasierte Lokalisierung & $1*5=5$ & $0*10=0$ & $0*10=0$ & $8*2=16$ & $10*20=200$ & 221 \\\hline
+        \end{tabular}
+        \caption{Gewichtete Analyse}\label{tab:vergleich-gewichtung}
+    \end{center}
+\end{table}
+
+
+
 
 
