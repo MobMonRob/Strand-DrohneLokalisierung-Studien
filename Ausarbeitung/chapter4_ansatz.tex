@@ -17,7 +17,27 @@ In Abbildung \ref{fig:vorgehensweise} sind die 2 Vorgehensweisen die wir uns aus
     \caption{Geplante Vorgehensweise}\label{fig:vorgehensweise}
 \end{figure}
 
-\subsection{}
+\subsection{Auswahl SLAM Algorithmus}
+
+Mehrere \ac{SLAM} Algorithmen standen zur Auswahl, aufgrund der limitierten Performance des Raspberry PIs, haben wir den Algorithmus mit den kleinsten Anforderungen gewählt.
+
+\subsubsection{OBD-SLAM3}
+
+BD-SLAM3 ist eine Erweiterung des OBD-SLAM (Oriented Bounding Box SLAM) Algorithmus, der für die simultane Lokalisierung und Kartierung (SLAM) in dreidimensionalen Umgebungen entwickelt wurde. Im Gegensatz zu OBD-SLAM verwendet OBD-SLAM3 jedoch eine tiefere Netzwerkarchitektur, um die Leistung und Genauigkeit der Odometrie und der visuellen Wahrnehmung zu verbessern.
+
+OBD-SLAM3 nutzt eine Kombination aus Tiefenkameras und RGB-Kameras, um eine 3D-Repräsentation der Umgebung zu erstellen und gleichzeitig die Bewegung des Roboters in der Umgebung zu schätzen. Der Algorithmus verwendet ein neuronales Netzwerk, um die Tiefeninformationen der Kameras zu verarbeiten und eine Schätzung der Kamerapositionen und -orientierungen zu generieren.
+
+Im Gegensatz zu anderen SLAM-Verfahren, die auf einer Vielzahl von Features wie Punkten oder Linien basieren, nutzt OBD-SLAM3 Oriented Bounding Boxen (OBBs), um eine robustere Schätzung der Kamerabewegungen und -positionen zu ermöglichen. Die OBBs erlauben eine genauere Modellierung der Umgebung und eine bessere Korrektur von Fehlern, die durch Ungenauigkeiten bei der Berechnung von 3D-Points entstehen können.
+
+Insgesamt ermöglicht OBD-SLAM3 eine genauere und robustere Lokalisierung und Kartierung in dreidimensionalen Umgebungen, was ihn zu einem vielversprechenden Ansatz für autonome Robotikanwendungen macht.
+
+\subsubsection{LSD-SLAM}
+
+LSD-SLAM (Large-Scale Direct Monocular SLAM) ist ein Algorithmus zur simultanen Lokalisierung und Kartierung (SLAM) in Echtzeit, der eine einzelne Kamera verwendet. Im Gegensatz zu anderen SLAM-Methoden, die Merkmale oder Punktwolken verwenden, um eine Karte der Umgebung zu erstellen, nutzt LSD-SLAM eine direkt auf den Bildern basierende Methode. Hierbei werden die Intensitäts- und Gradienteninformationen der Bilder genutzt, um die Kameraposition und -orientierung zu schätzen und eine dichte Punktwolke der Umgebung zu erstellen.
+
+LSD-SLAM wurde von Jakob Engel, Thomas Schöps und Daniel Cremers an der Technischen Universität München entwickelt und im Jahr 2014 vorgestellt. Es hat sich als eine effektive Methode zur SLAM-Problemstellung erwiesen, insbesondere in Umgebungen mit geringer Textur oder schlechter Beleuchtung.
+
+
 
 \subsection{Auswahl Lokalisierungssystem}
 

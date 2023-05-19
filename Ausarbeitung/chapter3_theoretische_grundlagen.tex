@@ -146,7 +146,7 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
     In \ac{ROS} gibt es verschiedene Methoden zur Objekterkennung, die in Robotik-Anwendungen eingesetzt werden können. Die Objekterkennung ist ein wichtiger Schritt in der automatisierten Wahrnehmung von Robotern, da sie es ihnen ermöglicht, ihre Umgebung zu verstehen und darauf zu reagieren.
 
     Eine häufig verwendete Methode zur Objekterkennung in \ac{ROS} ist die Verwendung von 3D-Sensoren wie Lidar oder Kinect. Diese Sensoren erfassen Daten über die Umgebung des Roboters und können dabei helfen, Objekte zu identifizieren und ihre Position und Orientierung im Raum zu bestimmen.
-    \todo{Kinect kein Sensor System}
+
     Eine weitere Methode zur Objekterkennung in \ac{ROS} ist die Verwendung von Bildverarbeitungs-Algorithmen. Dabei können beispielsweise Farb- oder Formmerkmale verwendet werden, um Objekte in Bildern zu erkennen und ihre Position und Ausrichtung zu bestimmen.
 
     Eine weiterentwickelte Methode zur Objekterkennung in \ac{ROS} ist die Verwendung von Deep-Learning-Methoden wie Convolutional Neural Networks (CNNs). Dabei werden CNNs trainiert, um Objekte in Bildern oder Punktwolken zu erkennen und zu klassifizieren. Diese Methode erfordert jedoch ein umfangreiches Training und eine hohe Rechenleistung, um in Echtzeit ausgeführt zu werden.
@@ -155,6 +155,7 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
 
     \subsection{QR-Codes} \label{qr-codes:subsection}
     \ac{ROS} bietet verschiedene Möglichkeiten zur Erkennung von QR-Codes in Robotik-Anwendungen. QR-Codes sind zweidimensionale Barcodes, die Informationen wie URLs, Texte oder andere Daten enthalten können. Die Erkennung von QR-Codes kann in \ac{ROS}-basierten Anwendungen genutzt werden, um Informationen zu lesen, Roboter zu navigieren oder um eine Interaktion mit der Umgebung zu ermöglichen.
+    \todo{können wie eventuell einfach weglassen ? Hat ja nix mit dem eigentlichen Verfahren zu tun}
 
     Es gibt verschiedene \ac{ROS}-Pakete, die die QR-Code-Erkennung erleichtern. Ein Beispiel ist das "zbar\_ros" Paket, das ein Wrapper für die Open-Source-ZBar-Bibliothek ist, die QR-Codes und andere Barcodes erkennt. Das zbar\_ros-Paket ermöglicht es, den Inhalt von QR-Codes aus dem Kamerabild zu extrahieren und als \ac{ROS}-Topic zu veröffentlichen, der von anderen Nodes abonniert werden kann. Das Paket bietet auch Optionen zur Konfiguration der QR-Code-Erkennung, wie beispielsweise die Festlegung der Mindestgröße des Codes oder die Einstellung der Scan-Frequenz.
 
@@ -209,7 +210,9 @@ Der Flugcontroller ist das Herzstück des Regelungssystems und ist in der Lage, 
 
 \subsection{Aufbau Quadrocopter}
 
-Quadroco
+Quadrocopter sind Multicopter mit 4 Rotoren. 
+
+
 \begin{figure}
     \begin{centering}
         \includegraphics[scale=0.6]{images/inertial_body_frames.png}
@@ -317,23 +320,14 @@ Durch einen höheren $K_i$ Faktor reagiert der Regler stärker, führt jedoch au
 Die Kombination dieser drei Komponenten ermöglicht es dem PID-Regler, schnell auf Veränderungen des Prozesses zu reagieren und gleichzeitig stabile Regelungsergebnisse zu erzielen. Die Einstellung der Reglerparameter, wie z.B. des Proportionalitätsfaktors, des Integrationszeitraums und des Differentiationszeitraums, ist jedoch eine wichtige Herausforderung bei der Anwendung von PID-Reglern.
 
 PID-Regler finden in vielen Anwendungen Anwendung, einschließlich Temperaturregelung, Geschwindigkeitsregelung, Positionierung und Flugzeugsteuerung.
+
    
 \subsection{Flightstack}
 
 Der Flightstack eines Multicopters besteht aus mehreren Systemen. Üblicherweise besteht der Flightstack aus Mikrocontrollern, Sensoren, Aktuatoren, GPS-Modul und einer Stromversorgung. Die Sensoren sind dafür zuständig Daten über die aktuelle Fluglage des Multicopters zu sammeln. Daten die gesammelt werden sind Beschleunigung, Neigung, Lage und GPS-Position. Diese Daten werden vom Mikrocontroller verarbeitet um die Steuerung der Aktuatoren zu optimieren. Im Outdoor Flug ermöglicht die Verwendung eines GPS-Moduls die Position des Multicopters zu bestimmen und zu verfolgen.
 
 Da die verbaute Technik auch mit Strom versorgt werden muss, ist ein Akkumulator auf dem Multicopter verbaut. Der Akkumulator stellt die nötige Energie für den Betrieb des Multicopters bereit. Insgesamt ist der FlightStack ein zentrales Element zur Steuerung des Multicopters und erfordert eine sorgfältige Integration und Abstimmung aller Komponenten, um eine zuverlässige und sichere Steuerung zu gewährleisten.
-\subsection{Anforderungen an SLAM Systeme auf Multicoptern}
 
-\begin{itemize}
-    \item[Echtzeitfähigkeit]{Da Multicopter sehr schnell auf Änderungen reagieren müssen, muss der SLAM Algorithmus in Echtzeit arbeiten können. Somit wird sichergestellt, dass genaue und aktuelle Informationen zur Verfügung stehen}
-    \item[Effizienz]
-    \item[Genauigkeit]
-    \item[Robustheit]
-    \item[Skalierbarkeit]    
-\end{itemize}
-
-\ac{SLAM} Systeme auf Multicoptern 
 
 \section{3D-Modelle} \label{3d-modelle:section}
 3D-Modelle sind digitale Nachbildungen von physischen Objekten oder Szenen in drei Dimensionen. Diese Modelle werden in verschiedenen Branchen und Anwendungen eingesetzt, von der Architektur und Ingenieurwesen über Film und Gaming bis hin zur Medizin und dem Design von Produkten.
@@ -396,13 +390,22 @@ Die erfasste Punktwolke wird dann für verschiedene Anwendungen verwendet, wie z
 \section{Positionsbestimmung und Kartenerstellung}
 Positionsbestimmung ist ein wichtiges Thema in vielen Bereichen, wie der Robotik, autonomem Fahren, Navigation und Augmented Reality. Eine der Herausforderungen bei der Positionsbestimmung ist die Erstellung einer genauen Karte der Umgebung, die es dem mobilen Gerät ermöglicht, seine Position darin zu bestimmen. Hier kommen Technologien wie SLAM (Simultaneous Localization and Mapping) und Spatial Mapping zum Einsatz. Beide Ansätze ermöglichen die Erstellung von 3D-Karten der Umgebung, aber sie unterscheiden sich in ihren Methoden und Anwendungen. In dieser Hinsicht sind SLAM und Spatial Mapping wichtige Technologien für die Positionsbestimmung und haben eine breite Anwendung in verschiedenen Branchen gefunden.
 
-    \subsection{Koordinatensysteme}
+\subsection{Koordinatensysteme}
+
+Eine Drohne, die im dreidimensionalen Raum navigiert und visuelles SLAM verwendet, arbeitet mit mehreren Koordinatensystemen, zwischen denen Transformationen durchgeführt werden müssen. Insbesondere visuelles SLAM wird oft mit Inertial- oder IMU-Daten kombiniert, um genaue und robuste Positionsschätzungen zu erhalten.
+
+Für eine Drohne, die im dreidimensionalen Raum navigiert, können die folgenden Koordinatensysteme verwendet werden:
 
 \begin{description}
-    \item[Welt Koordinatensystem] 
+    \item[Weltkoordinatensystem]{Dieses Koordinatensystem stellt die absolute Position und Orientierung der Drohne in Bezug auf die Umgebung dar. Es wird in der Regel als globales Referenzsystem betrachtet und kann z. B. mit \ac{GPS}-Koordinaten oder einem festen Startpunkt definiert werden.}
+    \item[Lokales Koordinatensystem]{Dieses Koordinatensystem wird normalerweise in Verbindung mit visuellem SLAM verwendet und dient der Beschreibung der relativen Bewegungen und Positionen von Merkmalen oder Punkten in der Umgebung der Drohne. Es kann sich z. B. auf einen bestimmten Hauptpunkt oder ein Merkmal beziehen, das als Referenzpunkt für die Positionsbestimmung verwendet wird}
+    \item[Kamerakoordinatensystem]{
+        Dieses Koordinatensystem ist mit der Kamera der Drohne verbunden und bewegt sich mit ihr. . Es wird verwendet, um die Position und Ausrichtung von Punkten im Kamerabild zu beschreiben. In der Regel wird das Kamerakoordinatensystem so definiert, dass die optische Achse der Kamera die Z-Achse bildet und die X- und Y-Achsen in der Bildebene liegen} 
+    \item[\ac{IMU} Koordinatensystem]{Eine Inertialmesseinheit (IMU) in der Drohne misst Beschleunigung und Winkelgeschwindigkeit. Das IMU-Koordinatensystem ist mit der IMU verbunden und bewegt sich mit ihr. Es ist normalerweise so definiert, dass die Z-Achse senkrecht zur Erdanziehung ausgerichtet ist und die X- und Y-Achse entsprechend eingestellt sind.} 
 \end{description}
-    \todo{Koordinatensysteme}
 
+
+Während der Navigation und Lokalisierung kombiniert die Drohne Informationen aus diesen verschiedenen Koordinatensystemen, um genaue Positionsschätzungen zu erhalten. Die Transformationen zwischen den Koordinatensystemen werden unter Berücksichtigung der kinematischen Eigenschaften der Drohne und der Sensorinformationen berechnet, um die genaue Position und Ausrichtung der Drohne im Raum zu bestimmen.
 
 
     \cite[vgl. ]{SWB-1841134112}
@@ -418,13 +421,14 @@ Darüber hinaus verwendet der EKF2 eine modifizierte Version der State Transitio
 In der Drohnensteuerung wird der EKF2-Algorithmus verwendet, um die aktuellen Zustände der Drohne (z.B. Position, Geschwindigkeit, Orientierung) in Echtzeit zu schätzen. Diese Schätzungen werden dann verwendet, um die Steuerbefehle der Drohne zu generieren, um sie auf Kurs zu halten und sicher zu navigieren.z
     
     \subsection{Spatial Mapping} \label{spatial_mapping:subsection}
+
     Spatial Mapping hingegen ist ein Prozess, bei dem eine 3D-Karte der Umgebung auf der Grundlage der Verarbeitung von Kameradaten erstellt wird. Im Gegensatz zum SLAM-Prozess muss das mobile Gerät, das die 3D-Karte erstellt, seine Position in der Umgebung bereits kennen, da es auf der Verarbeitung von Kameradaten basiert. Die Kameras nehmen Bilder auf und wandeln sie in 3D-Punktwolken um, die dann zu einer Karte kombiniert werden. Spatial Mapping wird in Augmented-Reality-Anwendungen und anderen Anwendungen eingesetzt, bei denen eine genaue 3D-Karte der Umgebung benötigt wird.
     Spatial Mapping hat jedoch einige Einschränkungen.
     Es ist schwierig eine genaue Karte zu erstellen, wenn sich das mobile Gerät schnell bewegt oder die Umgebung stark verändert. Außerdem ist die Anwendungsbreite von Spatial Mapping auf Anwendungen beschränkt, bei denen eine genaue Karte ausreichend ist, ohne das eine kontinuierliche Positionsschätzung erforderlich ist.
    
     \subsection{Inertielle Positionsbestimmung} \label{inertielle_positionsbestimmung:subsection}
     Inertiale Positionsbestimmung ist ein weiterer Ansatz zur Positionsbestimmung, der auf der Verwendung von Inertialsensoren wie Gyroskopen und Beschleunigungsmessern basiert. Inertialsensoren messen die Veränderungen der Beschleunigung und der Winkelgeschwindigkeit eines mobilen Geräts, was dazu verwendet werden kann, die Position und Orientierung des Geräts in der Umgebung zu bestimmen. Die Inertiale Positionsbestimmung hat jedoch auch einige Herausforderungen, da die Inertialsensoren anfällig für Driftfehler sind. Diese Fehler können durch die Integration der Beschleunigung und der Winkelgeschwindigkeit über die Zeit entstehen und zu Ungenauigkeiten bei der Positionsbestimmung führen. Um diesen Fehler zu korrigieren können Inertialsensoren mit anderen Sensoren wie Magnetometern oder GPS kombiniert werden.
-    Eine andere Möglichkeit besteht darin, die Inertialsensor-DAten in einen SLAM- oder Spatial Mapping-Prozess zu integrieren, um eine genauere Positionsbestimmung zu erzielen. Durch die Kombination von Inertialsensor-DAten mit visuellen DAten können die Vorteile beider Ansätze genutzt werden und die Nachteile minimiert werden.
+    Eine andere Möglichkeit besteht darin, die Inertialsensor-Daten in einen SLAM- oder Spatial Mapping-Prozess zu integrieren, um eine genauere Positionsbestimmung zu erzielen. Durch die Kombination von Inertialsensor-DAten mit visuellen DAten können die Vorteile beider Ansätze genutzt werden und die Nachteile minimiert werden.
 
 
 Allerdings ist die inertielle Positionsbestimmung anfällig für Fehler, die aufgrund von Drift und Ungenauigkeiten der Inertialsensoren entstehen können. Um diese Fehler zu minimieren, wird die inertielle Positionsbestimmung oft mit anderen Technologien wie GPS oder visuellen Systemen kombiniert. Diese Kombination von Technologien wird auch als Sensorfusion bezeichnet und ermöglicht eine präzisere und robustere Positionsbestimmung in verschiedenen Anwendungen wie Drohnen, autonomen Fahrzeugen und Wearables.
@@ -434,15 +438,39 @@ Allerdings ist die inertielle Positionsbestimmung anfällig für Fehler, die auf
 Der SLAM-Prozess umfasst die simultane Bestimmung der Position eines mobilen Geräts in der Umgebung und die Erstellung einer Karte dieser Umgebung. Dies wird durch die Integration von Daten aus verschiedenen Sensoren wie Kameras, Inertialsensoren und Entfernungsmessern wie Laser-Scannern oder Time-of-Flight-Sensoren erreicht. Der SLAM-Prozess wird oft in der Robotik und in autonomen Fahrzeugen eingesetzt, um eine präzise Karte der Umgebung zu erstellen und sich gleichzeitig darin zu lokalisieren.
 Durch die Kombination der Inertialsensoren mit anderen Sensoren kann eine präzisere und robustere Positionsbestimmung erreicht werden, indem die Vorteile der verschiedenen Technologien kombiniert werden. Die Inertialsensoren können beispielsweise verwendet werden, um die Bewegung des mobilen Geräts zwischen den einzelnen Beobachtungen durch die anderen Sensoren zu messen und die Positions- und Orientierungsdaten der SLAM-Systeme zu korrigieren.
 
-Ein SLAM System besteht aus verschiedenen Teilaspekten.
+Da Multicopter sich im dreidimensionalen Raum bewegen werden im Folgenden nur \ac{SLAM} Verfahren betrachtet die sich im 3 dimensionalen Raum befinden.
 
-\subsubsection{SLAM Grundlagen}
+\subsubsection{Anforderungen an SLAM Systeme auf Multicoptern}
+
+\begin{description}
+    \item[Echtzeitfähigkeit]{Da Multikopter in dynamischen Umgebungen operieren und schnell auf Veränderungen reagieren müssen, ist die Echtzeitfähigkeit des SLAM-Algorithmus entscheidend. Um genaue und aktuelle Informationen zu liefern, muss der SLAM-Algorithmus in der Lage sein, die Daten in Echtzeit zu verarbeiten. Auf diese Weise kann der Multikopter die Umgebung ständig genau wahrnehmen und sicher navigieren}
+    \item[Effizienz]{
+        Effizienz ist ein wichtiger Faktor für den SLAM-Algorithmus in Multicoptern, da Ressourcen wie Rechenleistung und Batteriekapazität begrenzt sind. Effiziente SLAM-Algorithmen minimieren den Ressourcenverbrauch durch den Einsatz optimierter Datenverarbeitungstechniken und Algorithmen. Dadurch wird sichergestellt, dass der Multikopter über längere Zeiträume autonom arbeiten kann, ohne dass die Ressourcen schnell erschöpft sind
+        }
+    \item[Genauigkeit]{Die Genauigkeit des SLAM-Algorithmus wirkt sich direkt auf die Qualität der erstellten Karte und die genaue Lokalisierung des Multikopters aus. Durch die Kombination von Daten aus verschiedenen Sensoren und die Anwendung fortschrittlicher Algorithmen zur Erkennung und Verfolgung von Merkmalen wird eine höhere Genauigkeit erreicht. Dank der präzisen Wahrnehmung und Lokalisierung kann der Multikopter zuverlässig navigieren und Hindernissen in der Umgebung ausweichen}
+    \item[Robustheit]{Der SLAM-Algorithmus muss robust gegenüber Umgebungsbedingungen, Sensorrauschen und unvorhergesehenen Ereignissen sein, um eine zuverlässige Leistung in verschiedenen Situationen zu gewährleisten. Robuste SLAM-Methoden können Rauschen filtern, sensorbedingte Fehler korrigieren und ungenaue Messungen erkennen und berücksichtigen. So bleibt der Multicopter auch in schwierigen Umgebungen stabil und einsatzfähig}
+    \item[Skalierbarkeit]{Die Skalierbarkeit des SLAM-Algorithmus ermöglicht seinen Einsatz auf verschiedenen Plattformen und in unterschiedlichen Umgebungen. Ein skalierbarer SLAM-Algorithmus kann sich an unterschiedliche Sensorkonfigurationen, Multikoptermodelle und Umgebungen anpassen. Dadurch wird sichergestellt, dass der SLAM-Algorithmus auf Multikoptern mit unterschiedlichen Hardwarekapazitäten und -anforderungen effektiv eingesetzt werden kann}
+    \item[3D Kartenerstellung]{Die Fähigkeit zur 3D Kartenerstellung ermöglicht eine detaillierte und umfassende Repräsentation der Umgebung für den Multicopter. Durch die Integration von Daten aus 3D-Sensoren wie Lidar können hochauflösende Punktwolken erstellt werden, die eine präzise Darstellung der räumlichen Struktur bieten. Eine genaue 3D Kartenerstellung ermöglicht dem Multicopter eine genauere Navigation, Hindernisvermeidung und eine bessere Interaktion mit der Umgebung} 
+\end{description}
+
+Zusammenfassend ist es entscheidend, dass der SLAM-Algorithmus in Multikoptern Echtzeitfähigkeit, Effizienz, Genauigkeit, Robustheit, Skalierbarkeit und 3D-Mapping bietet. Wenn diese Anforderungen erfüllt sind, kann der Multikopter autonom in dynamischen Umgebungen navigieren, Hindernissen ausweichen und genaue Karten der Umgebung erstellen. Die kontinuierliche Entwicklung von SLAM-Algorithmen in diesen Bereichen ermöglicht fortschrittlichere und zuverlässigere Multikopter-Anwendungen in verschiedenen Szenarien.
 
 \subsubsection{Datenaquirierung}
 
+Die Datenerfassung umfasst die Erfassung von Informationen von verschiedenen Sensoren, die am Multikopter angebracht sind, wie z. B. Kameras, Lidar und Trägheitsmessgeräte (IMUs). Diese Sensoren liefern verschiedene Arten von Daten, die für \ac{SLAM} unerlässlich sind. Kameras erfassen visuelle Bilder der Umgebung und ermöglichen die Erkennung und Verfolgung von Merkmalen, was in visuellen \ac{SLAM}-Algorithmen häufig verwendet wird. Lidar-Sensoren hingegen senden Laserstrahlen aus, um Entfernungen zu Objekten zu messen, und liefern präzise 3D-Punktwolkendaten. \ac{IMU}s helfen bei der Erfassung der Orientierung, Beschleunigung und Winkelgeschwindigkeit des Multicopters.
+In Abbildung \ref{fig:slam-sensors} werden die Sensoren, die für \ac{SLAM} verwendet werden genau erklärt.
+
+\begin{figure}
+\begin{description}
+    \item[Kameras] Kameras werden bei Multicopter-SLAM in großem Umfang zur visuellen Datenerfassung eingesetzt. Sie erfassen Bilder der Umgebung, die anschließend für die Erkennung und Verfolgung von Merkmalen verarbeitet werden. Kamerabasierte SLAM-Algorithmen extrahieren visuelle Merkmale, wie z. B. Ecken oder Eckpunkte, und verfolgen sie über die Zeit, um die Position und Ausrichtung des Multikopters zu schätzen. Allerdings kann die Genauigkeit der kamerabasierten Datenerfassung durch Probleme wie Verdeckungen, Beleuchtungsschwankungen und Bildrauschen beeinträchtigt werden.
+    \item[Lidar]Lidar-Sensoren liefern präzise Tiefeninformationen, indem sie Laserstrahlen aussenden und die Zeit messen, die die Strahlen benötigen, um zurückzukehren. Dies ermöglicht die Erzeugung von 3D-Punktwolken, die für die Umgebungskartierung bei Multicopter-SLAM von unschätzbarem Wert sind. Die Lidar-basierte Datenerfassung bietet Vorteile wie Robustheit gegenüber Lichtverhältnissen und die Fähigkeit, feinkörnige geometrische Details zu erfassen. Dennoch müssen Herausforderungen wie ein begrenztes Sichtfeld, Sensorinterferenzen und Rechenanforderungen für eine effektive Integration von Lidar-Daten in SLAM-Systeme berücksichtigt werden.
+    \item[IMUs]IMUs bestehen aus Beschleunigungsmessern und Gyroskopen, die die lineare Beschleunigung bzw. die Winkelgeschwindigkeit messen. Diese Sensoren liefern wichtige Bewegungsinformationen für das SLAM von Multikoptern, indem sie Änderungen der Fluglage des Multikopters im Laufe der Zeit schätzen. IMUs tragen zur Vorhersage und Korrektur der Flugbahn des Multikopters während der Kartierungs- und Lokalisierungsprozesse bei. Allerdings können inhärentes Sensorrauschen und Drift die Genauigkeit der IMU-Daten beeinträchtigen, so dass Kalibrierungs- und Fusionstechniken für eine optimale Nutzung erforderlich sind.  
+\end{description}
+\label{fig:slam-sensors}\caption{SLAM Sensoren}
+\end{figure}
 
 
-\subsubsection{Punktwolken}
+\subsubsection{Punktwolkentransformation bei Kameras}
 
 Punktwolken sind ein zentraler Bestandteil von 3D-Modellen und werden in verschiedenen Anwendungen wie 3D-Rekonstruktion, Objekterkennung und Augmented Reality eingesetzt. Sie stellen eine dreidimensionale Repräsentation der realen Welt dar und bestehen aus einer großen Anzahl von Punkten, die die räumliche Struktur und Form der Objekte in der Szene beschreiben.
 
@@ -517,21 +545,6 @@ Zusammenfassend ermöglicht die Odometrie bei Multicoptern eine präzise Bestimm
 
 \subsection{SLAM-Verfahren}
 
-\subsubsection{OBD-SLAM3}
-
-BD-SLAM3 ist eine Erweiterung des OBD-SLAM (Oriented Bounding Box SLAM) Algorithmus, der für die simultane Lokalisierung und Kartierung (SLAM) in dreidimensionalen Umgebungen entwickelt wurde. Im Gegensatz zu OBD-SLAM verwendet OBD-SLAM3 jedoch eine tiefere Netzwerkarchitektur, um die Leistung und Genauigkeit der Odometrie und der visuellen Wahrnehmung zu verbessern.
-
-OBD-SLAM3 nutzt eine Kombination aus Tiefenkameras und RGB-Kameras, um eine 3D-Repräsentation der Umgebung zu erstellen und gleichzeitig die Bewegung des Roboters in der Umgebung zu schätzen. Der Algorithmus verwendet ein neuronales Netzwerk, um die Tiefeninformationen der Kameras zu verarbeiten und eine Schätzung der Kamerapositionen und -orientierungen zu generieren.
-
-Im Gegensatz zu anderen SLAM-Verfahren, die auf einer Vielzahl von Features wie Punkten oder Linien basieren, nutzt OBD-SLAM3 Oriented Bounding Boxen (OBBs), um eine robustere Schätzung der Kamerabewegungen und -positionen zu ermöglichen. Die OBBs erlauben eine genauere Modellierung der Umgebung und eine bessere Korrektur von Fehlern, die durch Ungenauigkeiten bei der Berechnung von 3D-Points entstehen können.
-
-Insgesamt ermöglicht OBD-SLAM3 eine genauere und robustere Lokalisierung und Kartierung in dreidimensionalen Umgebungen, was ihn zu einem vielversprechenden Ansatz für autonome Robotikanwendungen macht.
-
-\subsubsection{LSD-SLAM}
-
-LSD-SLAM (Large-Scale Direct Monocular SLAM) ist ein Algorithmus zur simultanen Lokalisierung und Kartierung (SLAM) in Echtzeit, der eine einzelne Kamera verwendet. Im Gegensatz zu anderen SLAM-Methoden, die Merkmale oder Punktwolken verwenden, um eine Karte der Umgebung zu erstellen, nutzt LSD-SLAM eine direkt auf den Bildern basierende Methode. Hierbei werden die Intensitäts- und Gradienteninformationen der Bilder genutzt, um die Kameraposition und -orientierung zu schätzen und eine dichte Punktwolke der Umgebung zu erstellen.
-
-LSD-SLAM wurde von Jakob Engel, Thomas Schöps und Daniel Cremers an der Technischen Universität München entwickelt und im Jahr 2014 vorgestellt. Es hat sich als eine effektive Methode zur SLAM-Problemstellung erwiesen, insbesondere in Umgebungen mit geringer Textur oder schlechter Beleuchtung.
 
 
 
