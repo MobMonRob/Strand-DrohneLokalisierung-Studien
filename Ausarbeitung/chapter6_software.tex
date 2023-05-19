@@ -25,6 +25,54 @@ Es ist auch möglich mit QGroundControl eine ganze Flugplanung zu machen, welche
 
 \section{Systemarchitektur}
 
+\subsection{Allgemeine Systemarchitektur eines ROS Programms}
+Das Robot Operating System (ROS) hat den Bereich der Robotik revolutioniert, indem es einen robusten und flexiblen Rahmen für die Entwicklung komplexer Robotersysteme bietet. Das Herzstück von ROS ist seine ausgeklügelte Systemarchitektur, die das Zusammenspiel zwischen verschiedenen Komponenten orchestriert und eine nahtlose Kommunikation und Koordination ermöglicht.
+
+\subsubsection{Zentrale Konzepte}
+\begin{description}
+    \item[Nodes:] Nodes sind autonome Softwaremodule, die bestimmte Aufgaben innerhalb eines ROS-Systems übernehmen. Sie kommunizieren miteinander, indem sie Nachrichten zu Themen veröffentlichen und abonnieren oder indem sie Services aufrufen und bereitstellen. Nodes können über mehrere Maschinen verteilt sein und bilden so ein verteiltes System.
+    
+    \item[Topics:] Topics sind benannte Busse, über die Nodes Nachrichten austauschen. Nachrichten werden von einem oder mehreren Nodes in Topics veröffentlicht und von Nodes abonniert, die am Empfang der Daten interessiert sind. Topics verwenden ein Publish-Subscribe-Messaging-Muster, das eine asynchrone Kommunikation ermöglicht und die Sender- und Empfängernodes entkoppelt.
+    
+    \item[Messages:] Nachrichten sind die Datenstrukturen, die für die Kommunikation zwischen Nodes verwendet werden. Sie werden in ROS mithilfe der Interface-Definition Language (IDL) oder Nachrichtenbeschreibungsdateien (.msg) definiert. Nachrichten können einfach sein, z. B. numerische Werte oder Zeichenketten, oder komplex, bestehend aus verschachtelten Strukturen und Arrays.
+    
+    \item[Services:] Services ermöglichen eine synchrone Anfrage-Antwort-Kommunikation zwischen Nodes. Ein Node bietet einen Service an, und andere Node können Anfragen an ihn senden. Die Dienstnode verarbeitet dann die Anforderung und sendet eine Antwort an den anfordernden Node zurück. Services werden mithilfe von .srv-Dateien definiert und folgen einem Client-Server-Kommunikationsmuster.
+\end{description}
+
+\subsubsection{Schichten der ROS-Systemarchitektur}
+\begin{description}
+    \item[Dateisystem-Ebene:] Die Dateisystem-Ebene in \ac{ROS} spielt eine entscheidende Rolle bei der Organisation und Verwaltung der für die Entwicklung von Roboteranwendungen erforderlichen Ressourcen. Sie bietet eine hierarchische Struktur und Paketverwaltungsfunktionen, die es Entwicklern ermöglichen, ihren Code, ihre Konfigurationsdateien, Startdateien und Daten effizient zu organisieren. Die \ac{ROS} Filesystem-Ebene dient als Grundlage für den Aufbau modularer und wiederverwendbarer Softwarekomponenten innerhalb des \ac{ROS}-Ökosystems.
+
+    Der Kern der \ac{ROS} Filesystem-Ebene ist das Konzept der Pakete. Ein Paket in \ac{ROS} ist eine Verzeichnisstruktur, die eine Sammlung zusammengehöriger Dateien enthält, einschließlich Code, Konfigurationsdateien und Datenressourcen. Pakete bieten einen modularen Ansatz zur Organisation von Code und erleichtern die Wiederverwendung von Code über verschiedene Projekte hinweg. Sie kapseln eine bestimmte Funktionalität oder ein Merkmal und können unabhängig entwickelt, getestet und verteilt werden.
+    
+    Die \ac{ROS}-Dateisystem-Ebene folgt einem auf Konventionen basierenden Ansatz für die Organisation von Paketen. Ein typisches \ac{ROS}-Paket enthält eine Manifestdatei namens package.xml, die Metadaten und Abhängigkeiten für das Paket enthält. Darüber hinaus folgt die Verzeichnisstruktur des Pakets einem bestimmten Layout, mit Verzeichnissen wie src für Quellcode, launch für Startdateien, msg für Nachrichten-Definitionsdateien und config für Konfigurationsdateien. Diese einheitliche Struktur verbessert die Zusammenarbeit und ermöglicht es den Entwicklern, Ressourcen innerhalb eines Pakets leicht zu finden und darauf zuzugreifen.
+    
+    Die Paketverwaltungswerkzeuge in \ac{ROS} bieten wichtige Funktionen für die Verwaltung von Paketen. Das Werkzeug rospack ermöglicht es Benutzern, Pakete im Dateisystem zu finden und Informationen über ihre Abhängigkeiten abzurufen. Es hilft beim Auffinden von Paketpfaden, beim Abrufen von Paket-Metadaten und beim Auflösen von Paketabhängigkeiten. Das Werkzeug rosdep kümmert sich um die Installation von Paketabhängigkeiten, indem es automatisch die von \ac{ROS}-Paketen benötigten Abhängigkeiten auf Systemebene auflöst und installiert.
+    
+    Darüber hinaus unterhält die \ac{ROS}-Community ein zentrales Paket-Repository, den \ac{ROS} Package Index (https://index.ros.org/packages/). Der \ac{ROS} Package Index ist eine umfassende Sammlung von \ac{ROS}-Paketen, die von Entwicklern weltweit zur Verfügung gestellt werden. Er dient als wertvolle Ressource für die Entdeckung und den Austausch von Paketen und fördert die Zusammenarbeit und die Wiederverwendung von Code innerhalb des \ac{ROS}-Ökosystems.
+    
+    \item[Berechnungsgraphen-Schicht:] Die Berechnungsgraphenschicht ist das Rückgrat von ROS und verwaltet die Interaktionen zwischen den Nodes. Sie visualisiert die Beziehungen zwischen Nodes, Topics und Services in Form eines gerichteten Graphen und ermöglicht so ein klares Verständnis der Systemarchitektur. Der Graph erleichtert die Weitergabe von Nachrichten, die Synchronisation und die Koordination zwischen den Nodes.
+    
+    \item[Kommunikationsschicht:] ROS verwendet Middleware, wie z. B. die Robot Communication Middleware (RCM) oder FastRTPS, um Kommunikationsdetails auf niedriger Ebene zu behandeln. Die Kommunikationsschicht kümmert sich um die Serialisierung von Nachrichten, Transportprotokolle und Netzwerkkommunikation und abstrahiert diese Komplexitäten vom Entwickler. Diese Schicht gewährleistet eine zuverlässige und effiziente Kommunikation zwischen den Nodes.
+    
+    \item[Schicht der Client-Bibliotheken:] ROS bietet Client-Bibliotheken in mehreren Programmiersprachen, darunter C++, Python und andere. Diese Bibliotheken bieten High-Level-Abstraktionen und APIs für Entwickler, um ROS-Nodes zu schreiben und mit dem System zu interagieren. Die Client-Bibliotheken vereinfachen den Entwicklungsprozess, indem sie gebrauchsfertige Funktionen zum Erstellen von Nodes, zum Veröffentlichen und Abonnieren von Topics und zum Aufrufen von Services bereitstellen.
+    
+    \item[Tools-Schicht:] ROS bietet eine Vielzahl von Werkzeugen, die bei der Entwicklung, Fehlersuche und Analyse von ROS-Programmen helfen. Tools wie RViz bieten 3D-Visualisierungsfunktionen, mit denen Entwickler den Zustand und die Umgebung des Roboters visualisieren können. Andere Tools wie rosbag ermöglichen die Aufzeichnung und Wiedergabe von Nachrichtendaten zur Offline-Analyse und Fehlersuche. Die Werkzeugebene steigert die Produktivität und erleichtert eine umfassende Systemanalyse.
+    
+    \item[Betriebssystem-Schicht:] Die Betriebssystemschicht stellt die zugrundeliegende Infrastruktur bereit, die für den Betrieb von ROS notwendig ist, einschließlich Hardwareabstraktion, Gerätetreiber und Prozessmanagement. ROS ist mit verschiedenen Betriebssystemen wie Linux, macOS und Windows kompatibel und gewährleistet so die Portabilität über verschiedene Plattformen hinweg.
+\end{description}
+
+\subsubsection{Schlüsselkomponenten}
+\begin{description}
+    \item[ROS-Master:] Der ROS-Master ist ein zentraler Benennungs- und Registrierungsdienst, der die Erkennung von Nodes und die Weitergabe von Nachrichten erleichtert. Er verfolgt aktive Nodes, verwaltet Themen- und Dienstregistrierungen und hilft beim Aufbau von Verbindungen zwischen Herausgebern und Abonnenten.
+    
+    \item[Launch-System:] Das Launch-System ermöglicht es Benutzern, die Launchdateien zu definieren und zu verwalten, die die Konfigurations- und Startparameter für den Betrieb eines ROS-Systems festlegen. Launchdateien erleichtern das Starten mehrerer Nodes mit ihren jeweiligen Parametern und vereinfachen den Initialisierungsprozess.
+    
+    \item[Parameter-Server:] Der Parameter-Server ist ein verteilter Key-Value-Speicher, der es den Nodes ermöglicht, Parameter gemeinsam zu nutzen und dynamisch darauf zuzugreifen. Die Nodes können Konfigurationsparameter, Kalibrierungswerte oder andere gemeinsam genutzte Daten auf dem Parameter-Server speichern, wodurch sich das Systemverhalten zur Laufzeit leicht konfigurieren und ändern lässt.
+    
+    \item[ROS-Bags:] ROS-Bags ermöglichen die Aufzeichnung und Wiedergabe von Nachrichten und bieten einen praktischen Mechanismus für Datenprotokollierung, Fehlersuche und Analyse. Entwickler können Nachrichtenströme aufzeichnen und in einer Bag-Datei speichern, die später zur Offline-Analyse wiedergegeben oder zur Simulation von Eingaben während des Testens verwendet werden kann.
+\end{description}
+
 \section{Softwarearchitektur}
 \todo{Beschreibung Mavros}
 
