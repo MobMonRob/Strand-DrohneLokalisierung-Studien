@@ -95,10 +95,6 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
     Die \ac{ROS} Version, welche für diese Arbeit verwendet wurde, ist die Version "ROS Noetic Ninjemys". Diese ist die neuste ROS 1 Version mit long term support. Das Betriebssystem, auf welches die Version abzielt, ist Ubuntu 20.04 (Focal). Dementsprechend wurde auch Ubuntu 20.04 für diese Arbeit verwendet.
     \todo{zu Software Implementierung?}
 
-    \subsection{Ebenen von ROS} \label{Ebenen von ROS:subsection}
-    Wie in \cite{ROSconcepts}
-    \todo{schreiben?}
-
     \subsection{ROS-Distributionen} \label{ROS-Distributionen:subsection}
     Eine ROS-Distribution besteht aus einem festgelegten und visionierten Set von ROS-Paketen. Vergelichbar ist dieses System mit den Linux-Distributionen wie z.B. Ubuntu. Der Hauptzweck von ROS-Distributionen besteht darin, Entwicklern eine relativ stabile Codebasis zu bieten, damit sie daran weiterarbeiten können. Sobald eine Distribution veröffentlicht wurde, werden Änderungen hauptsächlich auf Fehlerbehebungen und nicht-zerstörerische Verbesserungen für die Kernpakete (alles unter ros-desktop-full) beschränkt. Somit ist das "Umziehen" auf eine neue Distribution weniger Fehleranfällig und einfacher. Dies gilt im Allgemeinen für die gesamte ROS-Community, jedoch sind die Regeln für "höhere" Pakete weniger streng und somit liegt es an den Verantwortlichen eines spezifischen Pakets, zerstörende Änderungen zu vermeiden \cite[vgl.][]{ROScontributions}.
 
@@ -142,27 +138,7 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
 
     Das Publish-Subscribe-Pattern ist ein grundlegendes Konzept in \ac{ROS} und wird in der Regel für die Kommunikation zwischen Nodes verwendet. Es ermöglicht eine effektive und modulare Datenverarbeitung in verteilten Systemen und ist ein wesentlicher Bestandteil von \ac{ROS}, um komplexe Robotik-Anwendungen zu realisieren.
 
-    \subsection{Objekterkennung} \label{objekterkennung:subsection}
-    In \ac{ROS} gibt es verschiedene Methoden zur Objekterkennung, die in Robotik-Anwendungen eingesetzt werden können. Die Objekterkennung ist ein wichtiger Schritt in der automatisierten Wahrnehmung von Robotern, da sie es ihnen ermöglicht, ihre Umgebung zu verstehen und darauf zu reagieren.
-
-    Eine häufig verwendete Methode zur Objekterkennung in \ac{ROS} ist die Verwendung von 3D-Sensoren wie Lidar oder Kinect. Diese Sensoren erfassen Daten über die Umgebung des Roboters und können dabei helfen, Objekte zu identifizieren und ihre Position und Orientierung im Raum zu bestimmen.
-
-    Eine weitere Methode zur Objekterkennung in \ac{ROS} ist die Verwendung von Bildverarbeitungs-Algorithmen. Dabei können beispielsweise Farb- oder Formmerkmale verwendet werden, um Objekte in Bildern zu erkennen und ihre Position und Ausrichtung zu bestimmen.
-
-    Eine weiterentwickelte Methode zur Objekterkennung in \ac{ROS} ist die Verwendung von Deep-Learning-Methoden wie Convolutional Neural Networks (CNNs). Dabei werden CNNs trainiert, um Objekte in Bildern oder Punktwolken zu erkennen und zu klassifizieren. Diese Methode erfordert jedoch ein umfangreiches Training und eine hohe Rechenleistung, um in Echtzeit ausgeführt zu werden.
-
-    Die Objekterkennung ist ein wichtiger Schritt in der automatisierten Wahrnehmung von Robotern, da sie es ihnen ermöglicht, ihre Umgebung zu verstehen und darauf zu reagieren. \ac{ROS} bietet verschiedene Methoden zur Objekterkennung, die in Robotik-Anwendungen eingesetzt werden können. Die Wahl der richtigen Methode hängt von den Anforderungen der Anwendung ab und erfordert oft eine sorgfältige Abwägung zwischen Genauigkeit, Geschwindigkeit und Komplexität.
-
-    \subsection{QR-Codes} \label{qr-codes:subsection}
-    \ac{ROS} bietet verschiedene Möglichkeiten zur Erkennung von QR-Codes in Robotik-Anwendungen. QR-Codes sind zweidimensionale Barcodes, die Informationen wie URLs, Texte oder andere Daten enthalten können. Die Erkennung von QR-Codes kann in \ac{ROS}-basierten Anwendungen genutzt werden, um Informationen zu lesen, Roboter zu navigieren oder um eine Interaktion mit der Umgebung zu ermöglichen.
-    \todo{können wie eventuell einfach weglassen ? Hat ja nix mit dem eigentlichen Verfahren zu tun}
-
-    Es gibt verschiedene \ac{ROS}-Pakete, die die QR-Code-Erkennung erleichtern. Ein Beispiel ist das "zbar\_ros" Paket, das ein Wrapper für die Open-Source-ZBar-Bibliothek ist, die QR-Codes und andere Barcodes erkennt. Das zbar\_ros-Paket ermöglicht es, den Inhalt von QR-Codes aus dem Kamerabild zu extrahieren und als \ac{ROS}-Topic zu veröffentlichen, der von anderen Nodes abonniert werden kann. Das Paket bietet auch Optionen zur Konfiguration der QR-Code-Erkennung, wie beispielsweise die Festlegung der Mindestgröße des Codes oder die Einstellung der Scan-Frequenz.
-
-    Ein weiteres \ac{ROS}-Paket, das die QR-Code-Erkennung erleichtert, ist das "ros\_qr\_detector" Paket. Dieses Paket basiert auf der OpenCV-Bibliothek und bietet eine einfache Möglichkeit, QR-Codes in \ac{ROS}-basierten Anwendungen zu erkennen. Das Paket bietet auch die Möglichkeit, QR-Codes aus der Kamerabildanzeige auszuschneiden und als separate Bilder zu speichern.
-
-    Die Erkennung von QR-Codes in \ac{ROS}-Anwendungen kann für verschiedene Anwendungsfälle nützlich sein. Beispielsweise können QR-Codes als Marker verwendet werden.
-    \todo{lassen wenn nicht verwendet?}
+    
 
     \subsection{Starten eines ROS Programms} \label{starten eines ROS Programms:subsection}
     Zum Starten verschiedener Nodes in \ac{ROS} wird das ROS-eigene Tool roslaunch verwendet. Roslaunch ist ein mächtiges Werkzeug für die Konfiguration, das Starten und die Überwachung von ROS-Paketen und -Nodes. Mit roslaunch können Entwickler schnell und einfach Nodes starten, indem sie eine XML-Datei erstellen, die alle notwendigen Konfigurationen enthält. Die XML-Datei wird als Launch-Datei bezeichnet und wird in der Regel von Entwicklern erstellt, um eine oder mehrere ROS-Knoten gleichzeitig zu starten und zu konfigurieren.
