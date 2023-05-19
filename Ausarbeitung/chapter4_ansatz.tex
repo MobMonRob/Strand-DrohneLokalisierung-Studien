@@ -19,7 +19,22 @@ In Abbildung \ref{fig:vorgehensweise} sind die 2 Vorgehensweisen die wir uns aus
 
 \subsection{Auswahl SLAM Algorithmus}
 
-Mehrere \ac{SLAM} Algorithmen standen zur Auswahl, aufgrund der limitierten Performance des Raspberry PIs, haben wir den Algorithmus mit den kleinsten Anforderungen gewählt.
+Es wurden mehrere \ac{SLAM}-Algorithmen in Betracht gezogen, und aufgrund der begrenzten Leistung des Raspberry Pi haben wir den Algorithmus mit den geringsten Anforderungen ausgewählt. Dazu haben wir eine gewichtete Analyse erstellt um den für unsere Zwecke bestens geeigneten \ac{SLAM} Algorithmus zu verwenden. Die Gewichte sehen Sie in Tabelle \ref{tab:vergleich-gewichtung-slam}, die Kriterien in \ref{tab:vergleich-kriterien-slam} und das Ergebnis in \ref{tab:vergleich-slam}
+
+Bei der Bewertung von SLAM-Algorithmen gibt es mehrere Punkte, die zur Messung der Qualität und Eignung eines SLAM-Verfahrens herangezogen werden können.
+
+\begin{description}
+    \item[Genauigkeit]{Die Genauigkeit eines SLAM-Algorithmus bezieht sich darauf, wie genau die geschätzten Positionen und Kartendarstellungen mit den tatsächlichen Werten übereinstimmen. Eine höhere Genauigkeit ist für eine präzise Navigation und Kartierung wünschenswert}
+    \item[Robustheit]{SLAM-Algorithmen sollten robust gegenüber Schwankungen in der Umgebung sein und mit schwierigen Bedingungen wie dynamischen Objekten, Verdeckungen oder Beleuchtungsänderungen umgehen können. Ein robuster Algorithmus behält selbst bei diesen Faktoren genaue Schätzungen bei} 
+    \item[Skalierbarkeit]{Skalierbarkeit ist wichtig, wenn es um groß angelegte Kartierungsszenarien oder lang andauernde Operationen geht. Ein Algorithmus sollte in der Lage sein, wachsende Datenmengen zu verarbeiten, z. B. größere Umgebungen oder längere Einsatzzeiten, ohne dass die Leistung signifikant abnimmt}
+    \item[Leistung in Echtzeit]{Die Echtzeitfähigkeit ist für viele Anwendungen entscheidend, insbesondere in der Robotik oder der erweiterten Realität. SLAM-Algorithmen sollten in der Lage sein, Sensordaten zu verarbeiten und Schätzungen in Echtzeit zu aktualisieren, um zeitnahe und reaktionsfähige Informationen zu liefern}
+    \item[Berechnungseffizienz]{SLAM-Algorithmen sollten rechnerisch effizient sein, insbesondere bei ressourcenbeschränkten Plattformen wie dem Raspberry Pi. Es ist wichtig, einen Algorithmus zu wählen, der ein ausgewogenes Verhältnis zwischen Genauigkeit und Rechenanforderungen herstellt und eine optimale Leistung auf der gewählten Hardware gewährleistet}
+    \item[Fähigkeit zur Sensorfusion]{Die Integration mehrerer Sensoren, wie z. B. Kameras, Inertialmesseinheiten (IMUs) oder Tiefensensoren, kann die SLAM-Leistung verbessern. Algorithmen, die Informationen von verschiedenen Sensoren effektiv fusionieren können, liefern oft genauere und zuverlässigere Ergebnisse}
+    \item[Kartendarstellung]{Die Qualität und Darstellung der erzeugten Karte kann ebenfalls ein wichtiger Faktor sein. Ein guter SLAM-Algorithmus sollte Karten erzeugen, die geometrisch konsistent, visuell informativ und für nachfolgende Aufgaben oder Analysen nützlich sind} 
+    \item[Open-Source-Verfügbarkeit]{Die Verfügbarkeit von Open-Source-Implementierungen und einer unterstützenden Gemeinschaft kann von Vorteil sein. Open-Source-SLAM-Algorithmen profitieren oft von kontinuierlicher Entwicklung, Fehlerkorrekturen und Beiträgen der Community, was sie zuverlässiger und an spezifische Anforderungen anpassbar macht}
+\end{description}
+
+Zur Bewertung der \ac{SLAM} Algorithmen haben wir folgende Messungen als Referenz genommen \cite{ragot:hal-04071273}
 
 \subsubsection{OBD-SLAM3}
 

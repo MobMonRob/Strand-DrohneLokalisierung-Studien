@@ -153,6 +153,8 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
 
     Die Objekterkennung ist ein wichtiger Schritt in der automatisierten Wahrnehmung von Robotern, da sie es ihnen ermöglicht, ihre Umgebung zu verstehen und darauf zu reagieren. \ac{ROS} bietet verschiedene Methoden zur Objekterkennung, die in Robotik-Anwendungen eingesetzt werden können. Die Wahl der richtigen Methode hängt von den Anforderungen der Anwendung ab und erfordert oft eine sorgfältige Abwägung zwischen Genauigkeit, Geschwindigkeit und Komplexität.
 
+    \todo{unnötig ? rausmachen!!}
+
     \subsection{QR-Codes} \label{qr-codes:subsection}
     \ac{ROS} bietet verschiedene Möglichkeiten zur Erkennung von QR-Codes in Robotik-Anwendungen. QR-Codes sind zweidimensionale Barcodes, die Informationen wie URLs, Texte oder andere Daten enthalten können. Die Erkennung von QR-Codes kann in \ac{ROS}-basierten Anwendungen genutzt werden, um Informationen zu lesen, Roboter zu navigieren oder um eine Interaktion mit der Umgebung zu ermöglichen.
     \todo{können wie eventuell einfach weglassen ? Hat ja nix mit dem eigentlichen Verfahren zu tun}
@@ -162,7 +164,7 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
     Ein weiteres \ac{ROS}-Paket, das die QR-Code-Erkennung erleichtert, ist das "ros\_qr\_detector" Paket. Dieses Paket basiert auf der OpenCV-Bibliothek und bietet eine einfache Möglichkeit, QR-Codes in \ac{ROS}-basierten Anwendungen zu erkennen. Das Paket bietet auch die Möglichkeit, QR-Codes aus der Kamerabildanzeige auszuschneiden und als separate Bilder zu speichern.
 
     Die Erkennung von QR-Codes in \ac{ROS}-Anwendungen kann für verschiedene Anwendungsfälle nützlich sein. Beispielsweise können QR-Codes als Marker verwendet werden.
-    \todo{lassen wenn nicht verwendet?}
+    \todo{weglassen wenn nicht verwendet?}
 
     \subsection{Starten eines ROS Programms} \label{starten eines ROS Programms:subsection}
     Zum Starten verschiedener Nodes in \ac{ROS} wird das ROS-eigene Tool roslaunch verwendet. Roslaunch ist ein mächtiges Werkzeug für die Konfiguration, das Starten und die Überwachung von ROS-Paketen und -Nodes. Mit roslaunch können Entwickler schnell und einfach Nodes starten, indem sie eine XML-Datei erstellen, die alle notwendigen Konfigurationen enthält. Die XML-Datei wird als Launch-Datei bezeichnet und wird in der Regel von Entwicklern erstellt, um eine oder mehrere ROS-Knoten gleichzeitig zu starten und zu konfigurieren.
@@ -388,6 +390,7 @@ Die erfasste Punktwolke wird dann für verschiedene Anwendungen verwendet, wie z
 
 
 \section{Positionsbestimmung und Kartenerstellung}
+\label{positionsbestimmung:section}
 Positionsbestimmung ist ein wichtiges Thema in vielen Bereichen, wie der Robotik, autonomem Fahren, Navigation und Augmented Reality. Eine der Herausforderungen bei der Positionsbestimmung ist die Erstellung einer genauen Karte der Umgebung, die es dem mobilen Gerät ermöglicht, seine Position darin zu bestimmen. Hier kommen Technologien wie SLAM (Simultaneous Localization and Mapping) und Spatial Mapping zum Einsatz. Beide Ansätze ermöglichen die Erstellung von 3D-Karten der Umgebung, aber sie unterscheiden sich in ihren Methoden und Anwendungen. In dieser Hinsicht sind SLAM und Spatial Mapping wichtige Technologien für die Positionsbestimmung und haben eine breite Anwendung in verschiedenen Branchen gefunden.
 
 \subsection{Koordinatensysteme}
@@ -433,14 +436,18 @@ In der Drohnensteuerung wird der EKF2-Algorithmus verwendet, um die aktuellen Zu
 
 Allerdings ist die inertielle Positionsbestimmung anfällig für Fehler, die aufgrund von Drift und Ungenauigkeiten der Inertialsensoren entstehen können. Um diese Fehler zu minimieren, wird die inertielle Positionsbestimmung oft mit anderen Technologien wie GPS oder visuellen Systemen kombiniert. Diese Kombination von Technologien wird auch als Sensorfusion bezeichnet und ermöglicht eine präzisere und robustere Positionsbestimmung in verschiedenen Anwendungen wie Drohnen, autonomen Fahrzeugen und Wearables.
 
-\subsection{SLAM}\label{SLAM:section} \label{positionsbestimmung:section}
+\subsection{SLAM}
+
+Ein weitere Prozess zur Erstellung von Karten und gleichzeitiger Lokalisierung ist \ac{SLAM}. 
+In Kapitel \ref{SLAM:section} wird auf \ac{SLAM} ausführlich eingegangen
+\section{SLAM}\label{SLAM:section} 
 
 Der SLAM-Prozess umfasst die simultane Bestimmung der Position eines mobilen Geräts in der Umgebung und die Erstellung einer Karte dieser Umgebung. Dies wird durch die Integration von Daten aus verschiedenen Sensoren wie Kameras, Inertialsensoren und Entfernungsmessern wie Laser-Scannern oder Time-of-Flight-Sensoren erreicht. Der SLAM-Prozess wird oft in der Robotik und in autonomen Fahrzeugen eingesetzt, um eine präzise Karte der Umgebung zu erstellen und sich gleichzeitig darin zu lokalisieren.
 Durch die Kombination der Inertialsensoren mit anderen Sensoren kann eine präzisere und robustere Positionsbestimmung erreicht werden, indem die Vorteile der verschiedenen Technologien kombiniert werden. Die Inertialsensoren können beispielsweise verwendet werden, um die Bewegung des mobilen Geräts zwischen den einzelnen Beobachtungen durch die anderen Sensoren zu messen und die Positions- und Orientierungsdaten der SLAM-Systeme zu korrigieren.
 
 Da Multicopter sich im dreidimensionalen Raum bewegen werden im Folgenden nur \ac{SLAM} Verfahren betrachtet die sich im 3 dimensionalen Raum befinden.
 
-\subsubsection{Anforderungen an SLAM Systeme auf Multicoptern}
+\subsection{Anforderungen an SLAM Systeme auf Multicoptern}
 
 \begin{description}
     \item[Echtzeitfähigkeit]{Da Multikopter in dynamischen Umgebungen operieren und schnell auf Veränderungen reagieren müssen, ist die Echtzeitfähigkeit des SLAM-Algorithmus entscheidend. Um genaue und aktuelle Informationen zu liefern, muss der SLAM-Algorithmus in der Lage sein, die Daten in Echtzeit zu verarbeiten. Auf diese Weise kann der Multikopter die Umgebung ständig genau wahrnehmen und sicher navigieren}
@@ -455,22 +462,21 @@ Da Multicopter sich im dreidimensionalen Raum bewegen werden im Folgenden nur \a
 
 Zusammenfassend ist es entscheidend, dass der SLAM-Algorithmus in Multikoptern Echtzeitfähigkeit, Effizienz, Genauigkeit, Robustheit, Skalierbarkeit und 3D-Mapping bietet. Wenn diese Anforderungen erfüllt sind, kann der Multikopter autonom in dynamischen Umgebungen navigieren, Hindernissen ausweichen und genaue Karten der Umgebung erstellen. Die kontinuierliche Entwicklung von SLAM-Algorithmen in diesen Bereichen ermöglicht fortschrittlichere und zuverlässigere Multikopter-Anwendungen in verschiedenen Szenarien.
 
-\subsubsection{Datenaquirierung}
+\subsection{Datenaquirierung}
 
 Die Datenerfassung umfasst die Erfassung von Informationen von verschiedenen Sensoren, die am Multikopter angebracht sind, wie z. B. Kameras, Lidar und Trägheitsmessgeräte (IMUs). Diese Sensoren liefern verschiedene Arten von Daten, die für \ac{SLAM} unerlässlich sind. Kameras erfassen visuelle Bilder der Umgebung und ermöglichen die Erkennung und Verfolgung von Merkmalen, was in visuellen \ac{SLAM}-Algorithmen häufig verwendet wird. Lidar-Sensoren hingegen senden Laserstrahlen aus, um Entfernungen zu Objekten zu messen, und liefern präzise 3D-Punktwolkendaten. \ac{IMU}s helfen bei der Erfassung der Orientierung, Beschleunigung und Winkelgeschwindigkeit des Multicopters.
 In Abbildung \ref{fig:slam-sensors} werden die Sensoren, die für \ac{SLAM} verwendet werden genau erklärt.
 
-\begin{figure}
 \begin{description}
     \item[Kameras] Kameras werden bei Multicopter-SLAM in großem Umfang zur visuellen Datenerfassung eingesetzt. Sie erfassen Bilder der Umgebung, die anschließend für die Erkennung und Verfolgung von Merkmalen verarbeitet werden. Kamerabasierte SLAM-Algorithmen extrahieren visuelle Merkmale, wie z. B. Ecken oder Eckpunkte, und verfolgen sie über die Zeit, um die Position und Ausrichtung des Multikopters zu schätzen. Allerdings kann die Genauigkeit der kamerabasierten Datenerfassung durch Probleme wie Verdeckungen, Beleuchtungsschwankungen und Bildrauschen beeinträchtigt werden.
     \item[Lidar]Lidar-Sensoren liefern präzise Tiefeninformationen, indem sie Laserstrahlen aussenden und die Zeit messen, die die Strahlen benötigen, um zurückzukehren. Dies ermöglicht die Erzeugung von 3D-Punktwolken, die für die Umgebungskartierung bei Multicopter-SLAM von unschätzbarem Wert sind. Die Lidar-basierte Datenerfassung bietet Vorteile wie Robustheit gegenüber Lichtverhältnissen und die Fähigkeit, feinkörnige geometrische Details zu erfassen. Dennoch müssen Herausforderungen wie ein begrenztes Sichtfeld, Sensorinterferenzen und Rechenanforderungen für eine effektive Integration von Lidar-Daten in SLAM-Systeme berücksichtigt werden.
     \item[IMUs]IMUs bestehen aus Beschleunigungsmessern und Gyroskopen, die die lineare Beschleunigung bzw. die Winkelgeschwindigkeit messen. Diese Sensoren liefern wichtige Bewegungsinformationen für das SLAM von Multikoptern, indem sie Änderungen der Fluglage des Multikopters im Laufe der Zeit schätzen. IMUs tragen zur Vorhersage und Korrektur der Flugbahn des Multikopters während der Kartierungs- und Lokalisierungsprozesse bei. Allerdings können inhärentes Sensorrauschen und Drift die Genauigkeit der IMU-Daten beeinträchtigen, so dass Kalibrierungs- und Fusionstechniken für eine optimale Nutzung erforderlich sind.  
 \end{description}
-\label{fig:slam-sensors}\caption{SLAM Sensoren}
-\end{figure}
 
 
-\subsubsection{Punktwolkentransformation bei Kameras}
+
+
+\subsection{Punktwolkentransformation bei Kameras}
 
 Punktwolken sind ein zentraler Bestandteil von 3D-Modellen und werden in verschiedenen Anwendungen wie 3D-Rekonstruktion, Objekterkennung und Augmented Reality eingesetzt. Sie stellen eine dreidimensionale Repräsentation der realen Welt dar und bestehen aus einer großen Anzahl von Punkten, die die räumliche Struktur und Form der Objekte in der Szene beschreiben.
 
@@ -531,7 +537,7 @@ Es gibt viele Algorithmen und Technologien, die für die Erzeugung von Punktwolk
     \eqlabel{eq:extrinsic-matrix}{Extrinsische Matrix}
 \end{figure}
 
-\subsubsection{Odometrie und Bewegunsschätzung}
+\ subsection{Odometrie und Bewegunsschätzung}
 
 Die Odometrie ist ein Verfahren zur Bestimmung der Position und Bewegung eines Roboters auf der Grundlage der Messung von Raddrehungen. Da Multicopter keine Räder zur Fortbewegung einsetzen müssen andere Arten von Odometrie eingesetzt werden. Bei Multicoptern können drei Arten von Odometrie eingesetzt werden: die visuelle Odometrie, die inerzielle Odometrie und die GPS-basierte Odometrie.
 
@@ -545,6 +551,7 @@ Zusammenfassend ermöglicht die Odometrie bei Multicoptern eine präzise Bestimm
 
 \subsection{SLAM-Verfahren}
 
+\todo{Grundlegenden Unterscheidungen SLAM}
 
 
 
