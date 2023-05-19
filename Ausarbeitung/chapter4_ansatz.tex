@@ -9,9 +9,17 @@ Ziel dieser Arbeit ist es, bestenfalls den bereits vorhandenen Quadrokopter mit 
 
 
 \section{Vorgehensweise}
-Die Vorgehensweise ist in der folgenden Abbildung dargstellt:
 
-\subsection{Auswahl Navigationssystem}
+In Abbildung \ref{fig:vorgehensweise} sind die 2 Vorgehensweisen die wir uns ausgedacht haben ersichtlich. In Ansatz 1 hatten wir zuerst versucht ein vorher gescanntes 3D Modell auf die Drohne zu laden und eine Positionierung im 3D Modell durchzuführen. Schnell wurde ersichtlich das es wenig sinnvoll eine Positionierung in einem vorher bekannten 3D Modell durchzuführen, da die Dronhe auch in unbekannten Umgebungen eingesetzt werden soll. Deshalb ist es sinnvoller die Positionierung und die 3D Modell Erstellung zu kombinieren. Dazu kann \ac{SLAM} eingesetzt werden. Deshalb haben wir Ansatz 1 relativ schnell wieder verworfen.
+
+\begin{figure}
+    \includegraphics[scale=0.7]{images/ansatz_plan.pdf}
+    \caption{Geplante Vorgehensweise}\label{fig:vorgehensweise}
+\end{figure}
+
+\subsection{}
+
+\subsection{Auswahl Lokalisierungssystem}
 
 Die in Kapitel \ref{lst:navigation-types} vorgestellten Vorgehensweisen sind mehr oder weniger geeignet für den Einsatz auf der Drohne und für dein Einsatz mit \ac{SLAM}
 In einer gewichteten Analyse wurden die einzelnen Vorgehensweisen verglichen und der Gewinner ausgewählt.
@@ -37,6 +45,8 @@ Aufgrund des Ergebnisses aus Tabelle \ref{tab:vergleich-gewichtung} wird ersicht
 \end{itemize}
 
 Aufgrund der Tatsache, dass die zur Verfügung stehende COEX Drohne bereits auch über Inertial Sensoren verfügt, kann damit die Qualität von \ac{SLAM} noch weiter verbessert werden.
+
+Alleine mit Inertial Navigation kann kein \ac{SLAM} durchgeführt werden. Da die Inertial Navigation keine Kenntniss der Umgebung hat. Dies ist alleine ebenso ein Punkt, der die alleinige Verwendung von Inertial Navigation verhindert.
 
 \begin{table}[h]
     \centering
@@ -93,6 +103,9 @@ Aufgrund der Tatsache, dass die zur Verfügung stehende COEX Drohne bereits auch
         \caption{Gewichtete Analyse}\label{tab:vergleich-gewichtung}
     \end{center}
 \end{table}
+
+\subsection{Auswahl \ac{SLAM} Algorithmus}
+
 
 
 
