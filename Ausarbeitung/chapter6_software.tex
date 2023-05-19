@@ -39,7 +39,7 @@ Das Robot Operating System (ROS) hat den Bereich der Robotik revolutioniert, ind
     \item[Services:] Services ermöglichen eine synchrone Anfrage-Antwort-Kommunikation zwischen Nodes. Ein Node bietet einen Service an, und andere Node können Anfragen an ihn senden. Die Dienstnode verarbeitet dann die Anforderung und sendet eine Antwort an den anfordernden Node zurück. Services werden mithilfe von .srv-Dateien definiert und folgen einem Client-Server-Kommunikationsmuster.
 \end{description}
 
-\subsubsection{Schichten der ROS-Systemarchitektur}
+\subsubsection{Ebenen der ROS-Systemarchitektur}
 \begin{description}
     \item[Dateisystem-Ebene:] Die Dateisystem-Ebene in \ac{ROS} spielt eine entscheidende Rolle bei der Organisation und Verwaltung der für die Entwicklung von Roboteranwendungen erforderlichen Ressourcen. Sie bietet eine hierarchische Struktur und Paketverwaltungsfunktionen, die es Entwicklern ermöglichen, ihren Code, ihre Konfigurationsdateien, Startdateien und Daten effizient zu organisieren. Die \ac{ROS} Filesystem-Ebene dient als Grundlage für den Aufbau modularer und wiederverwendbarer Softwarekomponenten innerhalb des \ac{ROS}-Ökosystems.
 
@@ -51,9 +51,30 @@ Das Robot Operating System (ROS) hat den Bereich der Robotik revolutioniert, ind
     
     Darüber hinaus unterhält die \ac{ROS}-Community ein zentrales Paket-Repository, den \ac{ROS} Package Index (https://index.ros.org/packages/). Der \ac{ROS} Package Index ist eine umfassende Sammlung von \ac{ROS}-Paketen, die von Entwicklern weltweit zur Verfügung gestellt werden. Er dient als wertvolle Ressource für die Entdeckung und den Austausch von Paketen und fördert die Zusammenarbeit und die Wiederverwendung von Code innerhalb des \ac{ROS}-Ökosystems.
     
-    \item[Berechnungsgraphen-Schicht:] Die Berechnungsgraphenschicht ist das Rückgrat von ROS und verwaltet die Interaktionen zwischen den Nodes. Sie visualisiert die Beziehungen zwischen Nodes, Topics und Services in Form eines gerichteten Graphen und ermöglicht so ein klares Verständnis der Systemarchitektur. Der Graph erleichtert die Weitergabe von Nachrichten, die Synchronisation und die Koordination zwischen den Nodes.
     
-    \item[Kommunikationsschicht:] ROS verwendet Middleware, wie z. B. die Robot Communication Middleware (RCM) oder FastRTPS, um Kommunikationsdetails auf niedriger Ebene zu behandeln. Die Kommunikationsschicht kümmert sich um die Serialisierung von Nachrichten, Transportprotokolle und Netzwerkkommunikation und abstrahiert diese Komplexitäten vom Entwickler. Diese Schicht gewährleistet eine zuverlässige und effiziente Kommunikation zwischen den Nodes.
+    \item[Computation-Graph-Ebene:] Die Computation-Graph-Ebene ist eine grundlegende Komponente der \ac{ROS}-Architektur, die den Datenfluss und die Interaktionen zwischen den Nodes orchestriert. Sie bietet eine visuelle Darstellung der Beziehungen zwischen Nodes, Topics und Services und ermöglicht eine nahtlose Kommunikation und Koordination innerhalb eines \ac{ROS}-Systems.
+
+    Die Computation-Graph-Ebene bildet das Rückgrat von \ac{ROS} und erleichtert die Weitergabe von Nachrichten, die Synchronisation und die Koordination zwischen den Nodes. Sie verwendet eine gerichtete Graphenstruktur, bekannt als ROS-Graph, um die Verbindungen und Abhängigkeiten zwischen den verschiedenen Komponenten eines \ac{ROS}-Systems darzustellen. Dieser Graph ermöglicht es Entwicklern, die Architektur des Systems zu visualisieren und zu verstehen, wie Informationen zwischen den Nodes fließen. Der ROS-Graph besteht aus Nodes, Topics und Services.
+    
+    Die Computation-Graph-Ebene bietet mehrere Werkzeuge und Dienstprogramme zur Verwaltung und Visualisierung des ROS-Graphen. Eines der wichtigsten Werkzeuge ist roscore, das als Master-Node im ROS-System fungiert. Es verwaltet die Registrierung von Knoten, die Erkennung von Themen und Diensten und erleichtert den Aufbau von Verbindungen zwischen Herausgebern und Abonnenten.
+    
+    Ein weiteres wichtiges Werkzeug ist rqt\_graph, das den ROS-Graphen in Echtzeit visualisiert. Es zeigt die Knoten und ihre Verbindungen an und bietet eine visuelle Darstellung des Kommunikationsflusses innerhalb des \ac{ROS}Systems. Entwickler können mit diesem Tool den Zustand des Systems überwachen, Engpässe erkennen und Probleme im Zusammenhang mit der Nachrichtenübermittlung und der Koordination zwischen den Nodes beheben.
+    
+    Darüber hinaus hat die \ac{ROS}-Gemeinschaft zusätzliche Visualisierungstools entwickelt, wie z. B. rviz, das eine 3D-Visualisierungsumgebung für Roboter und ihre Umgebung bereitstellt. rviz ermöglicht Entwicklern die Anzeige von Sensordaten, Robotermodellen und anderen visuellen Elementen und unterstützt so die Analyse und Fehlersuche in komplexen Robotersystemen.
+    
+    
+    \item[Kommunikationsschicht:] Die Kommunikationsschicht ist eine wichtige Komponente der Architektur von \ac{ROS}, die eine effiziente und zuverlässige Kommunikation zwischen Nodes ermöglicht. Sie abstrahiert die Low-Level-Details der Nachrichtenserialisierung, Transportprotokolle und Netzwerkkommunikation und ermöglicht so eine nahtlose und entkoppelte Kommunikation innerhalb eines \ac{ROS}-Systems.
+
+    \ac{ROS} verwendet Middleware-Lösungen zur Handhabung der Kommunikationsaspekte, wie z. B. die Robot Communication Middleware (RCM) oder FastRTPS. Diese Middleware-Lösungen bieten die notwendige Infrastruktur für den Aufbau von Verbindungen, die Übertragung von Nachrichten und die Handhabung von Kommunikationsprotokollen zwischen Nodes.
+    
+    Die Kommunikationsschicht in \ac{ROS} gewährleistet eine zuverlässige Nachrichtenübermittlung durch die Verwendung von Publish-Subscribe-Nachrichtenmustern. Nodes veröffentlichen Nachrichten zu bestimmten Topics, und andere Nodes, die die Daten empfangen möchten, abonnieren diese Topics. Diese entkoppelte Art der Kommunikation ermöglicht eine asynchrone Nachrichtenübermittlung, bei der die Nodes unabhängig voneinander arbeiten können, ohne direkt voneinander zu wissen.
+    
+    \ac{ROS} unterstützt auch die Verwendung von Remote Procedure Calls (RPC) durch seinen Servicemechanismus. Services ermöglichen synchrone request-response Interaktionen zwischen Nodes. Eine Node kann einen Service anbieten, und andere Nodes können diesen Service aufrufen, um bestimmte Aktionen oder Informationen anzufordern. Der Service-Mechanismus vereinfacht die Implementierung von synchronen Kommunikationsmustern in \ac{ROS}-Systemen.
+    
+    Um verteilte Systeme zu unterstützen, enthält \ac{ROS} das Konzept der ROS-Master und ROS-Slave-Nodes. Der ROS-Master ist ein zentraler Namens- und Registrierungsdienst, der die aktiven Nodes verfolgt, Topic- und Serviceregistrierungen verwaltet und beim Aufbau von Verbindungen zwischen Herausgebern und Abonnenten hilft. Die ROS-Slave-Nodes sind für die eigentliche Kommunikation zwischen dem ROS-Master und den Nodes selbst verantwortlich.
+
+    Die Kommunikationsschicht in \ac{ROS} bietet mehrere Vorteile für Entwickler. Sie abstrahiert die Komplexität von Low-Level-Kommunikationsprotokollen und ermöglicht es Entwicklern, sich auf die Entwicklung von Funktionen auf höherer Ebene zu konzentrieren. Außerdem bietet sie ein flexibles und skalierbares Kommunikationsframework, das die Integration verschiedener Hardware- und Softwarekomponenten unterstützt.
+   
     
     \item[Schicht der Client-Bibliotheken:] ROS bietet Client-Bibliotheken in mehreren Programmiersprachen, darunter C++, Python und andere. Diese Bibliotheken bieten High-Level-Abstraktionen und APIs für Entwickler, um ROS-Nodes zu schreiben und mit dem System zu interagieren. Die Client-Bibliotheken vereinfachen den Entwicklungsprozess, indem sie gebrauchsfertige Funktionen zum Erstellen von Nodes, zum Veröffentlichen und Abonnieren von Topics und zum Aufrufen von Services bereitstellen.
     
