@@ -34,6 +34,7 @@ Bei der Bewertung von SLAM-Algorithmen gibt es mehrere Punkte, die zur Messung d
     \item[Open-Source-Verfügbarkeit]{Die Verfügbarkeit von Open-Source-Implementierungen und einer unterstützenden Gemeinschaft kann von Vorteil sein. Open-Source-SLAM-Algorithmen profitieren oft von kontinuierlicher Entwicklung, Fehlerkorrekturen und Beiträgen der Community, was sie zuverlässiger und an spezifische Anforderungen anpassbar macht}
 \end{description}
 
+Die Messungen die in \cite{ragot:hal-04071273} durchgeführt werden von uns als Referenzwerte für die Bewertung 
 Zur Bewertung der \ac{SLAM} Algorithmen haben wir folgende Messungen als Referenz genommen \cite{ragot:hal-04071273}
 
 \subsubsection{OBD-SLAM3}
@@ -48,9 +49,7 @@ Insgesamt ermöglicht OBD-SLAM3 eine genauere und robustere Lokalisierung und Ka
 
 \subsubsection{LSD-SLAM}
 
-LSD-SLAM (Large-Scale Direct Monocular SLAM) ist ein Algorithmus zur simultanen Lokalisierung und Kartierung (SLAM) in Echtzeit, der eine einzelne Kamera verwendet. Im Gegensatz zu anderen SLAM-Methoden, die Merkmale oder Punktwolken verwenden, um eine Karte der Umgebung zu erstellen, nutzt LSD-SLAM eine direkt auf den Bildern basierende Methode. Hierbei werden die Intensitäts- und Gradienteninformationen der Bilder genutzt, um die Kameraposition und -orientierung zu schätzen und eine dichte Punktwolke der Umgebung zu erstellen.
-
-LSD-SLAM wurde von Jakob Engel, Thomas Schöps und Daniel Cremers an der Technischen Universität München entwickelt und im Jahr 2014 vorgestellt. Es hat sich als eine effektive Methode zur SLAM-Problemstellung erwiesen, insbesondere in Umgebungen mit geringer Textur oder schlechter Beleuchtung.
+\subsection{RTAB-Map}
 
 
 
@@ -140,6 +139,10 @@ Alleine mit Inertial Navigation kann kein \ac{SLAM} durchgeführt werden. Da die
 \end{table}
 
 \subsection{Auswahl \ac{SLAM} Algorithmus}
+
+\subsection{ROS Version}
+
+Die \ac{ROS} Version, welche für diese Arbeit verwendet wurde, ist die Version "ROS Noetic Ninjemys". Diese ist die aktuellste ROS 1 Version mit long term support. Das Betriebssystem, auf welches die Version abzielt, ist Ubuntu 20.04 (Focal). Dementsprechend wurde auch Ubuntu 20.04 für diese Arbeit verwendet.
 
 
 
