@@ -169,6 +169,55 @@ Der prinzipielle Ablauf bei der Kommunikation in Abbildung \ref{img ros_communic
 \todo{dopplungen entfernen} 
 
 \section{Kalibrierung der COEX Drohne} \label{kalibrierung_coex__drohne:subsection}
+\subsection{Kalibrierung der IMU}
+\begin{description}
+    \item[Kompass] Bevor man mit der Kompasskallibrierung beginnen kann, muss man sicherstellen, dass sich keine großen Metallobjekte oder starke Magnetfelder in direkter Nähe der Drohne befinden. Startet man nun mit der Kallibrierung, so wird einem in QGroundControl angegeben, wie man diese Durchzuführen hat. Um mit der Kompasskalibrierung zu beginnen, positioniert man die Drohne entsprechend den angegebenen roten Ausrichtungen. Zudem muss man sicherstellen, dass die Drohne in der gewählten Ausrichtung stehen bleibt. Wenn man dazu aufgefordert wird, drehen man die Drohne um die angegebene Achse in eine oder beide Richtungen.
+
+    Während die Kalibrierung für die aktuelle Ausrichtung fortschreitet, wechselt das entsprechende Bild auf dem Bildschirm von rot zu grün und zeigt damit die erfolgreiche Kalibrierung an. Diese Schritte wiederholt man dann für alle von QGroundControl angegebenen Orientierungen.
+    
+    \item[Gyroscope] Bei der Kallibrierung der Gyroscope stellt man die Drohne auf eine ebene Oberfläche. Nun startet man die Kallibrierung in QGroundControl. Wärend der Kallibrierung muss die Drohne absolut ruhig stehen gelassen werden. Ist QGroundControl mit der Kallibrierung fertig, so wird Calibration complete angegeben.
+    
+    \item[Accelerometer] Für die Kallibrierung der Accelerometer muss man ebenfalls den Anweisungen von QGroundControl folgen. Hierfür muss die Drohne entsprechend der Bilder in QGroundControl positioniert werden. Wenn man durch das gelbe Ausrichtungsbild dazu aufgefordert wird, mass man die Drohne ruhig halten. Sobald die Kalibrierung für die aktuelle Ausrichtung abgeschlossen ist, wechselt das entsprechende Bild auf dem Bildschirm zu grün. Diese Schritte wiederholt man dann für alle angegebenen Orientierungen der Drohne.
+\end{description}
+
+\subsection{Kalibrierung der ESC}
+Elektronische Drehzahlregler (ESCs) sind für die Steuerung der Geschwindigkeit und Richtung der Motoren auf der Grundlage des PWM-Eingangs vom Flight Controller verantwortlich. Es ist wichtig zu beachten, dass der Bereich der Eingänge, auf die ESCs reagieren können, einstellbar ist und sogar ESCs desselben Modells unterschiedliche Standardbereiche haben können.
+
+Um ein einheitliches und synchronisiertes Verhalten zu gewährleisten, ist eine Kalibrierung erforderlich. Dieser Prozess beinhaltet die Aktualisierung aller Regler mit den maximalen und minimalen PWM-Eingangswerten, die vom Flight Controller geliefert werden. Das Ergebnis ist, dass alle Regler und Motoren über den gesamten Eingangsbereich gleichmäßig auf die Eingaben des Flight Controllers reagieren.
+
+Bevor man mit der Kalibrierung starten kann, muss man die Propeller von der Drohne entfernen. Dies ist eine wesentliche Sicherheitsvorkehrung, um versehentliche Bewegungen während des Kalibrierungsvorgangs zu vermeiden.
+
+Nun trennt man den Akku von der Drohne und stellet über ein USB-Kabel eine Verbindung zwischen dem Flight Controllers und dem Computer her. Zudem muss man sicherstellen, dass diese Verbindung dauerhaft erhalten bleibt und wärend der Kalibrierung nicht unterbrochen wird.
+
+In QGroundControl wird dann die Kalibrierung gestartet. Dazu folgt man den Anweisungen und Aufforderungen von QGroundControl.
+
+Sobald man von QGroundControl dazu aufgefordert wird, schließen man die Batterie an die Drohne an. Dieser Schritt ist entscheidend, da er den automatischen Beginn des Kalibrierungsprozesses ermöglicht.
+
+Sobald die Kalibrierung abgeschlossen ist, erhält man von QGroundControl eine Meldung über den erfolgreichen Abschluss des Kalibrierungsvorgangs.
+
+\subsection{Kalibrierung der PID-Regler}
+Das Setup für die PID-Abstimmung in QGroundControl bietet Echtzeit-Diagramme, die die Sollwert- und Reaktionskurven des Fahrzeugs anzeigen. Das Ziel der Abstimmung ist es, die P/I/D-Werte so fein abzustimmen, dass die Reaktionskurve eng mit der Sollwertkurve übereinstimmt und eine schnelle Reaktion ohne Überschwingen gewährleistet ist.
+
+Die Regler sind in Schichten organisiert, wobei ein übergeordneter Regler seine Ergebnisse an einen untergeordneten Regler weitergibt. Der Geschwindigkeitsregler ist der unterste Regler, gefolgt vom Lageregler und schließlich dem Geschwindigkeits- und Positionsregler. Es ist wichtig, die PID-Abstimmung in dieser Reihenfolge durchzuführen, beginnend mit dem Geschwindigkeitsregler, da sie sich auf alle anderen Regler auswirkt.
+
+Das Testverfahren für jeden Regler (rate, attitude, velocity/posibition) und jede Achse (yaw, roll, pitch) bleibt gleich. Dabei wird eine schnelle Sollwertänderung durch schnelles Bewegen der Steuerknüppel erzeugt und die Reaktion beobachtet. Dann werden die Schieberegler angepasst, um die Nachführung der Reaktion auf den Sollwert zu verbessern.
+
+Um die PID-Werte der Drohne mit QGroundControl einzustellen, beginnt man damit, das Drohne zu starten, normalerweise im Positionsmodus. Sobald sich das Fahrzeug im Schwebeflug befindet, fahren Sie mit den folgenden Schritten fort.
+
+Nun wird  das QGroundControl Vehicle Setup geöffnet und navigieren Sie zum Abschnitt PID Tuning in der QGC Rate Controller Tuning UI. Vor Beginn der Kalibrierung muss man sich vergewissern, dass der Auswahlschalter für den Flugmodus auf Deaktiviert eingestellt ist. Dadurch wird sichergestellt, dass sich das Fahrzeug im richtigen Modus für die Abstimmung befindet.
+
+Nun wählt man die Option Roll im Optionsfeld Select Tuning. Dadurch wird der Abstimmungsprozess auf die Rollachse konzentriert.
+Für die Abstimmung des Geschwindigkeitsreglers muss man in den Acro-Modus, den Stabilized-Modus oder den Altitude-Modus wechseln, sofern die automatische Umschaltung nicht aktiviert ist.
+
+Sobald man den entsprechenden Modus eingestellt hat, startet man die Kalibrierung. Dadurch wird die Verfolgung der Sollwert- und Reaktionskurven eingeleitet, wodurch Echtzeitdiagramme erstellt werden.
+
+Um die Reaktion zu bewerten, bewegt man den Steuerknüppel schnell über den gesamten Bereich und beobacht die Sprungantwort in den angezeigten Diagrammen. So kann man beurteilen, wie das Verhalten des Fahrzeugs mit dem gewünschten Sollwert übereinstimmt.
+
+Jetzt kommt der Teil der Abstimmung. Man verwendet die Schieberegler auf der Benutzeroberfläche, um die drei PID-Werte MC\_ROLLRATE\_K, MC\_ROLLRATE\_I, und MC\_ROLLRATE\_D zu ändern. Diese Werte steuern die Proportional-, Integral- bzw. Derivativ-Komponenten des Reglers. Nun beobachtet man die Sprungantwort erneut, nachdem man die Schieberegler eingestellt hat. Die geänderten Werte werden sofort im Fahrzeug gespeichert, wenn man die Schieberegler bewegen.
+
+Die Kallibrierung wiederholt man dan für die Nick- und Gierachse und gehet dabei die gleichen Schritte wie zuvor durch. Dadurch wird sichergestellt, dass jede Achse für eine optimale Leistung richtig eingestellt ist. Zudem wiederholt man die Kalibrierung auch für den Lage-, Geschwindigkeits- und Positionsregler auf allen Achsen.
+
+
 
 \section{Drohnen Autopilot} \label{drohnen_autopilot:subsection}
 
