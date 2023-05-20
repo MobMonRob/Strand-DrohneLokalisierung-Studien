@@ -44,7 +44,7 @@ Sensoren sind entscheidend für die 3D Navigation anhand eines 3D Umweltmodells.
 
 
     Bei \ac{RGB-D} Kameras handelt es sich um Kameras, die ein Strukturlichtverfahren verwenden.
-    Bei einem Strukturlichtverfahren werden Lichtmuster auf das zu rekonstruierende Projekt projeziert um das zusätzlich aufgenommene RGB Bild mit Tiefeninformationen zu versehen. Das in Kapitel \ref{chp:lasersensor} verwendete Prinzip wird auf das gesamte Bild angewendet. 
+    Bei einem Strukturlichtverfahren werden Lichtmuster auf das zu rekonstruierende Projekt projiziert um das zusätzlich aufgenommene RGB Bild mit Tiefeninformationen zu versehen. Das in Kapitel \ref{chp:lasersensor} verwendete Prinzip wird auf das gesamte Bild angewendet. 
     
     Mithilfe der so gewonnenen Entfernungsinformationen wird eine Tiefenkarte erstellt, die eine 3D Rekonstruktion der Umgebung ermöglicht.
 
@@ -79,7 +79,7 @@ In den vergangenen Jahren hat die Wissenschaft im Bereich der Robotik enorme For
 
 Trotz dieser rasanten Fortschritte stehen Softwareentwickler jedoch noch immer vor großen Herausforderungen bei der Programmierung von Robotern. Die Komplexität der Aufgaben, die von Robotern ausgeführt werden können, erfordert eine Menge an spezialisiertem Wissen und Erfahrung in verschiedenen Bereichen wie Sensorik, Bildverarbeitung, Künstlicher Intelligenz und Robotik.
 
-Die Igeneure und Softwareentwickler haben jedoch die Herausforderungen erkannt und arbeitet intensiv daran, sie zu lösen. Neue Werkzeuge und Frameworks werden entwickelt, um Entwicklern zu helfen, Roboter schneller und effektiver zu programmieren. Eines der bekanntensten Tools in diesem Bereich ist das Robot Operating System \ac{ROS}
+Die Ingenieure und Softwareentwickler haben jedoch die Herausforderungen erkannt und arbeitet intensiv daran, sie zu lösen. Neue Werkzeuge und Frameworks werden entwickelt, um Entwicklern zu helfen, Roboter schneller und effektiver zu programmieren. Eines der bekanntesten Tools in diesem Bereich ist das Robot Operating System \ac{ROS}
 
 \ac{ROS} ist eine Open-Source-Plattform, die speziell für die Entwicklung von Robotersoftware entwickelt wurde. Es bietet eine Reihe von Bibliotheken, Tools und Frameworks, die es Entwicklern ermöglichen, komplexe Robotikanwendungen zu erstellen und zu betreiben. \ac{ROS} wurde von Willow Garage entwickelt und ist heute ein weit verbreitetes Framework in der Robotik-Community.
 
@@ -89,14 +89,14 @@ Die Igeneure und Softwareentwickler haben jedoch die Herausforderungen erkannt u
 
 Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem der wichtigsten Frameworks für die Robotik-Entwicklung geworden und wird in vielen Anwendungen eingesetzt, von industriellen Robotern bis hin zu autonomen Fahrzeugen.
 
-    \subsection{Vorraussetzungen zur Verwendung von ROS} \label{Vorraussetzungen zur Verwendung von ROS:subsection}
-    \ac{ROS} kann man nicht auf jedem Betriebssystem verwenden. Lauffähig ist es nur auf Unix basierenden Systemen. Am besten funktioniert hierbei Linux und hierbei Ubuntu. Aber auch auf Mac OS kann man ROS verwenden. Allerdings ist die Version für Mac OS bislange nur experimentell. Unter Microsoft Windows direkt kann \ac{ROS} nicht verwenden. Allerdings kann man durch die Verwendung von Docker oder einer virtuellen Maschiene mit z.B. Linux als Gastsystem auch von Windows Computern \ac{ROS} verwenden \cite[vgl.][]{ROSIntroduction}.
+    \subsection{Voraussetzungen zur Verwendung von ROS} \label{Vorraussetzungen zur Verwendung von ROS:subsection}
+    \ac{ROS} kann man nicht auf jedem Betriebssystem verwenden. Lauffähig ist es nur auf Unix basierenden Systemen. Am besten funktioniert hierbei Linux und hierbei Ubuntu. Aber auch auf Mac OS kann man ROS verwenden. Allerdings ist die Version für Mac OS bislang nur experimentell. Unter Microsoft Windows direkt kann \ac{ROS} nicht verwenden. Allerdings kann man durch die Verwendung von Docker oder einer virtuellen Maschine mit z.B. Linux als Gastsystem auch von Windows Computern \ac{ROS} verwenden \cite[vgl.][]{ROSIntroduction}.
 
     Die \ac{ROS} Version, welche für diese Arbeit verwendet wurde, ist die Version "ROS Noetic Ninjemys". Diese ist die neuste ROS 1 Version mit long term support. Das Betriebssystem, auf welches die Version abzielt, ist Ubuntu 20.04 (Focal). Dementsprechend wurde auch Ubuntu 20.04 für diese Arbeit verwendet.
     \todo{zu Software Implementierung?}
 
     \subsection{ROS-Distributionen} \label{ROS-Distributionen:subsection}
-    Eine ROS-Distribution besteht aus einem festgelegten und visionierten Set von ROS-Paketen. Vergelichbar ist dieses System mit den Linux-Distributionen wie z.B. Ubuntu. Der Hauptzweck von ROS-Distributionen besteht darin, Entwicklern eine relativ stabile Codebasis zu bieten, damit sie daran weiterarbeiten können. Sobald eine Distribution veröffentlicht wurde, werden Änderungen hauptsächlich auf Fehlerbehebungen und nicht-zerstörerische Verbesserungen für die Kernpakete (alles unter ros-desktop-full) beschränkt. Somit ist das "Umziehen" auf eine neue Distribution weniger Fehleranfällig und einfacher. Dies gilt im Allgemeinen für die gesamte ROS-Community, jedoch sind die Regeln für "höhere" Pakete weniger streng und somit liegt es an den Verantwortlichen eines spezifischen Pakets, zerstörende Änderungen zu vermeiden \cite[vgl.][]{ROScontributions}.
+    Eine ROS-Distribution besteht aus einem festgelegten und visionierten Set von ROS-Paketen. Vergleichbar ist dieses System mit den Linux-Distributionen wie z.B. Ubuntu. Der Hauptzweck von ROS-Distributionen besteht darin, Entwicklern eine relativ stabile Codebasis zu bieten, damit sie daran weiterarbeiten können. Sobald eine Distribution veröffentlicht wurde, werden Änderungen hauptsächlich auf Fehlerbehebungen und nicht-zerstörerische Verbesserungen für die Kernpakete (alles unter ros-desktop-full) beschränkt. Somit ist das "Umziehen" auf eine neue Distribution weniger Fehleranfällig und einfacher. Dies gilt im Allgemeinen für die gesamte ROS-Community, jedoch sind die Regeln für "höhere" Pakete weniger streng und somit liegt es an den Verantwortlichen eines spezifischen Pakets, zerstörende Änderungen zu vermeiden \cite[vgl.][]{ROScontributions}.
 
     \subsection{Nodes} \label{nodes:subsection}
     In \ac{ROS} werden Funktionen und Prozesse durch sogenannte Nodes realisiert. Eine Node ist eine ausführbare Einheit, die in einem \ac{ROS}-System arbeitet und über eine eindeutige Identifikation verfügt. Jede Node hat eine spezifische Aufgabe, wie beispielsweise das Sammeln von Sensordaten, die Ausführung einer spezifischen Berechnung oder das Steuern eines Aktors.
@@ -138,33 +138,7 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
 
     Das Publish-Subscribe-Pattern ist ein grundlegendes Konzept in \ac{ROS} und wird in der Regel für die Kommunikation zwischen Nodes verwendet. Es ermöglicht eine effektive und modulare Datenverarbeitung in verteilten Systemen und ist ein wesentlicher Bestandteil von \ac{ROS}, um komplexe Robotik-Anwendungen zu realisieren.
 
-<<<<<<< HEAD
-    \subsection{Objekterkennung} \label{objekterkennung:subsection}
-    In \ac{ROS} gibt es verschiedene Methoden zur Objekterkennung, die in Robotik-Anwendungen eingesetzt werden können. Die Objekterkennung ist ein wichtiger Schritt in der automatisierten Wahrnehmung von Robotern, da sie es ihnen ermöglicht, ihre Umgebung zu verstehen und darauf zu reagieren.
-
-    Eine häufig verwendete Methode zur Objekterkennung in \ac{ROS} ist die Verwendung von 3D-Sensoren wie Lidar oder Kinect. Diese Sensoren erfassen Daten über die Umgebung des Roboters und können dabei helfen, Objekte zu identifizieren und ihre Position und Orientierung im Raum zu bestimmen.
-
-    Eine weitere Methode zur Objekterkennung in \ac{ROS} ist die Verwendung von Bildverarbeitungs-Algorithmen. Dabei können beispielsweise Farb- oder Formmerkmale verwendet werden, um Objekte in Bildern zu erkennen und ihre Position und Ausrichtung zu bestimmen.
-
-    Eine weiterentwickelte Methode zur Objekterkennung in \ac{ROS} ist die Verwendung von Deep-Learning-Methoden wie Convolutional Neural Networks (CNNs). Dabei werden CNNs trainiert, um Objekte in Bildern oder Punktwolken zu erkennen und zu klassifizieren. Diese Methode erfordert jedoch ein umfangreiches Training und eine hohe Rechenleistung, um in Echtzeit ausgeführt zu werden.
-
-    Die Objekterkennung ist ein wichtiger Schritt in der automatisierten Wahrnehmung von Robotern, da sie es ihnen ermöglicht, ihre Umgebung zu verstehen und darauf zu reagieren. \ac{ROS} bietet verschiedene Methoden zur Objekterkennung, die in Robotik-Anwendungen eingesetzt werden können. Die Wahl der richtigen Methode hängt von den Anforderungen der Anwendung ab und erfordert oft eine sorgfältige Abwägung zwischen Genauigkeit, Geschwindigkeit und Komplexität.
-
-    \todo{unnötig ? rausmachen!!}
-
-    \subsection{QR-Codes} \label{qr-codes:subsection}
-    \ac{ROS} bietet verschiedene Möglichkeiten zur Erkennung von QR-Codes in Robotik-Anwendungen. QR-Codes sind zweidimensionale Barcodes, die Informationen wie URLs, Texte oder andere Daten enthalten können. Die Erkennung von QR-Codes kann in \ac{ROS}-basierten Anwendungen genutzt werden, um Informationen zu lesen, Roboter zu navigieren oder um eine Interaktion mit der Umgebung zu ermöglichen.
-    \todo{können wie eventuell einfach weglassen ? Hat ja nix mit dem eigentlichen Verfahren zu tun}
-
-    Es gibt verschiedene \ac{ROS}-Pakete, die die QR-Code-Erkennung erleichtern. Ein Beispiel ist das "zbar\_ros" Paket, das ein Wrapper für die Open-Source-ZBar-Bibliothek ist, die QR-Codes und andere Barcodes erkennt. Das zbar\_ros-Paket ermöglicht es, den Inhalt von QR-Codes aus dem Kamerabild zu extrahieren und als \ac{ROS}-Topic zu veröffentlichen, der von anderen Nodes abonniert werden kann. Das Paket bietet auch Optionen zur Konfiguration der QR-Code-Erkennung, wie beispielsweise die Festlegung der Mindestgröße des Codes oder die Einstellung der Scan-Frequenz.
-
-    Ein weiteres \ac{ROS}-Paket, das die QR-Code-Erkennung erleichtert, ist das "ros\_qr\_detector" Paket. Dieses Paket basiert auf der OpenCV-Bibliothek und bietet eine einfache Möglichkeit, QR-Codes in \ac{ROS}-basierten Anwendungen zu erkennen. Das Paket bietet auch die Möglichkeit, QR-Codes aus der Kamerabildanzeige auszuschneiden und als separate Bilder zu speichern.
-
-    Die Erkennung von QR-Codes in \ac{ROS}-Anwendungen kann für verschiedene Anwendungsfälle nützlich sein. Beispielsweise können QR-Codes als Marker verwendet werden.
-    \todo{weglassen wenn nicht verwendet?}
-=======
     
->>>>>>> 0d6ee1666f217087fa1d8f1e45be189acf17b1dd
 
     \subsection{Starten eines ROS Programms} \label{starten eines ROS Programms:subsection}
     Zum Starten verschiedener Nodes in \ac{ROS} wird das ROS-eigene Tool roslaunch verwendet. Roslaunch ist ein mächtiges Werkzeug für die Konfiguration, das Starten und die Überwachung von ROS-Paketen und -Nodes. Mit roslaunch können Entwickler schnell und einfach Nodes starten, indem sie eine XML-Datei erstellen, die alle notwendigen Konfigurationen enthält. Die XML-Datei wird als Launch-Datei bezeichnet und wird in der Regel von Entwicklern erstellt, um eine oder mehrere ROS-Knoten gleichzeitig zu starten und zu konfigurieren.
@@ -176,7 +150,7 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
     \textit{\$ roslaunch package\_name file.launch}
 
 \section{MAVLink} \label{mavlink}
-\ac{MAVLink} ist ein Nachrichtenprotokoll, welches vor allem zur Kommunikation zwischen einer Drohnen und einer Bodenstation eingesetzt wird. Der Einsatz dieses Protokolls ist besonders für Systeme konzipiert, die wenige Ressourcen und eine geringe Bandbreite aufweisen.\\
+\ac{MAVLink} ist ein Nachrichtenprotokoll, welches vor allem zur Kommunikation zwischen einer Drohne und einer Bodenstation eingesetzt wird. Der Einsatz dieses Protokolls ist besonders für Systeme konzipiert, die wenige Ressourcen und eine geringe Bandbreite aufweisen.\\
 Die Kommunikation kann über verschiedene Wege stattfinden, hierzu gehören beispielsweise \ac{USB}, aber auch drahtlose Verbindungen über Wifi, mit \ac{UDP} sowie auch \ac{TCP}, sind möglich. Das Protokoll überträgt Telemetriedaten mit Hilfe des Publisher/Subscriber Modells. Protokolle die Änderungen an der Systemkofiguration bewirken, wie beispielsweise ein Parameter- oder auch ein Missionsprotokoll und dadurch eine garantierte Zustellung erfordern, werden hingegen Punkt-zu-Punkt mit Retransmission übertragen. 
 \todo{Retransmission,übersetzung??}
 \\
@@ -326,7 +300,7 @@ PID-Regler finden in vielen Anwendungen Anwendung, einschließlich Temperaturreg
    
 \subsection{Flightstack}
 
-Der Flightstack eines Multicopters besteht aus mehreren Systemen. Üblicherweise besteht der Flightstack aus Mikrocontrollern, Sensoren, Aktuatoren, GPS-Modul und einer Stromversorgung. Die Sensoren sind dafür zuständig Daten über die aktuelle Fluglage des Multicopters zu sammeln. Daten die gesammelt werden sind Beschleunigung, Neigung, Lage und GPS-Position. Diese Daten werden vom Mikrocontroller verarbeitet um die Steuerung der Aktuatoren zu optimieren. Im Outdoor Flug ermöglicht die Verwendung eines GPS-Moduls die Position des Multicopters zu bestimmen und zu verfolgen.
+Der Flightstack eines Multicopters besteht aus mehreren Systemen. Üblicherweise besteht der Flightstack aus Mikrocontrollern, Sensoren, Aktuatoren, GPS-Modul und einer Stromversorgung. Die Sensoren sind dafür zuständig Daten über die aktuelle Fluglage des Multicopters zu sammeln. Daten die gesammelt werden, sind Beschleunigung, Neigung, Lage und GPS-Position. Diese Daten werden vom Mikrocontroller verarbeitet, um die Steuerung der Aktuatoren zu optimieren. Im Outdoor Flug ermöglicht die Verwendung eines GPS-Moduls die Position des Multicopters zu bestimmen und zu verfolgen.
 
 Da die verbaute Technik auch mit Strom versorgt werden muss, ist ein Akkumulator auf dem Multicopter verbaut. Der Akkumulator stellt die nötige Energie für den Betrieb des Multicopters bereit. Insgesamt ist der FlightStack ein zentrales Element zur Steuerung des Multicopters und erfordert eine sorgfältige Integration und Abstimmung aller Komponenten, um eine zuverlässige und sichere Steuerung zu gewährleisten.
 
@@ -337,6 +311,7 @@ Da die verbaute Technik auch mit Strom versorgt werden muss, ist ein Akkumulator
 Die Erstellung von 3D-Modellen erfolgt in der Regel durch eine Kombination von verschiedenen Technologien und Software-Tools. Zum Beispiel können 3D-Scanner verwendet werden, um physische Objekte zu scannen und daraus digitale Modelle zu erstellen. Alternativ können 3D-Modelle auch von Grund auf neu erstellt werden, indem man eine 2D-Zeichnung oder ein Konzept in einer 3D-Software modelliert.
 
 Ein wichtiger Vorteil von 3D-Modellen ist, dass sie interaktiv und manipulierbar sind. Das bedeutet, dass man sie drehen, skalieren und animieren kann, um verschiedene Perspektiven oder Bewegungen zu erzeugen. Darüber hinaus können 3D-Modelle auch für Simulationen und Analysen verwendet werden. Zum Beispiel können Architekten und Ingenieure 3D-Modelle von Gebäuden erstellen, Verein Deutscher Ingeneureum die Belastung bei Erdbeben oder starkem Wind zu simulieren.
+\todo{Verein Deutscher Ingeneureum?}
 
 Insgesamt sind 3D-Modelle eine äußerst vielseitige Technologie, die in vielen verschiedenen Branchen und Anwendungen eingesetzt werden kann. Sie ermöglichen es, physische Objekte und Szenen digital darzustellen und zu manipulieren, was zahlreiche Möglichkeiten für Design, Simulation und Analyse bietet.
 
@@ -357,7 +332,7 @@ Obwohl 3D-Scanner ein unglaublich leistungsfähiges Werkzeug sind, haben sie auc
 Bei der Lasertriangulation wird ein Laserstrahl wird an der Oberfläche des Messobjektes reflektiert und über eine Optik und einen Umlenkspiegel auf eine lichtempfindliche Zeilenkamera projiziert. Abhängig von der Entfernung des Messobjektes verändert sich die Position des Lichtpunktes. Hieraus ermittelt der Signalprozessor den Abstand zwischen dem Sensor und der Oberfläche der Stahlprodukte.
 
 \subsubsection{3D-Scanner mit strukturiertem Licht}
-Scanner für strukturiertes Licht verwenden ebenfalls die trigonometrische Triangulation. Allerdings verwenden sie keinen Laser. Das System pojeziert eine Reihe an linienförmigen Mustern of auf Objekt. Zum Erkennen des Abtandes werden die Kanten jeder Linie des Musters untersucht. Anhand dieser Kanten kann dann dier Abstand vom Scanner zum Objekt berechnet werden. Im Wesentlichen „sieht“ die Kamera nicht eine Laserlinie, sondern den Rand des projizierten Musters
+Scanner für strukturiertes Licht verwenden ebenfalls die trigonometrische Triangulation. Allerdings verwenden sie keinen Laser. Das System projiziert eine Reihe an linienförmigen Mustern of auf Objekt. Zum Erkennen des Abstandes werden die Kanten jeder Linie des Musters untersucht. Anhand dieser Kanten kann dann der Abstand vom Scanner zum Objekt berechnet werden. Im Wesentlichen „sieht“ die Kamera nicht eine Laserlinie, sondern den Rand des projizierten Musters
 
 \subsubsection{Time-of-flight-Scanner}
 Time-of-Flight (ToF) Scanner sind eine Art von 3D-Scanner, die mithilfe von Lichtimpulsen die Entfernung zu Objekten in Echtzeit messen können. Sie haben in den letzten Jahren aufgrund ihrer hohen Genauigkeit und ihrer Fähigkeit, schnelle und präzise Messungen durchzuführen, eine breite Anwendung in verschiedenen Branchen gefunden.
@@ -417,7 +392,7 @@ Während der Navigation und Lokalisierung kombiniert die Drohne Informationen au
  \subsection{Extended Kalman Filter 2}
     Der \ac{EKF}2-Algorithmus, der in der Drohnensteuerung verwendet wird, ist eine Erweiterung des klassischen erweiterten Kalman-Filters, die speziell auf die Bedürfnisse der Drohnensteuerung zugeschnitten ist. Der EKF2 ist ein geschätzter Zustandsregler, der die aktuellen Zustände (z.B. Position, Geschwindigkeit, Orientierung) einer Drohne schätzt, basierend auf Messungen von Sensoren (z.B. \ac{GPS}, \ac{IMU}, Magnetometer).
 
-Im Gegensatz zum klassischen EKF verwendet der EKF2 eine modifizierte Version der Kalman-Filter-Formeln, um den Einfluss von Sensorrauschen und Messfehlern besser zu berücksichtigen. Insbesondere verwendet der EKF2 eine sogenannte "Innovation Covariance Matrix", die die Varianz der Messfehler repräsentiert und in die Filtergleichungen eingebaut wird. Diese Innovation Covariance Matrix wird iterativ während des Betriebs des Filters aktualisiert, um den Sensorrauschen und Messfehlern besser gerecht zu werden.
+Im Gegensatz zum klassischen EKF verwendet der EKF2 eine modifizierte Version der Kalman-Filter-Formeln, um den Einfluss von Sensorrauschen und Messfehlern besser zu berücksichtigen. Insbesondere verwendet der EKF2 eine sogenannte "Innovation Covariance Matrix", die die Varianz der Messfehler repräsentiert und in die Filtergleichungen eingebaut wird. Diese Innovation Covariance Matrix wird iterativ während des Betriebs des Filters aktualisiert, um Sensorrauschen und Messfehlern besser gerecht zu werden.
 
 Darüber hinaus verwendet der EKF2 eine modifizierte Version der State Transition Matrix, die die Nichtlinearitäten des Systems besser modellieren kann. Diese modifizierte Matrix wird ebenfalls iterativ während des Filterbetriebs aktualisiert, um den Änderungen im Systemverhalten besser gerecht zu werden.
 
@@ -438,7 +413,7 @@ Allerdings ist die inertielle Positionsbestimmung anfällig für Fehler, die auf
 
 \subsection{SLAM}
 
-Ein weitere Prozess zur Erstellung von Karten und gleichzeitiger Lokalisierung ist \ac{SLAM}. 
+Ein weiterer Prozess zur Erstellung von Karten und gleichzeitiger Lokalisierung ist \ac{SLAM}. 
 In Kapitel \ref{SLAM:section} wird auf \ac{SLAM} ausführlich eingegangen
 \section{SLAM}\label{SLAM:section} 
 
@@ -482,7 +457,7 @@ Punktwolken sind ein zentraler Bestandteil von 3D-Modellen und werden in verschi
 
 Ein Punktwolkengenerator erzeugt eine Punktwolke aus mehreren Bildern, die von einer Kamera aufgenommen wurden.
 
-Um die Punktwolke zu erzeugen müssen 2D Koordinaten in ein 3D Koordinatensystem überführt werden, dazu benötigt man zunächst die intrinsische Matrix der Kamera. Diese Matrix beschreibt die Abbildungseigenschaften der Kamera und enthält Informationen wie Brennweite, Verschiebung und Verzerrung. Um diese Matrix zu erhalten, werden Kalibrierungsbilder von der Kamera aufgenommen und anschließend eine Kalibrierungssoftware verwendet, um die intrinsischen Parameter der Kamera zu berechnen. Die intrinsischen Parameter
+Um die Punktwolke zu erzeugen, müssen 2D Koordinaten in ein 3D Koordinatensystem überführt werden, dazu benötigt man zunächst die intrinsische Matrix der Kamera. Diese Matrix beschreibt die Abbildungseigenschaften der Kamera und enthält Informationen wie Brennweite, Verschiebung und Verzerrung. Um diese Matrix zu erhalten, werden Kalibrierungsbilder von der Kamera aufgenommen und anschließend eine Kalibrierungssoftware verwendet, um die intrinsischen Parameter der Kamera zu berechnen. Die intrinsischen Parameter
 
 Sobald die intrinsische Matrix bekannt ist, kann die extrinsische Matrix bestimmt werden. Diese Matrix beschreibt die Position und Ausrichtung der Kamera im Raum relativ zum Weltkoordinatensystem. Um diese Matrix zu berechnen, werden mehrere Bilder von der Kamera aus verschiedenen Positionen aufgenommen und mithilfe von visuellen Odometrie- oder SLAM-Algorithmen verarbeitet, um die Kameraposition und -orientierung zu schätzen.
 

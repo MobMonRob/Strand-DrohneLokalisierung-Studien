@@ -140,11 +140,32 @@ Das Robot Operating System hat den Bereich der Robotik revolutioniert, indem es 
 
 In der Abbildung \ref{img ros_communication} ist eine Übersicht der Kommunikation zwischen den verschiedenen Komponenten in \ac{ROS} zu sehen. \\
 Hauptbestandteil sind hierbei vor allem die Nodes der Hauptkamera beziehungsweise der Azure Kinect sowie auch Mavros. \\
-Mavros ist hierbei ein ROS-Paket, welches die Kommunikation zwischen dem Raspberry Pi und der Drohne mit Hilfe des MAVLink-Protokolls (siehe Kapitel \ref{mavlink}) ermöglicht. Es unterstützt dabei unter anderem den PX4 Flightstack, welcher in der Coex Clover Drohne vorhanden ist. Die Kommunikation kann hierbei wie bei MAVLink auch über \ac{USB} oder auch über Wifi stattfinden. \\
-Im nachfolgenden wird nun genauere auf einzelne Komponenten der ROS Kommunikation (siehe \ref{img ros_communication}) eingegangen. \\
+Mavros ist ein ROS-Paket, welches die Kommunikation zwischen dem Raspberry Pi und der Drohne mit Hilfe des MAVLink-Protokolls (siehe Kapitel \ref{mavlink}) ermöglicht. Es unterstützt dabei unter anderem den PX4 Flightstack, welcher in der Coex Clover Drohne vorhanden ist. Die Kommunikation kann hierbei wie bei MAVLink auch über \ac{USB} oder auch über Wifi stattfinden. \cite[vgl.][]{mavros}\\
+Im nachfolgenden wird nun genauer auf die einzelnen Komponenten sowie den Ablauf der ROS Kommunikation (siehe \ref{img ros_communication}) eingegangen. \\
 
-%https://clover.coex.tech/en/mavros.html
+simple\_offboard: \\
+simple\_offboard ermöglicht eine einfache Interaktion mit der Drohne. Das Modul hierzu vereinfacht das Programmieren von Skripten für autonome Flüge mit Drohnen mit Hilfe des Flugmodus Offboard. \cite[vgl.][]{simple_offboard}\\
+% https://clover.coex.tech/en/simple_offboard.html
 
+mavros: \\
+Die Mavros Node ist für die Kommunikation zwischen dem Raspberry Pi und dem Flight Controller zuständig.\\
+Hierfür gibt es viele verschiedene Topics, welche jeweils für den Austausch von unterschiedliche Informationen verantwortlich sind.\\
+Diese Topics werden im Namespace "\textbackslash mavros" zusammengefasst, zu diesen zählen unter anderem:\\
+\textbackslash mavros\textbackslash state: gibt den Status der Verbindung zwischen Raspberry Pi und Flightcontroller sowie den aktuellen Flugmodus an.\\
+\textbackslash mavros\textbackslash battery: enthält verschiedene Parameter und Nachrichten zur Batterie. Hierzu zählen der aktuelle Ladezustand, die verbleibende Kapazität, die Spannung oder auch die geschätzte Restflugzeit der Drohne.\\
+\textbackslash mavros\textbackslash local\_position\textbackslash pose: enthält die lokale Position sowie die aktuelle Orientierung der Drohne in einem Koordinatensystem.\\
+\textbackslash mavros\textbackslash setpoint\_attitude\textbackslash attitude: enthält die Informationen zum Einstellen der Fluglage. \cite[vgl.][]{mavros}\\
+% https://clover.coex.tech/en/mavros.html
+ 
+main\_camera: \\
+Von dem Azure Kinect ROS Treiber werden zwei Topics übergeben, diese sind: \\
+"\textbackslash main\_camera\textbackslash image\_raw", über dieses Topic werden die Rohbilder der Kamera gesendet. Zudem noch "\textbackslash main\_camera\textbackslash image\_info", über welches die Kamerainformationen übertragen werden. \cite[vgl.][]{kinect_ros_driver}\\
+\todo{author quelle?}
+% https://github.com/microsoft/Azure_Kinect_ROS_Driver/blob/melodic/docs/usage.md
+
+Der prinzipielle Ablauf bei der Kommunikation in Abbildung \ref{img ros_communication} wird von der mavros Node gestartet, denn diese bildet mit der Kommunikation zwischen ROS auf dem Raspberry Pi und dem PX4 des Flight Controllers die Grundlage. Zudem bietet der Einsatz der simple\_offboard Node die Möglichkeit zur Nutzung eigener Skripte, wodurch die Drohne autonom fliegen und navigieren kann. Diese beiden Nodes kommunizieren unter einander mit Hilfe der vielen verschiedenen Mavros-Nodes um Informationen und Parameter auszutauschen. Die simple\_offboard-Node kann zudem verschiedene Koordinatensysteme anfordern, welche von den Nodes aus dem main\_camera-Namespace kommen und mit Hilfe des \textbackslash tf-Topics transformiert werden. Diese Koordinatensysteme werden nun über die vpe\_publisher-Node an Mavros, sowie im weiteren Verlauf auch der simple\_offboard-Node übermittelt. Dadurch kann das Skript die Drohne anhand der Koordinaten navigieren und die Drohne dementsprechend zu der gewollten Position fliegen.
+\todo{text überprüfen}
+\todo{dopplungen entfernen} 
 
 \section{Kalibrierung der COEX Drohne}
 
@@ -168,6 +189,12 @@ Um die Drohne auch in der Simulation unter echten Bedingungen fliegen zu lassen,
     \subsection{3D Modell Vorbereitung}
 
 \section{Navigation}
+% wie Navigation hätte umgesetzt werden können
+
+% Navigation selbst nicht umgesetzt, u.a. auf Grund von Begrenzung Leistung Raspberry Pi
+
+
+
 
 \section{Simulation}
 
