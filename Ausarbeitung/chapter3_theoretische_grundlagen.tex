@@ -61,7 +61,7 @@ Die Technologie der mikroelektromechanischen Systeme (MEMS) wird häufig für di
 
 
     Bei \ac{RGB-D} Kameras handelt es sich um Kameras, die ein Strukturlichtverfahren verwenden.
-    Bei einem Strukturlichtverfahren werden Lichtmuster auf das zu rekonstruierende Projekt projeziert um das zusätzlich aufgenommene RGB Bild mit Tiefeninformationen zu versehen. Das in Kapitel \ref{chp:lasersensor} verwendete Prinzip wird auf das gesamte Bild angewendet. 
+    Bei einem Strukturlichtverfahren werden Lichtmuster auf das zu rekonstruierende Projekt projiziert um das zusätzlich aufgenommene RGB Bild mit Tiefeninformationen zu versehen. Das in Kapitel \ref{chp:lasersensor} verwendete Prinzip wird auf das gesamte Bild angewendet. 
     
     Mithilfe der so gewonnenen Entfernungsinformationen wird eine Tiefenkarte erstellt, die eine 3D Rekonstruktion der Umgebung ermöglicht.
 
@@ -96,7 +96,7 @@ In den vergangenen Jahren hat die Wissenschaft im Bereich der Robotik enorme For
 
 Trotz dieser rasanten Fortschritte stehen Softwareentwickler jedoch noch immer vor großen Herausforderungen bei der Programmierung von Robotern. Die Komplexität der Aufgaben, die von Robotern ausgeführt werden können, erfordert eine Menge an spezialisiertem Wissen und Erfahrung in verschiedenen Bereichen wie Sensorik, Bildverarbeitung, Künstlicher Intelligenz und Robotik.
 
-Die Igeneure und Softwareentwickler haben jedoch die Herausforderungen erkannt und arbeitet intensiv daran, sie zu lösen. Neue Werkzeuge und Frameworks werden entwickelt, um Entwicklern zu helfen, Roboter schneller und effektiver zu programmieren. Eines der bekanntensten Tools in diesem Bereich ist das Robot Operating System \ac{ROS}
+Die Ingenieure und Softwareentwickler haben jedoch die Herausforderungen erkannt und arbeitet intensiv daran, sie zu lösen. Neue Werkzeuge und Frameworks werden entwickelt, um Entwicklern zu helfen, Roboter schneller und effektiver zu programmieren. Eines der bekanntesten Tools in diesem Bereich ist das Robot Operating System \ac{ROS}
 
 \ac{ROS} ist eine Open-Source-Plattform, die speziell für die Entwicklung von Robotersoftware entwickelt wurde. Es bietet eine Reihe von Bibliotheken, Tools und Frameworks, die es Entwicklern ermöglichen, komplexe Robotikanwendungen zu erstellen und zu betreiben. \ac{ROS} wurde von Willow Garage entwickelt und ist heute ein weit verbreitetes Framework in der Robotik-Community.
 
@@ -110,7 +110,7 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
     Die verschiedenen \ac{ROS} Versionen setzen bestimmte \ac{OS} Versionen voraus. Am besten funktioniert hierbei Linux und hierbei Ubuntu. Aber auch auf Mac OS kann man ROS verwenden. Allerdings ist die Version für Mac OS bislange nur experimentell. \ac{ROS} funktioniert auch unter Windows allerdings werden. \cite[vgl.][]{ROSIntroduction}.
 
     \subsection{ROS-Distributionen} \label{ROS-Distributionen:subsection}
-    Eine ROS-Distribution besteht aus einem festgelegten und visionierten Set von ROS-Paketen. Vergelichbar ist dieses System mit den Linux-Distributionen wie z.B. Ubuntu. Der Hauptzweck von ROS-Distributionen besteht darin, Entwicklern eine relativ stabile Codebasis zu bieten, damit sie daran weiterarbeiten können. Sobald eine Distribution veröffentlicht wurde, werden Änderungen hauptsächlich auf Fehlerbehebungen und nicht-zerstörerische Verbesserungen für die Kernpakete (alles unter ros-desktop-full) beschränkt. Somit ist das "Umziehen" auf eine neue Distribution weniger Fehleranfällig und einfacher. Dies gilt im Allgemeinen für die gesamte ROS-Community, jedoch sind die Regeln für "höhere" Pakete weniger streng und somit liegt es an den Verantwortlichen eines spezifischen Pakets, zerstörende Änderungen zu vermeiden \cite[vgl.][]{ROScontributions}.
+    Eine ROS-Distribution besteht aus einem festgelegten und visionierten Set von ROS-Paketen. Vergleichbar ist dieses System mit den Linux-Distributionen wie z.B. Ubuntu. Der Hauptzweck von ROS-Distributionen besteht darin, Entwicklern eine relativ stabile Codebasis zu bieten, damit sie daran weiterarbeiten können. Sobald eine Distribution veröffentlicht wurde, werden Änderungen hauptsächlich auf Fehlerbehebungen und nicht-zerstörerische Verbesserungen für die Kernpakete (alles unter ros-desktop-full) beschränkt. Somit ist das "Umziehen" auf eine neue Distribution weniger Fehleranfällig und einfacher. Dies gilt im Allgemeinen für die gesamte ROS-Community, jedoch sind die Regeln für "höhere" Pakete weniger streng und somit liegt es an den Verantwortlichen eines spezifischen Pakets, zerstörende Änderungen zu vermeiden \cite[vgl.][]{ROScontributions}.
 
     \subsection{Nodes} \label{nodes:subsection}
     In \ac{ROS} werden Funktionen und Prozesse durch sogenannte Nodes realisiert. Eine Node ist eine ausführbare Einheit, die in einem \ac{ROS}-System arbeitet und über eine eindeutige Identifikation verfügt. Jede Node hat eine spezifische Aufgabe, wie beispielsweise das Sammeln von Sensordaten, die Ausführung einer spezifischen Berechnung oder das Steuern eines Aktors.
@@ -169,7 +169,7 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
     \textit{\$ roslaunch package\_name file.launch}
 
 \section{MAVLink} \label{mavlink}
-\ac{MAVLink} ist ein Nachrichtenprotokoll, welches vor allem zur Kommunikation zwischen einer Drohnen und einer Bodenstation eingesetzt wird. Der Einsatz dieses Protokolls ist besonders für Systeme konzipiert, die wenige Ressourcen und eine geringe Bandbreite aufweisen.\\
+\ac{MAVLink} ist ein Nachrichtenprotokoll, welches vor allem zur Kommunikation zwischen einer Drohne und einer Bodenstation eingesetzt wird. Der Einsatz dieses Protokolls ist besonders für Systeme konzipiert, die wenige Ressourcen und eine geringe Bandbreite aufweisen.\\
 Die Kommunikation kann über verschiedene Wege stattfinden, hierzu gehören beispielsweise \ac{USB}, aber auch drahtlose Verbindungen über Wifi, mit \ac{UDP} sowie auch \ac{TCP}, sind möglich. Das Protokoll überträgt Telemetriedaten mit Hilfe des Publisher/Subscriber Modells. Protokolle die Änderungen an der Systemkofiguration bewirken, wie beispielsweise ein Parameter- oder auch ein Missionsprotokoll und dadurch eine garantierte Zustellung erfordern, werden hingegen Punkt-zu-Punkt mit Retransmission übertragen. 
 \todo{Retransmission,übersetzung??}
 \\
@@ -333,7 +333,7 @@ PID-Regler finden in vielen Anwendungen Anwendung, einschließlich Temperaturreg
    
 \subsection{Flightstack}
 
-Der Flightstack eines Multicopters besteht aus mehreren Systemen. Üblicherweise besteht der Flightstack aus Mikrocontrollern, Sensoren, Aktuatoren, GPS-Modul und einer Stromversorgung. Die Sensoren sind dafür zuständig Daten über die aktuelle Fluglage des Multicopters zu sammeln. Daten die gesammelt werden sind Beschleunigung, Neigung, Lage und GPS-Position. Diese Daten werden vom Mikrocontroller verarbeitet um die Steuerung der Aktuatoren zu optimieren. Im Outdoor Flug ermöglicht die Verwendung eines GPS-Moduls die Position des Multicopters zu bestimmen und zu verfolgen.
+Der Flightstack eines Multicopters besteht aus mehreren Systemen. Üblicherweise besteht der Flightstack aus Mikrocontrollern, Sensoren, Aktuatoren, GPS-Modul und einer Stromversorgung. Die Sensoren sind dafür zuständig Daten über die aktuelle Fluglage des Multicopters zu sammeln. Daten die gesammelt werden, sind Beschleunigung, Neigung, Lage und GPS-Position. Diese Daten werden vom Mikrocontroller verarbeitet, um die Steuerung der Aktuatoren zu optimieren. Im Outdoor Flug ermöglicht die Verwendung eines GPS-Moduls die Position des Multicopters zu bestimmen und zu verfolgen.
 
 Da die verbaute Technik auch mit Strom versorgt werden muss, ist ein Akkumulator auf dem Multicopter verbaut. Der Akkumulator stellt die nötige Energie für den Betrieb des Multicopters bereit. Insgesamt ist der FlightStack ein zentrales Element zur Steuerung des Multicopters und erfordert eine sorgfältige Integration und Abstimmung aller Komponenten, um eine zuverlässige und sichere Steuerung zu gewährleisten.
 
@@ -344,6 +344,7 @@ Da die verbaute Technik auch mit Strom versorgt werden muss, ist ein Akkumulator
 Die Erstellung von 3D-Modellen erfolgt in der Regel durch eine Kombination von verschiedenen Technologien und Software-Tools. Zum Beispiel können 3D-Scanner verwendet werden, um physische Objekte zu scannen und daraus digitale Modelle zu erstellen. Alternativ können 3D-Modelle auch von Grund auf neu erstellt werden, indem man eine 2D-Zeichnung oder ein Konzept in einer 3D-Software modelliert.
 
 Ein wichtiger Vorteil von 3D-Modellen ist, dass sie interaktiv und manipulierbar sind. Das bedeutet, dass man sie drehen, skalieren und animieren kann, um verschiedene Perspektiven oder Bewegungen zu erzeugen. Darüber hinaus können 3D-Modelle auch für Simulationen und Analysen verwendet werden. Zum Beispiel können Architekten und Ingenieure 3D-Modelle von Gebäuden erstellen, Verein Deutscher Ingeneureum die Belastung bei Erdbeben oder starkem Wind zu simulieren.
+\todo{Verein Deutscher Ingeneureum?}
 
 Insgesamt sind 3D-Modelle eine äußerst vielseitige Technologie, die in vielen verschiedenen Branchen und Anwendungen eingesetzt werden kann. Sie ermöglichen es, physische Objekte und Szenen digital darzustellen und zu manipulieren, was zahlreiche Möglichkeiten für Design, Simulation und Analyse bietet.
 
@@ -364,7 +365,7 @@ Obwohl 3D-Scanner ein unglaublich leistungsfähiges Werkzeug sind, haben sie auc
 Bei der Lasertriangulation wird ein Laserstrahl wird an der Oberfläche des Messobjektes reflektiert und über eine Optik und einen Umlenkspiegel auf eine lichtempfindliche Zeilenkamera projiziert. Abhängig von der Entfernung des Messobjektes verändert sich die Position des Lichtpunktes. Hieraus ermittelt der Signalprozessor den Abstand zwischen dem Sensor und der Oberfläche der Stahlprodukte.
 
 \subsubsection{3D-Scanner mit strukturiertem Licht}
-Scanner für strukturiertes Licht verwenden ebenfalls die trigonometrische Triangulation. Allerdings verwenden sie keinen Laser. Das System pojeziert eine Reihe an linienförmigen Mustern of auf Objekt. Zum Erkennen des Abtandes werden die Kanten jeder Linie des Musters untersucht. Anhand dieser Kanten kann dann dier Abstand vom Scanner zum Objekt berechnet werden. Im Wesentlichen „sieht“ die Kamera nicht eine Laserlinie, sondern den Rand des projizierten Musters
+Scanner für strukturiertes Licht verwenden ebenfalls die trigonometrische Triangulation. Allerdings verwenden sie keinen Laser. Das System projiziert eine Reihe an linienförmigen Mustern of auf Objekt. Zum Erkennen des Abstandes werden die Kanten jeder Linie des Musters untersucht. Anhand dieser Kanten kann dann der Abstand vom Scanner zum Objekt berechnet werden. Im Wesentlichen „sieht“ die Kamera nicht eine Laserlinie, sondern den Rand des projizierten Musters
 
 \subsubsection{Time-of-flight-Scanner}
 Time-of-Flight (ToF) Scanner sind eine Art von 3D-Scanner, die mithilfe von Lichtimpulsen die Entfernung zu Objekten in Echtzeit messen können. Sie haben in den letzten Jahren aufgrund ihrer hohen Genauigkeit und ihrer Fähigkeit, schnelle und präzise Messungen durchzuführen, eine breite Anwendung in verschiedenen Branchen gefunden.
@@ -424,7 +425,7 @@ Während der Navigation und Lokalisierung kombiniert die Drohne Informationen au
  \subsection{Extended Kalman Filter 2}
     Der \ac{EKF}2-Algorithmus, der in der Drohnensteuerung verwendet wird, ist eine Erweiterung des klassischen erweiterten Kalman-Filters, die speziell auf die Bedürfnisse der Drohnensteuerung zugeschnitten ist. Der EKF2 ist ein geschätzter Zustandsregler, der die aktuellen Zustände (z.B. Position, Geschwindigkeit, Orientierung) einer Drohne schätzt, basierend auf Messungen von Sensoren (z.B. \ac{GPS}, \ac{IMU}, Magnetometer).
 
-Im Gegensatz zum klassischen EKF verwendet der EKF2 eine modifizierte Version der Kalman-Filter-Formeln, um den Einfluss von Sensorrauschen und Messfehlern besser zu berücksichtigen. Insbesondere verwendet der EKF2 eine sogenannte "Innovation Covariance Matrix", die die Varianz der Messfehler repräsentiert und in die Filtergleichungen eingebaut wird. Diese Innovation Covariance Matrix wird iterativ während des Betriebs des Filters aktualisiert, um den Sensorrauschen und Messfehlern besser gerecht zu werden.
+Im Gegensatz zum klassischen EKF verwendet der EKF2 eine modifizierte Version der Kalman-Filter-Formeln, um den Einfluss von Sensorrauschen und Messfehlern besser zu berücksichtigen. Insbesondere verwendet der EKF2 eine sogenannte "Innovation Covariance Matrix", die die Varianz der Messfehler repräsentiert und in die Filtergleichungen eingebaut wird. Diese Innovation Covariance Matrix wird iterativ während des Betriebs des Filters aktualisiert, um Sensorrauschen und Messfehlern besser gerecht zu werden.
 
 Darüber hinaus verwendet der EKF2 eine modifizierte Version der State Transition Matrix, die die Nichtlinearitäten des Systems besser modellieren kann. Diese modifizierte Matrix wird ebenfalls iterativ während des Filterbetriebs aktualisiert, um den Änderungen im Systemverhalten besser gerecht zu werden.
 
@@ -445,7 +446,7 @@ Allerdings ist die inertielle Positionsbestimmung anfällig für Fehler, die auf
 
 \subsection{SLAM}
 
-Ein weitere Prozess zur Erstellung von Karten und gleichzeitiger Lokalisierung ist \ac{SLAM}. 
+Ein weiterer Prozess zur Erstellung von Karten und gleichzeitiger Lokalisierung ist \ac{SLAM}. 
 In Kapitel \ref{SLAM:section} wird auf \ac{SLAM} ausführlich eingegangen
 \section{SLAM}\label{SLAM:section} 
 
@@ -692,6 +693,3 @@ Gazebo bietet auch eine Vielzahl von Sensoren und Schnittstellen für Benutzer u
 \ac{SIL} ist eine Technik zur Überprüfung und Validierung von Code in einer Simulationsumgebung, um effektiv und kosteneffizient Fehler zu finden und die Code-Qualität zu verbessern. Die SIL-Tests werden typischerweise in den frühen Phasen des Software-Entwicklungsprozesses durchgeführt, um sicherzustellen, dass der Code den Anforderungen entspricht und fehlerfrei ist. Diese Methode kann dazu beitragen, Zeit und Geld zu sparen, da Fehler frühzeitig erkannt und behoben werden können, bevor teure Hardware-Tests durchgeführt werden müssen.
 
 Im Gegensatz zum \ac{HIL}-Ansatz, bei dem die Software auf echten Hardwarekomponenten getestet wird, verwendet \ac{SIL} Simulationen, um die Hardware-Plattformen zu ersetzen. Dies ermöglicht es Entwicklern, die Software auf unterschiedlichen Szenarien und Bedingungen zu testen, ohne tatsächliche Hardwarekomponenten zu benötigen. Darüber hinaus können Entwickler durch \ac{SIL}-Tests den Code in einer Vielzahl von Szenarien testen und Fehler beheben, bevor er in den \ac{HIL}-Test übergeht.
-
-
-\section{Problembehebung} \label{problembehebung:section}
