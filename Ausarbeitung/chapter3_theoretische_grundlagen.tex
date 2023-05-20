@@ -9,7 +9,7 @@ Sensoren sind entscheidend für die 3D Navigation anhand eines 3D Umweltmodells.
 
         Trägheitssensoren, wie z. B. Drei-Achsen-Beschleunigungsmesser, sind wesentliche Bestandteile der Quadcopter-Technologie. Diese Beschleunigungsmesser messen die spezifische Kraft, d. h. die gesamte nicht durch die Schwerkraft verursachte Kraft pro Masseneinheit. Ein Beschleunigungsmesser in stationärem Zustand misst die durch die Schwerkraft verursachte Beschleunigung, zeigt jedoch keine Gesamtbeschleunigung an. Während des freien Falls erfasst er jedoch die Erdbeschleunigung als Gesamtbeschleunigung und gibt den Wert Null aus. Diese Eigenschaft ermöglicht die Verwendung von Drei-Achsen-Beschleunigungsmessern für Winkelmessungen. Der Grad der Federkompression in einem Beschleunigungsmesser wird durch den Winkel bestimmt, den er mit dem Boden bildet, und diese Federkompressionslänge bedeutet die spezifische Kraft. Diese Methode ermöglicht die präzise Messung von Nick- und Rollwinkeln, ohne dass sich Fehler ansammeln, wenn keine äußeren Kräfte vorhanden sind.
 
-Die Technologie der mikroelektromechanischen Systeme (MEMS) wird häufig für die Herstellung von Beschleunigungsmessern für Quadcopter verwendet, da sie Sensoren von der Größe eines Fingernagels und mit geringem Energieverbrauch herstellen kann. MEMS-Beschleunigungsmesser, die häufig in Smartphones zu finden sind, arbeiten nach dem piezoresistiven, piezoelektrischen oder kapazitiven Prinzip. Bei diesen Systemen entspricht die spezifische Kraft den Änderungen des Widerstands, der Spannung bzw. der Kapazität. Diese Werte werden über Verstärkungs- und Filterschaltungen gewonnen. Diese Sensoren können jedoch bei Vibrationen erhebliche Fehler aufweisen, was eine erhebliche Einschränkung dieser Technologie darstellt. 
+         Die Technologie der mikroelektromechanischen Systeme (MEMS) wird häufig für die Herstellung von Beschleunigungsmessern für Quadcopter verwendet, da sie Sensoren von der Größe eines Fingernagels und mit geringem Energieverbrauch herstellen kann. MEMS-Beschleunigungsmesser, die häufig in Smartphones zu finden sind, arbeiten nach dem piezoresistiven, piezoelektrischen oder kapazitiven Prinzip. Bei diesen Systemen entspricht die spezifische Kraft den Änderungen des Widerstands, der Spannung bzw. der Kapazität. Diese Werte werden über Verstärkungs- und Filterschaltungen gewonnen. Diese Sensoren können jedoch bei Vibrationen erhebliche Fehler aufweisen, was eine erhebliche Einschränkung dieser Technologie darstellt. 
 
     \cite[vgl.][S. 149-155]{SWB-165930377X}
     \subsection{Magnetometer} \label{magnetometer:subsection}
@@ -585,29 +585,33 @@ Grundsätzlich geht es aber darum 2D Koordinaten eines Bildes in ein 3 dimension
 \cite[vgl.][Kapitel 9.2 und Kapitel 7.8.1]{SWB-165930377X}
 
 
-
-\subsection{Odometrie und Bewegunsschätzung}
-
-Die Odometrie ist ein Verfahren zur Bestimmung der Position und Bewegung eines Roboters auf der Grundlage der Messung von Raddrehungen. Da Multicopter keine Räder zur Fortbewegung einsetzen müssen andere Arten von Odometrie eingesetzt werden. Bei Multicoptern können drei Arten von Odometrie eingesetzt werden: die visuelle Odometrie, die inerzielle Odometrie und die GPS-basierte Odometrie.
-
-\todo{Odometrie mit Raddrehungen anpassen für Multicopter}
-
-Bei der visuellen Odometrie werden Kameras verwendet, um die Bewegung des Multicopters zu verfolgen. Die Kamera erfasst Bilder der Umgebung und berechnet anhand von Merkmalen in den Bildern, wie sich der Multicopter bewegt. Die inertielle Odometrie nutzt Beschleunigungsmesser und Drehratenmesser, um die Beschleunigung und Drehung des Multicopters zu messen. Die GPS-basierte Odometrie verwendet Satellitensignale, um die Position und Bewegung des Multicopters zu bestimmen.
-
-SLAM (Simultaneous Localization and Mapping) kann für die Verwendung von Odometrie bei Multicoptern eingesetzt werden. SLAM ist ein Verfahren, bei dem ein Roboter seine Position in Echtzeit bestimmt und gleichzeitig eine Karte der Umgebung erstellt. Bei Verwendung von SLAM mit der Odometrie können Fehler bei der Odometrie-Kartierung durch Korrektur der Odometrie-Schätzungen mit anderen Sensorinformationen, wie GPS oder visuelle Daten, korrigiert werden.
-
-Zusammenfassend ermöglicht die Odometrie bei Multicoptern eine präzise Bestimmung der Position und Bewegung des Roboters, insbesondere in Umgebungen, in denen GPS-Signale nicht verfügbar oder unzuverlässig sind. Die Verwendung von SLAM mit Odometrie ermöglicht es, die Genauigkeit der Lokalisierung zu verbessern und eine Karte der Umgebung zu erstellen.
-
 \subsection{SLAM-Verfahren}
 
 Die Punktwolke kann über mehrere verschiedene Verfahren erstellt werden, die alle teils sehr unterschiedliche Ansätze verfolgen. Die grundlegenden Verfahren die zur Erstellung von 3D Punktwolken verwendet werden können, werden in den nächsten Kapiteln vorgestellt.
 
+\subsection{Visuelle Odometrie \& und visuelles SLAM}
 
-\subsubsection{Visual \ac{SLAM}}
+Die Themen \ac{VO} und \ac{VSLAM} sind eng miteinander verknüpft und zielen darauf ab, 3D-Informationen aus visuellen Datenströmen in Echtzeit zu extrahieren. \ac{VO} zielt darauf ab, die inkrementelle Bewegung der Kamera zu schätzen, während \ac{VSLAM} sich darauf konzentriert, eine global konsistente Karte der Szene und die Kameratrajektorie in Bezug darauf zu schätzen.
+
+In der Robotikforschung wird \ac{SLAM} als grundlegende Fähigkeit für autonome Roboter betrachtet. Frühe Arbeiten zu \ac{SLAM} nutzten hauptsächlich Laserscanner, jedoch hat das Feld aufgrund von Fortschritten in der Computer Vision und verbesserter Prozessoren schnell auf Kameras umgestellt. Die meisten visuellen \ac{SLAM}-Methoden basieren auf Merkmalsabgleich und Mehrsichtgeometrie, was einige Einschränkungen für monokulare \ac{SLAM} mit sich bringt. Dies kann teilweise durch zusätzliche Sensoren oder Vorwissen über das System oder die Szene gelöst werden.
+
+In der Robotikforschung wird SLAM als grundlegende Fähigkeit für autonome Roboter betrachtet. Frühe Arbeiten zu SLAM nutzten hauptsächlich Laserscanner, jedoch hat das Feld aufgrund von Fortschritten in der Computer Vision und verbesserter Prozessoren schnell auf Kameras umgestellt. Die meisten visuellen SLAM-Methoden basieren auf Merkmalsabgleich und Mehrsichtgeometrie, was einige Einschränkungen für monokulare SLAM mit sich bringt. Dies kann teilweise durch zusätzliche Sensoren oder Vorwissen über das System oder die Szene gelöst werden.
+
+\subsubsection{Herausforderungen und Lösungen in \ac{VO} und \ac{VSLAM}}
+
+Die meisten visuellen SLAM-Methoden basieren auf Merkmalsabgleich und Mehransichtsgeometrie. Dies bringt einige Herausforderungen und Einschränkungen mit sich, insbesondere für monokulare SLAM. Zu diesen Herausforderungen gehören die Notwendigkeit einer großen Basislinienbewegung, um ausreichend Parallaxe für eine zuverlässige Tiefenschätzung zu erzeugen, und die Unbeobachtbarkeit der Skala. Diese Probleme können teilweise durch den Einsatz zusätzlicher Sensoren, wie Stereo-Kameras und Trägheitsmesseinheiten (IMUs), oder durch Vorwissen über das System oder die Szene gelöst werden. Ein weiteres Problem ist die dichte Rekonstruktion von Bereichen mit geringer Textur.
+
+\subsubsection{Der Nutzen von RGB-D Sensoren}
+
+RGB-D-Sensoren stellen eine praktikable, hardwarebasierte Lösung für die oben genannten Herausforderungen dar. Ihre Verfügbarkeit zu niedrigen Kosten hat viele Robotik- und AR-Anwendungen ermöglicht. In den letzten zehn Jahren haben sie sich als eine der bevorzugten Sensoren für Innenanwendungen in Robotik und AR durchgesetzt. Sie bieten nicht nur eine kostengünstige und energieeffiziente Lösung, sondern ermöglichen auch die Erfassung von 3D-Informationen, was sie für eine Vielzahl von Anwendungen attraktiv macht.
 
 \subsubsection{Visual Inertial \ac{SLAM}}
 
+\subsection{Monocular \ac{VSLAM}}
+
 \todo{Grundlegenden Unterscheidungen SLAM}
+\todo{Unterscheidung visual inertial}
+\todo{loop closure und das gedöns erklären}
 
 
 

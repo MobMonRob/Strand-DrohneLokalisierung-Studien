@@ -19,9 +19,10 @@ In Abbildung \ref{fig:vorgehensweise} sind die 2 Vorgehensweisen die wir uns aus
 
 \subsection{Auswahl SLAM Algorithmus}
 
-Es wurden mehrere \ac{SLAM}-Algorithmen in Betracht gezogen, und aufgrund der begrenzten Leistung des Raspberry Pi haben wir den Algorithmus mit den geringsten Anforderungen ausgewählt. Dazu haben wir eine gewichtete Analyse erstellt um den für unsere Zwecke bestens geeigneten \ac{SLAM} Algorithmus zu verwenden. Die Gewichte sehen Sie in Tabelle \ref{tab:vergleich-gewichtung-slam}, die Kriterien in \ref{tab:vergleich-kriterien-slam} und das Ergebnis in \ref{tab:vergleich-slam}
+Es wurden mehrere \ac{SLAM}-Algorithmen in Betracht gezogen, und aufgrund der begrenzten Leistung des Raspberry Pi haben wir den Algorithmus mit den geringsten Anforderungen ausgewählt. Eine Übersicht der gebräuchlichen \ac{SLAM} Algorithmen ist in \ref{chp:übersicht-slamalgo} zu sehen.Für eine fundierte Auswahl wurde eine gewichtete Analyse erstellt um den für unsere Zwecke bestens geeigneten \ac{SLAM} Algorithmus zu verwenden. Die Gewichte sehen Sie in Tabelle \ref{tab:vergleich-gewichtung-slam}, die Kriterien in \ref{tab:vergleich-kriterien-slam} und das Ergebnis in \ref{tab:vergleich-slam}
 
-Bei der Bewertung von SLAM-Algorithmen gibt es mehrere Punkte, die zur Messung der Qualität und Eignung eines SLAM-Verfahrens herangezogen werden können.
+Bei der Bewertung von \ac{SLAM}-Algorithmen gibt es mehrere Punkte, die zur Messung der Qualität und Eignung eines \ac{SLAM}-Verfahrens herangezogen werden können.
+
 
 \begin{description}
     \item[Genauigkeit]{Die Genauigkeit eines SLAM-Algorithmus bezieht sich darauf, wie genau die geschätzten Positionen und Kartendarstellungen mit den tatsächlichen Werten übereinstimmen. Eine höhere Genauigkeit ist für eine präzise Navigation und Kartierung wünschenswert}
@@ -37,20 +38,43 @@ Bei der Bewertung von SLAM-Algorithmen gibt es mehrere Punkte, die zur Messung d
 Die Messungen die in \cite{ragot:hal-04071273} durchgeführt werden von uns als Referenzwerte für die Bewertung 
 Zur Bewertung der \ac{SLAM} Algorithmen haben wir folgende Messungen als Referenz genommen \cite{ragot:hal-04071273}
 
-\subsubsection{OBD-SLAM3}
+\subsection{Übersicht \ac{VSLAM} Algorithmen}
 
-BD-SLAM3 ist eine Erweiterung des OBD-SLAM (Oriented Bounding Box SLAM) Algorithmus, der für die simultane Lokalisierung und Kartierung (SLAM) in dreidimensionalen Umgebungen entwickelt wurde. Im Gegensatz zu OBD-SLAM verwendet OBD-SLAM3 jedoch eine tiefere Netzwerkarchitektur, um die Leistung und Genauigkeit der Odometrie und der visuellen Wahrnehmung zu verbessern.
+Da die Azure Kinect in dieser Arbeit verwendet sollen, werden alle \ac{SLAM} Verfahren, die nur mit monokular funktionierenden Kameras verwendet werden können ausgeschlossen.
+Ansonsten kann der Depth \ac{ToF} Sensor der Azure Kinekt nicht verwendet werden.
 
-OBD-SLAM3 nutzt eine Kombination aus Tiefenkameras und RGB-Kameras, um eine 3D-Repräsentation der Umgebung zu erstellen und gleichzeitig die Bewegung des Roboters in der Umgebung zu schätzen. Der Algorithmus verwendet ein neuronales Netzwerk, um die Tiefeninformationen der Kameras zu verarbeiten und eine Schätzung der Kamerapositionen und -orientierungen zu generieren.
+\subsubsection{ElasticFusion}
 
-Im Gegensatz zu anderen SLAM-Verfahren, die auf einer Vielzahl von Features wie Punkten oder Linien basieren, nutzt OBD-SLAM3 Oriented Bounding Boxen (OBBs), um eine robustere Schätzung der Kamerabewegungen und -positionen zu ermöglichen. Die OBBs erlauben eine genauere Modellierung der Umgebung und eine bessere Korrektur von Fehlern, die durch Ungenauigkeiten bei der Berechnung von 3D-Points entstehen können.
 
-Insgesamt ermöglicht OBD-SLAM3 eine genauere und robustere Lokalisierung und Kartierung in dreidimensionalen Umgebungen, was ihn zu einem vielversprechenden Ansatz für autonome Robotikanwendungen macht.
+ElasticFusion ist eine dichte SLAM-Methode, die RGB-D-Kameras verwendet. Es konstruiert ein global konsistentes Modell der Umgebung zur Verwendung in Roboteranwendungen wie Objekterkennung und -manipulation und bestimmt gleichzeitig die Sensorposition in Echtzeit. Erreicht wird dies durch eine Kombination aus Frame-to-Model-Kameratracking und oberflächenbasierter Fusion, die eine häufige Modellverfeinerung durch nicht starre Oberflächendeformationen nutzt.
 
-\subsubsection{LSD-SLAM}
 
-\subsection{RTAB-Map}
+\subsubsection{RTAB-Map}
 
+RTAB-Map (Real-Time Appearance-Based Mapping) ist ein beliebter Open-Source SLAM-Algorithmus, der auf RGB-D, Stereo und Lidar basiert. Er ist speziell für die langfristige und großflächige Kartierung von Umgebungen konzipiert. Das Hauptmerkmal von RTAB-Map ist seine Fähigkeit, Schleifenabschlüsse zu erkennen und zu verarbeiten, um eine genaue Kartierung über lange Zeiträume und Entfernungen aufrechtzuerhalten.
+
+RTAB-Map verwendet eine Speicherverwaltungstechnik, um die kartierten Umgebungen zu verfolgen, wobei ein Kurzzeitspeicher für die jüngsten Beobachtungen und ein Langzeitspeicher für den Rest verwendet wird. Dies hilft bei der Bewältigung der Herausforderungen bei der Abbildung großer Umgebungen und beim Umgang mit Schleifenschlüssen. Außerdem verfügt es über einen Graph-Optimierer, der die Karte und die Roboterbahn korrigiert, nachdem Schleifenschlüsse erkannt wurden.
+
+RTAB-Map enthält auch eine 2D- und 3D-Kartierungs- und Lokalisierungsschnittstelle und kann verschiedene Kartentypen erzeugen, darunter 2D-Belegungsrasterkarten, 3D-Punktwolken und texturierte 3D-Netze. Diese Vielfalt an Kartentypen macht es zu einer flexiblen Wahl für viele verschiedene Arten von Anwendungen.
+
+
+
+\subsubsection{DynaSLAM}
+
+DynaSLAM ist ein visuelles SLAM-System, das für die Handhabung dynamischer Objekte in der Umgebung entwickelt wurde. Es baut auf ORB-SLAM2 auf und kann mit monokularen, Stereo- und RGB-D-Kameras arbeiten. DynaSLAM führt eine Hintergrund-Vordergrund-Segmentierungsmethode ein, um mit dynamischen Objekten umzugehen.
+
+\subsubsection{ORB-SLAM}
+
+ORB-SLAM ist eine vielseitige und genaue SLAM-Lösung für monokulare, Stereo- und RGB-D-Kameras. Sie ist in der Lage, in Echtzeit die Kameratrajektorie und eine spärliche 3D-Rekonstruktion der Szene in einer Vielzahl von Umgebungen zu berechnen, von kleinen handgehaltenen Sequenzen eines Schreibtisches bis hin zu einem Auto, das durch mehrere Städte fährt
+
+
+ORB-SLAM3 ist eine Erweiterung des ORB-SLAM, der für die simultane Lokalisierung und Kartierung (SLAM) in dreidimensionalen Umgebungen entwickelt wurde. Im Gegensatz zu ORB-SLAM verwendet ORB-SLAM3 jedoch eine tiefere Netzwerkarchitektur, um die Leistung und Genauigkeit der Odometrie und der visuellen Wahrnehmung zu verbessern.
+
+ORB-SLAM3 nutzt eine Kombination aus Tiefenkameras und RGB-Kameras, um eine 3D-Repräsentation der Umgebung zu erstellen und gleichzeitig die Bewegung des Roboters in der Umgebung zu schätzen. Der Algorithmus verwendet ein neuronales Netzwerk, um die Tiefeninformationen der Kameras zu verarbeiten und eine Schätzung der Kamerapositionen und -orientierungen zu generieren.
+
+Im Gegensatz zu anderen SLAM-Verfahren, die auf einer Vielzahl von Features wie Punkten oder Linien basieren, nutzt ORB-SLAM3 Oriented Bounding Boxen (OBBs), um eine robustere Schätzung der Kamerabewegungen und -positionen zu ermöglichen. Die OBBs erlauben eine genauere Modellierung der Umgebung und eine bessere Korrektur von Fehlern, die durch Ungenauigkeiten bei der Berechnung von 3D-Points entstehen können.
+
+Insgesamt ermöglicht ORB-SLAM3 eine genauere und robustere Lokalisierung und Kartierung in dreidimensionalen Umgebungen, was ihn zu einem vielversprechenden Ansatz für autonome Robotikanwendungen macht.
 
 
 \subsection{Auswahl Lokalisierungssystem}
@@ -144,8 +168,21 @@ Alleine mit Inertial Navigation kann kein \ac{SLAM} durchgeführt werden. Da die
 
 Die \ac{ROS} Version, welche für diese Arbeit verwendet wurde, ist die Version "ROS Noetic Ninjemys". Diese ist die aktuellste ROS 1 Version mit long term support. Das Betriebssystem, auf welches die Version abzielt, ist Ubuntu 20.04 (Focal). Dementsprechend wurde auch Ubuntu 20.04 für diese Arbeit verwendet.
 
+\subsection{Auswahl Sensoren}
 
+Die COEX Drohne, die für diese Arbeit verwendet wird ist mit einem COEX Pix ausgestattet.
+Dieser Flightcontroller ist standardmäßig mit einer IMU ausgestattet. Zunächst sollte eine Holo Lens 2 auf der Drohne montiert werden um durch das Spatial Mapping Feature die Umgebung zu scannen und die Position zu erkenne.
+Später hat sich herausgestellt, dass eine Montage der Holo Lens 2 auf der Drohne nicht möglich ist, da die Holo Lens 2 für die COEX Drohne zu schwer wäre.
+Die Azure Kinect verfügt jedoch über die gleichen Sensoren wie die Holo Lens 2 ist aber wesentlich kleiner und leichter, da keine unnötigen Funktionen wie ein \ac{AR} Display vorhanden sind.
 
+Somit sind folgende Sensoren auf der COEX Drohne verfügbar.
 
+\begin{itemize}
+    \item{RGB Kamera}
+    \item{Azure Kinect \ac{RGB-D}}
+    \item{IMU}
+\end{itemize}
+
+Damit lässt sich theoretisch ein \ac{V-SLAM} auf der Drohne umsetzen.
 
 
