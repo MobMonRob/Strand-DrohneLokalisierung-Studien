@@ -23,12 +23,12 @@ QGroundControl ist eine Software, welche vor allem für Drohnen mit einem PX4 ab
 Es ist auch möglich mit QGroundControl eine ganze Flugplanung zu machen, welche die Drohne daraufhin umsetzt. \cite[vgl.][]{qGroundControl}
 
 
-\section{Systemarchitektur}
+\section{Systemarchitektur}\label{systemarchitektur:section}
 
-\subsection{Allgemeine Systemarchitektur eines ROS Programms}
+\subsection{Allgemeine Systemarchitektur eines ROS Programms} \label{systemarchitektur_ros_programm:subsection}
 Das Robot Operating System hat den Bereich der Robotik revolutioniert, indem es einen robusten und flexiblen Rahmen für die Entwicklung komplexer Robotersysteme bietet. Das Herzstück von \ac{ROS} ist seine ausgeklügelte Systemarchitektur, die das Zusammenspiel zwischen verschiedenen Komponenten orchestriert und eine nahtlose Kommunikation und Koordination ermöglicht.
 
-\subsubsection{Zentrale Konzepte}
+\subsubsection{Zentrale Konzepte} \label{zentrale_konzepte:subsubsection}
 \begin{description}
     \item[Nodes:] Nodes sind autonome Softwaremodule, die bestimmte Aufgaben innerhalb eines ROS-Systems übernehmen. Sie kommunizieren miteinander, indem sie Nachrichten zu Themen veröffentlichen und abonnieren oder indem sie Services aufrufen und bereitstellen. Nodes können über mehrere Maschinen verteilt sein und bilden so ein verteiltes System. (Siehe Kapitel \ref{nodes:subsection})
     
@@ -39,7 +39,7 @@ Das Robot Operating System hat den Bereich der Robotik revolutioniert, indem es 
     \item[Services:] Services ermöglichen eine synchrone Anfrage-Antwort-Kommunikation zwischen Nodes. Ein Node bietet einen Service an, und andere Node können Anfragen an ihn senden. Die Dienstnode verarbeitet dann die Anforderung und sendet eine Antwort an den anfordernden Node zurück. Services werden mithilfe von .srv-Dateien definiert und folgen einem Client-Server-Kommunikationsmuster.
 \end{description}
 
-\subsubsection{Ebenen der ROS-Systemarchitektur}
+\subsubsection{Ebenen der ROS-Systemarchitektur} \label{ebenen_ros_systemarchitektur:subsubsection}
 \begin{description}
     \item[Dateisystem-Ebene:] Die Dateisystem-Ebene in \ac{ROS} spielt eine entscheidende Rolle bei der Organisation und Verwaltung der für die Entwicklung von Roboteranwendungen erforderlichen Ressourcen. Sie bietet eine hierarchische Struktur und Paketverwaltungsfunktionen, die es Entwicklern ermöglichen, ihren Code, ihre Konfigurationsdateien, Startdateien und Daten effizient zu organisieren. Die \ac{ROS} Filesystem-Ebene dient als Grundlage für den Aufbau modularer und wiederverwendbarer Softwarekomponenten innerhalb des \ac{ROS}-Ökosystems.
 
@@ -98,7 +98,7 @@ Das Robot Operating System hat den Bereich der Robotik revolutioniert, indem es 
     \item[Betriebssystem-Schicht:] Die Betriebssystemschicht stellt die zugrundeliegende Infrastruktur bereit, die für den Betrieb von ROS notwendig ist, einschließlich Hardwareabstraktion, Gerätetreiber und Prozessmanagement. ROS ist mit verschiedenen Betriebssystemen wie Linux, macOS und Windows kompatibel und gewährleistet so die Portabilität über verschiedene Plattformen hinweg.
 \end{description}
 
-\subsubsection{Schlüsselkomponenten}
+\subsubsection{Schlüsselkomponenten} \label{schluesselkomponente:subsubsection}
 \begin{description}
     \item[ROS-Master:] Der ROS-Master ist eine entscheidende Komponente in der Architektur von \ac{ROS}, die eine zentrale Koordinations- und Kommunikationsdrehscheibe für ROS-Nodes innerhalb eines Systems darstellt. Er dient als zentraler Punkt für die Registrierung und Erkennung von ROS-Nodes, die Verwaltung von Topics und Services und die Erleichterung der Kommunikation zwischen ihnen.
 
@@ -126,8 +126,34 @@ Das Robot Operating System hat den Bereich der Robotik revolutioniert, indem es 
     Der Hauptzweck der Verwendung von ROS-Bags besteht darin, Offline-Analysen und Debugging zu ermöglichen. Durch die Aufzeichnung der Nachrichten, die während eines bestimmten Laufs oder Experiments zwischen den Nodes ausgetauscht werden, können die Benutzer die aufgezeichneten Daten später wieder abspielen, um detaillierte Analysen oder Fehlersuchaufgaben durchzuführen. Dies ist besonders nützlich bei der Fehlersuche in komplexen Szenarien oder bei der Analyse von Systemverhalten, das sich nur schwer in Echtzeit reproduzieren lässt.
 \end{description}
 
-\section{Softwarearchitektur}
+\section{Softwarearchitektur} \label{softwarearchitektur:section}
 \todo{Beschreibung Mavros}
+
+In der Abbildung \ref{img ros_communication} ist eine Übersicht der Kommunikation zwischen den verschiedenen Komponenten in \ac{ROS} zu sehen. \\
+Hauptbestandteil sind hierbei vor allem die Nodes der Hauptkamera beziehungsweise der Azure Kinect sowie auch Mavros. \\
+Mavros ist ein ROS-Paket, welches die Kommunikation zwischen dem Raspberry Pi und der Drohne mit Hilfe des MAVLink-Protokolls (siehe Kapitel \ref{mavlink}) ermöglicht. Es unterstützt dabei unter anderem den PX4 Flightstack, welcher in der Coex Clover Drohne vorhanden ist. Die Kommunikation kann hierbei wie bei MAVLink auch über \ac{USB} oder auch über Wifi stattfinden. \cite[vgl.][]{mavros}\\
+Im nachfolgenden wird nun genauer auf die einzelnen Komponenten sowie den Ablauf der ROS Kommunikation (siehe \ref{img ros_communication}) eingegangen. \\
+
+simple\_offboard: \\
+simple\_offboard ermöglicht eine einfache Interaktion mit der Drohne. Das Modul hierzu vereinfacht das Programmieren von Skripten für autonome Flüge mit Drohnen mit Hilfe des Flugmodus Offboard. \cite[vgl.][]{simple_offboard}\\
+% https://clover.coex.tech/en/simple_offboard.html
+
+mavros: \\
+Die Mavros Node ist für die Kommunikation zwischen dem Raspberry Pi und dem Flight Controller zuständig.\\
+Hierfür gibt es viele verschiedene Topics, welche jeweils für den Austausch von unterschiedliche Informationen verantwortlich sind.\\
+Diese Topics werden im Namespace "\textbackslash mavros" zusammengefasst, zu diesen zählen unter anderem:\\
+\textbackslash mavros\textbackslash state: gibt den Status der Verbindung zwischen Raspberry Pi und Flightcontroller sowie den aktuellen Flugmodus an.\\
+\textbackslash mavros\textbackslash battery: enthält verschiedene Parameter und Nachrichten zur Batterie. Hierzu zählen der aktuelle Ladezustand, die verbleibende Kapazität, die Spannung oder auch die geschätzte Restflugzeit der Drohne.\\
+\textbackslash mavros\textbackslash local\_position\textbackslash pose: enthält die lokale Position sowie die aktuelle Orientierung der Drohne in einem Koordinatensystem.\\
+\textbackslash mavros\textbackslash setpoint\_attitude\textbackslash attitude: enthält die Informationen zum Einstellen der Fluglage. \cite[vgl.][]{mavros}\\
+% https://clover.coex.tech/en/mavros.html
+ 
+main\_camera: \\
+Von dem Azure Kinect ROS Treiber werden zwei Topics übergeben, diese sind: \\
+"\textbackslash main\_camera\textbackslash image\_raw", über dieses Topic werden die Rohbilder der Kamera gesendet. Zudem noch "\textbackslash main\_camera\textbackslash image\_info", über welches die Kamerainformationen übertragen werden. \cite[vgl.][]{kinect_ros_driver}\\
+\todo{author quelle?}
+% https://github.com/microsoft/Azure_Kinect_ROS_Driver/blob/melodic/docs/usage.md
+
 
     %\includepdf[landscape=true]{images/graph_ros.pdf}
     %\caption[Übersicht ROS Nodes]{\label{img ros_nodes_graph} Übersicht ROS Nodes [eigene Darstellung]}
@@ -138,24 +164,21 @@ Das Robot Operating System hat den Bereich der Robotik revolutioniert, indem es 
         \end{figure}
     \end{landscape}
 
-In der Abbildung \ref{img ros_communication} ist eine Übersicht der Kommunikation zwischen den verschiedenen Komponenten in \ac{ROS} zu sehen. \\
-Hauptbestandteil sind hierbei vor allem die Nodes der Hauptkamera beziehungsweise der Azure Kinect sowie auch Mavros. \\
-Mavros ist hierbei ein ROS-Paket, welches die Kommunikation zwischen dem Raspberry Pi und der Drohne mit Hilfe des MAVLink-Protokolls (siehe Kapitel \ref{mavlink}) ermöglicht. Es unterstützt dabei unter anderem den PX4 Flightstack, welcher in der Coex Clover Drohne vorhanden ist. Die Kommunikation kann hierbei wie bei MAVLink auch über \ac{USB} oder auch über Wifi stattfinden. \\
-Im nachfolgenden wird nun genauere auf einzelne Komponenten der ROS Kommunikation (siehe \ref{img ros_communication}) eingegangen. \\
 
-%https://clover.coex.tech/en/mavros.html
+Der prinzipielle Ablauf bei der Kommunikation in Abbildung \ref{img ros_communication} wird von der mavros Node gestartet, denn diese bildet mit der Kommunikation zwischen ROS auf dem Raspberry Pi und dem PX4 des Flight Controllers die Grundlage. Zudem bietet der Einsatz der simple\_offboard Node die Möglichkeit zur Nutzung eigener Skripte, wodurch die Drohne autonom fliegen und navigieren kann. Diese beiden Nodes kommunizieren unter einander mit Hilfe der vielen verschiedenen Mavros-Nodes um Informationen und Parameter auszutauschen. Die simple\_offboard-Node kann zudem verschiedene Koordinatensysteme anfordern, welche von den Nodes aus dem main\_camera-Namespace kommen und mit Hilfe des \textbackslash tf-Topics transformiert werden. Diese Koordinatensysteme werden nun über die vpe\_publisher-Node an Mavros, sowie im weiteren Verlauf auch der simple\_offboard-Node übermittelt. Dadurch kann das Skript die Drohne anhand der Koordinaten navigieren und die Drohne dementsprechend zu der gewollten Position fliegen.
+\todo{text überprüfen}
+\todo{dopplungen entfernen} 
 
+\section{Kalibrierung der COEX Drohne} \label{kalibrierung_coex__drohne:subsection}
 
-\section{Kalibrierung der COEX Drohne}
-
-\section{Drohnen Autopilot}
+\section{Drohnen Autopilot} \label{drohnen_autopilot:subsection}
 
 
-\section{3D Modell}
+\section{3D Modell} \label{3d_modell:section}
 Um die Drohne auch in der Simulation unter echten Bedingungen fliegen zu lassen, müssen die realen Gegebenheiten in die Simulation übertragen werden. Um dies zu bewerkstelligen, muss ein 3D-Modell der Räume erstellt werden, in welchen sich die Drohne bewegen soll.
-    \subsection{3D Scan}
+    \subsection{3D Scan} \label{3d-scan:subsection}
 
-        \subsubsection{Microsoft HoloLens 2}
+        \subsubsection{Microsoft HoloLens 2} \label{hololens:subsubsection}
         Um ein 3D-Modell des Raumes mit der Microsoft HoloLens 2 zu erstellen, muss man die integrierte Mixed-Reality-Capture-Funktion der HoloLens 2 verwenden.
         
         Die Mixed-Reality-Capture-Funktion der HoloLens 2 ist eine integrierte Funktion, mit der Benutzer die Möglichkeit haben, die Hologramme, die von der HoloLens 2 dargestellt werden, in Echtzeit aufzuzeichnen und zu teilen. Diese Funktion ermöglicht es Benutzern, ihre Augenbewegungen und Handlungen in einer virtuellen Umgebung aufzuzeichnen, um sie mit anderen zu teilen oder für zukünftige Referenz oder Analyse zu speichern. Die Mixed-Reality-Capture-Funktion der HoloLens 2 kann auch für die Erstellung von Immersive-Mixed-Reality-Videoinhalten verwendet werden, indem sie es ermöglicht, virtuelle Hologramme in eine reale Umgebung zu integrieren. Dies kann für verschiedene Anwendungen wie zum Beispiel für die Erstellung von virtuellen Touren, für die Präsentation von Produkten oder für die Unterhaltungsindustrie eingesetzt werden.
@@ -163,13 +186,22 @@ Um die Drohne auch in der Simulation unter echten Bedingungen fliegen zu lassen,
         \todo{Erstellen des Modells beschreiben}
 
         Es ist wichtig zu beachten, dass die Qualität des erstellten 3D-Modells von verschiedenen Faktoren abhängt, wie z.B. der Beleuchtung im Raum und der Genauigkeit des Scans. Eine sorgfältige Vorbereitung des Raums und eine langsame, gründliche Durchführung des Scans können dazu beitragen, ein genaueres und detaillierteres 3D-Modell zu erstellen.
-        \subsubsection{Azure Kinect \ac{DK}}
+        \subsubsection{Azure Kinect \ac{DK}} \label{kinect:subsubsection}
 
-    \subsection{3D Modell Vorbereitung}
+    \subsection{3D Modell Vorbereitung} \label{3d_modell_vorbereitung:subsection}
 
-\section{Navigation}
 
-\section{Simulation}
+\section{SLAM} \label{slam:section}
+\section{Navigation} \label{navigation:section} 
+% wie Navigation hätte umgesetzt werden können
+
+% Navigation selbst nicht umgesetzt, u.a. auf Grund von Begrenzung Leistung Raspberry Pi
+
+%nicht umgesetzt, da keine SLAM,
+
+
+
+\section{Simulation} \label{simulation:section}
 
 
 
