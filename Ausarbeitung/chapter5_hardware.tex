@@ -58,7 +58,7 @@ Der Coex Pix Flight Controller wird für den Betrieb von Drohnen und anderen Flu
 
 \subsection{Abstandssensor}
 Im Bausatz der Coex Clover Drohne ist der Laseranstandssensor CJMCU-531 VL53L1X enthalten. Der CJMCU-531 Scanner ist ein fortschrittlicher Laser-Ranging-Sensor auf Basis der Time-of-Flight-Technologie. Er zeichnet sich durch seine Schnelligkeit aus und ist der schnellste Miniatur-ToF-Sensor auf dem Markt. Er hat eine präzise Messreichweite von bis zu 4 m und eine Messfrequenz von bis zu 50 Hz.
-Der Sensor hat eine kompakte Größe von 4,9 x 2,5 x 1,56 mm und eignet sich daher für Anwendungen mit Platzproblemen. Er verwendet einen unsichtbaren Laser mit einer Wellenlänge von 940 nm, der aus Sicherheitsgründen als Klasse 1 eingestuft ist.
+Der Sensor hat eine kompakte Größe von 4,9 x 2,5 x 1,56 mm und eignet sich daher für Anwendungen mit Platzproblemen. Er verwendet einen unsichtbaren Laser mit einer Wellenlänge von 940 nm, der aus Sicherheitsgründen als Klasse 1 eingestuft ist. \cite[vgl.][Seite 1]{CJMCU-531}
 
 \subsection{PX4 FlightController}
 
@@ -73,7 +73,7 @@ Der Sensor hat eine kompakte Größe von 4,9 x 2,5 x 1,56 mm und eignet sich dah
 Die Coex Clover Drohne verwendet als Kamera das für den Raspberry Pi entwickeltes OV5647 Modul.
 Diese Kamera ist ein leistungsstarker CMOS-Bildsensor mit einer Auflösung von 5 Megapixeln. Er arbeitet mit einer niedrigen Spannung und nutzt die OmniBSI-Technologie, um eine Videoausgabe mit einer Auflösung von 2592x1944 zu liefern. Der Sensor bietet Flexibilität bei der Aufnahme von Bildern mit unterschiedlichen Auflösungen durch die Steuerung des seriellen Kamerasteuerbusses oder der MIPI-Schnittstelle.
 
-Mit seinem Image Array kann die Kamera eine maximale Betriebsgeschwindigkeit von 15 Bildern pro Sekunde bei voller Auflösung von 2592x1944 erreichen. Über die SCCB-Schnittstelle hat der Anwender die Kontrolle über die Bildqualität, die Datenübertragung und die Kamerafunktionen. Die Implementierung der OmniBSI-Technologie in den Sensor ermöglicht eine verbesserte Leistung ohne Beeinträchtigung der physikalischen und optischen Aspekte.
+Mit seinem Image Array kann die Kamera eine maximale Betriebsgeschwindigkeit von 15 Bildern pro Sekunde bei voller Auflösung von 2592x1944 erreichen. Über die SCCB-Schnittstelle hat der Anwender die Kontrolle über die Bildqualität, die Datenübertragung und die Kamerafunktionen. Die Implementierung der OmniBSI-Technologie in den Sensor ermöglicht eine verbesserte Leistung ohne Beeinträchtigung der physikalischen und optischen Aspekte. \cite[vgl.][Kapitel 2.1]{OV5647}
 
 \section{3D Scanner}
 Damit die Drohne auch ihre Umgebung scannen kann und damit sie sich im 3D-Raum lokalisien kann, müssen entsprechende Scanner verwednet werden. Die Drohne selbst besitz solche Scanner nicht. Dementsprechend haben wir nach verwendbarer Hardware ausschau gehalten und uns für die Microsoft Hololens und die Azure Kiniect entschieden.
