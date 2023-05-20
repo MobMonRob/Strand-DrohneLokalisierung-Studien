@@ -70,6 +70,10 @@ Der Sensor hat eine kompakte Größe von 4,9 x 2,5 x 1,56 mm und eignet sich dah
 \end{itemize}
 
 \subsection{Kamera}
+Die Coex Clover Drohne verwendet als Kamera das für den Raspberry Pi entwickeltes OV5647 Modul.
+Diese Kamera ist ein leistungsstarker CMOS-Bildsensor mit einer Auflösung von 5 Megapixeln. Er arbeitet mit einer niedrigen Spannung und nutzt die OmniBSI-Technologie, um eine Videoausgabe mit einer Auflösung von 2592x1944 zu liefern. Der Sensor bietet Flexibilität bei der Aufnahme von Bildern mit unterschiedlichen Auflösungen durch die Steuerung des seriellen Kamerasteuerbusses oder der MIPI-Schnittstelle.
+
+Mit seinem Image Array kann die Kamera eine maximale Betriebsgeschwindigkeit von 15 Bildern pro Sekunde bei voller Auflösung von 2592x1944 erreichen. Über die SCCB-Schnittstelle hat der Anwender die Kontrolle über die Bildqualität, die Datenübertragung und die Kamerafunktionen. Die Implementierung der OmniBSI-Technologie in den Sensor ermöglicht eine verbesserte Leistung ohne Beeinträchtigung der physikalischen und optischen Aspekte.
 
 \section{3D Scanner}
 Damit die Drohne auch ihre Umgebung scannen kann und damit sie sich im 3D-Raum lokalisien kann, müssen entsprechende Scanner verwednet werden. Die Drohne selbst besitz solche Scanner nicht. Dementsprechend haben wir nach verwendbarer Hardware ausschau gehalten und uns für die Microsoft Hololens und die Azure Kiniect entschieden.
