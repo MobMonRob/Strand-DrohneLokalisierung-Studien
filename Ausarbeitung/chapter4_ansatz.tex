@@ -2,15 +2,15 @@
 
 \section{Zielsetzung}
 Die vorliegende Arbeit handelt davon mit Hilfe eines eigens erstellten 3D Modells eine Drohne Indoor navigieren zu können. Um dies umsetzen zu können gibt es einen Quadrokopter der zu diesem Zwecke eingesetzt werden kann. \\
-Heutzutage basiert die Navgiation vieler Drohnen auf \ac{GPS} allerdings kann man Drohnen innerhalb von Gebäuden nicht mit dieser Technik fliegen lassen, da damit die im Innenraum vorhandenen Hindernisse nicht berücksichtigt werden können. Aus diesem Grund soll hierfür eine Möglichkeit gefunden werden, welche es ermöglicht eine Drohne ohne \ac{GPS} im Innenraum eines Gebäudes mit Hilfe eines 3D Modells navigeren zu können.\\
-Der Quadrokopter, die Coex Clover Drohne ist bereits mit verschiedenen Sensoren ausgestattet und kann potientiell mit weiteren Sensoren erweitert werden. Jedoch ist die Drohne bis zum Beginn dieser Arbeit noch nicht richtig geflogen ist. Somit muss zum einen die Nutzbarkeit der Drohne für dieses Projekt sichergestellt werden, um diese in dieser Arbeit einsetzen zu können. \\
+Heutzutage basiert die Navgiation vieler Drohnen auf \ac{GPS} allerdings kann man Drohnen innerhalb von Gebäuden nicht mit dieser Technik fliegen lassen, da damit die im Innenraum vorhandenen Hindernisse nicht berücksichtigt werden können. Aus diesem Grund soll hierfür eine Möglichkeit gefunden werden, welche es ermöglicht, eine Drohne ohne \ac{GPS} im Innenraum eines Gebäudes mit Hilfe eines 3D Modells navigieren zu können.\\
+Der Quadrokopter, die Coex Clover Drohne ist bereits mit verschiedenen Sensoren ausgestattet und kann potenziell mit weiteren Sensoren erweitert werden. Jedoch ist die Drohne bis zum Beginn dieser Arbeit noch nicht richtig geflogen ist. Somit muss zum einen die Nutzbarkeit der Drohne für dieses Projekt sichergestellt werden, um diese in dieser Arbeit einsetzen zu können. \\
 Ziel dieser Arbeit ist es, bestenfalls den bereits vorhandenen Quadrokopter mit Hilfe eines eigens erstellten 3D Umweltmodells innerhalb eines Raumes navigieren zu können und dadurch kleinere Aufgaben wie beispielsweise das Auslesen eines QR-Codes somit erledigen zu können.
 
 
 
 \section{Vorgehensweise}
 
-In Abbildung \ref{fig:vorgehensweise} sind die 2 Vorgehensweisen die wir uns ausgedacht haben ersichtlich. In Ansatz 1 hatten wir zuerst versucht ein vorher gescanntes 3D Modell auf die Drohne zu laden und eine Positionierung im 3D Modell durchzuführen. Schnell wurde ersichtlich das es wenig sinnvoll eine Positionierung in einem vorher bekannten 3D Modell durchzuführen, da die Dronhe auch in unbekannten Umgebungen eingesetzt werden soll. Deshalb ist es sinnvoller die Positionierung und die 3D Modell Erstellung zu kombinieren. Dazu kann \ac{SLAM} eingesetzt werden. Deshalb haben wir Ansatz 1 relativ schnell wieder verworfen.
+In Abbildung \ref{fig:vorgehensweise} sind die 2 Vorgehensweisen die wir uns ausgedacht haben ersichtlich. In Ansatz 1 hatten wir zuerst versucht ein vorher gescanntes 3D Modell auf die Drohne zu laden und eine Positionierung im 3D Modell durchzuführen. Schnell wurde ersichtlich, dass es wenig sinnvoll eine Positionierung in einem vorher bekannten 3D Modell durchzuführen, da die Drohne auch in unbekannten Umgebungen eingesetzt werden soll. Deshalb ist es sinnvoller die Positionierung und die 3D Modell Erstellung zu kombinieren. Dazu kann \ac{SLAM} eingesetzt werden. Deshalb haben wir Ansatz 1 relativ schnell wieder verworfen.
 
 \begin{figure}
     \includegraphics[scale=0.7]{images/ansatz_plan.pdf}
@@ -19,10 +19,9 @@ In Abbildung \ref{fig:vorgehensweise} sind die 2 Vorgehensweisen die wir uns aus
 
 \subsection{Auswahl SLAM Algorithmus}
 
-Es wurden mehrere \ac{SLAM}-Algorithmen in Betracht gezogen, und aufgrund der begrenzten Leistung des Raspberry Pi haben wir den Algorithmus mit den geringsten Anforderungen ausgewählt. Eine Übersicht der gebräuchlichen \ac{SLAM} Algorithmen ist in \ref{chp:übersicht-slamalgo} zu sehen.Für eine fundierte Auswahl wurde eine gewichtete Analyse erstellt um den für unsere Zwecke bestens geeigneten \ac{SLAM} Algorithmus zu verwenden. Die Gewichte sehen Sie in Tabelle \ref{tab:vergleich-gewichtung-slam}, die Kriterien in \ref{tab:vergleich-kriterien-slam} und das Ergebnis in \ref{tab:vergleich-slam}
+Es wurden mehrere \ac{SLAM}-Algorithmen in Betracht gezogen, und aufgrund der begrenzten Leistung des Raspberry Pi haben wir den Algorithmus mit den geringsten Anforderungen ausgewählt. Eine Übersicht der gebräuchlichen \ac{SLAM} Algorithmen ist in \ref{chp:übersicht-slamalgo} zu sehen.Für eine fundierte Auswahl wurde eine gewichtete Analyse erstellt, um den für unsere Zwecke bestens geeigneten \ac{SLAM} Algorithmus zu verwenden. Die Gewichte sehen Sie in Tabelle \ref{tab:vergleich-gewichtung-slam}, die Kriterien in \ref{tab:vergleich-kriterien-slam} und das Ergebnis in \ref{tab:vergleich-slam}
 
-Bei der Bewertung von \ac{SLAM}-Algorithmen gibt es mehrere Punkte, die zur Messung der Qualität und Eignung eines \ac{SLAM}-Verfahrens herangezogen werden können.
-
+Bei der Bewertung von SLAM-Algorithmen gibt es mehrere Punkte, die zur Messung der Qualität und Eignung eines SLAM-Verfahrens herangezogen werden können.
 
 \begin{description}
     \item[Genauigkeit]{Die Genauigkeit eines SLAM-Algorithmus bezieht sich darauf, wie genau die geschätzten Positionen und Kartendarstellungen mit den tatsächlichen Werten übereinstimmen. Eine höhere Genauigkeit ist für eine präzise Navigation und Kartierung wünschenswert}
@@ -35,7 +34,6 @@ Bei der Bewertung von \ac{SLAM}-Algorithmen gibt es mehrere Punkte, die zur Mess
     \item[Open-Source-Verfügbarkeit]{Die Verfügbarkeit von Open-Source-Implementierungen und einer unterstützenden Gemeinschaft kann von Vorteil sein. Open-Source-SLAM-Algorithmen profitieren oft von kontinuierlicher Entwicklung, Fehlerkorrekturen und Beiträgen der Community, was sie zuverlässiger und an spezifische Anforderungen anpassbar macht}
 \end{description}
 
-Die Messungen die in \cite{ragot:hal-04071273} durchgeführt werden von uns als Referenzwerte für die Bewertung 
 Zur Bewertung der \ac{SLAM} Algorithmen haben wir folgende Messungen als Referenz genommen \cite{ragot:hal-04071273}
 
 \subsection{Übersicht \ac{VSLAM} Algorithmen}
@@ -79,10 +77,10 @@ Insgesamt ermöglicht ORB-SLAM3 eine genauere und robustere Lokalisierung und Ka
 
 \subsection{Auswahl Lokalisierungssystem}
 
-Die in Kapitel \ref{lst:navigation-types} vorgestellten Vorgehensweisen sind mehr oder weniger geeignet für den Einsatz auf der Drohne und für dein Einsatz mit \ac{SLAM}
+Die in Kapitel \ref{lst:navigation-types} vorgestellten Vorgehensweisen sind mehr oder weniger geeignet für den Einsatz auf der Drohne und für den Einsatz mit \ac{SLAM}.
 In einer gewichteten Analyse wurden die einzelnen Vorgehensweisen verglichen und der Gewinner ausgewählt.
 
-Verglichen wurden Navigationstypen nach den in Tabelle \ref{tab:vergleich-kriterien} genannten Kiterien.
+Verglichen wurden Navigationstypen nach den in Tabelle \ref{tab:vergleich-kriterien} genannten Kriterien.
 
 Die Kriterien werden in Tabelle \ref{tab:vergleich} gegenübergestellt und in Tabelle \ref{tab:vergleich-gewichtung} werden Sie gewichtet.
 

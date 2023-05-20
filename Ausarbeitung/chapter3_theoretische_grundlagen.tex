@@ -104,7 +104,7 @@ Die Ingenieure und Softwareentwickler haben jedoch die Herausforderungen erkannt
 
 \ac{ROS} ist so konzipiert, dass es auf einer Vielzahl von Betriebssystemen und Hardwarearchitekturen laufen kann und bietet Unterstützung für eine breite Palette von Robotern und Sensoren. Es ist auch bekannt für seine Fähigkeit zur Zusammenarbeit zwischen verschiedenen Robotern, die miteinander kommunizieren und Aufgaben gemeinsam erledigen können.
 
-Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem der wichtigsten Frameworks für die Robotik-Entwicklung geworden und wird in vielen Anwendungen eingesetzt, von industriellen Robotern bis hin zu autonomen Fahrzeugen.
+Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem der wichtigsten Frameworks für die Robotik-Entwicklung geworden und wird in vielen Anwendungen eingesetzt, von industriellen Robotern bis hin zu autonomen Fahrzeugen. \cite[vgl.][]{ROSIntroduction}
 
     \subsection{Vorraussetzungen zur Verwendung von ROS} \label{Vorraussetzungen zur Verwendung von ROS:subsection}
     Die verschiedenen \ac{ROS} Versionen setzen bestimmte \ac{OS} Versionen voraus. Am besten funktioniert hierbei Linux und hierbei Ubuntu. Aber auch auf Mac OS kann man ROS verwenden. Allerdings ist die Version für Mac OS bislange nur experimentell. \ac{ROS} funktioniert auch unter Windows allerdings werden. \cite[vgl.][]{ROSIntroduction}.
@@ -124,6 +124,7 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
     Die Verwendung von Nodes in \ac{ROS} ermöglicht eine hohe Flexibilität und Modularität bei der Entwicklung von Robotik-Anwendungen. Entwickler können einzelne Nodes erstellen, testen und optimieren, bevor sie sie in einem größeren System einsetzen. Darüber hinaus können Nodes wiederverwendet werden, um ähnliche Funktionen in verschiedenen Anwendungen auszuführen.
 
     Insgesamt sind Nodes eine zentrale Komponente von \ac{ROS} und ermöglichen es Entwicklern, komplexe Roboteranwendungen mit einer hohen Flexibilität und Modularität zu erstellen.
+    \cite[vgl.][]{ROSNodes}
 
     \todo{Quelle fehlt (Max)}
 
@@ -138,11 +139,11 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
 
     Die Verwendung von Topics in \ac{ROS} ermöglicht eine einfache und flexible Kommunikation zwischen Nodes, was besonders in komplexen Systemen von Vorteil ist. Nodes können sich auf mehrere Topics abonnieren und Nachrichten an mehrere Topics veröffentlichen, was eine effektive und modulare Datenverarbeitung ermöglicht. Zudem können Topics auf mehreren Hosts oder in verschiedenen Prozessen ausgeführt werden, was eine Skalierung des \ac{ROS}-Systems ermöglicht.
 
-    Insgesamt sind Topics eine wichtige Komponente von \ac{ROS} und ermöglichen es Entwicklern, eine einfache und effektive Kommunikation zwischen Nodes in Robotik-Anwendungen zu realisieren.
+    Insgesamt sind Topics eine wichtige Komponente von \ac{ROS} und ermöglichen es Entwicklern, eine einfache und effektive Kommunikation zwischen Nodes in Robotik-Anwendungen zu realisieren. \cite[vgl.][]{ROSTopics}
 
     \todo{Quelle fehlt}
     \subsection{Messages} \label{messages:subsection}
-    Die Messages sind Datenströme, die zwischen mindestens zwei Nodes ausgetauscht werden. Sie werden in sogenannten msg-Dateien definiert. Diese Nachrichten können sowohl aus primitiven Datentypen als auch aus Datenstrukturen bestehen. Der Datenfluss erfolgt immer nur in eine Richtung.
+    Die Messages sind Datenströme, die zwischen mindestens zwei Nodes ausgetauscht werden. Sie werden in sogenannten msg-Dateien definiert. Diese Nachrichten können sowohl aus primitiven Datentypen als auch aus Datenstrukturen bestehen. Der Datenfluss erfolgt immer nur in eine Richtung. \cite[vgl.][]{ROSMessages}
 
     \todo{Quelle fehlt}
 
@@ -343,8 +344,7 @@ Da die verbaute Technik auch mit Strom versorgt werden muss, ist ein Akkumulator
 
 Die Erstellung von 3D-Modellen erfolgt in der Regel durch eine Kombination von verschiedenen Technologien und Software-Tools. Zum Beispiel können 3D-Scanner verwendet werden, um physische Objekte zu scannen und daraus digitale Modelle zu erstellen. Alternativ können 3D-Modelle auch von Grund auf neu erstellt werden, indem man eine 2D-Zeichnung oder ein Konzept in einer 3D-Software modelliert.
 
-Ein wichtiger Vorteil von 3D-Modellen ist, dass sie interaktiv und manipulierbar sind. Das bedeutet, dass man sie drehen, skalieren und animieren kann, um verschiedene Perspektiven oder Bewegungen zu erzeugen. Darüber hinaus können 3D-Modelle auch für Simulationen und Analysen verwendet werden. Zum Beispiel können Architekten und Ingenieure 3D-Modelle von Gebäuden erstellen, Verein Deutscher Ingeneureum die Belastung bei Erdbeben oder starkem Wind zu simulieren.
-\todo{Verein Deutscher Ingeneureum?}
+Ein wichtiger Vorteil von 3D-Modellen ist, dass sie interaktiv und manipulierbar sind. Das bedeutet, dass man sie drehen, skalieren und animieren kann, um verschiedene Perspektiven oder Bewegungen zu erzeugen. Darüber hinaus können 3D-Modelle auch für Simulationen und Analysen verwendet werden. Zum Beispiel können Architekten und Ingenieure 3D-Modelle von Gebäuden erstellen, um die Belastung bei Erdbeben oder starkem Wind zu simulieren.
 
 Insgesamt sind 3D-Modelle eine äußerst vielseitige Technologie, die in vielen verschiedenen Branchen und Anwendungen eingesetzt werden kann. Sie ermöglichen es, physische Objekte und Szenen digital darzustellen und zu manipulieren, was zahlreiche Möglichkeiten für Design, Simulation und Analyse bietet.
 
@@ -362,15 +362,15 @@ Es gibt auch mobile 3D-Scanner, die in Handys und Tablets integriert sind, und d
 Obwohl 3D-Scanner ein unglaublich leistungsfähiges Werkzeug sind, haben sie auch einige Einschränkungen. Zum Beispiel können sie Schwierigkeiten haben, sehr dunkle oder glänzende Objekte genau zu erfassen. Trotzdem sind 3D-Scanner ein wertvolles Instrument für jeden, der in der Lage sein möchte, genaue 3D-Modelle von Objekten oder Räumen zu erstellen und sie in digitale Formate zu konvertieren.
 
 \subsubsection{Lasertriangulation}
-Bei der Lasertriangulation wird ein Laserstrahl wird an der Oberfläche des Messobjektes reflektiert und über eine Optik und einen Umlenkspiegel auf eine lichtempfindliche Zeilenkamera projiziert. Abhängig von der Entfernung des Messobjektes verändert sich die Position des Lichtpunktes. Hieraus ermittelt der Signalprozessor den Abstand zwischen dem Sensor und der Oberfläche der Stahlprodukte.
+Bei der Lasertriangulation wird ein Laserstrahl wird an der Oberfläche des Messobjektes reflektiert und über eine Optik und einen Umlenkspiegel auf eine lichtempfindliche Zeilenkamera projiziert. Abhängig von der Entfernung des Messobjektes verändert sich die Position des Lichtpunktes. Hieraus ermittelt der Signalprozessor den Abstand zwischen dem Sensor und der Oberfläche der Stahlprodukte. \cite[vgl.][]{Lasertriangulation}
 
 \subsubsection{3D-Scanner mit strukturiertem Licht}
-Scanner für strukturiertes Licht verwenden ebenfalls die trigonometrische Triangulation. Allerdings verwenden sie keinen Laser. Das System projiziert eine Reihe an linienförmigen Mustern of auf Objekt. Zum Erkennen des Abstandes werden die Kanten jeder Linie des Musters untersucht. Anhand dieser Kanten kann dann der Abstand vom Scanner zum Objekt berechnet werden. Im Wesentlichen „sieht“ die Kamera nicht eine Laserlinie, sondern den Rand des projizierten Musters
+Scanner für strukturiertes Licht verwenden ebenfalls die trigonometrische Triangulation. Allerdings verwenden sie keinen Laser. Das System projiziert eine Reihe an linienförmigen Mustern of auf Objekt. Zum Erkennen des Abstandes werden die Kanten jeder Linie des Musters untersucht. Anhand dieser Kanten kann dann der Abstand vom Scanner zum Objekt berechnet werden. Im Wesentlichen „sieht“ die Kamera nicht eine Laserlinie, sondern den Rand des projizierten Musters. \cite[vgl.][]{strukturiertsLicht}
 
 \subsubsection{Time-of-flight-Scanner}
 Time-of-Flight (ToF) Scanner sind eine Art von 3D-Scanner, die mithilfe von Lichtimpulsen die Entfernung zu Objekten in Echtzeit messen können. Sie haben in den letzten Jahren aufgrund ihrer hohen Genauigkeit und ihrer Fähigkeit, schnelle und präzise Messungen durchzuführen, eine breite Anwendung in verschiedenen Branchen gefunden.
 
-ToF-Scanner verwenden in der Regel eine Kombination aus Infrarot-Licht und Kameras, um Tiefeninformationen zu sammeln. Der Scanner sendet einen kurzen Lichtimpuls aus und misst dann die Zeit, die benötigt wird, um zum Objekt zurückzukehren. Durch die Messung der Zeit und die Analyse des reflektierten Lichts kann der Scanner die Entfernung zum Objekt bestimmen und daraus ein 3D-Modell des Objekts erstellen.
+ToF-Scanner verwenden in der Regel eine Kombination aus Infrarot-Licht und Kameras, um Tiefeninformationen zu sammeln. Der Scanner sendet einen kurzen Lichtimpuls aus und misst dann die Zeit, die benötigt wird, um zum Objekt zurückzukehren. Durch die Messung der Zeit und die Analyse des reflektierten Lichts kann der Scanner die Entfernung zum Objekt bestimmen und daraus ein 3D-Modell des Objekts erstellen. \cite[vgl.][]{TOF}
 
 \subsubsection{Laser-Phasenverschiebungs-Scanner}
 Laser-Phasenverschiebungs-Scanner arbeiten auf eine sehr ähnliche Art wie die Time-of-flight-Scanner. Der Scanner verwendet nicht nur die Zeit, die der Laser braucht, sondern wertet auch seine Phasenverschiebung, welche auf dem Weg vom Senden und Empfangen entsteht aus.
@@ -386,7 +386,7 @@ Bei der Stereovision werden zwei Kameras verwendet, die jeweils dasselbe Objekt 
 
 Die Time-of-Flight-Technologie verwendet dagegen einen Laser oder eine LED, um Lichtimpulse auf die Umgebung zu senden und die Zeit zu messen, die benötigt wird, um vom Objekt zurückzukehren. Je länger das Licht braucht, um zurückzukehren, desto weiter entfernt ist das Objekt. Diese Technologie ermöglicht es der Tiefenkamera, die Entfernung zu Objekten in Echtzeit zu messen und sogar Bewegungen in Echtzeit zu verfolgen.
 
-Die erfassten Tiefendaten können dann verwendet werden, um beispielsweise 3D-Modelle von Objekten oder Umgebungen zu erstellen.
+Die erfassten Tiefendaten können dann verwendet werden, um beispielsweise 3D-Modelle von Objekten oder Umgebungen zu erstellen. \cite[vgl.][]{TiefenKamera}
 
 \subsection{Punktwolken}
 Eine Punktwolke ist eine räumliche Darstellung eines Objekts oder einer Szene in Form einer Sammlung von 3D-Koordinaten. Am Beispiel von \ac{RGB-D} Kameras, erfasst eine Punktwolke sowohl Farb- als auch Tiefeninformationen aus einer Szene.
