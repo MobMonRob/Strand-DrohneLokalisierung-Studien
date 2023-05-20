@@ -52,7 +52,17 @@ Der Raspberry Pi beinhaltet zudem eine austauschbare MicroSD-Karte, auf welche s
 
 
 \subsection{Coex Pix} \label{coex_pix:subsection}
-Der Coex Pix Flight Controller wird für den Betrieb von Drohnen und anderen Fluggeräten verwendet werden. Hierbei basiert dieser auf der PX4 Software. Der Flight Controller einhaltet verschiedene Sensoren, hierzu gehören ein Accelerometer, Gyroskop und ein Magnetometer.
+Der Coex Pix Flight Controller wird für den Betrieb von Drohnen und anderen Fluggeräten verwendet werden. Es handelt sich hierbei um einen für die Coex Clover Drohne modifizierten Pixracer Flightcontroller, auf welchem zudem eine speziell für die Coex Drohne angepasst PX4 Software (siehe Kapitel \ref{px4:section}) betrieben wird. \\
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=6cm,keepaspectratio,angle=0]{images/coexpix-top.jpg}
+    \caption[Coex Pix]{\label{img coex_pix} Coex Pix \cite{imgcoexpix}}
+\end{figure}
+
+Der Flight Controller beinhaltet verschiedene Sensoren, hierzu gehören ein Accelerometer, ein Gyroskop, ein Barometer sowie ein Magnetometer (siehe Kapitel \ref{sensoren:section}).
+Eine Besonderheit des Controller ist es, dass dieser standardmäßig mit einer Ausrichtung von 180° roll und 90° yaw befestigt werden soll. Zudem müssen dementsprechend auch die Parameter von PX4 angepasst werden, sodass die Ausrichtung übereinstimmt. \cite[vgl.][]{coex_pix_fcu}   
+
 
 \todo{Benennung FlightController/FlugController/...}
 
@@ -60,14 +70,6 @@ Der Coex Pix Flight Controller wird für den Betrieb von Drohnen und anderen Flu
 Im Bausatz der Coex Clover Drohne ist der Laseranstandssensor CJMCU-531 VL53L1X enthalten. Der CJMCU-531 Scanner ist ein fortschrittlicher Laser-Ranging-Sensor auf Basis der Time-of-Flight-Technologie. Er zeichnet sich durch seine Schnelligkeit aus und ist der schnellste Miniatur-ToF-Sensor auf dem Markt. Er hat eine präzise Messreichweite von bis zu 4 m und eine Messfrequenz von bis zu 50 Hz.
 Der Sensor hat eine kompakte Größe von 4,9 x 2,5 x 1,56 mm und eignet sich daher für Anwendungen mit Platzproblemen. Er verwendet einen unsichtbaren Laser mit einer Wellenlänge von 940 nm, der aus Sicherheitsgründen als Klasse 1 eingestuft ist. \cite[vgl.][Seite 1]{CJMCU-531}
 
-\subsection{PX4 FlightController}
-
-\begin{itemize}
-    \item{Barometer}
-    \item{Gyroskop}
-    \item{Accelerometer}
-    \item{Magnetometer}
-\end{itemize}
 
 \subsection{Kamera}
 Die Coex Clover Drohne verwendet als Kamera das für den Raspberry Pi entwickeltes OV5647 Modul.
