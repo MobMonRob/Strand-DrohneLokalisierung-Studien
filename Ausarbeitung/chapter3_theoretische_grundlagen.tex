@@ -126,7 +126,6 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
     Insgesamt sind Nodes eine zentrale Komponente von \ac{ROS} und ermöglichen es Entwicklern, komplexe Roboteranwendungen mit einer hohen Flexibilität und Modularität zu erstellen.
     \cite[vgl.][]{ROSNodes}
 
-    \todo{Quelle fehlt (Max)}
 
     \subsection{Topics} \label{topics:subsection}
     In \ac{ROS} werden Daten zwischen Nodes durch sogenannte Topics ausgetauscht. Ein Topic ist eine benannte Kommunikationsleitung, über die Nodes Nachrichten senden und empfangen können. Topics ermöglichen die einfache und flexible Kommunikation zwischen Nodes, ohne dass die Nodes über die genaue Identität des Empfängers Bescheid wissen müssen.
@@ -141,11 +140,8 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
 
     Insgesamt sind Topics eine wichtige Komponente von \ac{ROS} und ermöglichen es Entwicklern, eine einfache und effektive Kommunikation zwischen Nodes in Robotik-Anwendungen zu realisieren. \cite[vgl.][]{ROSTopics}
 
-    \todo{Quelle fehlt}
     \subsection{Messages} \label{messages:subsection}
     Die Messages sind Datenströme, die zwischen mindestens zwei Nodes ausgetauscht werden. Sie werden in sogenannten msg-Dateien definiert. Diese Nachrichten können sowohl aus primitiven Datentypen als auch aus Datenstrukturen bestehen. Der Datenfluss erfolgt immer nur in eine Richtung. \cite[vgl.][]{ROSMessages}
-
-    \todo{Quelle fehlt}
 
     \subsection{Publish and Subscripe Pattern} \label{publish_and_subscripe_pattern:subsection}
     Das Publish-Subscribe-Pattern ist ein grundlegendes Muster der \ac{ROS}-Kommunikation und ermöglicht eine effektive und modulare Datenverarbeitung in verteilten Systemen.
@@ -160,14 +156,7 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
 
     \todo{Quelle fehlt}
 
-    \subsection{Starten eines ROS Programms} \label{starten eines ROS Programms:subsection}
-    Zum Starten verschiedener Nodes in \ac{ROS} wird das ROS-eigene Tool roslaunch verwendet. Roslaunch ist ein mächtiges Werkzeug für die Konfiguration, das Starten und die Überwachung von ROS-Paketen und -Nodes. Mit roslaunch können Entwickler schnell und einfach Nodes starten, indem sie eine XML-Datei erstellen, die alle notwendigen Konfigurationen enthält. Die XML-Datei wird als Launch-Datei bezeichnet und wird in der Regel von Entwicklern erstellt, um eine oder mehrere ROS-Knoten gleichzeitig zu starten und zu konfigurieren.
-
-    Ein großer Vorteil von roslaunch ist seine Portabilität. Mit Launch-Dateien können Entwickler ROS-Pakete und -Nodes problemlos auf verschiedenen Systemen starten und konfigurieren, unabhängig von der Plattform oder Architektur. Dies erleichtert die Entwicklung von ROS-Software für verschiedene Roboter- und Hardware-Plattformen erheblich. \cite{roslaunch}
-
-    Der Befehl, mit welchem man roslauch aufruft, sieht wie folgt aus:
     
-    \textit{\$ roslaunch package\_name file.launch}
 
 \section{MAVLink} \label{mavlink}
 \ac{MAVLink} ist ein Nachrichtenprotokoll, welches vor allem zur Kommunikation zwischen einer Drohne und einer Bodenstation eingesetzt wird. Der Einsatz dieses Protokolls ist besonders für Systeme konzipiert, die wenige Ressourcen und eine geringe Bandbreite aufweisen.\\
@@ -188,8 +177,6 @@ Benötigt die Bodenstation Telemetriedaten der Drohne, so sendet die Station ein
 
 
 \section{Multicopter} \label{drohne:section}
-
-
 
 Multicopter, auch als \ac{UAV}s bekannt, repräsentieren eine aufstrebende Technologie mit vielfältigen Anwendungsmöglichkeiten. Besonders hervorzuheben ist die Überwachung und Kartierung schwer zugänglicher Gebiete. Durch den Einsatz hochauflösender Kameras und Sensoren können Drohnen präzise Bilder und Daten liefern, die zur Kartenerstellung und Beobachtung von Flora und Fauna genutzt werden.
 
@@ -253,6 +240,7 @@ Folgende Freiheitsgrade kann ein Quadrocopter verwenden.
 \end{centering}
 \end{figure}
     
+\cite[vgl.][Kapitel 5]{SWB-165930377X}
 
 
 
@@ -328,7 +316,7 @@ Durch einen höheren $K_i$ Faktor reagiert der Regler stärker, führt jedoch au
 Die Kombination dieser drei Komponenten ermöglicht es dem PID-Regler, schnell auf Veränderungen des Prozesses zu reagieren und gleichzeitig stabile Regelungsergebnisse zu erzielen. Die Einstellung der Reglerparameter, wie z.B. des Proportionalitätsfaktors, des Integrationszeitraums und des Differentiationszeitraums, ist jedoch eine wichtige Herausforderung bei der Anwendung von PID-Reglern.
 
 PID-Regler finden in vielen Anwendungen Anwendung, einschließlich Temperaturregelung, Geschwindigkeitsregelung, Positionierung und Flugzeugsteuerung.
-
+\cite[vgl. ][Kapitel 11.3]{SWB-165930377X}
 
 
    
@@ -338,6 +326,7 @@ Der Flightstack eines Multicopters besteht aus mehreren Systemen. Üblicherweise
 
 Da die verbaute Technik auch mit Strom versorgt werden muss, ist ein Akkumulator auf dem Multicopter verbaut. Der Akkumulator stellt die nötige Energie für den Betrieb des Multicopters bereit. Insgesamt ist der FlightStack ein zentrales Element zur Steuerung des Multicopters und erfordert eine sorgfältige Integration und Abstimmung aller Komponenten, um eine zuverlässige und sichere Steuerung zu gewährleisten.
 
+\cite[vgl.][Kapitel 2.4.2]{SWB-165930377X}
 
 \section{3D-Modelle} \label{3d-modelle:section}
 3D-Modelle sind digitale Nachbildungen von physischen Objekten oder Szenen in drei Dimensionen. Diese Modelle werden in verschiedenen Branchen und Anwendungen eingesetzt, von der Architektur und Ingenieurwesen über Film und Gaming bis hin zur Medizin und dem Design von Produkten.
@@ -585,33 +574,40 @@ Grundsätzlich geht es aber darum 2D Koordinaten eines Bildes in ein 3 dimension
 \cite[vgl.][Kapitel 9.2 und Kapitel 7.8.1]{SWB-165930377X}
 
 
-\subsection{SLAM-Verfahren}
-
-Die Punktwolke kann über mehrere verschiedene Verfahren erstellt werden, die alle teils sehr unterschiedliche Ansätze verfolgen. Die grundlegenden Verfahren die zur Erstellung von 3D Punktwolken verwendet werden können, werden in den nächsten Kapiteln vorgestellt.
 
 \subsection{Visuelle Odometrie \& und visuelles SLAM}
 
 Die Themen \ac{VO} und \ac{VSLAM} sind eng miteinander verknüpft und zielen darauf ab, 3D-Informationen aus visuellen Datenströmen in Echtzeit zu extrahieren. \ac{VO} zielt darauf ab, die inkrementelle Bewegung der Kamera zu schätzen, während \ac{VSLAM} sich darauf konzentriert, eine global konsistente Karte der Szene und die Kameratrajektorie in Bezug darauf zu schätzen.
 
-In der Robotikforschung wird \ac{SLAM} als grundlegende Fähigkeit für autonome Roboter betrachtet. Frühe Arbeiten zu \ac{SLAM} nutzten hauptsächlich Laserscanner, jedoch hat das Feld aufgrund von Fortschritten in der Computer Vision und verbesserter Prozessoren schnell auf Kameras umgestellt. Die meisten visuellen \ac{SLAM}-Methoden basieren auf Merkmalsabgleich und Mehrsichtgeometrie, was einige Einschränkungen für monokulare \ac{SLAM} mit sich bringt. Dies kann teilweise durch zusätzliche Sensoren oder Vorwissen über das System oder die Szene gelöst werden.
+In der Robotikforschung wird \ac{SLAM} als grundlegende Fähigkeit für autonome Roboter betrachtet. Frühe Arbeiten zu \ac{SLAM} nutzten hauptsächlich Laserscanner, jedoch hat das Feld aufgrund von Fortschritten in der Computer Vision und verbesserter Prozessoren schnell auf Kameras umgestellt.
 
-In der Robotikforschung wird SLAM als grundlegende Fähigkeit für autonome Roboter betrachtet. Frühe Arbeiten zu SLAM nutzten hauptsächlich Laserscanner, jedoch hat das Feld aufgrund von Fortschritten in der Computer Vision und verbesserter Prozessoren schnell auf Kameras umgestellt. Die meisten visuellen SLAM-Methoden basieren auf Merkmalsabgleich und Mehrsichtgeometrie, was einige Einschränkungen für monokulare SLAM mit sich bringt. Dies kann teilweise durch zusätzliche Sensoren oder Vorwissen über das System oder die Szene gelöst werden.
+Mit Visueller Odometrie kann die Bewegung der Drohne geschätzt werden, so können auch Hindernisse im Flugfeld der Drohne erkannt werden.
 
-\subsubsection{Herausforderungen und Lösungen in \ac{VO} und \ac{VSLAM}}
+\subsection{Herausforderungen und Lösungen in \ac{VO} und \ac{VSLAM}}
 
-Die meisten visuellen SLAM-Methoden basieren auf Merkmalsabgleich und Mehransichtsgeometrie. Dies bringt einige Herausforderungen und Einschränkungen mit sich, insbesondere für monokulare SLAM. Zu diesen Herausforderungen gehören die Notwendigkeit einer großen Basislinienbewegung, um ausreichend Parallaxe für eine zuverlässige Tiefenschätzung zu erzeugen, und die Unbeobachtbarkeit der Skala. Diese Probleme können teilweise durch den Einsatz zusätzlicher Sensoren, wie Stereo-Kameras und Trägheitsmesseinheiten (IMUs), oder durch Vorwissen über das System oder die Szene gelöst werden. Ein weiteres Problem ist die dichte Rekonstruktion von Bereichen mit geringer Textur.
+Die meisten visuellen SLAM-Methoden basieren auf Merkmalsabgleich und Mehransichtsgeometrie. Dies bringt einige Herausforderungen und Einschränkungen mit sich, insbesondere für monokulare SLAM. Zu diesen Herausforderungen gehören die Notwendigkeit einer großen Basislinienbewegung, um ausreichend Parallaxe für eine zuverlässige Tiefenschätzung zu erzeugen, und die Unbeobachtbarkeit der Skala. Diese Probleme können teilweise durch den Einsatz zusätzlicher Sensoren, wie Stereo-Kameras und Trägheitsmesseinheiten (\ac{IMU}s), oder durch Vorwissen über das System oder die Szene gelöst werden. Ein weiteres Problem ist die dichte Rekonstruktion von Bereichen mit geringer Textur.
 
-\subsubsection{Der Nutzen von RGB-D Sensoren}
+Da in dieser Kamera eine RGB-D Kamera verwendet wird, die das monokulare Bild der RGB Kamera mit Tiefeninformationen versorgt werden monokulare \ac{SLAM} Verfahren in dieser Arbeit nicht betrachtet. Es werden nur \ac{SLAM} Verfahren betrachtet, die direkt mit \ac{RGB-D} Kameras umgehen können.
+
+Bei \ac{SLAM } Verfahren, die neben den visuellen Datenströmen noch Daten von einer \ac{IMU} verwenden können, spricht man von Visual Inertial \ac{SLAM}.
+
+\subsubsection{Loop Closure}
+
+Dies ist ein entscheidendes Konzept bei SLAM, das sich auf das Problem bezieht, einen Ort zu erkennen, den der Roboter oder das Fahrzeug zuvor besucht hat, um die aufgelaufenen Lokalisierungsfehler zu korrigieren. Im Kontext von \ac{VSLAM} beinhaltet der Schleifenschluss den Abgleich einer aktuellen Ansicht mit einer früheren Ansicht, wodurch festgestellt wird, dass das System zu einem zuvor besuchten Ort zurückgekehrt ist. Dieser Vorgang ist für die Aufrechterhaltung der Genauigkeit der Karte von entscheidender Bedeutung, da er es dem System ermöglicht, die im Laufe der Zeit auftretende Abweichung zu korrigieren.
+
+Methoden zur Erkennung von Schleifenschlüssen können in lokale, globale und segmentbasierte Methoden unterteilt werden. Lokale Deskriptormethoden verwenden häufig Punktverteilungsinformationen zur Beschreibung von Merkmalen. Diese lokalen Merkmale sind jedoch möglicherweise nicht aussagekräftig genug, um ähnliche lokale Strukturen zu unterscheiden. Globale Deskriptoren hingegen werden aus dem gesamten Sensorscan, z. B. einem LiDAR-Scan, generiert und können eine Konvertierung der 3D-Punktwolke in eine 2D-Bilddarstellung erfordern. Diese Methoden reagieren in der Regel empfindlich auf Änderungen des Blickwinkels und den teilweisen Verlust von Punkten. In jüngerer Zeit wurden segmentierungsbasierte Ansätze vorgeschlagen, bei denen Punktwolken in verschiedene Elemente segmentiert, ihre Merkmale extrahiert und die entsprechenden Elemente abgeglichen werden. Diese Ansätze arbeiten auf semantischer oder objektbezogener Ebene und sind oft robuster gegenüber Verdeckungen und anderen Umgebungsvariablen.
+
+\subsubsection{Trajektorien}
+
+Die Flugbahn eines Roboters oder Fahrzeugs bezieht sich auf seinen Weg durch die Umgebung. Im Kontext von SLAM ist die Trajektorie die Abfolge von Posen (Positionen und Ausrichtungen), die der Roboter oder das Fahrzeug im Laufe der Zeit einnimmt. ORB-SLAM berechnet beispielsweise die Kameratrajektorie in Echtzeit und liefert eine zeitliche Abfolge von Kamerapositionen, die für Navigation, Bewegungsanalyse und Szenenrekonstruktion verwendet werden können.
+
+\subsection{Nutzen von RGB-D Sensoren}
 
 RGB-D-Sensoren stellen eine praktikable, hardwarebasierte Lösung für die oben genannten Herausforderungen dar. Ihre Verfügbarkeit zu niedrigen Kosten hat viele Robotik- und AR-Anwendungen ermöglicht. In den letzten zehn Jahren haben sie sich als eine der bevorzugten Sensoren für Innenanwendungen in Robotik und AR durchgesetzt. Sie bieten nicht nur eine kostengünstige und energieeffiziente Lösung, sondern ermöglichen auch die Erfassung von 3D-Informationen, was sie für eine Vielzahl von Anwendungen attraktiv macht.
 
-\subsubsection{Visual Inertial \ac{SLAM}}
 
-\subsection{Monocular \ac{VSLAM}}
 
-\todo{Grundlegenden Unterscheidungen SLAM}
-\todo{Unterscheidung visual inertial}
-\todo{loop closure und das gedöns erklären}
+\cite[vgl. ]{8310200} und \cite{6907054}
 
 
 
