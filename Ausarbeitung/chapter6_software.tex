@@ -284,12 +284,12 @@ Um die Umsetzung von \ac{SLAM} an der COEX Drohne zu ermöglichen, muss zuerst d
     \item \ac{TF}2 Model, was die extrinsische Kalibrierung der Kamera repräsentiert
 \end{itemize}
 
-Mit dem Code aus Listing \ref{lst:azurepublish} kann der Code dann an andere \ac{ROS} Nodes nach dem \ac{ROS} Publish und Subscribe Pattern veröffentlicht werden.
+Mit dem Code aus dem Auszug \ref{lst:azurepublish} kann der Code dann an andere \ac{ROS} Nodes nach dem \ac{ROS} Publish und Subscribe Pattern veröffentlicht werden.
 
 Bevor die Azure ROS Driver jedoch publishen kann muss noch der Driver gestartet werden. Dies funktioniert mit einer \ac{ROS} Launch File. In dieser Launch File werden alle Kameraoptionen gesetzt. Ein Beispiel der Launchfile ist in \ref{lst:driverlaunch}
 \cite[vgl. ]{kinect_ros_driver}
 
-\begin{roslaunch}[breaklines=true,label=lst:driverlaunch]
+\begin{roslaunch}[breaklines=true,label=lst:driverlaunch,caption={Azure ROS Driver Start}]
     <!--
     Copyright (c) Microsoft Corporation. All rights reserved.
     Licensed under the MIT License.
@@ -377,7 +377,7 @@ Die Position die ORB-SLAM3 schätzt kann dann mittels MAVROS an die Drohne über
 Die ORB-SLAM3 Node sendet hierzu, wie in Auszug \ref{lst:orbslammavros} die geschätzte Position an das Topic \textit{/mavros/setpoint\_position/local}.
 
 \begin{figure}
-\begin{python}[breaklines=true, label=lst:orbslammavros]
+\begin{python}[breaklines=true, label=lst:orbslammavros,caption={ORB-SLAM3 Publisher zu MAVROS}]
 import rospy
 from geometry_msgs.msg import PoseStamped
 
@@ -389,13 +389,11 @@ setpoint_pub = rospy.Publisher('/mavros/setpoint_position/local', PoseStamped, q
 rospy.Subscriber('/ORB_SLAM3/pose', PoseStamped, pose_callback)
 rospy.spin()
 \end{python}
-\lstlistingname{ ORB-SLAM3 Position zu MAVROS senden}
 \end{figure}
 
 
 
-\begin{figure}
-\begin{python}[breaklines=true,label=lst:azurepublish]
+\begin{python}[breaklines=true,label=lst:azurepublish, caption={Azure Kamera Publisher zu ORB-SLAM3}]
     
 import rospy
 from sensor_msgs.msg import Image, CameraInfo
@@ -414,8 +412,6 @@ rospy.Subscriber('/azure_kinect_ros_driver/color_camera_info', CameraInfo, camer
 rospy.spin()
 
 \end{python}
-\lstlistingname{ Azure Kinect mit ORB-SLAM3 verbinden}
-\end{figure}
 
 \subsection{MAVROS}
 
@@ -425,7 +421,7 @@ Die MAVROS Node stellt die Funktionalitäten des Autopilots \ac{ROS} zur Verfüg
 
 
 
-\begin{roslaunch}[breaklines=true, label=lst:mavroslaunch]
+\begin{roslaunch}[breaklines=true, label=lst:mavroslaunch,caption={MAVROS starten}]
     <launch>
     <arg name="fcu_conn" default="usb"/> <!-- options: usb, uart, tcp, udp, sitl, hitl -->
     <arg name="fcu_ip" default="127.0.0.1"/>
