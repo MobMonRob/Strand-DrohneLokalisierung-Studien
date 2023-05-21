@@ -21,16 +21,16 @@ In Abbildung \ref{fig:vorgehensweise} sind die 2 Vorgehensweisen die wir uns aus
 
 Es wurden mehrere \ac{SLAM}-Algorithmen in Betracht gezogen, und aufgrund der begrenzten Leistung des Raspberry Pi haben wir den Algorithmus mit den geringsten Anforderungen ausgewählt. Eine Übersicht der gebräuchlichen \ac{SLAM} Algorithmen ist in \ref{chp:übersicht-slamalgo} zu sehen.Für eine fundierte Auswahl wurde eine gewichtete Analyse erstellt, um den für unsere Zwecke bestens geeigneten \ac{SLAM} Algorithmus zu verwenden. Die Gewichte mit den Kriterien sehen Sie in Tabelle \ref{tab:vergleich-slam-gewichtung} und das Ergebnis in \ref{tab:vergleich-slam-analyse}
 
-Bei der Bewertung von SLAM-Algorithmen gibt es mehrere Punkte, die zur Messung der Qualität und Eignung eines SLAM-Verfahrens herangezogen werden können.
+Bei der Bewertung von \ac{SLAM}-Algorithmen gibt es mehrere Punkte, die zur Messung der Qualität und Eignung eines SLAM-Verfahrens herangezogen werden können.
 
 \begin{description}
-    \item[Genauigkeit]{Die Genauigkeit eines SLAM-Algorithmus bezieht sich darauf, wie genau die geschätzten PosiRFtionen und Kartendarstellungen mit den tatsächlichen Werten übereinstimmen. Eine höhere Genauigkeit ist für eine präzise Navigation und Kartierung wünschenswert}
-    \item[Robustheit]{SLAM-Algorithmen sollten robust gegenüber Schwankungen in der Umgebung sein und mit schwierigen Bedingungen wie dynamischen Objekten, Verdeckungen oder Beleuchtungsänderungen umgehen können. Ein robuster Algorithmus behält selbst bei diesen Faktoren genaue Schätzungen bei} 
+    \item[Genauigkeit]{Die Genauigkeit eines \ac{SLAM}-Algorithmus bezieht sich darauf, wie genau die geschätzten PosiRFtionen und Kartendarstellungen mit den tatsächlichen Werten übereinstimmen. Eine höhere Genauigkeit ist für eine präzise Navigation und Kartierung wünschenswert}
+    \item[Robustheit]{\ac{SLAM}-Algorithmen sollten robust gegenüber Schwankungen in der Umgebung sein und mit schwierigen Bedingungen wie dynamischen Objekten, Verdeckungen oder Beleuchtungsänderungen umgehen können. Ein robuster Algorithmus behält selbst bei diesen Faktoren genaue Schätzungen bei} 
     \item[Skalierbarkeit]{Skalierbarkeit ist wichtig, wenn es um groß angelegte Kartierungsszenarien oder lang andauernde Operationen geht. Ein Algorithmus sollte in der Lage sein, wachsende Datenmengen zu verarbeiten, z. B. größere Umgebungen oder längere Einsatzzeiten, ohne dass die Leistung signifikant abnimmt}
-    \item[Leistung in Echtzeit]{Die Echtzeitfähigkeit ist für viele Anwendungen entscheidend, insbesondere in der Robotik oder der erweiterten Realität. SLAM-Algorithmen sollten in der Lage sein, Sensordaten zu verarbeiten und Schätzungen in Echtzeit zu aktualisieren, um zeitnahe und reaktionsfähige Informationen zu liefern}
-    \item[Berechnungseffizienz]{SLAM-Algorithmen sollten rechnerisch effizient sein, insbesondere bei ressourcenbeschränkten Plattformen wie dem Raspberry Pi. Es ist wichtig, einen Algorithmus zu wählen, der ein ausgewogenes Verhältnis zwischen Genauigkeit und Rechenanforderungen herstellt und eine optimale Leistung auf der gewählten Hardware gewährleistet}
-    \item[Fähigkeit zur Sensorfusion]{Die Integration mehrerer Sensoren, wie z. B. Kameras, Inertialmesseinheiten (IMUs) oder Tiefensensoren, kann die SLAM-Leistung verbessern. Algorithmen, die Informationen von verschiedenen Sensoren effektiv fusionieren können, liefern oft genauere und zuverlässigere Ergebnisse}
-    \item[Kartendarstellung]{Die Qualität und Darstellung der erzeugten Karte kann ebenfalls ein wichtiger Faktor sein. Ein guter SLAM-Algorithmus sollte Karten erzeugen, die geometrisch konsistent, visuell informativ und für nachfolgende Aufgaben oder Analysen nützlich sind} 
+    \item[Leistung in Echtzeit]{Die Echtzeitfähigkeit ist für viele Anwendungen entscheidend, insbesondere in der Robotik oder der erweiterten Realität. \ac{SLAM}-Algorithmen sollten in der Lage sein, Sensordaten zu verarbeiten und Schätzungen in Echtzeit zu aktualisieren, um zeitnahe und reaktionsfähige Informationen zu liefern}
+    \item[Berechnungseffizienz]{\ac{SLAM}-Algorithmen sollten rechnerisch effizient sein, insbesondere bei ressourcenbeschränkten Plattformen wie dem Raspberry Pi. Es ist wichtig, einen Algorithmus zu wählen, der ein ausgewogenes Verhältnis zwischen Genauigkeit und Rechenanforderungen herstellt und eine optimale Leistung auf der gewählten Hardware gewährleistet}
+    \item[Fähigkeit zur Sensorfusion]{Die Integration mehrerer Sensoren, wie z. B. Kameras, Inertialmesseinheiten (IMUs) oder Tiefensensoren, kann die \ac{SLAM}-Leistung verbessern. Algorithmen, die Informationen von verschiedenen Sensoren effektiv fusionieren können, liefern oft genauere und zuverlässigere Ergebnisse}
+    \item[Kartendarstellung]{Die Qualität und Darstellung der erzeugten Karte kann ebenfalls ein wichtiger Faktor sein. Ein guter \ac{SLAM}-Algorithmus sollte Karten erzeugen, die geometrisch konsistent, visuell informativ und für nachfolgende Aufgaben oder Analysen nützlich sind} 
 \end{description}
 
 Zur Bewertung der \ac{SLAM} Algorithmen haben wurden folgende Quellen als Referenz genommen \cite{ragot:hal-04071273}, \cite{Merzlyakov2021}, \cite{9440682}
@@ -43,24 +43,24 @@ Ansonsten kann der Depth \ac{ToF} Sensor der Azure Kinekt nicht verwendet werden
 \subsubsection{ElasticFusion}
 
 
-ElasticFusion ist eine dichte SLAM-Methode, die RGB-D-Kameras verwendet. Es konstruiert ein global konsistentes Modell der Umgebung zur Verwendung in Roboteranwendungen wie Objekterkennung und -manipulation und bestimmt gleichzeitig die Sensorposition in Echtzeit. Erreicht wird dies durch eine Kombination aus Frame-to-Model-Kameratracking und oberflächenbasierter Fusion, die eine häufige Modellverfeinerung durch nicht starre Oberflächendeformationen nutzt. 
-Im Gegensatz zu ORB-SLAM3 ist Elastic Fusion ein dichtes SLAM-System. Es verwendet eine Surfel-Darstellung für die 3D-Kartierung, die eine detailliertere und robustere Karte als einige andere Methoden liefert. Das System verwendet RGB-D-Kameras, um reichhaltige visuelle Informationen zu erfassen, so dass es auch in komplexen Innenräumen eingesetzt werden kann. Obwohl es eine Echtzeitleistung bietet, könnte Elastic Fusion aufgrund der dichten Natur seines Ansatzes mehr Rechenressourcen erfordern als merkmalsbasierte Methoden. Seine Fähigkeiten zur Sensorfusion und detaillierten Kartendarstellung sind jedoch lobenswert. Da es sich um ein Open-Source-Programm handelt, ist es für Anpassungen und Weiterentwicklungen zugänglich.
+ElasticFusion ist eine dichte \ac{SLAM}-Methode, die \ac{RGB-D}-Kameras verwendet. Es konstruiert ein global konsistentes Modell der Umgebung zur Verwendung in Roboteranwendungen wie Objekterkennung und -manipulation und bestimmt gleichzeitig die Sensorposition in Echtzeit. Erreicht wird dies durch eine Kombination aus Frame-to-Model-Kameratracking und oberflächenbasierter Fusion, die eine häufige Modellverfeinerung durch nicht starre Oberflächendeformationen nutzt. 
+Im Gegensatz zu ORB-SLAM3 ist Elastic Fusion ein dichtes \ac{SLAM}-System. Es verwendet eine Surfel-Darstellung für die 3D-Kartierung, die eine detailliertere und robustere Karte als einige andere Methoden liefert. Das System verwendet \ac{RGB-D}-Kameras, um reichhaltige visuelle Informationen zu erfassen, so dass es auch in komplexen Innenräumen eingesetzt werden kann. Obwohl es eine Echtzeitleistung bietet, könnte Elastic Fusion aufgrund der dichten Natur seines Ansatzes mehr Rechenressourcen erfordern als merkmalsbasierte Methoden. Seine Fähigkeiten zur Sensorfusion und detaillierten Kartendarstellung sind jedoch lobenswert. Da es sich um ein Open-Source-Programm handelt, ist es für Anpassungen und Weiterentwicklungen zugänglich.
 
 \cite{elasticfusion}
 \subsubsection{DynaSLAM}
 
-DynaSLAM ist ein visuelles SLAM-System, das für die Handhabung dynamischer Objekte in der Umgebung entwickelt wurde. Es baut auf ORB-SLAM2 auf und kann mit monokularen, Stereo- und RGB-D-Kameras arbeiten. DynaSLAM führt eine Hintergrund-Vordergrund-Segmentierungsmethode ein, um mit dynamischen Objekten umzugehen.
+DynaSLAM ist ein visuelles \ac{SLAM}-System, das für die Handhabung dynamischer Objekte in der Umgebung entwickelt wurde. Es baut auf ORB-SLAM2 auf und kann mit monokularen, Stereo- und \ac{RGB-D}-Kameras arbeiten. DynaSLAM führt eine Hintergrund-Vordergrund-Segmentierungsmethode ein, um mit dynamischen Objekten umzugehen.
 
 \cite{bescos2018dynaslam}
 \subsubsection{ORB-SLAM3}
 
-ORB-SLAM3 ist eine vielseitige und genaue SLAM-Lösung für monokulare, Stereo- und RGB-D-Kameras. Sie ist in der Lage, in Echtzeit die Kameratrajektorie und eine spärliche 3D-Rekonstruktion der Szene in einer Vielzahl von Umgebungen zu berechnen, von kleinen handgehaltenen Sequenzen eines Schreibtisches bis hin zu einem Auto, das durch mehrere Städte fährt
+ORB-SLAM3 ist eine vielseitige und genaue \ac{SLAM}-Lösung für monokulare, Stereo- und \ac{RGB-D}-Kameras. Sie ist in der Lage, in Echtzeit die Kameratrajektorie und eine spärliche 3D-Rekonstruktion der Szene in einer Vielzahl von Umgebungen zu berechnen, von kleinen handgehaltenen Sequenzen eines Schreibtisches bis hin zu einem Auto, das durch mehrere Städte fährt
 
 ORB-SLAM3 ist eine Erweiterung des ORB-SLAM, der für die simultane Lokalisierung und Kartierung (SLAM) in dreidimensionalen Umgebungen entwickelt wurde. Im Gegensatz zu ORB-SLAM verwendet ORB-SLAM3 jedoch eine tiefere Netzwerkarchitektur, um die Leistung und Genauigkeit der Odometrie und der visuellen Wahrnehmung zu verbessern.
 
 ORB-SLAM3 nutzt eine Kombination aus Tiefenkameras und RGB-Kameras, um eine 3D-Repräsentation der Umgebung zu erstellen und gleichzeitig die Bewegung des Roboters in der Umgebung zu schätzen. Der Algorithmus verwendet ein neuronales Netzwerk, um die Tiefeninformationen der Kameras zu verarbeiten und eine Schätzung der Kamerapositionen und -orientierungen zu generieren.
 
-Im Gegensatz zu anderen SLAM-Verfahren, die auf einer Vielzahl von Features wie Punkten oder Linien basieren, nutzt ORB-SLAM3 Oriented Bounding Boxen (OBBs), um eine robustere Schätzung der Kamerabewegungen und -positionen zu ermöglichen. Die OBBs erlauben eine genauere Modellierung der Umgebung und eine bessere Korrektur von Fehlern, die durch Ungenauigkeiten bei der Berechnung von 3D-Points entstehen können.
+Im Gegensatz zu anderen \ac{SLAM}-Verfahren, die auf einer Vielzahl von Features wie Punkten oder Linien basieren, nutzt ORB-SLAM3 Oriented Bounding Boxen (OBBs), um eine robustere Schätzung der Kamerabewegungen und -positionen zu ermöglichen. Die OBBs erlauben eine genauere Modellierung der Umgebung und eine bessere Korrektur von Fehlern, die durch Ungenauigkeiten bei der Berechnung von 3D-Points entstehen können.
 
 Insgesamt ermöglicht ORB-SLAM3 eine genauere und robustere Lokalisierung und Kartierung in dreidimensionalen Umgebungen, was ihn zu einem vielversprechenden Ansatz für autonome Robotikanwendungen macht.
 
@@ -126,11 +126,11 @@ Die Einschätzungen für die Gewichtungen in der Tabelle basieren auf der subjek
 \begin{itemize}
 \item \textbf{Anforderungen des Projekts:} Die Gewichtungen können durch die spezifischen Anforderungen des Projekts bestimmt werden. Wenn beispielsweise eine besonders hohe Genauigkeit erforderlich ist, kann diesem Kriterium eine höhere Gewichtung zugeordnet werden.
 
-\item \textbf{Wichtigkeit für den Einsatzzweck:} Die Gewichtungen können auf der Wichtigkeit jedes Kriteriums für den vorgesehenen Einsatzzweck des SLAM-Navigationssystems basieren. Wenn beispielsweise das System in einer Umgebung mit vielen Störungen eingesetzt wird, kann der Anfälligkeit für Störungen eine höhere Gewichtung zugeordnet werden.
+\item \textbf{Wichtigkeit für den Einsatzzweck:} Die Gewichtungen können auf der Wichtigkeit jedes Kriteriums für den vorgesehenen Einsatzzweck des \ac{SLAM}-Navigationssystems basieren. Wenn beispielsweise das System in einer Umgebung mit vielen Störungen eingesetzt wird, kann der Anfälligkeit für Störungen eine höhere Gewichtung zugeordnet werden.
 \item \textbf{Expertenmeinungen} Expertenmeinungen: Die Gewichtungen können auf Expertenmeinungen basieren, die auf ihrer Erfahrung und Fachkenntnis in der Navigationstechnologie beruhen.
 \end{itemize}
 
-Aufgrund des Ergebnisses aus Tabelle \ref{tab:vergleich-gewichtung} wird ersichtlich das folgende Lokalisierungsvorgehensweisen für den Einsatz mit der Drohne und SLAM am besten eingesetzt werden können.
+Aufgrund des Ergebnisses aus Tabelle \ref{tab:vergleich-gewichtung} wird ersichtlich das folgende Lokalisierungsvorgehensweisen für den Einsatz mit der Drohne und \ac{SLAM} am besten eingesetzt werden können.
 
 \begin{itemize}
     \item Optical Sensoren
@@ -204,7 +204,7 @@ Die \ac{ROS} Version, welche für diese Arbeit verwendet wurde, ist die Version 
 \subsection{Auswahl Sensoren}
 
 Die COEX Drohne, die für diese Arbeit verwendet wird ist mit einem COEX Pix ausgestattet.
-Dieser Flightcontroller ist standardmäßig mit einer IMU ausgestattet. Zunächst sollte eine Holo Lens 2 auf der Drohne montiert werden um durch das Spatial Mapping Feature die Umgebung zu scannen und die Position zu erkenne.
+Dieser Flightcontroller ist standardmäßig mit einer \ac{IMU} ausgestattet. Zunächst sollte eine Holo Lens 2 auf der Drohne montiert werden um durch das Spatial Mapping Feature die Umgebung zu scannen und die Position zu erkenne.
 Später hat sich herausgestellt, dass eine Montage der Holo Lens 2 auf der Drohne nicht möglich ist, da die Holo Lens 2 für die COEX Drohne zu schwer wäre.
 Die Azure Kinect verfügt jedoch über die gleichen Sensoren wie die Holo Lens 2 ist aber wesentlich kleiner und leichter, da keine unnötigen Funktionen wie ein \ac{AR} Display vorhanden sind.
 Zu Beginn wurde auch die Nutzung eines \ac{Lidar}-Sensors in Betracht gezogen, jedoch sind diese Sensoren auf Grund ihres Gewichtes, welches das maximale Gewicht der Coex Drohne überschreitet, nicht für die Befestigung auf der Drohne geeignet.\\
@@ -213,7 +213,7 @@ Somit sind folgende Sensoren auf der COEX Drohne verfügbar.
 \begin{itemize}
     \item{RGB Kamera}
     \item{Azure Kinect \ac{RGB-D}}
-    \item{IMU}
+    \item{\ac{IMU}}
 \end{itemize}
 
 Damit lässt sich theoretisch ein \ac{VSLAM} auf der Drohne umsetzen.

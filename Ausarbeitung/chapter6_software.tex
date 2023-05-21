@@ -286,66 +286,10 @@ Um die Umsetzung von \ac{SLAM} an der COEX Drohne zu ermöglichen, muss zuerst d
 
 Mit dem Code aus Listing \ref{lst:azurepublish} kann der Code dann an andere \ac{ROS} Nodes nach dem \ac{ROS} Publish und Subscribe Pattern veröffentlicht werden.
 
+Bevor die Azure ROS Driver jedoch publishen kann muss noch der Driver gestartet werden. Dies funktioniert mit einer \ac{ROS} Launch File. In dieser Launch File werden alle Kameraoptionen gesetzt. Ein Beispiel der Launchfile ist in \ref{lst:driverlaunch}
 \cite[vgl. ]{kinect_ros_driver}
 
-\subsection{ORB-SLAM3 ROS}
-
-Die Informationen von den Azure Kinect ROS Driver Kamera Nodes werden an einen \ac{VSLAM} Node für ORB-SLAM3 gesendet. Dazu verwendet die SLAM Node die \ac{IMU}, Farb und Tiefenbilder von der Azure Kinect.
-Mittles \textit{rosrun ORB\_SLAM3\ RGBD PATH\_TO\_VOCABULARY PATH\_TO\_SETTINGS\_FILE} kann die Node gestartet werden.
-Das ORB Vocabulary ist dabei bereits im Source Code vorhanden.
-\cite[vgl.]{ORBSLAM3TRO}
-
-Die Position die ORB-SLAM3 schätzt kann dann mittels MAVROS an die Drohne übermittelt werden.
-Die ORB-SLAM3 Node sendet hierzu, wie in Auszug \ref{lst:orbslammavros} die geschätzte Position an das Topic \textit{/mavros/setpoint\_position/local}.
-
-\begin{figure}
-\begin{python}[breaklines=true, label=lst:orbslammavros]
-import rospy
-from geometry_msgs.msg import PoseStamped
-
-def pose_callback(data):
-    setpoint_pub.publish(data)
-
-rospy.init_node('orb_slam_to_mavros')
-setpoint_pub = rospy.Publisher('/mavros/setpoint_position/local', PoseStamped, queue_size=10)
-rospy.Subscriber('/ORB_SLAM3/pose', PoseStamped, pose_callback)
-rospy.spin()
-\end{python}
-\lstlistingname{ ORB-SLAM3 Position zu MAVROS senden}
-\end{figure}
-
-
-
-\begin{figure}
-\begin{python}[breaklines=true,label=lst:azurepublish]
-    
-import rospy
-from sensor_msgs.msg import Image, CameraInfo
-
-def image_callback(data):
-    image_pub.publish(data)
-
-def camera_info_callback(data):
-    camera_info_pub.publish(data)
-
-rospy.init_node('azure_to_orb_slam')
-image_pub = rospy.Publisher('/camera/color/image_raw', Image, queue_size=10)
-camera_info_pub = rospy.Publisher('/camera/color/camera_info', CameraInfo, queue_size=10)
-rospy.Subscriber('/azure_kinect_ros_driver/color_image', Image, image_callback)
-rospy.Subscriber('/azure_kinect_ros_driver/color_camera_info', CameraInfo, camera_info_callback)
-rospy.spin()
-
-\end{python}
-\lstlistingname{ Azure Kinect mit ORB-SLAM3 verbinden}
-\end{figure}
-
-\subsection{MAVROS}
-
-MAVROS ermöglicht es Verbindung mit dem Autopilot der Drohne über das MAVLink Protokoll herzustellen. Um über ROS Topics und Messages über MAVLink kommunizieren zu können, muss eine MAVROS Node gestartet werden.
-
-Die MAVROS Node stellt die Funktionalitäten des Autopilots \ac{ROS} zur Verfügung. Um MAVROS zu starten wird eine Launchfile wie \ref{lst:mavroslaunch} verwendet. In ihr werden die Topic Namen definiert die zur Kommunikation gepublished werden sollen. Außerdem werden dort die Verbindungsparameter zum Autopilot definiert.
-
-\begin{roslaunch}[breaklines=true]
+\begin{roslaunch}[breaklines=true,label=lst:driverlaunch]
     <!--
     Copyright (c) Microsoft Corporation. All rights reserved.
     Licensed under the MIT License.
@@ -421,6 +365,65 @@ Die MAVROS Node stellt die Funktionalitäten des Autopilots \ac{ROS} zur Verfüg
 </launch>
 \end{roslaunch}
 \lstlistingname{ Azure Kinect ROS Driver starten mit roslaunch}
+
+\subsection{ORB-SLAM3 ROS}
+
+Die Informationen von den Azure Kinect ROS Driver Kamera Nodes werden an einen \ac{VSLAM} Node für ORB-SLAM3 gesendet. Dazu verwendet die SLAM Node die \ac{IMU}, Farb und Tiefenbilder von der Azure Kinect.
+Mittles \textit{rosrun ORB\_SLAM3\ RGBD PATH\_TO\_VOCABULARY PATH\_TO\_SETTINGS\_FILE} kann die Node gestartet werden.
+Das ORB Vocabulary ist dabei bereits im Source Code vorhanden.
+\cite[vgl.]{ORBSLAM3TRO}
+
+Die Position die ORB-SLAM3 schätzt kann dann mittels MAVROS an die Drohne übermittelt werden.
+Die ORB-SLAM3 Node sendet hierzu, wie in Auszug \ref{lst:orbslammavros} die geschätzte Position an das Topic \textit{/mavros/setpoint\_position/local}.
+
+\begin{figure}
+\begin{python}[breaklines=true, label=lst:orbslammavros]
+import rospy
+from geometry_msgs.msg import PoseStamped
+
+def pose_callback(data):
+    setpoint_pub.publish(data)
+
+rospy.init_node('orb_slam_to_mavros')
+setpoint_pub = rospy.Publisher('/mavros/setpoint_position/local', PoseStamped, queue_size=10)
+rospy.Subscriber('/ORB_SLAM3/pose', PoseStamped, pose_callback)
+rospy.spin()
+\end{python}
+\lstlistingname{ ORB-SLAM3 Position zu MAVROS senden}
+\end{figure}
+
+
+
+\begin{figure}
+\begin{python}[breaklines=true,label=lst:azurepublish]
+    
+import rospy
+from sensor_msgs.msg import Image, CameraInfo
+
+def image_callback(data):
+    image_pub.publish(data)
+
+def camera_info_callback(data):
+    camera_info_pub.publish(data)
+
+rospy.init_node('azure_to_orb_slam')
+image_pub = rospy.Publisher('/camera/color/image_raw', Image, queue_size=10)
+camera_info_pub = rospy.Publisher('/camera/color/camera_info', CameraInfo, queue_size=10)
+rospy.Subscriber('/azure_kinect_ros_driver/color_image', Image, image_callback)
+rospy.Subscriber('/azure_kinect_ros_driver/color_camera_info', CameraInfo, camera_info_callback)
+rospy.spin()
+
+\end{python}
+\lstlistingname{ Azure Kinect mit ORB-SLAM3 verbinden}
+\end{figure}
+
+\subsection{MAVROS}
+
+MAVROS ermöglicht es Verbindung mit dem Autopilot der Drohne über das MAVLink Protokoll herzustellen. Um über ROS Topics und Messages über MAVLink kommunizieren zu können, muss eine MAVROS Node gestartet werden.
+
+Die MAVROS Node stellt die Funktionalitäten des Autopilots \ac{ROS} zur Verfügung. Um MAVROS zu starten wird eine Launchfile wie \ref{lst:mavroslaunch} verwendet. In ihr werden die Topic Namen definiert die zur Kommunikation gepublished werden sollen. Außerdem werden dort die Verbindungsparameter zum Autopilot definiert. Die ORB-SLAM3 Node schickt die geschätzte Position zu diesen Topics. Dazwischen wird jedoch noch die \ac{TF} Bibliothek von \ac{ROS} verwendet, die die Posen zwischen den verwendeten Koordinatensystemem transformiert. 
+
+
 
 \begin{roslaunch}[breaklines=true, label=lst:mavroslaunch]
     <launch>
@@ -523,8 +526,9 @@ $
 
 
 \section{Navigation} \label{navigation:section} 
-Eine Navigation beziehungsweise ien Bahnplanung mit Hifle des \ac{SLAM}-Algorithmus konnte auf dem Raspberry Pi nicht umgesetzt werden, da dieser bereits für die Ausführung des \ac{SLAM}-Algorithmus zu geringe Leistung aufweist. Aus diesem Grund wurden die Bahnplanung für die Drohne nicht umgesetzt werden.
-\todo{Abgleich mit SLAM Umsetzung     F}
+Eine Navigation beziehungsweise ien Bahnplanung mit Hifle des \ac{SLAM}-Algorithmus konnte auf dem Raspberry Pi nicht umgesetzt werden, da dieser bereits für die Ausführung des \ac{SLAM}-Algorithmus zu geringe Leistung aufweist. Aus diesem Grund wurden die Bahnplanung für die Drohne nicht umgesetzt werden. Theoretisch hätte die Bahnplanung mit Algorithmen wie Dijkstra, A** oder ähnlichem durchgeführt werden können.
+
+
 % wie Navigation hätte umgesetzt werden können -> theoretische Grundlagen?
 % Navigation selbst nicht umgesetzt, u.a. auf Grund von Begrenzung Leistung Raspberry Pi
 % nicht umgesetzt, da keine SLAM, 
