@@ -1,22 +1,21 @@
 \chapter{Evaluation}
 
 Zu Beginn der Arbeit wurde der Ansatz zur Erstellung des Umweltmodells verfolgt, welches allerdings in eine Sackgasse führte, durch den späten Paradigmenwechsel von Spatial Mapping zu \ac{SLAM} blieb wenig Zeit, den Ansatz zu verfeinern, er ist jedoch sehr vielversprechend und hat ein großes Potential.
-Zudem war die Fehlerbehebung an der Drohne ziemlich zeitaufwändig, wodurch die Bearbeitung der anderen Bereiche zwischenzeitlich in der Hintergrund gerutscht sind.
+Zudem war die Fehlerbehebung an der Drohne ziemlich zeitaufwändig, wodurch die Bearbeitung der anderen Bereiche zwischenzeitlich in den Hintergrund gerutscht sind.
 
 \section{Analyse der Ergebnisse}
 \subsection{Sensordrift Drohne}
 
 Mit der Boardkamera + \ac{IMU} Daten, konnte keine stabile Position gehalten werden. Die Aufgabe der Datenfusion hat in diesem Fall die PX4 Autopilot Software auf dem COEX Pix übernommen.
-Durch den akkumulierten Fehler der \ac{IMU} Daten driftete die Drohne aber immer nach gewisser Zeit weg. In der Simulation hat die Konfiguration jedoch ohne Probleme funkioniert, da dort der akkumulierte Fehler nicht vorhanden ist.
+Durch den akkumulierten Fehler der \ac{IMU} Daten driftete die Drohne aber immer nach gewisser Zeit weg. In der Simulation hat die Konfiguration jedoch ohne Probleme funktioniert, da dort der akkumulierte Fehler nicht vorhanden ist.
 Es ist anzumerken, dass die Simulation keine realen Bedingungen widerspiegelt und daher möglicherweise nicht alle Herausforderungen und Unsicherheiten, die in der realen Welt auftreten können, berücksichtigt. Daher ist es wichtig, die Evaluierungsergebnisse der Simulation mit Vorsicht zu interpretieren und die Realität in Betracht zu ziehen. Weitere Untersuchungen und Experimente sollten durchgeführt werden, um die Ursachen des akkumulierten Fehlers der \ac{IMU}-Daten zu identifizieren und geeignete Maßnahmen zur Fehlerkompensation zu entwickeln.
-
 
 
 \subsection{Umsetzung SLAM auf Raspberry Pi}
 
 \subsubsection{Kamerazugriff}
 
-Die Hololens 2 bietet im Vergleich zur Azure Kinect keinen direkten Echtzeitzugriff zur Verwendung von \ac{SLAM}. Bei der Hololens 2 muss man sich darauf verlassen, dass die Hololens 2 das Modell der Umgebung schnell genug aktualisiert. Da wir wie in Kapitel \ref{mechanische-herausforderungen:section} beschrieben die Hololens 2 nicht auf der Drohne montieren können, resultiert dies darin, dass wir vor dem Flug die Umgebung in ein 3D Modell überführen müssen. Deshalb kann jedoch auch die Spatial Mapping Funktion der Hololens nicht verwendet werden, da diese nur funktioniert wenn die Hololens 2 beim Flug dabei ist.
+Die Hololens 2 bietet im Vergleich zur Azure Kinect keinen direkten Echtzeitzugriff zur Verwendung von \ac{SLAM}. Bei der Hololens 2 muss man sich darauf verlassen, dass die Hololens 2 das Modell der Umgebung schnell genug aktualisiert. Da wir wie in Kapitel \ref{mechanische-herausforderungen:section} beschrieben die Hololens 2 nicht auf der Drohne montieren können, resultiert dies darin, dass wir vor dem Flug die Umgebung in ein 3D Modell überführen müssen. Deshalb kann jedoch auch die Spatial Mapping Funktion der Hololens nicht verwendet werden, da diese nur funktioniert, wenn die Hololens 2 beim Flug dabei ist.
 Die Spatial Mapping Funktion funktioniert nicht, da die Positionierung von der Position der Sensoren der Hololens 2 abhängt.
 Durch den direkten Kamerazugriff der Azure Kinect kann \ac{VSLAM} direkt mit den Rohdaten dieser durchgeführt werden. Da die Kinect auf der Drohne montiert werden kann, wird direkt eine Karte der Umgebung erstellt und die Lokalisierung der Drohne beziehungsweise der Kamera durchgeführt. Es muss also kein vorab Scan der Umgebung mehr durchgeführt werden. Der \ac{VSLAM} Ansatz ist allerdings sehr rechenaufwendig, aber für Einsätze mit Drohnen in Gebäuden notwendig, um Hindernisse frühzeitig zu erkennen. Da die Drohne auch in unbekannten Umgebungen eingesetzt werden soll, ist es keine Option vor dem Flug der Drohne einen 3D-Scan der Umgebung durchzuführen. Wenn schon die Position in einem 3D Modell durch visuelle Analysen bestimmt werden muss, kann auch gleich \ac{SLAM} eingesetzt werden.
 
@@ -26,7 +25,7 @@ Die Evaluierung der Kartengenerierung und Odometrie in Visual SLAM-basierten Sys
 
 Die Ergebnisse zeigen, dass die Kombination aus RGB-Bildern und Tiefeninformationen der Azure Kinect eine genauere und detailliertere Kartierung ermöglicht. Die Tiefeninformationen helfen dabei, die räumliche Struktur besser zu erfassen und die Genauigkeit der erstellten Karten zu verbessern. Durch die Verschmelzung der visuellen und der Tiefeninformationen kann die Drohne zuverlässig navigieren und selbst in Umgebungen mit geringer Textur oder gleichmäßigen Oberflächen genaue Karten erstellen.
 
-Die Integration von \ac{IMU}-Daten ermöglicht eine verbesserte Odometrieschätzung und eine robustere Trajektorienberechnung. Die Kombination von visuellen Daten, Tiefeninformationen und IMU-Daten verringert die Drift der geschätzten Flugbahn. Die \ac{IMU}-Daten liefern wichtige Informationen über die Beschleunigung und Ausrichtung der Drohne, was zu einer genaueren Schätzung der aktuellen Position und Ausrichtung führt.
+Die Integration von \ac{IMU}-Daten ermöglicht eine verbesserte Odometrieschätzung und eine robustere Trajektorienberechnung. Zudem verringert die Kombination von visuellen Daten, Tiefeninformationen und IMU-Daten den Drift der geschätzten Flugbahn. Die \ac{IMU}-Daten liefern wichtige Informationen über die Beschleunigung und Ausrichtung der Drohne, was zu einer genaueren Schätzung der aktuellen Position und Ausrichtung führt.
 
 Dennoch wurden bei der Bewertung einige Probleme festgestellt. In bestimmten Situationen, z.B. bei schnellen Bewegungen oder starken Vibrationen, konnten die \ac{IMU}-Daten Rauschen aufweisen, was zu einer geringeren Genauigkeit der Flugbahn führte. Es wurden jedoch Filter- und Fusionstechniken angewandt, um das Rauschen zu reduzieren und eine robuste Flugbahnberechnung zu gewährleisten.
 
@@ -61,10 +60,8 @@ Dennoch gibt es einige Probleme die zu beachten sind. Diese sind zum einen die b
 Die mechanischen Herausforderungen, die mit der Montage der Sensoren an der Drohne verbunden sind, wurden ebenfalls festgestellt. Die Hololens 2 erweist sich aufgrund ihrer Größe, ihres Gewichts und fehlender Befestigungsmöglichkeiten als ungeeignet. Die Azure Kinect hingegen ist kleiner, leichter und bietet Befestigungsmöglichkeiten für den Einsatz an der Drohne.
 
 \subsection{Schlussfolgerung}
-
-Die Schlussfolgerung aus dieser Bewertung ist, dass die Verwendung von RGBD-Tiefenkameras wie die Azure Kinect in Kombination mit \ac{IMU}-Daten eine vielversprechende Lösung für die autonome Navigation von Drohnen in Innenräumen darstellt. Durch die Kombination von visuellen Daten, Tiefeninformationen und \ac{IMU}-Daten können präzise Karten der Umgebung erstellt, genaue Trajektorien geschätzt und zuverlässige autonome Flugmanöver durchgeführt werden. 
-Um die volle Leistungsfähigkeit und Robustheit des Systems zu erreichen, müssen jedoch einige Probleme wie die fehlende Rechenleistung oder auch der Sensordrift der Coex Drohne behoben werden. 
-Dennoch wurden wichtige Erkenntnise für den autonomen Flug von Drohnen in Gebäuden ohne die Verwendung von \ac{GPS} gesammelt.
+Zusammenfassend kann festgehalten werden, dass die Verwendung von RGBD-Tiefenkameras wie die Azure Kinect in Kombination mit \ac{IMU}-Daten eine vielversprechende Lösung für die autonome Navigation von Drohnen in Innenräumen darstellt. Durch die Kombination von visuellen Daten, Tiefeninformationen und \ac{IMU}-Daten können präzise Karten der Umgebung erstellt, genaue Trajektorien geschätzt und zuverlässige autonome Flugmanöver durchgeführt werden. Um die volle Leistungsfähigkeit und Robustheit des Systems zu erreichen, müssen jedoch einige Probleme wie die fehlende Rechenleistung oder auch der Sensordrift der Coex Drohne behoben werden. \\
+Dennoch wurden wichtige Erkenntnisse für den autonomen Flug von Drohnen in Gebäuden ohne die Verwendung von \ac{GPS} gesammelt.
 
 
 
