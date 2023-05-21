@@ -149,7 +149,6 @@ Im nachfolgenden wird nun genauer auf die einzelnen Komponenten sowie den Ablauf
 
 simple\_offboard: \\
 simple\_offboard ermöglicht eine einfache Interaktion mit der Drohne. Das Modul hierzu vereinfacht das Programmieren von Skripten für autonome Flüge mit Drohnen mit Hilfe des Flugmodus Offboard. \cite[vgl.][]{simple_offboard}\\
-% https://clover.coex.tech/en/simple_offboard.html
 
 mavros: \\
 Die Mavros Node ist für die Kommunikation zwischen dem Raspberry Pi und dem Flight Controller zuständig.\\
@@ -159,13 +158,12 @@ Diese Topics werden im Namespace "\textbackslash mavros" zusammengefasst, zu die
 \textbackslash mavros\textbackslash battery: enthält verschiedene Parameter und Nachrichten zur Batterie. Hierzu zählen der aktuelle Ladezustand, die verbleibende Kapazität, die Spannung oder auch die geschätzte Restflugzeit der Drohne.\\
 \textbackslash mavros\textbackslash local\_position\textbackslash pose: enthält die lokale Position sowie die aktuelle Orientierung der Drohne in einem Koordinatensystem.\\
 \textbackslash mavros\textbackslash setpoint\_attitude\textbackslash attitude: enthält die Informationen zum Einstellen der Fluglage. \cite[vgl.][]{mavros}\\
-% https://clover.coex.tech/en/mavros.html
  
 main\_camera: \\
 Von dem Azure Kinect ROS Treiber werden zwei Topics übergeben, diese sind: \\
 "\textbackslash main\_camera\textbackslash image\_raw", über dieses Topic werden die Rohbilder der Kamera gesendet. Zudem noch "\textbackslash main\_camera\textbackslash image\_info", über welches die Kamerainformationen übertragen werden. [\citetitle[vgl.][]{kinect_ros_driver}]\\
 \todo{author quelle?}
-% https://github.com/microsoft/Azure_Kinect_ROS_Driver/blob/melodic/docs/usage.md
+
 
     %\includepdf[landscape=true]{images/graph_ros.pdf}
     %\caption[Übersicht ROS Nodes]{\label{img ros_nodes_graph} Übersicht ROS Nodes [eigene Darstellung]}
