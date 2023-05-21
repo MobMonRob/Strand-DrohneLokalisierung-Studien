@@ -54,11 +54,12 @@ Das Robot Operating System hat den Bereich der Robotik revolutioniert, indem es 
 
     Der Kern der \ac{ROS} Filesystem-Ebene ist das Konzept der Pakete. Ein Paket in \ac{ROS} ist eine Verzeichnisstruktur, die eine Sammlung zusammengehöriger Dateien enthält, einschließlich Code, Konfigurationsdateien und Datenressourcen. Pakete bieten einen modularen Ansatz zur Organisation von Code und erleichtern die Wiederverwendung von Code über verschiedene Projekte hinweg. Sie kapseln eine bestimmte Funktionalität oder ein Merkmal und können unabhängig entwickelt, getestet und verteilt werden.
     
-    Die \ac{ROS}-Dateisystem-Ebene folgt einem auf Konventionen basierenden Ansatz für die Organisation von Paketen. Ein typisches \ac{ROS}-Paket enthält eine Manifestdatei namens package.xml, die Metadaten und Abhängigkeiten für das Paket enthält. Darüber hinaus folgt die Verzeichnisstruktur des Pakets einem bestimmten Layout, mit Verzeichnissen wie src für Quellcode, launch für Startdateien, msg für Nachrichten-Definitionsdateien und config für Konfigurationsdateien. Diese einheitliche Struktur verbessert die Zusammenarbeit und ermöglicht es den Entwicklern, Ressourcen innerhalb eines Pakets leicht zu finden und darauf zuzugreifen.
+    Die \ac{ROS}-Dateisystem-Ebene folgt einem auf Konventionen basierenden Ansatz für die Organisation von Paketen. Ein typisches \ac{ROS}-Paket enthält eine Manifestdatei namens package.xml, die Metadaten und Abhängigkeiten für das Paket enthält. Darüber hinaus folgt die Verzeichnisstruktur des Pakets einem bestimmten Layout, mit Verzeichnissen wie src für Quellcode, launch für Startdateien, msg für Nachrichten-Definitionsdateien und config für Konfigurationsdateien. Diese einheitliche Struktur verbessert die Zusammenarbeit und ermöglicht es den Entwicklern, Ressourcen innerhalb eines Pakets leicht zu finden und darauf zuzugreifen. \cite[vgl.][]{ros-Packages}
     
     Die Paketverwaltungswerkzeuge in \ac{ROS} bieten wichtige Funktionen für die Verwaltung von Paketen. Das Werkzeug rospack ermöglicht es Benutzern, Pakete im Dateisystem zu finden und Informationen über ihre Abhängigkeiten abzurufen. Es hilft beim Auffinden von Paketpfaden, beim Abrufen von Paket-Metadaten und beim Auflösen von Paketabhängigkeiten. Das Werkzeug rosdep kümmert sich um die Installation von Paketabhängigkeiten, indem es automatisch die von \ac{ROS}-Paketen benötigten Abhängigkeiten auf Systemebene auflöst und installiert.
     
     Darüber hinaus unterhält die \ac{ROS}-Community ein zentrales Paket-Repository, den \ac{ROS} Package Index (https://index.ros.org/packages/). Der \ac{ROS} Package Index ist eine umfassende Sammlung von \ac{ROS}-Paketen, die von Entwicklern weltweit zur Verfügung gestellt werden. Er dient als wertvolle Ressource für die Entdeckung und den Austausch von Paketen und fördert die Zusammenarbeit und die Wiederverwendung von Code innerhalb des \ac{ROS}-Ökosystems.
+    
     \cite[vgl.][]{filesystem}
     
     
@@ -68,24 +69,11 @@ Das Robot Operating System hat den Bereich der Robotik revolutioniert, indem es 
     
     Die Computation-Graph-Ebene bietet mehrere Werkzeuge und Dienstprogramme zur Verwaltung und Visualisierung des ROS-Graphen. Eines der wichtigsten Werkzeuge ist roscore, das als Master-Node im ROS-System fungiert. Es verwaltet die Registrierung von Knoten, die Erkennung von Themen und Diensten und erleichtert den Aufbau von Verbindungen zwischen Herausgebern und Abonnenten.
     
-    Ein weiteres wichtiges Werkzeug ist rqt\_graph, das den ROS-Graphen in Echtzeit visualisiert. Es zeigt die Knoten und ihre Verbindungen an und bietet eine visuelle Darstellung des Kommunikationsflusses innerhalb des \ac{ROS}Systems. Entwickler können mit diesem Tool den Zustand des Systems überwachen, Engpässe erkennen und Probleme im Zusammenhang mit der Nachrichtenübermittlung und der Koordination zwischen den Nodes beheben.
+    Ein weiteres wichtiges Werkzeug ist rqt\_graph, das den ROS-Graphen in Echtzeit visualisiert. Es zeigt die Knoten und ihre Verbindungen an und bietet eine visuelle Darstellung des Kommunikationsflusses innerhalb des \ac{ROS}Systems. Entwickler können mit diesem Tool den Zustand des Systems überwachen, Engpässe erkennen und Probleme im Zusammenhang mit der Nachrichtenübermittlung und der Koordination zwischen den Nodes beheben. \cite[vgl.][]{rqt-graph}
     
     Darüber hinaus hat die \ac{ROS}-Gemeinschaft zusätzliche Visualisierungstools entwickelt, wie z. B. rviz, das eine 3D-Visualisierungsumgebung für Roboter und ihre Umgebung bereitstellt. rviz ermöglicht Entwicklern die Anzeige von Sensordaten, Robotermodellen und anderen visuellen Elementen und unterstützt so die Analyse und Fehlersuche in komplexen Robotersystemen.
+    
     \cite[vgl.][]{computationGraph}
-    
-    
-    \item[Kommunikationsschicht:] Die Kommunikationsschicht ist eine wichtige Komponente der Architektur von \ac{ROS}, die eine effiziente und zuverlässige Kommunikation zwischen Nodes ermöglicht. Sie abstrahiert die Low-Level-Details der Nachrichtenserialisierung, Transportprotokolle und Netzwerkkommunikation und ermöglicht so eine nahtlose und entkoppelte Kommunikation innerhalb eines \ac{ROS}-Systems.
-
-    \ac{ROS} verwendet Middleware-Lösungen zur Handhabung der Kommunikationsaspekte, wie z. B. die Robot Communication Middleware (RCM) oder FastRTPS. Diese Middleware-Lösungen bieten die notwendige Infrastruktur für den Aufbau von Verbindungen, die Übertragung von Nachrichten und die Handhabung von Kommunikationsprotokollen zwischen Nodes.
-    
-    Die Kommunikationsschicht in \ac{ROS} gewährleistet eine zuverlässige Nachrichtenübermittlung durch die Verwendung von Publish-Subscribe-Nachrichtenmustern. Nodes veröffentlichen Nachrichten zu bestimmten Topics, und andere Nodes, die die Daten empfangen möchten, abonnieren diese Topics. Diese entkoppelte Art der Kommunikation ermöglicht eine asynchrone Nachrichtenübermittlung, bei der die Nodes unabhängig voneinander arbeiten können, ohne direkt voneinander zu wissen.
-    
-    \ac{ROS} unterstützt auch die Verwendung von Remote Procedure Calls (RPC) durch seinen Servicemechanismus. Services ermöglichen synchrone request-response Interaktionen zwischen Nodes. Eine Node kann einen Service anbieten, und andere Nodes können diesen Service aufrufen, um bestimmte Aktionen oder Informationen anzufordern. Der Service-Mechanismus vereinfacht die Implementierung von synchronen Kommunikationsmustern in \ac{ROS}-Systemen.
-    
-    Um verteilte Systeme zu unterstützen, enthält \ac{ROS} das Konzept der ROS-Master und ROS-Slave-Nodes. Der ROS-Master ist ein zentraler Namens- und Registrierungsdienst, der die aktiven Nodes verfolgt, Topic- und Serviceregistrierungen verwaltet und beim Aufbau von Verbindungen zwischen Herausgebern und Abonnenten hilft. Die ROS-Slave-Nodes sind für die eigentliche Kommunikation zwischen dem ROS-Master und den Nodes selbst verantwortlich.
-
-    Die Kommunikationsschicht in \ac{ROS} bietet mehrere Vorteile für Entwickler. Sie abstrahiert die Komplexität von Low-Level-Kommunikationsprotokollen und ermöglicht es Entwicklern, sich auf die Entwicklung von Funktionen auf höherer Ebene zu konzentrieren. Außerdem bietet sie ein flexibles und skalierbares Kommunikationsframework, das die Integration verschiedener Hardware- und Softwarekomponenten unterstützt.
-   
     
     \item[Client-Libraries-Ebene:] Die Client-Libraries-Ebene bietet High-Level-Abstraktionen und Programmierschnittstellen für Entwickler zur Interaktion mit dem System. \ac{ROS} bietet Client-Bibliotheken in mehreren Programmiersprachen, darunter C++, Python und andere, wodurch es für eine Vielzahl von Entwicklern zugänglich ist.
 
@@ -93,18 +81,25 @@ Das Robot Operating System hat den Bereich der Robotik revolutioniert, indem es 
     
     Die Hauptaufgabe der Client-Libraries-Ebene besteht darin, Entwicklern die Möglichkeit zu geben, ROS-Nodes zu erstellen und mit anderen Nodes über Topics und Services zu kommunizieren. Die Client-Libraries-Ebene bieten APIs zum Erstellen, Konfigurieren und Verwalten von Nodes innerhalb eines \ac{ROS}-Systems. Sie ermöglichen es Entwicklern, Topics zu veröffentlichen und zu abonnieren, Services aufzurufen und bereitzustellen und auf den ROS-Parameter-Server für die dynamische Konfiguration zuzugreifen.
     
-    Die C++-Client-Bibliothek, bekannt als roscpp, bietet eine leistungsstarke und effiziente Programmierschnittstelle für die Entwicklung von ROS-Nodes in C++. Sie bietet Funktionen wie Publisher, Subscriber, Services, Timer und Callbacks, die es Entwicklern ermöglichen, verschiedene Aspekte der Kommunikation und Steuerung innerhalb ihrer Anwendungen zu handhaben.
+    Die C++-Client-Bibliothek, bekannt als roscpp, bietet eine leistungsstarke und effiziente Programmierschnittstelle für die Entwicklung von ROS-Nodes in C++. Sie bietet Funktionen wie Publisher, Subscriber, Services, Timer und Callbacks, die es Entwicklern ermöglichen, verschiedene Aspekte der Kommunikation und Steuerung innerhalb ihrer Anwendungen zu handhaben. \cite[vgl.][]{roscpp}
     
-    Die Python-Client-Bibliothek rospy bietet eine komfortable und intuitive Schnittstelle für die Entwicklung von ROS-Nodes in Python. Sie bietet ähnliche Funktionen wie roscpp und ermöglicht Entwicklern die Erstellung von Publishern, Subscribern, Diensten und den Zugriff auf Parameter.
+    Die Python-Client-Bibliothek rospy bietet eine komfortable und intuitive Schnittstelle für die Entwicklung von ROS-Nodes in Python. Sie bietet ähnliche Funktionen wie roscpp und ermöglicht Entwicklern die Erstellung von Publishern, Subscribern, Diensten und den Zugriff auf Parameter. \cite[vgl.][]{rospy}
     
-    Die Client-Libraries-Ebene enthält auch zusätzliche Bibliotheken und Tools, die die Entwicklungserfahrung verbessern. Mit dem roslaunch-Tool können Benutzer beispielsweise Launchdateien definieren und verwalten, was die Initialisierung und Konfiguration von \ac{ROS}-Systemen vereinfacht. Die rospy-Bibliothek bietet Dienstprogramme für das Zeitmanagement, die Protokollierung und die Verwaltung des Lebenszyklus von Nodes.
+    Die Client-Libraries-Ebene enthält auch zusätzliche Bibliotheken und Tools, die die Entwicklungserfahrung verbessern. Mit dem roslaunch-Tool können Benutzer beispielsweise Launchdateien definieren und verwalten, was die Initialisierung und Konfiguration von \ac{ROS}-Systemen vereinfacht. Die rospy-Bibliothek bietet Dienstprogramme für das Zeitmanagement, die Protokollierung und die Verwaltung des Lebenszyklus von Nodes. \cite[vgl.][]{roslaunch}
     
-    Darüber hinaus ermöglicht die Client-Libraries-Ebene die Interoperabilität und Kommunikation zwischen Nodes, die in verschiedenen Programmiersprachen implementiert sind. \ac{ROS} bietet eine gemeinsame Nachrichten-Definitionssprache, die es den Nodes ermöglicht, Daten in einem standardisierten Format auszutauschen. Die Nachrichten-Definitionsdateien werden verwendet, um sprachspezifischen Code für die Serialisierung und Deserialisierung von Nachrichten zu erzeugen. 
+    Darüber hinaus ermöglicht die Client-Libraries-Ebene die Interoperabilität und Kommunikation zwischen Nodes, die in verschiedenen Programmiersprachen implementiert sind. \ac{ROS} bietet eine gemeinsame Nachrichten-Definitionssprache, die es den Nodes ermöglicht, Daten in einem standardisierten Format auszutauschen. Die Nachrichten-Definitionsdateien werden verwendet, um sprachspezifischen Code für die Serialisierung und Deserialisierung von Nachrichten zu erzeugen.
+    
+    \cite[vgl.][]{client-libraries}
    
     
-    \item[Tools-Schicht:] ROS bietet eine Vielzahl von Werkzeugen, die bei der Entwicklung, Fehlersuche und Analyse von ROS-Programmen helfen. Tools wie RViz bieten 3D-Visualisierungsfunktionen, mit denen Entwickler den Zustand und die Umgebung des Roboters visualisieren können. Andere Tools wie rosbag ermöglichen die Aufzeichnung und Wiedergabe von Nachrichtendaten zur Offline-Analyse und Fehlersuche. Die Werkzeugebene steigert die Produktivität und erleichtert eine umfassende Systemanalyse.
+    \item[Tools-Schicht:] ROS bietet eine Vielzahl von Werkzeugen, die bei der Entwicklung, Fehlersuche und Analyse von ROS-Programmen helfen. Tools wie RViz bieten 3D-Visualisierungsfunktionen, mit denen Entwickler den Zustand und die Umgebung des Roboters visualisieren können. Andere Tools wie rosbag ermöglichen die Aufzeichnung und Wiedergabe von Nachrichtendaten zur Offline-Analyse und Fehlersuche.
+    
+    \cite[vgl.][]{ros-tools}
     
     \item[Betriebssystem-Schicht:] Die Betriebssystemschicht stellt die zugrundeliegende Infrastruktur bereit, die für den Betrieb von ROS notwendig ist, einschließlich Hardwareabstraktion, Gerätetreiber und Prozessmanagement. ROS ist mit verschiedenen Betriebssystemen wie Linux, macOS und Windows kompatibel und gewährleistet so die Portabilität über verschiedene Plattformen hinweg.
+    
+    \cite[vgl.][]{ROSIntroduction}
+
 \end{description}
 
 \subsubsection{Schlüsselkomponenten} \label{schluesselkomponente:subsubsection}
@@ -116,16 +111,22 @@ Das Robot Operating System hat den Bereich der Robotik revolutioniert, indem es 
     Eine der Hauptaufgaben des ROS-Masters ist die Verwaltung der Veröffentlichung und des Abonnements von Topics. Wenn eine Node Daten in einem bestimmten Topic veröffentlichen möchte, registriert er das Topic beim ROS-Master zusammen mit dem zugehörigen Nachrichtentyp. Andere Nodes, die am Empfang der Daten interessiert sind, können sich dann über den ROS-Master für dieses Topic anmelden. Der ROS-Master erleichtert die Herstellung von Verbindungen zwischen Publishern und Subscribern und sorgt für eine zuverlässige und effiziente Übertragung von Nachrichten zwischen ihnen.
     
     Der ROS-Master spielt auch eine entscheidende Rolle bei der Verwaltung der Registrierung und Entdeckung von ROS-Services. Nodes können Services bereitstellen, die bestimmte Funktionen oder Informationen anbieten. Andere Nodes können diese Servies aufrufen, um Aktionen oder Daten anzufordern. Der ROS-Master behält den Überblick über die verfügbaren Services und ermöglicht es den Nodes, die entsprechenden Serviceanbieter zu finden und sich mit ihnen zu verbinden.
+
+    \cite[vgl.][]{ros-master}
     
     \item[Launch-System:] Das Launch System ist ein leistungsfähiges Werkzeug \ac{ROS}, das den Prozess des Startens und Verwaltens mehrerer ROS-Nodes und ihrer zugehörigen Parameter und Konfigurationen vereinfacht. Es bietet eine bequeme und flexible Möglichkeit, komplexe \ac{ROS}-Systeme zu starten und zu konfigurieren und erleichtert die Verwaltung von Abhängigkeiten und den gleichzeitigen Start mehrerer Nodes.
 
     Das Launch System verwendet XML-basierte Launchdateien, um die Konfigurations und Startanforderungen der Nodes zu spezifizieren. Diese Launchdateien enthalten eine Reihe von Anweisungen, die definieren, welche Nodes gestartet werden sollen, welche Parameter gesetzt werden sollen, welche Topic neu zugeordnet werden sollen und andere notwendige Konfigurationen. Launchdateien bieten einen strukturierten und wiederverwendbaren Ansatz zum Starten von ROS-Nodes und erleichtern die Verwaltung komplexer Systemkonfigurationen.
+
+    \cite[vgl.][]{roslaunch}
     
     \item[Parameter-Server:] Der Parameter-Server ist ein zentrales Speicher- und Abrufsystem für die von den ROS-Nodes verwendeten Konfigurationsparameter bietet. Er dient als gemeinsam genutzte, globale Datenbank, auf die alle Nodes innerhalb eines \ac{ROS}-Systems zugreifen können und die es ihnen ermöglicht, ihr Verhalten dynamisch zu konfigurieren und gemeinsame Einstellungen zu nutzen.
 
     Der Parameter Server ermöglicht es den Nodes, Schlüssel-Wert-Paare zu speichern und abzurufen, wobei die Schlüssel String-Identifikatoren sind und die Werte von verschiedenen Typen sein können, z. B. Ganzzahlen, Fließkommazahlen, Boolesche Werte, Strings und Listen. Nodes können den Parameter-Server verwenden, um Parameter zu speichern, die ihr Verhalten beeinflussen, wie Schwellenwerte, Verstärkungen, Kalibrierungswerte oder Konfigurationseinstellungen.
     
     ROS-Nodes können auf den Parameter-Server zugreifen, um Parameterwerte während der Laufzeit abzurufen. Sie können Parameter beim Start lesen oder ihr Verhalten dynamisch aktualisieren, indem sie den Parameter Server während des Betriebs abfragen. Dank dieser Flexibilität können sich die Nodes an veränderte Bedingungen anpassen oder neu konfiguriert werden, ohne dass der Code geändert oder neu kompiliert werden muss.
+
+    \cite[vgl.][]{parameter-server}
     
     
     \item[ROS-Bags:] ROS-Bags sind eine leistungsstarke Funktion, die es Benutzern ermöglicht, von ROS-Nodes generierte Daten aufzuzeichnen und wiederzugeben. Sie bieten eine flexible und effiziente Möglichkeit, einen Stream von \ac{ROS}-Nachrichten zu erfassen und zu speichern, um Offline-Analysen, Debugging und die Wiedergabe von Simulationen zu ermöglichen.
@@ -133,6 +134,8 @@ Das Robot Operating System hat den Bereich der Robotik revolutioniert, indem es 
     ROS-Bags sind im Wesentlichen ein Format zur Speicherung von \ac{ROS}-Nachrichten in einer zeitlich geordneten Abfolge. Sie können als eine Art Datenprotokoll betrachtet werden, das die Eingaben und Ausgaben eines \ac{ROS}-Systems während der Laufzeit aufzeichnet. ROS-Bags können Nachrichten aus verschiedenen Themenbereichen gleichzeitig aufzeichnen und bieten so eine umfassende Darstellung des Systemverhaltens.
     
     Der Hauptzweck der Verwendung von ROS-Bags besteht darin, Offline-Analysen und Debugging zu ermöglichen. Durch die Aufzeichnung der Nachrichten, die während eines bestimmten Laufs oder Experiments zwischen den Nodes ausgetauscht werden, können die Benutzer die aufgezeichneten Daten später wieder abspielen, um detaillierte Analysen oder Fehlersuchaufgaben durchzuführen. Dies ist besonders nützlich bei der Fehlersuche in komplexen Szenarien oder bei der Analyse von Systemverhalten, das sich nur schwer in Echtzeit reproduzieren lässt.
+
+    \cite[vgl.][]{ros-bags}
 \end{description}
 
 \section{Softwarearchitektur} \label{softwarearchitektur:section}
@@ -244,11 +247,16 @@ Um die Drohne auch in der Simulation unter echten Bedingungen fliegen zu lassen,
 
         Es ist wichtig zu beachten, dass die Qualität des erstellten 3D-Modells von verschiedenen Faktoren abhängt, wie z.B. der Beleuchtung im Raum und der Genauigkeit des Scans. Eine sorgfältige Vorbereitung des Raums und eine langsame, gründliche Durchführung des Scans können dazu beitragen, ein genaueres und detaillierteres 3D-Modell zu erstellen.
         \subsubsection{Azure Kinect \ac{DK}} \label{kinect:subsubsection}
+        Für das Scannen der Umgebung und die Erstellung des 3D-Modells mit der Azure Kinect wurde ein anderer Ansatz gewählt als bei der Verwendung der Hololens. Anstelle eines im Voraus erstellten 3D-Modells wird das Modell in Echtzeit erstellt. Ermöglicht wird dies durch die Verwendung von \ac{VSLAM}, wie im Kapitel \ref{SLAM:section} über \ac{SLAM} beschrieben.
+
+        Mit \ac{VSLAM} ist es nicht mehr notwendig, die Umgebung im Voraus zu scannen. Stattdessen werden die Tiefen- und Bildinformationen in Echtzeit erfasst, während sich die Azure Kinect durch den Raum bewegt. Durch die kontinuierliche Verarbeitung dieser Informationen kann das 3D-Modell der Umgebung Schritt für Schritt erstellt und aktualisiert werden.
+
+        Ein großer Vorteil von \ac{VSLAM} ist, dass es nicht nur die Erstellung des 3D-Modells, sondern auch die Echtzeitberechnung der eigenen Position innerhalb des Modells ermöglicht. Dies wird durch die kontinuierliche Verschmelzung von Tiefendaten und Bildinformationen erreicht, um sowohl die Bewegung der Kamera als auch die räumliche Struktur der Umgebung zu verfolgen.
 
     \subsection{3D Modell Vorbereitung} \label{3d_modell_vorbereitung:subsection}
     Da das von der Hololens erstellte 3D-Modell keine homogenen Oberflächen beinhaltet, sondern sich nur aus übereinandergelegte einzellne Flächen zusammesetzt, muss das Modell noch überarbeitet werden, um die entstandenen "Löcher" im Scann zu füllen.
-
-        \todo{Stichworte für Johännes: Normalen Neuberechnung, Punktwolken bereinigung, Oberflächen Rekonstruktion (Poisson Verfahren)}
+    
+    Hierfür wurde zunächst eine Neuberechnung der Normlen der Punkte der Punktwolke durgeführt. Dadurch wird die Orientierung und Ausrichtung der Oberfläche genauer erfasst. Dies trug dazu bei, Unstimmigkeiten oder Verzerrungen im Modell zu minimieren. Danach wurde die Punktwolke bereincht. Das bedeutet, dass Ausreißern, Rauschen und anderen unerwünschten Punkten in der Punktwolke erkannt und entfernt wurden. Dadurch verbessert sich die Qualität und genaugkeit der Punktwolke. Zum Schluss wurde mit dem Poisson-Verfahren eine reibungslose und konsistente Oberfläche aus der bereinigten Punktwolke erstellt. Dieses Verfahren basiert auf mathematischen Modellen und ermöglicht die rekonstruktive Glättung und Verschmelzung der Punktdaten. Durch die Anwendung des Poisson-Verfahrens wurde eine hochwertige Oberflächenrekonstruktion erreicht, die eine realistische Darstellung des Modells gewährleistet.
 
 \section{SLAM} \label{slam:section}
 \section{Navigation} \label{navigation:section} 
