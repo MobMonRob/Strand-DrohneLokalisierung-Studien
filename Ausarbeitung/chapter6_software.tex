@@ -1,9 +1,10 @@
 \chapter{Software Implementierung}
 
 \section{PX4} \label{px4:section}
-PX 4 ist eine Open-Source-Software, welche zur Steuerung verschiedener Arten von Fahrzeugen genutzt werden kann, hierzu zählen beispielsweise verschiedene Drohnenarten, sowie auch Fahrzeuge auf dem Boden und Unterwasserfahrzeuge.\\ Es kann zum einen für bereits flugfähigen Drohen eingesetzt werden. Aber es besteht auch die Möglichkeit eine neue Drohne in Verbindung mit PX4 zu bauen.\\
+PX 4 ist eine Open-Source-Autopilot-Software, welche zur Steuerung verschiedener Arten von Fahrzeugen genutzt werden kann, hierzu zählen beispielsweise verschiedene Drohnenarten, sowie auch Fahrzeuge auf dem Boden und Unterwasserfahrzeuge.\\ Es kann zum einen für bereits flugfähigen Drohen eingesetzt werden. Aber es besteht auch die Möglichkeit eine neue Drohne in Verbindung mit PX4 zu bauen.\\
+Die Software bietet eine Vielzahl verschiedener Funktionen an, zu diesen gehören unter anderem Stabilisierung, Wegpunkt-Navigation, Missionsplanung und Missionsausführung, Flugüberwachung sowie auch verschiedene Flugmodi.
 Für die Verwendung der PX4 Software kann QGroundControl (siehe Kapitel \ref{qGroundControl:subsection}) verwendet werden. \cite[vgl.][]{px4} \\
-Der PX4-Flugstack wurde ursprünglich nur dür die Pixhawk-Hardware entwickelt, allerdings ist es heutzutage auch möglich diesen auf Linux-Computern und anderen Hardware einzusetzen. Wie es auch bei der Coex Clover Drohne mit dem Coex Pix umgesetzt wird. \\
+Der PX4-Flugstack wurde ursprünglich für die Pixhawk-Hardware entwickelt, allerdings ist es heutzutage auch möglich diesen auf Linux-Computern und anderen Hardware einzusetzen. Wie es auch bei der Coex Clover Drohne mit dem Coex Pix umgesetzt wird. \\
 Die Software setzt Sensoren, ein um den Zustand der Drohne zu bestimmen. Hierfür werden einige Sensoren vorausgesetzt, zu diesen zählen ein Gyroskop, ein Beschleunigungssensor, ein Magnetometer sowie ein Barometer. Zudem ist GPS empfohlen um weitere Modi nutzen zu können. \cite[vgl.][]{px4}
 
 \subsection{Flugmodi}
@@ -240,10 +241,6 @@ Die Kallibrierung wiederholt man dan für die Nick- und Gierachse und gehet dabe
     \includegraphics[width=\textwidth]{./images/qgc_mc_pid_tuning_rate_controller.950965c8.png}
     \caption{PID-Regler Kalibrierung in QGroundControl}\label{fig:accelerometer-calibration}
 \end{figure}
-
-
-\section{Drohnen Autopilot} \label{drohnen_autopilot:subsection}
-
 
 \section{3D Modell} \label{3d_modell:section}
 Um die Drohne auch in der Simulation unter echten Bedingungen fliegen zu lassen, müssen die realen Gegebenheiten in die Simulation übertragen werden. Um dies zu bewerkstelligen, muss ein 3D-Modell der Räume erstellt werden, in welchen sich die Drohne bewegen soll.
