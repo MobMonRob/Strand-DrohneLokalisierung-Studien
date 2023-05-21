@@ -7,7 +7,7 @@ Der Quadrokopter, die Coex Clover Drohne ist bereits mit verschiedenen Sensoren 
 Ziel dieser Arbeit ist es, bestenfalls den bereits vorhandenen Quadrokopter mit Hilfe eines eigens erstellten 3D Umweltmodells innerhalb eines Raumes navigieren zu können und dadurch kleinere Aufgaben wie beispielsweise das Auslesen eines QR-Codes somit erledigen zu können.
 
 
-f
+
 \section{Vorgehensweise}
 
 In Abbildung \ref{fig:vorgehensweise} sind die 2 Vorgehensweisen die wir uns ausgedacht haben ersichtlich. In Ansatz 1 hatten wir zuerst versucht ein vorher gescanntes 3D Modell auf die Drohne zu laden und eine Positionierung im 3D Modell durchzuführen. Schnell wurde ersichtlich, dass es wenig sinnvoll eine Positionierung in einem vorher bekannten 3D Modell durchzuführen, da die Drohne auch in unbekannten Umgebungen eingesetzt werden soll. Deshalb ist es sinnvoller die Positionierung und die 3D Modell Erstellung zu kombinieren. Dazu kann \ac{SLAM} eingesetzt werden. Deshalb haben wir Ansatz 1 relativ schnell wieder verworfen.
@@ -31,7 +31,6 @@ Bei der Bewertung von SLAM-Algorithmen gibt es mehrere Punkte, die zur Messung d
     \item[Berechnungseffizienz]{SLAM-Algorithmen sollten rechnerisch effizient sein, insbesondere bei ressourcenbeschränkten Plattformen wie dem Raspberry Pi. Es ist wichtig, einen Algorithmus zu wählen, der ein ausgewogenes Verhältnis zwischen Genauigkeit und Rechenanforderungen herstellt und eine optimale Leistung auf der gewählten Hardware gewährleistet}
     \item[Fähigkeit zur Sensorfusion]{Die Integration mehrerer Sensoren, wie z. B. Kameras, Inertialmesseinheiten (IMUs) oder Tiefensensoren, kann die SLAM-Leistung verbessern. Algorithmen, die Informationen von verschiedenen Sensoren effektiv fusionieren können, liefern oft genauere und zuverlässigere Ergebnisse}
     \item[Kartendarstellung]{Die Qualität und Darstellung der erzeugten Karte kann ebenfalls ein wichtiger Faktor sein. Ein guter SLAM-Algorithmus sollte Karten erzeugen, die geometrisch konsistent, visuell informativ und für nachfolgende Aufgaben oder Analysen nützlich sind} 
-    \item[Open-Source-Verfügbarkeit]{Die Verfügbarkeit von Open-Source-Implementierungen und einer unterstützenden Gemeinschaft kann von Vorteil sein. Open-Source-SLAM-Algorithmen profitieren oft von kontinuierlicher Entwicklung, Fehlerkorrekturen und Beiträgen der Community, was sie zuverlässiger und an spezifische Anforderungen anpassbar macht}
 \end{description}
 
 Zur Bewertung der \ac{SLAM} Algorithmen haben wir folgende Messungen als Referenz genommen \cite{ragot:hal-04071273} und \cite{Merzlyakov2021}
@@ -74,6 +73,23 @@ Im Gegensatz zu anderen SLAM-Verfahren, die auf einer Vielzahl von Features wie 
 
 Insgesamt ermöglicht ORB-SLAM3 eine genauere und robustere Lokalisierung und Kartierung in dreidimensionalen Umgebungen, was ihn zu einem vielversprechenden Ansatz für autonome Robotikanwendungen macht.
 
+\begin{table}
+    \begin{center}
+        \begin{tabular}{|p{4cm}|p{1.5cm}|p{10cm}|}
+            \hline
+             Kriterien & Gewich\-tung (1-10) & Begründung \\\hline
+             Genauigkeit & 9/10 & Da Innenräume oft eng und voller Hindernisse sind, ist eine hohe Genauigkeit entscheidend für die sichere Navigation und Kollisionserkennung. \\\hline
+             Robustheit & 8/10 & Innenräume können dynamische Elemente enthalten (z.B. Menschen, bewegliche Gegenstände), daher ist Robustheit wichtig. Jedoch sind die Umgebungsbedingungen in Innenräumen normalerweise kontrollierter als im Freien. \\\hline
+             Skalierbarkeit & 7/10 & Während die Fähigkeit, größere Karten zu erstellen, nützlich ist, sind Innenräume tendenziell kleiner und weniger komplex als Außenbereiche. Daher ist die Skalierbarkeit weniger kritisch als in Außenumgebungen.\\\hline
+             Echtzeit-Leistung & 10/10 & Für Drohnen ist eine schnelle Reaktionszeit entscheidend, da sie sich schnell bewegen und auf Änderungen in ihrer Umgebung reagieren müssen. Daher ist die Fähigkeit, in Echtzeit zu arbeiten, äußerst wichtig.\\\hline
+             Berechnungseffizienz & 8/10 & Drohnen haben oft beschränkte Rechenressourcen und Energieversorgung, was die Berechnungseffizienz zu einem wichtigen Kriterium macht. \\\hline
+             Sensorfusion & 9/10 & Die Fähigkeit, Daten von mehreren Sensoren zu fusionieren, kann die Robustheit und Genauigkeit der SLAM-Lösung verbessern, insbesondere in Innenräumen, wo visuelle Daten allein möglicherweise nicht ausreichend sind. \\\hline
+             Kartendarstellung & 8/10 & Die Qualität der Karte ist wichtig für die Navigation und die nachfolgende Aufgabenplanung. Jedoch kann in einigen Anwendungen eine weniger detaillierte Karte ausreichen. \\
+             \hline
+        \end{tabular}
+        \caption{Vergleichskriterien \ac{SLAM} mit Gewichtung}\label{tab:vergleich-slam-gewichtung}
+    \end{center}
+\end{table}
 
 \subsection{Auswahl Lokalisierungssystem}
 
