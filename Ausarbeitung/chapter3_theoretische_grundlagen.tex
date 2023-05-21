@@ -153,10 +153,8 @@ Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem 
     Ein weiterer Vorteil des Publish-Subscribe-Patterns ist, dass es eine einfache Möglichkeit bietet, den Zustand von Ressourcen zu überwachen oder auf Änderungen in Echtzeit zu reagieren. So kann beispielsweise eine Node, die eine Kamera überwacht, die Bilder auf einem Topic veröffentlichen. Andere Nodes, die an der Verarbeitung dieser Bilder beteiligt sind, können sich auf das Topic abonnieren und die Informationen in Echtzeit verarbeiten.
 
     Das Publish-Subscribe-Pattern ist ein grundlegendes Konzept in \ac{ROS} und wird in der Regel für die Kommunikation zwischen Nodes verwendet. Es ermöglicht eine effektive und modulare Datenverarbeitung in verteilten Systemen und ist ein wesentlicher Bestandteil von \ac{ROS}, um komplexe Robotik-Anwendungen zu realisieren.
-
-    \todo{Quelle fehlt}
-
     
+    \cite[vgl.][]{ROSconcepts}
 
 \section{MAVLink} \label{mavlink}
 \ac{MAVLink} ist ein Nachrichtenprotokoll, welches vor allem zur Kommunikation zwischen einer Drohne und einer Bodenstation eingesetzt wird. Der Einsatz dieses Protokolls ist besonders für Systeme konzipiert, die wenige Ressourcen und eine geringe Bandbreite aufweisen.\\
@@ -583,13 +581,13 @@ In der Robotikforschung wird \ac{SLAM} als grundlegende Fähigkeit für autonome
 
 Mit Visueller Odometrie kann die Bewegung der Drohne geschätzt werden, so können auch Hindernisse im Flugfeld der Drohne erkannt werden.
 
-\subsection{Herausforderungen und Lösungen in \ac{VO} und \ac{VSLAM}}
+\subsection{Herausforderungen und Lösungen in Visueller Odometrie und VSLAM}
 
 Die meisten visuellen SLAM-Methoden basieren auf Merkmalsabgleich und Mehransichtsgeometrie. Dies bringt einige Herausforderungen und Einschränkungen mit sich, insbesondere für monokulare SLAM. Zu diesen Herausforderungen gehören die Notwendigkeit einer großen Basislinienbewegung, um ausreichend Parallaxe für eine zuverlässige Tiefenschätzung zu erzeugen, und die Unbeobachtbarkeit der Skala. Diese Probleme können teilweise durch den Einsatz zusätzlicher Sensoren, wie Stereo-Kameras und Trägheitsmesseinheiten (\ac{IMU}s), oder durch Vorwissen über das System oder die Szene gelöst werden. Ein weiteres Problem ist die dichte Rekonstruktion von Bereichen mit geringer Textur.
 
 Da in dieser Kamera eine RGB-D Kamera verwendet wird, die das monokulare Bild der RGB Kamera mit Tiefeninformationen versorgt werden monokulare \ac{SLAM} Verfahren in dieser Arbeit nicht betrachtet. Es werden nur \ac{SLAM} Verfahren betrachtet, die direkt mit \ac{RGB-D} Kameras umgehen können.
 
-Bei \ac{SLAM } Verfahren, die neben den visuellen Datenströmen noch Daten von einer \ac{IMU} verwenden können, spricht man von Visual Inertial \ac{SLAM}.
+Bei \ac{SLAM} Verfahren, die neben den visuellen Datenströmen noch Daten von einer \ac{IMU} verwenden können, spricht man von Visual Inertial \ac{SLAM}.
 
 \subsubsection{Loop Closure}
 
@@ -622,7 +620,7 @@ RGB-D-Sensoren stellen eine praktikable, hardwarebasierte Lösung für die oben 
 
 
 \section{Simulationstechnik} \label{simulationstechnik:section}
-Der \ac{VDI} hat in seiner \ac{VDI}-Richtline 3633 Simulation wie folgt definiert: "Nachbilden eines dynamischen Prozesses in einem System mithilfe eines experimentierfähigen Modells, um zu Erkenntnisen zu gelangen, die auf die Wirklichkeit übertragbar sind." \cite{VDI-3633}
+Im Wirtschaftslexikon Gabler ist Simulation wie folgt definiert: "Ein möglichst realitätsnahes Nachbilden von Geschehen der Wirklichkeit. Aus Sicherheits- und Kostengründen ist es für fast alle konkreten Problemkreise notwendig, sie aus der Realität zu lösen und abstrakt zu behandeln; d.h. durch Abstraktion wird ein Modell geschaffen, an dem zielgerichtet experimentiert wird. Die daraus resultierenden Ergebnisse werden anschließend wieder auf das reale Problem übertragen." \cite{Simulation}
 
 Die durch eine Simulation erlangten Erkenntnisse können unter anderem folgende sein:
 \begin{description}
@@ -700,4 +698,4 @@ Gazebo bietet auch eine Vielzahl von Sensoren und Schnittstellen für Benutzer u
 
 \ac{SIL} ist eine Technik zur Überprüfung und Validierung von Code in einer Simulationsumgebung, um effektiv und kosteneffizient Fehler zu finden und die Code-Qualität zu verbessern. Die SIL-Tests werden typischerweise in den frühen Phasen des Software-Entwicklungsprozesses durchgeführt, um sicherzustellen, dass der Code den Anforderungen entspricht und fehlerfrei ist. Diese Methode kann dazu beitragen, Zeit und Geld zu sparen, da Fehler frühzeitig erkannt und behoben werden können, bevor teure Hardware-Tests durchgeführt werden müssen.
 
-Im Gegensatz zum \ac{HIL}-Ansatz, bei dem die Software auf echten Hardwarekomponenten getestet wird, verwendet \ac{SIL} Simulationen, um die Hardware-Plattformen zu ersetzen. Dies ermöglicht es Entwicklern, die Software auf unterschiedlichen Szenarien und Bedingungen zu testen, ohne tatsächliche Hardwarekomponenten zu benötigen. Darüber hinaus können Entwickler durch \ac{SIL}-Tests den Code in einer Vielzahl von Szenarien testen und Fehler beheben, bevor er in den \ac{HIL}-Test übergeht.
+Im Gegensatz zum \ac{HIL}-Ansatz, bei dem die Software auf echten Hardwarekomponenten getestet wird, verwendet \ac{SIL} Simulationen, um die Hardware-Plattformen zu ersetzen. Dies ermöglicht es Entwicklern, die Software auf unterschiedlichen Szenarien und Bedingungen zu testen, ohne tatsächliche Hardwarekomponenten zu benötigen. Darüber hinaus können Entwickler durch \ac{SIL}-Tests den Code in einer Vielzahl von Szenarien testen und Fehler beheben, bevor er in den \ac{HIL}-Test übergeht. \cite[vgl.][]{SIL}
