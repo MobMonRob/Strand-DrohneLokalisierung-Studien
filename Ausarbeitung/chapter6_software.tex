@@ -187,7 +187,7 @@ Der prinzipielle Ablauf bei der Kommunikation in Abbildung \ref{img ros_communic
     \item[Kompass] Bevor man mit der Kompasskallibrierung beginnen kann, muss man sicherstellen, dass sich keine großen Metallobjekte oder starke Magnetfelder in direkter Nähe der Drohne befinden. Startet man nun mit der Kallibrierung, so wird einem in QGroundControl angegeben, wie man diese Durchzuführen hat. Um mit der Kompasskalibrierung zu beginnen, positioniert man die Drohne entsprechend den angegebenen roten Ausrichtungen. Zudem muss man sicherstellen, dass die Drohne in der gewählten Ausrichtung stehen bleibt. Wenn man dazu aufgefordert wird, drehen man die Drohne um die angegebene Achse in eine oder beide Richtungen. In QGroundControl sieht die Kalibierung so aus, wie es in Abbildung \ref{fig:compass-calibration} gezeigt wird.
 
     Während die Kalibrierung für die aktuelle Ausrichtung fortschreitet, wechselt das entsprechende Bild auf dem Bildschirm von rot zu grün und zeigt damit die erfolgreiche Kalibrierung an. Diese Schritte wiederholt man dann für alle von QGroundControl angegebenen Orientierungen.
-    \begin{figure}[h]
+    \begin{figure}[H]
         \includegraphics[width=\textwidth]{./images/qgc-cal-compass.png}
         \caption{Kompass Kalibrierung in QGroundControl}\label{fig:compass-calibration}
     \end{figure}
@@ -195,7 +195,10 @@ Der prinzipielle Ablauf bei der Kommunikation in Abbildung \ref{img ros_communic
     \item[Gyroscope] Bei der Kallibrierung der Gyroscope stellt man die Drohne auf eine ebene Oberfläche. Nun startet man die Kallibrierung in QGroundControl. Wärend der Kallibrierung muss die Drohne absolut ruhig stehen gelassen werden. Ist QGroundControl mit der Kallibrierung fertig, so wird Calibration complete angegeben.
     
     \item[Accelerometer] Für die Kallibrierung der Accelerometer muss man ebenfalls den Anweisungen von QGroundControl folgen. Hierfür muss die Drohne entsprechend der Bilder in QGroundControl positioniert werden. Wenn man durch das gelbe Ausrichtungsbild dazu aufgefordert wird, mass man die Drohne ruhig halten. Sobald die Kalibrierung für die aktuelle Ausrichtung abgeschlossen ist, wechselt das entsprechende Bild auf dem Bildschirm zu grün. Diese Schritte wiederholt man dann für alle angegebenen Orientierungen der Drohne.
-    
+    \begin{figure}[H]
+        \includegraphics[width=\textwidth]{./images/qgc-cal-accelerometer.png}
+        \caption{Kompass Kalibrierung in QGroundControl}\label{fig:compass-calibration}
+    \end{figure}
 
 \end{description}
 
@@ -237,7 +240,7 @@ Um die Reaktion zu bewerten, bewegt man den Steuerknüppel schnell über den ges
 Jetzt kommt der Teil der Abstimmung. Man verwendet die Schieberegler auf der Benutzeroberfläche, um die drei PID-Werte MC\_ROLLRATE\_K, MC\_ROLLRATE\_I, und MC\_ROLLRATE\_D zu ändern. Diese Werte steuern die Proportional-, Integral- bzw. Derivativ-Komponenten des Reglers. Nun beobachtet man die Sprungantwort erneut, nachdem man die Schieberegler eingestellt hat. Die geänderten Werte werden sofort im Fahrzeug gespeichert, wenn man die Schieberegler bewegen.
 
 Die Kallibrierung wiederholt man dan für die Nick- und Gierachse und gehet dabei die gleichen Schritte wie zuvor durch. Dadurch wird sichergestellt, dass jede Achse für eine optimale Leistung richtig eingestellt ist. Zudem wiederholt man die Kalibrierung auch für den Lage-, Geschwindigkeits- und Positionsregler auf allen Achsen.
-\begin{figure}[h]
+\begin{figure}[H]
     \includegraphics[width=\textwidth]{./images/qgc_mc_pid_tuning_rate_controller.950965c8.png}
     \caption{PID-Regler Kalibrierung in QGroundControl}\label{fig:accelerometer-calibration}
 \end{figure}
