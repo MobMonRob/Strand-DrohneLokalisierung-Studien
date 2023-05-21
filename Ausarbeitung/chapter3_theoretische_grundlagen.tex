@@ -48,7 +48,7 @@ Sensoren sind entscheidend für die 3D Navigation anhand eines 3D Umweltmodells.
 
     Infrarot-Tiefenbildkameras, die auch als RGB-D-Kameras (RGB-Color-Depth) bekannt sind, sind optoelektronische Geräte, die zur Erfassung von Bildern verwendet werden und zusätzlich Tiefeninformationen liefern. Diese Kameras arbeiten mit einem optischen System, das einen projizierten Infrarotstrahl auf das zu erfassende Objekt lenkt und mit einer speziellen Kamera dessen Reflexionen erfasst. Auf diese Weise wird eine räumliche Tiefeninformation erstellt, die als Tiefenkarte bezeichnet wird.
 
-    Die Funktionsweise einer \ac{RGB-D} Kamera basiert auf dem Prinzip der Laufzeitmessung auch \ac{ToF} genannt.  Dabei wird, wie in Abbildung \ref{fig:rgbd} ein Lichtstrahl von einem Infrarotsender auf ein Objekt projiziert. Das Licht wird von der Oberfläche des Objekts reflektiert und von einem Infrarot-Empfänger in der Kamera aufgefangen.
+    Die Funktionsweise einer \ac{RGB-D} Kamera basiert auf dem Prinzip der Laufzeitmessung auch \ac{ToF} genannt.  Dabei wird, wie in Abbildung \ref{fig:rgbd}, ein Lichtstrahl von einem Infrarotsender auf ein Objekt projiziert. Das Licht wird von der Oberfläche des Objekts reflektiert und von einem Infrarot-Empfänger in der Kamera aufgefangen.
 
     \begin{figure}
         \includegraphics[width=\textwidth]{./images/rgbd-camera-ref.png}
@@ -56,7 +56,7 @@ Sensoren sind entscheidend für die 3D Navigation anhand eines 3D Umweltmodells.
     \end{figure}
     
     Da die Geschwindigkeit des Lichts konstant ist, kann die Entfernung zwischen Kamera und Objekt durch Messung der Flugzeit des Lichtstrahls berechnet werden.
-    Die Zeit, die das Licht vom Sender zum Empfänger benötigt, wird gemessen und als "Laufzeit" bezeichnet.
+    Die Zeit, die das Licht vom Sender zum Empfänger benötigt, wird gemessen und als 'Laufzeit' bezeichnet.
     Die Entfernung berechnet sich nach der gleichen Formel \ref{math:distance} wie auch beim Laser-Entfernungsmesser. 
 
 
@@ -96,7 +96,7 @@ In den vergangenen Jahren hat die Wissenschaft im Bereich der Robotik enorme For
 
 Trotz dieser rasanten Fortschritte stehen Softwareentwickler jedoch noch immer vor großen Herausforderungen bei der Programmierung von Robotern. Die Komplexität der Aufgaben, die von Robotern ausgeführt werden können, erfordert eine Menge an spezialisiertem Wissen und Erfahrung in verschiedenen Bereichen wie Sensorik, Bildverarbeitung, Künstlicher Intelligenz und Robotik.
 
-Die Ingenieure und Softwareentwickler haben jedoch die Herausforderungen erkannt und arbeitet intensiv daran, sie zu lösen. Neue Werkzeuge und Frameworks werden entwickelt, um Entwicklern zu helfen, Roboter schneller und effektiver zu programmieren. Eines der bekanntesten Tools in diesem Bereich ist das Robot Operating System \ac{ROS}
+Die Ingenieure und Softwareentwickler haben jedoch die Herausforderungen erkannt und arbeiten intensiv daran, sie zu lösen. Neue Werkzeuge und Frameworks werden entwickelt, um Entwicklern zu helfen, Roboter schneller und effektiver zu programmieren. Eines der bekanntesten Tools in diesem Bereich ist das Robot Operating System \ac{ROS}
 
 \ac{ROS} ist eine Open-Source-Plattform, die speziell für die Entwicklung von Robotersoftware entwickelt wurde. Es bietet eine Reihe von Bibliotheken, Tools und Frameworks, die es Entwicklern ermöglichen, komplexe Robotikanwendungen zu erstellen und zu betreiben. \ac{ROS} wurde von Willow Garage entwickelt und ist heute ein weit verbreitetes Framework in der Robotik-Community.
 
@@ -107,10 +107,10 @@ Die Ingenieure und Softwareentwickler haben jedoch die Herausforderungen erkannt
 Dank seiner leistungsstarken Funktionen und Flexibilität ist \ac{ROS} zu einem der wichtigsten Frameworks für die Robotik-Entwicklung geworden und wird in vielen Anwendungen eingesetzt, von industriellen Robotern bis hin zu autonomen Fahrzeugen. \cite[vgl.][]{ROSIntroduction}
 
     \subsection{Vorraussetzungen zur Verwendung von ROS} \label{Vorraussetzungen zur Verwendung von ROS:subsection}
-    Die verschiedenen \ac{ROS} Versionen setzen bestimmte \ac{OS} Versionen voraus. Am besten funktioniert hierbei Linux und hierbei Ubuntu. Aber auch auf Mac OS kann man ROS verwenden. Allerdings ist die Version für Mac OS bislange nur experimentell. \ac{ROS} funktioniert auch unter Windows allerdings werden. \cite[vgl.][]{ROSIntroduction}.
+    Die verschiedenen \ac{ROS} Versionen setzen bestimmte \ac{OS} Versionen voraus. Am besten funktioniert hierbei Linux und hierbei Ubuntu. Aber auch auf Mac OS kann man ROS verwenden. Allerdings ist die Version für Mac OS bislange nur experimentell. \ac{ROS} funktioniert auch unter Windows allerdings werden nicht alle Pakete unterstützt \cite[vgl.][]{ROSIntroduction}.
 
     \subsection{ROS-Distributionen} \label{ROS-Distributionen:subsection}
-    Eine ROS-Distribution besteht aus einem festgelegten und visionierten Set von ROS-Paketen. Vergleichbar ist dieses System mit den Linux-Distributionen wie z.B. Ubuntu. Der Hauptzweck von ROS-Distributionen besteht darin, Entwicklern eine relativ stabile Codebasis zu bieten, damit sie daran weiterarbeiten können. Sobald eine Distribution veröffentlicht wurde, werden Änderungen hauptsächlich auf Fehlerbehebungen und nicht-zerstörerische Verbesserungen für die Kernpakete (alles unter ros-desktop-full) beschränkt. Somit ist das "Umziehen" auf eine neue Distribution weniger Fehleranfällig und einfacher. Dies gilt im Allgemeinen für die gesamte ROS-Community, jedoch sind die Regeln für "höhere" Pakete weniger streng und somit liegt es an den Verantwortlichen eines spezifischen Pakets, zerstörende Änderungen zu vermeiden \cite[vgl.][]{ROScontributions}.
+    Eine ROS-Distribution besteht aus einem festgelegten und visionierten Set von ROS-Paketen. Vergleichbar ist dieses System mit den Linux-Distributionen wie z.B. Ubuntu. Der Hauptzweck von ROS-Distributionen besteht darin, Entwicklern eine relativ stabile Codebasis zu bieten, damit sie daran weiterarbeiten können. Sobald eine Distribution veröffentlicht wurde, werden Änderungen hauptsächlich auf Fehlerbehebungen und nicht-zerstörerische Verbesserungen für die Kernpakete (alles unter ros-desktop-full) beschränkt. Somit ist das 'Umziehen' auf eine neue Distribution weniger fehleranfällig und einfacher. Dies gilt im Allgemeinen für die gesamte ROS-Community, jedoch sind die Regeln für 'höhere' Pakete weniger streng und somit liegt es an den Verantwortlichen eines spezifischen Pakets, zerstörende Änderungen zu vermeiden \cite[vgl.][]{ROScontributions}.
 
     \subsection{Nodes} \label{nodes:subsection}
     In \ac{ROS} werden Funktionen und Prozesse durch sogenannte Nodes realisiert. Eine Node ist eine ausführbare Einheit, die in einem \ac{ROS}-System arbeitet und über eine eindeutige Identifikation verfügt. Jede Node hat eine spezifische Aufgabe, wie beispielsweise das Sammeln von Sensordaten, die Ausführung einer spezifischen Berechnung oder das Steuern eines Aktors.
@@ -198,9 +198,9 @@ Schließlich kann die Leistung und Steuerung eines Multikopters durch Wetter- un
 
 Quadrocopter sind eine bestimmte Art von Multicoptern, die mit vier Rotoren ausgestattet sind. Diese Rotoren sind in der Regel in einer quadratischen oder rechteckigen Konfiguration angeordnet, und die Bewegung des Quadrocopters wird durch die Änderung der Geschwindigkeit und Richtung dieser Rotoren gesteuert.
 
-Der Schlüssel zum Betrieb eines Quadcopters ist das Gleichgewicht und die Steuerung der vier Rotoren. Jeder Rotor erzeugt sowohl Auftrieb als auch Drehmoment. Damit der Quadcopter während des Fluges stabil bleibt, muss das Drehmoment das den Quadcopter ins Trudeln bringt würde ausgeglichen werden. Wie in \ref{fig:frames} zu sehen müssen die gegebüberliegenden Rotoren dafür in gegensätzliche Richtungen drehen um das Drehmoment auszugleichen.
+Der Schlüssel zum Betrieb eines Quadrocopters ist das Gleichgewicht und die Steuerung der vier Rotoren. Jeder Rotor erzeugt sowohl Auftrieb als auch Drehmoment. Damit der Quadrocopter während des Fluges stabil bleibt, muss das Drehmoment das den Quadrocopter ins Trudeln bringt würde ausgeglichen werden. Wie in \ref{fig:frames} zu sehen müssen die gegebüberliegenden Rotoren dafür in gegensätzliche Richtungen drehen um das Drehmoment auszugleichen.
 
-Die Steuersysteme von Quadcoptern verwenden in der Regel PID-Regler (Proportional, Integral, Derivativ). Diese Regler passen die Drehzahl der Rotoren auf der Grundlage der Differenz zwischen der gewünschten und der tatsächlichen Position oder Ausrichtung des Quadrocopters an, beschrieben werden sie in \ref{chp:pid}.
+Die Steuersysteme von Quadrocoptern verwenden in der Regel PID-Regler (Proportional, Integral, Derivativ). Diese Regler passen die Drehzahl der Rotoren auf der Grundlage der Differenz zwischen der gewünschten und der tatsächlichen Position oder Ausrichtung des Quadrocopters an, beschrieben werden sie in \ref{chp:pid}.
 
 \cite[vgl.][Quadrocopter Kinematic and Dynamics]{Valavanis2015}
 
@@ -246,7 +246,7 @@ Folgende Freiheitsgrade kann ein Quadrocopter verwenden.
     \subsection{P-Regler}
     \label{chp:p-regler}
     
-    Ein \ac{P-Regler} ist eine grundlegende Form der Regelungstechnik, die oft in industriellen Anwendungen verwendet wird. Der \ac{P-Regler} basiert auf dem Prinzip der proportionalen Rückkopplung. Er wirkt, indem der Regler die Differenz zwischen dem Ist und Sollwert signalisiert und dann eine proportionale Regelgröße zum Fehler signalisiert.
+    Ein \ac{P-Regler} ist eine grundlegende Form der Regelungstechnik, die oft in industriellen Anwendungen verwendet wird. Der \ac{P-Regler} basiert auf dem Prinzip der proportionalen Rückkopplung. Er wirkt, indem der Regler die Differenz zwischen dem Ist- und Sollwert signalisiert und dann eine proportionale Regelgröße zum Fehler signalisiert.
     Es gibt eine direkte proportionale Beziehung zwischen der Ausgangsleistung des Reglers und dem Fehler. Die mathematische Formel für den P-Regler ist: 
 
     \begin{figure}[H]
@@ -289,7 +289,7 @@ Durch einen höheren $K_i$ Faktor reagiert der Regler stärker, führt jedoch au
 
     Der \ac{D-Regler} wird verwendet, um das System zu stabilisieren und auf Störungen zu reagieren. Die mathematische Gleichung für den D-Regler lautet:
 
-    \begin{figure}
+    \begin{figure}[H]
         \begin{equation*}
             u(t) = K_d \frac{de(t)}{dt}
         \end{equation*}
@@ -298,7 +298,7 @@ Durch einen höheren $K_i$ Faktor reagiert der Regler stärker, führt jedoch au
 
 
     \subsection{PID-Regler} \label{chp:pid}
-    Ein PID-Regler ist ein häufig verwendeter Reglertyp in der Regelungstechnik. Die Abkürzung PID steht für Proportional-Integral-Derivative, was die drei Hauptkomponenten des Reglers beschreibt. Der proportionale Teil des Reglers reagiert proportional zur Abweichung zwischen der gemessenen Prozessgröße und dem gewünschten Wert, der integrale Teil berücksichtigt die vergangene Abweichung und der derivativen Teil reagiert auf die Geschwindigkeit, mit der sich die Abweichung ändert.
+    Ein PID-Regler ist ein häufig verwendeter Reglertyp in der Regelungstechnik. Die Abkürzung PID steht für Proportional-Integral-Derivative, was die drei Hauptkomponenten des Reglers beschreibt. Der proportionale Teil des Reglers reagiert proportional zur Abweichung zwischen der gemessenen Prozessgröße und dem gewünschten Wert, der integrale Teil berücksichtigt die vergangene Abweichung und der derivative Teil reagiert auf die Geschwindigkeit, mit der sich die Abweichung ändert.
 
     Eine genauere Beschreibung der einzelnen Regelglieder finden Sie in den Kapiteln: 
     \begin{itemize}
@@ -357,7 +357,7 @@ Time-of-Flight (ToF) Scanner sind eine Art von 3D-Scanner, die mithilfe von Lich
 ToF-Scanner verwenden in der Regel eine Kombination aus Infrarot-Licht und Kameras, um Tiefeninformationen zu sammeln. Der Scanner sendet einen kurzen Lichtimpuls aus und misst dann die Zeit, die benötigt wird, um zum Objekt zurückzukehren. Durch die Messung der Zeit und die Analyse des reflektierten Lichts kann der Scanner die Entfernung zum Objekt bestimmen und daraus ein 3D-Modell des Objekts erstellen. \cite[vgl.][]{TOF}
 
 \subsubsection{Laser-Phasenverschiebungs-Scanner}
-Laser-Phasenverschiebungs-Scanner arbeiten auf eine sehr ähnliche Art wie die Time-of-flight-Scanner. Der Scanner verwendet nicht nur die Zeit, die der Laser braucht, sondern wertet auch seine Phasenverschiebung, welche auf dem Weg vom Senden und Empfangen entsteht aus.
+Laser-Phasenverschiebungs-Scanner arbeiten auf eine sehr ähnliche Art wie die Time-of-flight-Scanner. Der Scanner verwendet nicht nur die Zeit, die der Laser braucht, sondern wertet auch seine Phasenverschiebung, welche auf dem Weg vom Senden und Empfangen entsteht, aus.
 
 Der Laserstrahl wird auf das Objekt gerichtet und reflektiert zurück zur Kamera. Das reflektierte Licht enthält Informationen über die Form des Objekts, die durch die Phasenverschiebung des Lichts bestimmt werden kann. Die Phasenverschiebung wird gemessen, indem der Laserstrahl in unterschiedlichen Winkeln auf das Objekt gerichtet wird, was zu unterschiedlichen Phasenverschiebungen führt. Die Kamera nimmt Bilder des reflektierten Lichts auf und die Phasenverschiebung der reflektierten Lichtwellen wird berechnet. Diese Informationen werden dann verwendet, um ein 3D-Modell des Objekts zu erstellen.
 
@@ -373,7 +373,7 @@ Die Time-of-Flight-Technologie verwendet dagegen einen Laser oder eine LED, um L
 Die erfassten Tiefendaten können dann verwendet werden, um beispielsweise 3D-Modelle von Objekten oder Umgebungen zu erstellen. \cite[vgl.][]{TiefenKamera}
 
 \subsection{Punktwolken}
-Eine Punktwolke ist eine räumliche Darstellung eines Objekts oder einer Szene in Form einer Sammlung von 3D-Koordinaten. Am Beispiel von \ac{RGB-D} Kameras, erfasst eine Punktwolke sowohl Farb- als auch Tiefeninformationen aus einer Szene.
+Eine Punktwolke ist eine räumliche Darstellung eines Objekts oder einer Szene in Form einer Sammlung von 3D-Koordinaten. Am Beispiel von \ac{RGB-D} Kameras erfasst eine Punktwolke sowohl Farb- als auch Tiefeninformationen aus einer Szene.
 Die Tiefeninformationen werden verwendet, um die räumliche Geometrie der Szene zu erfassen und eine Punktwolke zu erstellen.
 Die Punktwolke besteht aus einer Sammlung von Punkten, die jeweils eine Position im dreidimensionalen Raum repräsentieren. Jeder Punkt hat in der Regel drei Koordinaten (x, y, z), die seine Position im Raum beschreiben. Die Farbinformationen werden häufig als RGB-Werte (rot, grün, blau) oder als Grauwerte für jeden Punkt in der Punktwolke gespeichert.
 Eine \ac{RGB-D}-Kamera erfasst die Tiefeninformationen durch die Verwendung eines Strukturlichtverfahrens oder eines Zeitflugverfahrens. Strukturlichtverfahren arbeiten durch die Projektion von Lichtmuster auf die Szene und das Erfassen der Verzerrungen im Muster, um die Tiefeninformationen zu berechnen. Zeitflugverfahren funktionieren durch die Messung der Zeit, die benötigt wird, um ein Lichtsignal auszusenden und das reflektierte Signal wieder zu empfangen, um die Entfernung und damit die Tiefeninformationen zu berechnen.
@@ -393,9 +393,9 @@ Für eine Drohne, die im dreidimensionalen Raum navigiert, können die folgenden
 
 \begin{description}
     \item[Weltkoordinatensystem]{Dieses Koordinatensystem stellt die absolute Position und Orientierung der Drohne in Bezug auf die Umgebung dar. Es wird in der Regel als globales Referenzsystem betrachtet und kann z. B. mit \ac{GPS}-Koordinaten oder einem festen Startpunkt definiert werden.}
-    \item[Lokales Koordinatensystem]{Dieses Koordinatensystem wird normalerweise in Verbindung mit visuellem SLAM verwendet und dient der Beschreibung der relativen Bewegungen und Positionen von Merkmalen oder Punkten in der Umgebung der Drohne. Es kann sich z. B. auf einen bestimmten Hauptpunkt oder ein Merkmal beziehen, das als Referenzpunkt für die Positionsbestimmung verwendet wird}
+    \item[Lokales Koordinatensystem]{Dieses Koordinatensystem wird normalerweise in Verbindung mit visuellem SLAM verwendet und dient der Beschreibung der relativen Bewegungen und Positionen von Merkmalen oder Punkten in der Umgebung der Drohne. Es kann sich z. B. auf einen bestimmten Hauptpunkt oder ein Merkmal beziehen, das als Referenzpunkt für die Positionsbestimmung verwendet wird.}
     \item[Kamerakoordinatensystem]{
-        Dieses Koordinatensystem ist mit der Kamera der Drohne verbunden und bewegt sich mit ihr. . Es wird verwendet, um die Position und Ausrichtung von Punkten im Kamerabild zu beschreiben. In der Regel wird das Kamerakoordinatensystem so definiert, dass die optische Achse der Kamera die Z-Achse bildet und die X- und Y-Achsen in der Bildebene liegen} 
+        Dieses Koordinatensystem ist mit der Kamera der Drohne verbunden und bewegt sich mit ihr. Es wird verwendet, um die Position und Ausrichtung von Punkten im Kamerabild zu beschreiben. In der Regel wird das Kamerakoordinatensystem so definiert, dass die optische Achse der Kamera die Z-Achse bildet und die X- und Y-Achsen in der Bildebene liegen.} 
     \item[\ac{IMU} Koordinatensystem]{Eine Inertialmesseinheit (IMU) in der Drohne misst Beschleunigung und Winkelgeschwindigkeit. Das IMU-Koordinatensystem ist mit der IMU verbunden und bewegt sich mit ihr. Es ist normalerweise so definiert, dass die Z-Achse senkrecht zur Erdanziehung ausgerichtet ist und die X- und Y-Achse entsprechend eingestellt sind.} 
     \item[Navigatioskoordinatensystem]{Ein Navigationskoordinatensystem ist ein spezielles Koordinatensystem, das für die Navigation verwendet wird. Es kann in verschiedenen Kontexten definiert werden, aber im Allgemeinen bezieht es sich auf ein Koordinatensystem, das speziell dazu dient, die Position und Ausrichtung von Objekten (wie Schiffen, Flugzeugen oder Drohnen) in Bezug auf die Erdoberfläche zu bestimmen. In der Robotik oder in autonomen Fahrzeugen bezieht es sich meist auf ein lokales Koordinatensystem, das die relative Position und Ausrichtung des Roboters oder Fahrzeugs in Bezug auf seine unmittelbare Umgebung beschreibt.} 
 \end{description}
@@ -409,7 +409,7 @@ Während der Navigation und Lokalisierung kombiniert die Drohne Informationen au
  \subsection{Extended Kalman Filter 2}
     Der \ac{EKF}2-Algorithmus, der in der Drohnensteuerung verwendet wird, ist eine Erweiterung des klassischen erweiterten Kalman-Filters, die speziell auf die Bedürfnisse der Drohnensteuerung zugeschnitten ist. Der EKF2 ist ein geschätzter Zustandsregler, der die aktuellen Zustände (z.B. Position, Geschwindigkeit, Orientierung) einer Drohne schätzt, basierend auf Messungen von Sensoren (z.B. \ac{GPS}, \ac{IMU}, Magnetometer).
 
-Im Gegensatz zum klassischen EKF verwendet der EKF2 eine modifizierte Version der Kalman-Filter-Formeln, um den Einfluss von Sensorrauschen und Messfehlern besser zu berücksichtigen. Insbesondere verwendet der EKF2 eine sogenannte "Innovation Covariance Matrix", die die Varianz der Messfehler repräsentiert und in die Filtergleichungen eingebaut wird. Diese Innovation Covariance Matrix wird iterativ während des Betriebs des Filters aktualisiert, um Sensorrauschen und Messfehlern besser gerecht zu werden.
+Im Gegensatz zum klassischen EKF verwendet der EKF2 eine modifizierte Version der Kalman-Filter-Formeln, um den Einfluss von Sensorrauschen und Messfehlern besser zu berücksichtigen. Insbesondere verwendet der EKF2 eine sogenannte 'Innovation Covariance Matrix', die die Varianz der Messfehler repräsentiert und in die Filtergleichungen eingebaut wird. Diese Innovation Covariance Matrix wird iterativ während des Betriebs des Filters aktualisiert, um Sensorrauschen und Messfehlern besser gerecht zu werden.
 
 Darüber hinaus verwendet der EKF2 eine modifizierte Version der State Transition Matrix, die die Nichtlinearitäten des Systems besser modellieren kann. Diese modifizierte Matrix wird ebenfalls iterativ während des Filterbetriebs aktualisiert, um den Änderungen im Systemverhalten besser gerecht zu werden.
 
@@ -437,19 +437,18 @@ In Kapitel \ref{SLAM:section} wird auf \ac{SLAM} ausführlich eingegangen
 Der SLAM-Prozess umfasst die simultane Bestimmung der Position eines mobilen Geräts in der Umgebung und die Erstellung einer Karte dieser Umgebung. Dies wird durch die Integration von Daten aus verschiedenen Sensoren wie Kameras, Inertialsensoren und Entfernungsmessern wie Laser-Scannern oder Time-of-Flight-Sensoren erreicht. Der SLAM-Prozess wird oft in der Robotik und in autonomen Fahrzeugen eingesetzt, um eine präzise Karte der Umgebung zu erstellen und sich gleichzeitig darin zu lokalisieren.
 Durch die Kombination der Inertialsensoren mit anderen Sensoren kann eine präzisere und robustere Positionsbestimmung erreicht werden, indem die Vorteile der verschiedenen Technologien kombiniert werden. Die Inertialsensoren können beispielsweise verwendet werden, um die Bewegung des mobilen Geräts zwischen den einzelnen Beobachtungen durch die anderen Sensoren zu messen und die Positions- und Orientierungsdaten der SLAM-Systeme zu korrigieren.
 
-Da Multicopter sich im dreidimensionalen Raum bewegen werden im Folgenden nur \ac{SLAM} Verfahren betrachtet die sich im 3 dimensionalen Raum befinden.
+Da Multicopter sich im dreidimensionalen Raum bewegen werden im Folgenden nur \ac{SLAM} Verfahren betrachtet, die sich im dreidimensionalen Raum befinden.
 
 \subsection{Anforderungen an SLAM Systeme auf Multicoptern}
 
 \begin{description}
-    \item[Echtzeitfähigkeit]{Da Multikopter in dynamischen Umgebungen operieren und schnell auf Veränderungen reagieren müssen, ist die Echtzeitfähigkeit des SLAM-Algorithmus entscheidend. Um genaue und aktuelle Informationen zu liefern, muss der SLAM-Algorithmus in der Lage sein, die Daten in Echtzeit zu verarbeiten. Auf diese Weise kann der Multikopter die Umgebung ständig genau wahrnehmen und sicher navigieren}
+    \item[Echtzeitfähigkeit]{Da Multikopter in dynamischen Umgebungen operieren und schnell auf Veränderungen reagieren müssen, ist die Echtzeitfähigkeit des SLAM-Algorithmus entscheidend. Um genaue und aktuelle Informationen zu liefern, muss der SLAM-Algorithmus in der Lage sein, die Daten in Echtzeit zu verarbeiten. Auf diese Weise kann der Multikopter die Umgebung ständig genau wahrnehmen und sicher navigieren.}
     \item[Effizienz]{
-        Effizienz ist ein wichtiger Faktor für den SLAM-Algorithmus in Multicoptern, da Ressourcen wie Rechenleistung und Batteriekapazität begrenzt sind. Effiziente SLAM-Algorithmen minimieren den Ressourcenverbrauch durch den Einsatz optimierter Datenverarbeitungstechniken und Algorithmen. Dadurch wird sichergestellt, dass der Multikopter über längere Zeiträume autonom arbeiten kann, ohne dass die Ressourcen schnell erschöpft sind
-        }
-    \item[Genauigkeit]{Die Genauigkeit des SLAM-Algorithmus wirkt sich direkt auf die Qualität der erstellten Karte und die genaue Lokalisierung des Multikopters aus. Durch die Kombination von Daten aus verschiedenen Sensoren und die Anwendung fortschrittlicher Algorithmen zur Erkennung und Verfolgung von Merkmalen wird eine höhere Genauigkeit erreicht. Dank der präzisen Wahrnehmung und Lokalisierung kann der Multikopter zuverlässig navigieren und Hindernissen in der Umgebung ausweichen}
-    \item[Robustheit]{Der SLAM-Algorithmus muss robust gegenüber Umgebungsbedingungen, Sensorrauschen und unvorhergesehenen Ereignissen sein, um eine zuverlässige Leistung in verschiedenen Situationen zu gewährleisten. Robuste SLAM-Methoden können Rauschen filtern, sensorbedingte Fehler korrigieren und ungenaue Messungen erkennen und berücksichtigen. So bleibt der Multicopter auch in schwierigen Umgebungen stabil und einsatzfähig}
-    \item[Skalierbarkeit]{Die Skalierbarkeit des SLAM-Algorithmus ermöglicht seinen Einsatz auf verschiedenen Plattformen und in unterschiedlichen Umgebungen. Ein skalierbarer SLAM-Algorithmus kann sich an unterschiedliche Sensorkonfigurationen, Multikoptermodelle und Umgebungen anpassen. Dadurch wird sichergestellt, dass der SLAM-Algorithmus auf Multikoptern mit unterschiedlichen Hardwarekapazitäten und -anforderungen effektiv eingesetzt werden kann}
-    \item[3D Kartenerstellung]{Die Fähigkeit zur 3D Kartenerstellung ermöglicht eine detaillierte und umfassende Repräsentation der Umgebung für den Multicopter. Durch die Integration von Daten aus 3D-Sensoren wie Lidar können hochauflösende Punktwolken erstellt werden, die eine präzise Darstellung der räumlichen Struktur bieten. Eine genaue 3D Kartenerstellung ermöglicht dem Multicopter eine genauere Navigation, Hindernisvermeidung und eine bessere Interaktion mit der Umgebung} 
+        Effizienz ist ein wichtiger Faktor für den SLAM-Algorithmus in Multicoptern, da Ressourcen wie Rechenleistung und Batteriekapazität begrenzt sind. Effiziente SLAM-Algorithmen minimieren den Ressourcenverbrauch durch den Einsatz optimierter Datenverarbeitungstechniken und Algorithmen. Dadurch wird sichergestellt, dass der Multikopter über längere Zeiträume autonom arbeiten kann, ohne dass die Ressourcen schnell erschöpft sind.}
+    \item[Genauigkeit]{Die Genauigkeit des SLAM-Algorithmus wirkt sich direkt auf die Qualität der erstellten Karte und die genaue Lokalisierung des Multikopters aus. Durch die Kombination von Daten aus verschiedenen Sensoren und die Anwendung fortschrittlicher Algorithmen zur Erkennung und Verfolgung von Merkmalen wird eine höhere Genauigkeit erreicht. Dank der präzisen Wahrnehmung und Lokalisierung kann der Multikopter zuverlässig navigieren und Hindernissen in der Umgebung ausweichen.}
+    \item[Robustheit]{Der SLAM-Algorithmus muss robust gegenüber Umgebungsbedingungen, Sensorrauschen und unvorhergesehenen Ereignissen sein, um eine zuverlässige Leistung in verschiedenen Situationen zu gewährleisten. Robuste SLAM-Methoden können Rauschen filtern, sensorbedingte Fehler korrigieren und ungenaue Messungen erkennen und berücksichtigen. So bleibt der Multicopter auch in schwierigen Umgebungen stabil und einsatzfähig.}
+    \item[Skalierbarkeit]{Die Skalierbarkeit des SLAM-Algorithmus ermöglicht seinen Einsatz auf verschiedenen Plattformen und in unterschiedlichen Umgebungen. Ein skalierbarer SLAM-Algorithmus kann sich an unterschiedliche Sensorkonfigurationen, Multikoptermodelle und Umgebungen anpassen. Dadurch wird sichergestellt, dass der SLAM-Algorithmus auf Multikoptern mit unterschiedlichen Hardwarekapazitäten und -anforderungen effektiv eingesetzt werden kann.}
+    \item[3D Kartenerstellung]{Die Fähigkeit zur 3D Kartenerstellung ermöglicht eine detaillierte und umfassende Repräsentation der Umgebung für den Multicopter. Durch die Integration von Daten aus 3D-Sensoren wie Lidar können hochauflösende Punktwolken erstellt werden, die eine präzise Darstellung der räumlichen Struktur bieten. Eine genaue 3D Kartenerstellung ermöglicht dem Multicopter eine genauere Navigation, Hindernisvermeidung und eine bessere Interaktion mit der Umgebung.} 
 \end{description}
 
 Zusammenfassend ist es entscheidend, dass der SLAM-Algorithmus in Multikoptern Echtzeitfähigkeit, Effizienz, Genauigkeit, Robustheit, Skalierbarkeit und 3D-Mapping bietet. Wenn diese Anforderungen erfüllt sind, kann der Multikopter autonom in dynamischen Umgebungen navigieren, Hindernissen ausweichen und genaue Karten der Umgebung erstellen. Die kontinuierliche Entwicklung von SLAM-Algorithmen in diesen Bereichen ermöglicht fortschrittlichere und zuverlässigere Multikopter-Anwendungen in verschiedenen Szenarien.
@@ -523,7 +522,7 @@ Die Transformationsmatrix, die die Transformation von Kamerakoordinaten in Weltk
 
 \cite{SWB-470983582}
 
-\begin{figure}
+\begin{figure}[H]
 \begin{equation*}
 T = K \begin{bmatrix}R & t\end{bmatrix}
 \end{equation*}
@@ -564,7 +563,7 @@ Insgesamt ist die Erzeugung einer Punktwolke ein komplexer Prozess, der sowohl d
 
 Es gibt viele Algorithmen und Technologien, die für die Erzeugung von Punktwolken verwendet werden können, darunter Stereo-Vision, Structured-Light-Scanning und Time-of-Flight-Sensoren. Jede Methode hat ihre eigenen Vor- und Nachteile, und die Wahl der am besten geeigneten Methode hängt von den Anforderungen der Anwendung ab.
 
-Grundsätzlich geht es aber darum 2D Koordinaten eines Bildes in ein 3 dimensionales festes Koordinatengitter zu überführen, das der Realität entspricht.
+Grundsätzlich geht es aber darum 2D Koordinaten eines Bildes in ein dreidimensionales festes Koordinatengitter zu überführen, das der Realität entspricht.
 
 \cite[vgl.][Kapitel 9.2 und Kapitel 7.8.1]{SWB-165930377X}
 
@@ -582,7 +581,7 @@ Mit Visueller Odometrie kann die Bewegung der Drohne geschätzt werden, so könn
 
 Die meisten visuellen SLAM-Methoden basieren auf Merkmalsabgleich und Mehransichtsgeometrie. Dies bringt einige Herausforderungen und Einschränkungen mit sich, insbesondere für monokulare SLAM. Zu diesen Herausforderungen gehören die Notwendigkeit einer großen Basislinienbewegung, um ausreichend Parallaxe für eine zuverlässige Tiefenschätzung zu erzeugen, und die Unbeobachtbarkeit der Skala. Diese Probleme können teilweise durch den Einsatz zusätzlicher Sensoren, wie Stereo-Kameras und Trägheitsmesseinheiten (\ac{IMU}s), oder durch Vorwissen über das System oder die Szene gelöst werden. Ein weiteres Problem ist die dichte Rekonstruktion von Bereichen mit geringer Textur.
 
-Da in dieser Kamera eine RGB-D Kamera verwendet wird, die das monokulare Bild der RGB Kamera mit Tiefeninformationen versorgt werden monokulare \ac{SLAM} Verfahren in dieser Arbeit nicht betrachtet. Es werden nur \ac{SLAM} Verfahren betrachtet, die direkt mit \ac{RGB-D} Kameras umgehen können.
+Da in dieser Kamera eine RGB-D Kamera verwendet wird, die das monokulare Bild der RGB Kamera mit Tiefeninformationen versorgt, werden monokulare \ac{SLAM} Verfahren in dieser Arbeit nicht betrachtet. Es werden nur \ac{SLAM} Verfahren betrachtet, die direkt mit \ac{RGB-D} Kameras umgehen können.
 
 Bei \ac{SLAM} Verfahren, die neben den visuellen Datenströmen noch Daten von einer \ac{IMU} verwenden können, spricht man von Visual Inertial \ac{SLAM}.
 
