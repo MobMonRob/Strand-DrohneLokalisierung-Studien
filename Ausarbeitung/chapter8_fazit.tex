@@ -14,9 +14,9 @@ Schlussendlich konnte die Navigation der Coex CLover Drohne zusammen mit der Azu
 
 
 \section{Ausblick}
-stabiler und sicherer Flug der Drohne / Sensordrift minimieren
+Um die Drohne auch letztendlich sicher in Innenräumen fliegen lassen zu können ist es wichtig, den bestehenden Sensordrift so gut wie möglich zu minimieren. Es ist wichtig, die Ursachen des Sensordrifts zu ermitteln und zu verstehen. Dies kann eine gründliche Analyse der verwendeten Sensoren und ihrer Genauigkeit sowie der Umweltfaktoren, die zum Drift beitragen könnten, erfordern. Auf der Grundlage dieser Erkenntnisse können geeignete Korrekturalgorithmen entwickelt oder angewendet werden, um die Messungen zu verbessern und die Auswirkungen des Drifts zu minimieren. Zudem kann man SLAM verwenden, um eine Fusion der Sensordaten durchzuführen um somit die fehlerbehafteten Daten herausgerechnet werden. 
 
-Befestigung der Azure Kinect an der Drohne
+Um SLAM auch zur Flugzeit der Drohne verwenden zu können muss die Azure Kinect an der Drohne befästigt werden.
+Um den SLAM-Algorithmus in Echtzeit nutzen zu können, ist eine leistungsstärkere Recheneinheit erforderlich. Es können Alternative in Betracht gezogen werden, die eine höhere Rechenleistung bieten, um die Echtzeitverarbeitung der Sensordaten zu ermöglichen. Eine gründliche Evaluation der verfügbaren Optionen könnte dabei helfen, die beste Lösung für die gegebenen Anforderungen zu finden. Des Weiteren kann nach alternativen SLAM Verfahren, welche weniger rechenaufwändig sind, gesucht werden, damit man den Raspberry Pi nicht ersetzten muss. Ein weiterer Punkt zu Lösung des Problems wäre es, Optimierungen für ORB-SLAM3 zu finden, welche ebenfalls dafür sorgen, dass der Algorithmus weniger rechenaufwändig wird. 
 
-Raspberry Pi o.ä. mit mehr Leistung, um SLAM-Algorithmus in Echtzeit nutzen zu können
-Pfadfindung implementieren auf Grundlage von SLAM-Algorithmus 
+Die Umsetzung der Pfadfindung mit Hinderniserkennung und -vermeidung auf der Grundlage von SLAM erfordert die Integration von Echtzeit-Algorithmen zur Hinderniserkennung und -vermeidung. Es müssen Strategien entwickelt werden, um sicher um Hindernisse herum zu navigieren und alternative Wege zu planen. Außerdem müssen verschiedene Algorithmen zur Wegfindung verglichen werden, um den passenden zu implementieren.
