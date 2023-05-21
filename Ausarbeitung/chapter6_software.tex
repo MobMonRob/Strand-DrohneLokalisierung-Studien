@@ -250,6 +250,25 @@ Eine Navigation beziehungsweise ien Bahnplanung mit Hifle des \ac{SLAM}-Algorith
 
 
 \section{Simulation} \label{simulation:section}
+Da es aufgrund der Probleme (wie in \todo{Referenz} beschrieben) lange Zeit unmöglich war die Drohne stabil zu fliegen, hat man  sich dazu entschlossen, die Drohne zunächst einmal in einer Simulation zu steuern. Als Simulator hat man sich für Gazebo (siehe \ref{gazebo:subsubsection}) entschieden. \\
+\\
+\textbf{Warum Gazebo} \\
+Gazebo bietet eine hochrealistische Umgebung für die Simulation von Robotern und deren Interaktion mit der physischen Welt. Es ermöglicht die Simulation von Sensoren, Aktoren und physikalischen Eigenschaften von Robotern. Der Hauptgrund für die Verwendung von Gazebo war, dass es eine Gazebo-ROS-Bridge gibt, die es ermöglicht, Gazebo und ROS miteinander zu verbinden. Die Bridge ermöglicht eine Kommunikation zwischen der Gazebo-Simulation und den ROS-Komponenten. Dadurch können ROS-Knoten Informationen aus der Simulation empfangen und Befehle an die virtuellen Roboter senden. \\
 
+Für die Coex Clover Drohne steht eine bereits existierende Simulationsumgebung für Gazebo zur Verfügung. In dieser Umgebung können die meisten Funktionen der echten Drohne genutzt werden. Die Simulation basiert auf dem PX4-SIL-Modus und verwendet den gleichen ROS-Code wie die tatsächliche Drohne. Zudem werden die meisten Hardwarekomponenten in der Simulation präzise emuliert. Wichtige Bestandteile der Umgebung sind Folgende:
+
+\begin{description}
+    \item[Hochwertiges visuelles Clover 4-Modell:] Die Umgebung bietet ein hochwertiges visuelles Modell der Clover 4 Drohne. Dieses Modell gibt das Aussehen und das Design der tatsächlichen Drohne genau wieder und sorgt so für ein realistisches und realitätsnahes Simulationserlebnis. 
+    
+    \item[Gazebo Plugins für Clover-spezifische Hardware:] Um die einzigartigen Hardware-Funktionen der Clover-Drohne zu simulieren, sind Gazebo-Plugins enthalten. Diese Plugins ermöglichen die Simulation spezifischer Hardwarekomponenten. Durch die Integration dieser Plugins können Benutzer das Verhalten und die Funktionalität der Hardware der Clover-Drohne während der Simulationen genau nachbilden.
+    
+    \item[Beispielmodelle und Welten:] Die Umgebung bietet eine Sammlung von Beispielmodellen und -welten. Diese vorgefertigten Modelle und Umgebungen dienen als Vorlagen und Beispiele, die verschiedene Szenarien und Konfigurationen zeigen, die als Grundlage für die Erstellung komplexerer Simulationen verwendet werden können.
+    
+    \item[Roslaunch-Dateien zum Starten der Simulationen:] Die Umgebung beinhaltet einige Launchdateien. Diese Dateien ermöglichen einen schnellen und einfachen Start von Simulationen und automatisieren die Konfigurations- und Initialisierungsschritte. Durch die Verwendung von Roslaunch-Dateien kann die Simulationen mit vordefinierten Einstellungen schnell gestartet werden.   
+\end{description}
+
+Startet man nun mittels des Launchbefehls (siehe \ref{starten eines ROS Programms:subsection})von \ac{ROS} die Gazebo-Simulation mit der Coex Clover Umgebung, so wird in Gazebo automatisch eine Welt erstellt, in der die Drohne mit all ihren Funktionen platziert ist.
+
+Um die Drohne dann unter realen Bedingung zu steuern, muss das von der Hololnes aufgenommene 3D-Modell der realen Umgebung in die Simulation eingefügt und die Drohne darin platziert werden. Wie bei der realen Drohne kann man die Parameter der simulierten Drohne mit QGroundControl konfigurieren und die Drohne starten.
 
 
