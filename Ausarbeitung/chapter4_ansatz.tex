@@ -49,7 +49,7 @@ ElasticFusion ist eine dichte SLAM-Methode, die RGB-D-Kameras verwendet. Es kons
 
 \subsubsection{RTAB-Map}
 
-RTAB-Map (Real-Time Appearance-Based Mapping) ist ein beliebter Open-Source SLAM-Algorithmus, der auf RGB-D, Stereo und Lidar basiert. Er ist speziell für die langfristige und großflächige Kartierung von Umgebungen konzipiert. Das Hauptmerkmal von RTAB-Map ist seine Fähigkeit, Schleifenabschlüsse zu erkennen und zu verarbeiten, um eine genaue Kartierung über lange Zeiträume und Entfernungen aufrechtzuerhalten.
+RTAB-Map (Real-Time Appearance-Based Mapping) ist ein beliebter Open-Source SLAM-Algorithmus, der auf RGB-D, Stereo und \ac{Lidar} basiert. Er ist speziell für die langfristige und großflächige Kartierung von Umgebungen konzipiert. Das Hauptmerkmal von RTAB-Map ist seine Fähigkeit, Schleifenabschlüsse zu erkennen und zu verarbeiten, um eine genaue Kartierung über lange Zeiträume und Entfernungen aufrechtzuerhalten.
 
 RTAB-Map verwendet eine Speicherverwaltungstechnik, um die kartierten Umgebungen zu verfolgen, wobei ein Kurzzeitspeicher für die jüngsten Beobachtungen und ein Langzeitspeicher für den Rest verwendet wird. Dies hilft bei der Bewältigung der Herausforderungen bei der Abbildung großer Umgebungen und beim Umgang mit Schleifenschlüssen. Außerdem verfügt es über einen Graph-Optimierer, der die Karte und die Roboterbahn korrigiert, nachdem Schleifenschlüsse erkannt wurden.
 
@@ -104,7 +104,7 @@ Aufgrund der Tatsache, dass die zur Verfügung stehende COEX Drohne bereits auch
 
 Alleine mit Inertial Navigation kann kein \ac{SLAM} durchgeführt werden. Da die Inertial Navigation keine Kenntniss der Umgebung hat. Dies ist alleine ebenso ein Punkt, der die alleinige Verwendung von Inertial Navigation verhindert.
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
         \hline
@@ -124,9 +124,8 @@ Alleine mit Inertial Navigation kann kein \ac{SLAM} durchgeführt werden. Da die
     \caption{Vergleichskriterien}
     \label{tab:vergleich-kriterien}
 \end{table}
-\begin{table}
 
-
+\begin{table}[H]
 \begin{center}
    \fontsize{7}{11}\selectfont
     \begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{3cm}|p{2cm}|p{3cm}|}
@@ -142,7 +141,7 @@ Alleine mit Inertial Navigation kann kein \ac{SLAM} durchgeführt werden. Da die
     \end{center}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
     \fontsize{6}{11}\selectfont
     \begin{center}
         \begin{tabular}{|p{2cm}|p{1.3cm}|p{2cm}|p{1.5cm}|p{2cm}|p{2cm}|p{1.5cm}|}
@@ -172,7 +171,7 @@ Die COEX Drohne, die für diese Arbeit verwendet wird ist mit einem COEX Pix aus
 Dieser Flightcontroller ist standardmäßig mit einer IMU ausgestattet. Zunächst sollte eine Holo Lens 2 auf der Drohne montiert werden um durch das Spatial Mapping Feature die Umgebung zu scannen und die Position zu erkenne.
 Später hat sich herausgestellt, dass eine Montage der Holo Lens 2 auf der Drohne nicht möglich ist, da die Holo Lens 2 für die COEX Drohne zu schwer wäre.
 Die Azure Kinect verfügt jedoch über die gleichen Sensoren wie die Holo Lens 2 ist aber wesentlich kleiner und leichter, da keine unnötigen Funktionen wie ein \ac{AR} Display vorhanden sind.
-
+Zu Beginn wurde auch die Nutzung eines \ac{Lidar}-Sensors in Betracht gezogen, jedoch sind diese Sensoren auf Grund ihres Gewichtes, welches das maximale Gewicht der Coex Drohne überschreitet, nicht für die Befestigung auf der Drohne geeignet.\\
 Somit sind folgende Sensoren auf der COEX Drohne verfügbar.
 
 \begin{itemize}
@@ -181,6 +180,6 @@ Somit sind folgende Sensoren auf der COEX Drohne verfügbar.
     \item{IMU}
 \end{itemize}
 
-Damit lässt sich theoretisch ein \ac{V-SLAM} auf der Drohne umsetzen.
+Damit lässt sich theoretisch ein \ac{VSLAM} auf der Drohne umsetzen.
 
 
