@@ -7,7 +7,7 @@ Der Quadrokopter, die Coex Clover Drohne ist bereits mit verschiedenen Sensoren 
 Ziel dieser Arbeit ist es, bestenfalls den bereits vorhandenen Quadrokopter mit Hilfe eines eigens erstellten 3D Umweltmodells innerhalb eines Raumes navigieren zu können und dadurch kleinere Aufgaben wie beispielsweise das Auslesen eines QR-Codes somit erledigen zu können.
 
 
-
+f
 \section{Vorgehensweise}
 
 In Abbildung \ref{fig:vorgehensweise} sind die 2 Vorgehensweisen die wir uns ausgedacht haben ersichtlich. In Ansatz 1 hatten wir zuerst versucht ein vorher gescanntes 3D Modell auf die Drohne zu laden und eine Positionierung im 3D Modell durchzuführen. Schnell wurde ersichtlich, dass es wenig sinnvoll eine Positionierung in einem vorher bekannten 3D Modell durchzuführen, da die Drohne auch in unbekannten Umgebungen eingesetzt werden soll. Deshalb ist es sinnvoller die Positionierung und die 3D Modell Erstellung zu kombinieren. Dazu kann \ac{SLAM} eingesetzt werden. Deshalb haben wir Ansatz 1 relativ schnell wieder verworfen.
@@ -34,12 +34,12 @@ Bei der Bewertung von SLAM-Algorithmen gibt es mehrere Punkte, die zur Messung d
     \item[Open-Source-Verfügbarkeit]{Die Verfügbarkeit von Open-Source-Implementierungen und einer unterstützenden Gemeinschaft kann von Vorteil sein. Open-Source-SLAM-Algorithmen profitieren oft von kontinuierlicher Entwicklung, Fehlerkorrekturen und Beiträgen der Community, was sie zuverlässiger und an spezifische Anforderungen anpassbar macht}
 \end{description}
 
-Zur Bewertung der \ac{SLAM} Algorithmen haben wir folgende Messungen als Referenz genommen \cite{ragot:hal-04071273}
+Zur Bewertung der \ac{SLAM} Algorithmen haben wir folgende Messungen als Referenz genommen \cite{ragot:hal-04071273} und \cite{Merzlyakov2021}
 
 \subsection{Übersicht \ac{VSLAM} Algorithmen}
 
 Da die Azure Kinect in dieser Arbeit verwendet sollen, werden alle \ac{SLAM} Verfahren, die nur mit monokular funktionierenden Kameras verwendet werden können ausgeschlossen.
-Ansonsten kann der Depth \ac{ToF} Sensor der Azure Kinekt nicht verwendet werden.
+Ansonsten kann der Depth \ac{ToF} Sensor der Azure Kinekt nicht verwendet werden. Im Vergleich aus der Arbeit von \citeauthor{Merzlyakov2021} kommen dann nur ORB-SLAM
 
 \subsubsection{ElasticFusion}
 
