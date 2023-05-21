@@ -1,1 +1,22 @@
 \chapter{Fazit}
+Zu Beginn der Arbeit wurden zunächst verschiedene Optionen gesucht, mit welchen eine Erstellung des Umweltmodells für Navigation ermöglichen. Anfänglich wurde mit Hilfe der Microsoft Hololens 2 die Erstellung eines 3D Modells genutzt, jedoch musste hiermit das Modell vor dem eigentlichen Flug der Drohne aufgenommen werden. \\
+Da für das Projekt eine gut funktionierende Drohne nötig ist, musste hier zuerst Anpassungen an der Coex Clover Drohne gemacht werden, sodass diese auch dafür eingesetzt werden konnte. Allerdings konnten hier nicht alle Probleme beseitigt werden.\\ 
+Desweiteren konnte mit Hilfe des Simulators Gazebo der autonome Flug der Coex Drohne innerhalb eines vorher erstellten Umweltmodells umgesetzt werden. \\
+Im weiteren Verlauf wurde auch die Azure Kinect für die Erstellung des Umweltmodells gewechselt, da bei dieser die Möglichkeit besteht das Modell zu erstellen sowie die eigene Position in Echtzeit mit Hilfe des SLAM-Algorithmus zu ermitteln. \\ 
+Schlussendlich konnte die Navigation der Coex CLover Drohne zusammen mit der Azure Kinect allerdings nicht in der realen Welt getestet werden. Ursache hierfür war unter anderem zu geringe Leistung der Raspberry Pi.
+\todo{überprüfen/anpassen, F}
+
+
+% Anpassungen Drohne
+% Umstieg Kinect
+% Simulation
+% Begrenzungen für SLAM/Pfadfindung 
+
+
+\section{Ausblick}
+stabiler und sicherer Flug der Drohne / Sensordrift minimieren
+
+Befestigung der Azure Kinect an der Drohne
+
+Raspberry Pi o.ä. mit mehr Leistung, um SLAM-Algorithmus in Echtzeit nutzen zu können
+Pfadfindung implementieren auf Grundlage von SLAM-Algorithmus 
