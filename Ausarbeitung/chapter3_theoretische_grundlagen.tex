@@ -601,11 +601,21 @@ Methoden zur Erkennung von Schleifenschlüssen können in lokale, globale und se
 
 Die Flugbahn eines Roboters oder Fahrzeugs bezieht sich auf seinen Weg durch die Umgebung. Im Kontext von SLAM ist die Trajektorie die Abfolge von Posen (Positionen und Ausrichtungen), die der Roboter oder das Fahrzeug im Laufe der Zeit einnimmt. ORB-SLAM berechnet beispielsweise die Kameratrajektorie in Echtzeit und liefert eine zeitliche Abfolge von Kamerapositionen, die für Navigation, Bewegungsanalyse und Szenenrekonstruktion verwendet werden können.
 
+\subsubsection{Surfel Repräsentation}
+
+Im Kontext der 3D-Kartierung und -Visualisierung ist ein Surfel, kurz für "Oberflächenelement", eine Datenstruktur, die zur Darstellung eines kleinen Teils einer Oberfläche im 3D-Raum verwendet wird. Die Surfel-Darstellung wird häufig im Bereich der Computergrafik und des Roboter-Sehens verwendet, insbesondere in \ac{SLAM}-Systemen.
+Jedes Surfel ist ein kleines, scheibenförmiges Gebilde, das einen Teil einer Oberfläche darstellen kann, indem es seine Position, Normalen, Radius und Farbe definiert. Diese Darstellung bietet mehrere Vorteile gegenüber herkömmlichen Methoden wie Punktwolken oder Gitternetzen. Hier sind ein paar wichtige Punkte:
+
+\begin{description}
+    \item[Detail \& Robustness] Oberflächenbasierte Modelle sind detaillierter als Punktwolken und gleichzeitig weniger komplex als Netzmodelle. Sie können Oberflächen mit hoher Wiedergabetreue darstellen und gleichzeitig besser mit Rauschen umgehen als andere Ansätze.
+    \item[Effizienz] Surfel-basierte Ansätze sind weniger rechenintensiv. Anders als bei der Vernetzung, die komplexe Prozesse wie die Triangulation umfasst, beinhaltet die Arbeit mit Surfels einfachere mathematische Operationen, durch die Dichte wird dieser Vorteil aber meistens wieder aufgehoben.
+    \item[Versalität] Die Surfel-Darstellung ist vielseitig und flexibel. Sie können eine Vielzahl von Oberflächenattributen modellieren, wie Farbe und Textur, die für Anwendungen in der Computergrafik und SLAM entscheidend sind.
+    \item[Dichte] Die Oberflächendarstellung liefert ein dichtes Modell der Szene. Dies bedeutet, dass sie im Vergleich zu spärlichen Darstellungen wie Merkmalspunkten mehr Oberflächendetails erfassen.   
+\end{description}
+
 \subsection{Nutzen von RGB-D Sensoren}
 
 RGB-D-Sensoren stellen eine praktikable, hardwarebasierte Lösung für die oben genannten Herausforderungen dar. Ihre Verfügbarkeit zu niedrigen Kosten hat viele Robotik- und AR-Anwendungen ermöglicht. In den letzten zehn Jahren haben sie sich als eine der bevorzugten Sensoren für Innenanwendungen in Robotik und AR durchgesetzt. Sie bieten nicht nur eine kostengünstige und energieeffiziente Lösung, sondern ermöglichen auch die Erfassung von 3D-Informationen, was sie für eine Vielzahl von Anwendungen attraktiv macht.
-
-
 
 \cite[vgl. ]{8310200} und \cite{6907054}
 
@@ -613,8 +623,6 @@ RGB-D-Sensoren stellen eine praktikable, hardwarebasierte Lösung für die oben 
 
 \section{Simulationstechnik} \label{simulationstechnik:section}
 Der \ac{VDI} hat in seiner \ac{VDI}-Richtline 3633 Simulation wie folgt definiert: "Nachbilden eines dynamischen Prozesses in einem System mithilfe eines experimentierfähigen Modells, um zu Erkenntnisen zu gelangen, die auf die Wirklichkeit übertragbar sind." \cite{VDI-3633}
-
-\todo{Angegebene Quelle nur Vorläufige Quelle. VDI-3633 ist  eigendliche Quelle}
 
 Die durch eine Simulation erlangten Erkenntnisse können unter anderem folgende sein:
 \begin{description}
