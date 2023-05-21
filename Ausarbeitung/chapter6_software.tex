@@ -29,16 +29,7 @@ Es ist auch möglich mit QGroundControl eine ganze Flugplanung zu machen, welche
 \subsection{Allgemeine Systemarchitektur eines ROS Programms} \label{systemarchitektur_ros_programm:subsection}
 Das Robot Operating System hat den Bereich der Robotik revolutioniert, indem es einen robusten und flexiblen Rahmen für die Entwicklung komplexer Robotersysteme bietet. Das Herzstück von \ac{ROS} ist seine ausgeklügelte Systemarchitektur, die das Zusammenspiel zwischen verschiedenen Komponenten orchestriert und eine nahtlose Kommunikation und Koordination ermöglicht.
 
-\subsection{Starten eines ROS Programms} \label{starten eines ROS Programms:subsection}
-    Zum Starten verschiedener Nodes in \ac{ROS} wird das ROS-eigene Tool roslaunch verwendet. Roslaunch ist ein mächtiges Werkzeug für die Konfiguration, das Starten und die Überwachung von ROS-Paketen und -Nodes. Mit roslaunch können Entwickler schnell und einfach Nodes starten, indem sie eine XML-Datei erstellen, die alle notwendigen Konfigurationen enthält. Die XML-Datei wird als Launch-Datei bezeichnet und wird in der Regel von Entwicklern erstellt, um eine oder mehrere ROS-Knoten gleichzeitig zu starten und zu konfigurieren.
-
-    Ein großer Vorteil von roslaunch ist seine Portabilität. Mit Launch-Dateien können Entwickler ROS-Pakete und -Nodes problemlos auf verschiedenen Systemen starten und konfigurieren, unabhängig von der Plattform oder Architektur. Dies erleichtert die Entwicklung von ROS-Software für verschiedene Roboter- und Hardware-Plattformen erheblich. \cite{roslaunch}
-
-    Der Befehl, mit welchem man roslauch aufruft, sieht wie folgt aus:
-    
-    \textit{\$ roslaunch package\_name file.launch}
-
-\subsubsection{Zentrale Konzepte} \label{zentrale_konzepte:subsubsection}
+\subsubsection{Zentrale Konzepte von ROS} \label{zentrale_konzepte:subsubsection}
 \begin{description}
     \item[Nodes:] Nodes sind autonome Softwaremodule, die bestimmte Aufgaben innerhalb eines ROS-Systems übernehmen. Sie kommunizieren miteinander, indem sie Nachrichten zu Themen veröffentlichen und abonnieren oder indem sie Services aufrufen und bereitstellen. Nodes können über mehrere Maschinen verteilt sein und bilden so ein verteiltes System. (Siehe Kapitel \ref{nodes:subsection})
     
@@ -103,7 +94,7 @@ Das Robot Operating System hat den Bereich der Robotik revolutioniert, indem es 
 
 \end{description}
 
-\subsubsection{Schlüsselkomponenten} \label{schluesselkomponente:subsubsection}
+\subsubsection{Schlüsselkomponenten von ROS} \label{schluesselkomponente:subsubsection}
 \begin{description}
     \item[ROS-Master:] Der ROS-Master ist eine entscheidende Komponente in der Architektur von \ac{ROS}, die eine zentrale Koordinations- und Kommunikationsdrehscheibe für ROS-Nodes innerhalb eines Systems darstellt. Er dient als zentraler Punkt für die Registrierung und Erkennung von ROS-Nodes, die Verwaltung von Topics und Services und die Erleichterung der Kommunikation zwischen ihnen.
 
@@ -138,6 +129,15 @@ Das Robot Operating System hat den Bereich der Robotik revolutioniert, indem es 
 
     \cite[vgl.][]{ros-bags}
 \end{description}
+
+\subsection{Starten eines ROS Programms} \label{starten eines ROS Programms:subsection}
+    Zum Starten verschiedener Nodes in \ac{ROS} wird das ROS-eigene Tool roslaunch verwendet. Roslaunch ist ein mächtiges Werkzeug für die Konfiguration, das Starten und die Überwachung von ROS-Paketen und -Nodes. Mit roslaunch können Entwickler schnell und einfach Nodes starten, indem sie eine XML-Datei erstellen, die alle notwendigen Konfigurationen enthält. Die XML-Datei wird als Launch-Datei bezeichnet und wird in der Regel von Entwicklern erstellt, um eine oder mehrere ROS-Knoten gleichzeitig zu starten und zu konfigurieren.
+
+    Ein großer Vorteil von roslaunch ist seine Portabilität. Mit Launch-Dateien können Entwickler ROS-Pakete und -Nodes problemlos auf verschiedenen Systemen starten und konfigurieren, unabhängig von der Plattform oder Architektur. Dies erleichtert die Entwicklung von ROS-Software für verschiedene Roboter- und Hardware-Plattformen erheblich. \cite{roslaunch}
+
+    Der Befehl, mit welchem man roslauch aufruft, sieht wie folgt aus:
+    
+    \textit{\$ roslaunch package\_name file.launch}
 
 \section{Softwarearchitektur} \label{softwarearchitektur:section}
 \todo{Beschreibung Mavros}
@@ -277,7 +277,7 @@ Eine Navigation beziehungsweise ien Bahnplanung mit Hifle des \ac{SLAM}-Algorith
 
 
 \section{Simulation} \label{simulation:section}
-Da es aufgrund der Probleme (wie in \todo{Referenz} beschrieben) lange Zeit unmöglich war die Drohne stabil zu fliegen, hat man  sich dazu entschlossen, die Drohne zunächst einmal in einer Simulation zu steuern. Als Simulator hat man sich für Gazebo (siehe \ref{gazebo:subsubsection}) entschieden. \\
+Da es aufgrund der Probleme lange Zeit unmöglich war die Drohne stabil zu fliegen, hat man  sich dazu entschlossen, die Drohne zunächst einmal in einer Simulation zu steuern. Als Simulator hat man sich für Gazebo (siehe \ref{gazebo:subsubsection}) entschieden. \\
 \\
 \textbf{Warum Gazebo} \\
 Gazebo bietet eine hochrealistische Umgebung für die Simulation von Robotern und deren Interaktion mit der physischen Welt. Es ermöglicht die Simulation von Sensoren, Aktoren und physikalischen Eigenschaften von Robotern. Der Hauptgrund für die Verwendung von Gazebo war, dass es eine Gazebo-ROS-Bridge gibt, die es ermöglicht, Gazebo und ROS miteinander zu verbinden. Die Bridge ermöglicht eine Kommunikation zwischen der Gazebo-Simulation und den ROS-Komponenten. Dadurch können ROS-Knoten Informationen aus der Simulation empfangen und Befehle an die virtuellen Roboter senden. \\
