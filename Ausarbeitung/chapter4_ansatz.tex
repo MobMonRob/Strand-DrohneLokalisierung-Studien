@@ -66,6 +66,12 @@ Insgesamt ermöglicht ORB-SLAM3 eine genauere und robustere Lokalisierung und Ka
 
 ORB-SLAM3 zeigt in verschiedenen Umgebungen, auch in Innenräumen, eine gute Leistung und ist dabei sehr genau und robust. Es ist in der Lage, Echtzeitoperationen effektiv zu bewältigen, ist aber möglicherweise nicht so rechenintensiv wie einige andere Methoden.
 
+Das Vokabular in ORB-SLAM ist eine Datenbank, die dazu dient, bereits gesehene Stellen zu identifizieren (d. h. die Erkennung von Loop Closures). Es besteht aus einer Sammlung von ORB-Merkmalen, die aus einer Vielzahl von Bildern extrahiert wurden.
+
+Um es einfach zu erklären: Stellen Sie sich vor, Sie sind ein Roboter, der durch eine Umgebung navigiert. Während Sie navigieren, speichern Sie bestimmte Merkmale der Umgebung, wie z. B. markante Strukturen oder Objekte, in Ihrer Datenbank. Diese Merkmale werden ORB-Merkmale genannt. Wenn Sie später durch dieselbe Umgebung navigieren, können Sie diese gespeicherten Merkmale verwenden, um zu erkennen, dass Sie bereits an diesem Ort gewesen sind. Dies wird als Schleifenschluss bezeichnet.
+
+Das Vokabular in ORB-SLAM ist also im Wesentlichen eine Sammlung dieser ORB-Merkmale, die der Roboter verwendet, um Orte zu erkennen, die er bereits gesehen hat. Es wird normalerweise während des Trainingsprozesses erstellt und dann während der Laufzeit verwendet, um Schleifenschlüsse zu erkennen und so die Genauigkeit der Karte zu verbessern, die der Roboter von seiner Umgebung erstellt.
+
 \cite{ORBSLAM3TRO}
 
 \begin{table}
@@ -190,7 +196,6 @@ Alleine mit Inertial Navigation kann kein \ac{SLAM} durchgeführt werden. Da die
     \end{center}
 \end{table}
 
-\subsection{Auswahl SLAM Algorithmus}
 
 \subsection{ROS Version}
 

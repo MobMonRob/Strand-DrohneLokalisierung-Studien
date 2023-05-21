@@ -36,7 +36,6 @@ Zum Schutz befindet sich zudem außen einen Rahmen.
 Bei der Drohne war zudem ein 2300 mAh großer Akku dabei, der für vom Hersteller angegebene Flugdauer sorgen soll.
 Im Folgenden wird nun auf die wichtigsten Bestandteile der Coex Clover Drohne noch einmal genauer eingegangen:
 
-\todo{Begründung warum keinen Lidar Scanner}
 \subsection{Raspberry Pi 4} \label{raspberry_pi:subsection}
 
 Die Coex Clover Drohne, welche für diese Arbeit genutzt wurde, enthält einen Raspberry Pi 4 Model B mit 1 GB Arbeitsspeicher.\\
@@ -65,7 +64,7 @@ Der Flight Controller beinhaltet verschiedene Sensoren, hierzu gehören ein Acce
 Eine Besonderheit des Controller ist es, dass dieser standardmäßig mit einer Ausrichtung von 180° roll und 90° yaw befestigt werden soll. Zudem müssen dementsprechend auch die Parameter von PX4 angepasst werden, sodass die Ausrichtung übereinstimmt. \cite[vgl.][]{coex_pix_fcu}   
 
 
-\todo{Benennung FlightController/FlugController/...}
+\todo{Benennung FlightController/... AUFGABE FABI :D -> WIR SCHREIBEn FLIGHTCONTROLLER}
 
 \subsection{Abstandssensor}
 Im Bausatz der Coex Clover Drohne ist der Laseranstandssensor CJMCU-531 VL53L1X enthalten. Der CJMCU-531 Scanner ist ein fortschrittlicher Laser-Ranging-Sensor auf Basis der Time-of-Flight-Technologie. Er zeichnet sich durch seine Schnelligkeit aus und ist der schnellste Miniatur-ToF-Sensor auf dem Markt. Er hat eine präzise Messreichweite von bis zu 4 m und eine Messfrequenz von bis zu 50 Hz.
@@ -132,8 +131,7 @@ Das Azure Kinect \ac{DK} verwendet 2 Kameras, wie in Auflistung \ref{azure-kamer
 Das Azure DK (Development Kit) enthält eine integrierte IMU (Inertial Measurement Unit), die aus einem 3-Achsen-Beschleunigungsmesser und einem 3-Achsen-Gyroskop besteht. Die IMU erfasst die Beschleunigung und Rotation des Geräts und liefert entsprechende Daten, die für die Navigation und Stabilisierung verwendet werden können.
 
 Die \ac{IMU} im Azure Kinect \ac{DK} ist speziell darauf ausgelegt, zusammen mit den Kameras des Systems zu arbeiten. Sie ist in der Lage, genaue Daten in Echtzeit zu liefern und kann zur Verbesserung der räumlichen Genauigkeit der Tiefenbilder beitragen. Die IMU kann auch in Kombination mit anderen Sensoren und Systemen genutzt werden, um die Bewegung und Position von Geräten und Robotern in Echtzeit zu verfolgen.
-Im Kapitel \todo{referenz} wird auf die Zusammenarbeit von Kamera und IMU eingegangen.
+
 
 Insgesamt ermöglicht die Integration einer \ac{IMU} dem Azure Kinect \ac{DK} eine noch präzisere und zuverlässigere Erfassung von Tiefeninformationen und Bewegungsdaten. Dies macht das System zu einem leistungsfähigen Werkzeug für eine Vielzahl von Anwendungen in der Robotik, virtuellen Realität, Augmented Reality und anderen Bereichen, in denen eine genaue räumliche Erfassung erforderlich ist.
 
-    \todo{Quellen}

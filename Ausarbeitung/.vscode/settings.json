@@ -1,0 +1,13 @@
+{
+    "cSpell.language": "en,de-DE,de",
+    "cSpell.words": [
+        "Clover",
+        "Coex"
+    ],
+    "ltex.additionalRules.languageModel": "de-DE",
+    "ltex.additionalRules.motherTongue": "de-DE",
+    "ltex.language": "de",
+    "ltex.sentenceCacheSize": 100000,
+    "ltex.java.initialHeapSize": 128,
+    "ltex.java.maximumHeapSize": 8192
+}

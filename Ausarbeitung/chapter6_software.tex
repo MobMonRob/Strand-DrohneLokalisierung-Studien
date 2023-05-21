@@ -4,6 +4,7 @@
 PX 4 ist eine Open-Source-Autopilot-Software, welche zur Steuerung verschiedener Arten von Fahrzeugen genutzt werden kann, hierzu zählen beispielsweise verschiedene Drohnenarten, sowie auch Fahrzeuge auf dem Boden und Unterwasserfahrzeuge.\\ Es kann zum einen für bereits flugfähigen Drohen eingesetzt werden. Aber es besteht auch die Möglichkeit eine neue Drohne in Verbindung mit PX4 zu bauen.\\
 Die Software bietet eine Vielzahl verschiedener Funktionen an, zu diesen gehören unter anderem Stabilisierung, Wegpunkt-Navigation, Missionsplanung und Missionsausführung, Flugüberwachung sowie auch verschiedene Flugmodi.
 Für die Verwendung der PX4 Software kann QGroundControl (siehe Kapitel \ref{qGroundControl:subsection}) verwendet werden. \cite[vgl.][]{px4} \\
+
 Der PX4-Flugstack wurde ursprünglich für die Pixhawk-Hardware entwickelt, allerdings ist es heutzutage auch möglich diesen auf Linux-Computern und anderen Hardware einzusetzen. Wie es auch bei der Coex Clover Drohne mit dem Coex Pix umgesetzt wird. \\
 Die Software setzt Sensoren, ein um den Zustand der Drohne zu bestimmen. Hierfür werden einige Sensoren vorausgesetzt, zu diesen zählen ein Gyroskop, ein Beschleunigungssensor, ein Magnetometer sowie ein Barometer. Zudem ist GPS empfohlen um weitere Modi nutzen zu können. \cite[vgl.][]{px4}
 
@@ -140,7 +141,6 @@ Das Robot Operating System hat den Bereich der Robotik revolutioniert, indem es 
     \textit{\$ roslaunch package\_name file.launch}
 
 \section{Softwarearchitektur} \label{softwarearchitektur:section}
-\todo{Beschreibung Mavros}
 
 In der Abbildung \ref{img ros_communication} ist eine Übersicht der Kommunikation zwischen den verschiedenen Komponenten in \ac{ROS} zu sehen. \\
 Hauptbestandteil sind hierbei vor allem die Nodes der Hauptkamera beziehungsweise der Azure Kinect sowie auch Mavros. \\
@@ -162,8 +162,6 @@ Diese Topics werden im Namespace "\textbackslash mavros" zusammengefasst, zu die
 main\_camera: \\
 Von dem Azure Kinect ROS Treiber werden zwei Topics übergeben, diese sind: \\
 "\textbackslash main\_camera\textbackslash image\_raw", über dieses Topic werden die Rohbilder der Kamera gesendet. Zudem noch "\textbackslash main\_camera\textbackslash image\_info", über welches die Kamerainformationen übertragen werden. [\citetitle[vgl.][]{kinect_ros_driver}]\\
-\todo{author quelle?}
-
 
     %\includepdf[landscape=true]{images/graph_ros.pdf}
     %\caption[Übersicht ROS Nodes]{\label{img ros_nodes_graph} Übersicht ROS Nodes [eigene Darstellung]}
@@ -176,8 +174,7 @@ Von dem Azure Kinect ROS Treiber werden zwei Topics übergeben, diese sind: \\
 
 
 Der prinzipielle Ablauf bei der Kommunikation in Abbildung \ref{img ros_communication} wird von der mavros Node gestartet, denn diese bildet mit der Kommunikation zwischen ROS auf dem Raspberry Pi und dem PX4 des Flight Controllers die Grundlage. Zudem bietet der Einsatz der simple\_offboard Node die Möglichkeit zur Nutzung eigener Skripte, wodurch die Drohne autonom fliegen und navigieren kann. Diese beiden Nodes kommunizieren unter einander mit Hilfe der vielen verschiedenen Mavros-Nodes um Informationen und Parameter auszutauschen. Die simple\_offboard-Node kann zudem verschiedene Koordinatensysteme anfordern, welche von den Nodes aus dem main\_camera-Namespace kommen und mit Hilfe des \textbackslash tf-Topics transformiert werden. Diese Koordinatensysteme werden nun über die vpe\_publisher-Node an Mavros, sowie im weiteren Verlauf auch der simple\_offboard-Node übermittelt. Dadurch kann das Skript die Drohne anhand der Koordinaten navigieren und die Drohne dementsprechend zu der gewollten Position fliegen.
-\todo{text überprüfen}
-\todo{dopplungen entfernen} 
+ 
 
 \section{Kalibrierung der COEX Drohne} \label{kalibrierung_coex__drohne:subsection}
 \subsection{Kalibrierung der IMU}
@@ -269,11 +266,262 @@ Um die Drohne auch in der Simulation unter echten Bedingungen fliegen zu lassen,
         Ein großer Vorteil von \ac{VSLAM} ist, dass es nicht nur die Erstellung des 3D-Modells, sondern auch die Echtzeitberechnung der eigenen Position innerhalb des Modells ermöglicht. Dies wird durch die kontinuierliche Verschmelzung von Tiefendaten und Bildinformationen erreicht, um sowohl die Bewegung der Kamera als auch die räumliche Struktur der Umgebung zu verfolgen.
 
     \subsection{3D Modell Vorbereitung} \label{3d_modell_vorbereitung:subsection}
-    Da das von der Hololens erstellte 3D-Modell keine homogenen Oberflächen beinhaltet, sondern sich nur aus übereinandergelegte einzellne Flächen zusammesetzt, muss das Modell noch überarbeitet werden, um die entstandenen "Löcher" im Scann zu füllen.
+    Da das von der Hololens erstellte 3D-Modell keine homogenen Oberflächen beinhaltet, sondern sich nur aus übereinandergelegte einzelne Flächen zusammesetzt, muss das Modell noch überarbeitet werden, um die entstandenen "Löcher" im Scan zu füllen.
     
     Hierfür wurde zunächst eine Neuberechnung der Normlen der Punkte der Punktwolke durgeführt. Dadurch wird die Orientierung und Ausrichtung der Oberfläche genauer erfasst. Dies trug dazu bei, Unstimmigkeiten oder Verzerrungen im Modell zu minimieren. Danach wurde die Punktwolke bereincht. Das bedeutet, dass Ausreißern, Rauschen und anderen unerwünschten Punkten in der Punktwolke erkannt und entfernt wurden. Dadurch verbessert sich die Qualität und genaugkeit der Punktwolke. Zum Schluss wurde mit dem Poisson-Verfahren eine reibungslose und konsistente Oberfläche aus der bereinigten Punktwolke erstellt. Dieses Verfahren basiert auf mathematischen Modellen und ermöglicht die rekonstruktive Glättung und Verschmelzung der Punktdaten. Durch die Anwendung des Poisson-Verfahrens wurde eine hochwertige Oberflächenrekonstruktion erreicht, die eine realistische Darstellung des Modells gewährleistet.
 
-\section{SLAM} \label{slam:section}
+\section{Umsetzung SLAM und MAVROS} \label{slam:section}
+\subsection{Azure Kinect ROS Driver \& SDK}
+
+Um die Umsetzung von \ac{SLAM} an der COEX Drohne zu ermöglichen, muss zuerst die Azure Kamera ihre Daten für ROS bereitstellen. Dazu wird der Azure ROS Driver verwendet. Beim Azure Kinect ROS Driver handelt es sich um ein Kit von Microsoft, dass den proprietären Treiber des Azure Kinect SDKs anspricht und eine ROS Node erstellt, die die Daten der Azure Kamera für ROS verfügbar macht. Der ROS Treiber stellt Sensor Daten in folgenden Formaten zur Verfügung.
+
+\begin{itemize}
+    \item PointCloud2, optional gefärbt mithilfe der Kamera
+    \item Rohe Farb, Tiefen und Infrarot Bilder. Beinhaltet auch Kalibrierungsinfo der Kamera
+    \item kombiniertes Tiefenbild in Farbkameraauflösung
+    \item kombiniertes Farbbild in Tiefenkameraauflösung
+    \item \ac{IMU} Sensordaten
+    \item \ac{TF}2 Model, was die extrinsische Kalibrierung der Kamera repräsentiert
+\end{itemize}
+
+Mit dem Code aus Listing \ref{lst:azurepublish} kann der Code dann an andere \ac{ROS} Nodes nach dem \ac{ROS} Publish und Subscribe Pattern veröffentlicht werden.
+
+\cite[vgl. ]{kinect_ros_driver}
+
+\subsection{ORB-SLAM3 ROS}
+
+Die Informationen von den Azure Kinect ROS Driver Kamera Nodes werden an einen \ac{VSLAM} Node für ORB-SLAM3 gesendet. Dazu verwendet die SLAM Node die \ac{IMU}, Farb und Tiefenbilder von der Azure Kinect.
+Mittles \textit{rosrun ORB\_SLAM3\ RGBD PATH\_TO\_VOCABULARY PATH\_TO\_SETTINGS\_FILE} kann die Node gestartet werden.
+Das ORB Vocabulary ist dabei bereits im Source Code vorhanden.
+\cite[vgl.]{ORBSLAM3TRO}
+
+Die Position die ORB-SLAM3 schätzt kann dann mittels MAVROS an die Drohne übermittelt werden.
+Die ORB-SLAM3 Node sendet hierzu, wie in Auszug \ref{lst:orbslammavros} die geschätzte Position an das Topic \textit{/mavros/setpoint\_position/local}.
+
+\begin{figure}
+\begin{python}[breaklines=true, label=lst:orbslammavros]
+import rospy
+from geometry_msgs.msg import PoseStamped
+
+def pose_callback(data):
+    setpoint_pub.publish(data)
+
+rospy.init_node('orb_slam_to_mavros')
+setpoint_pub = rospy.Publisher('/mavros/setpoint_position/local', PoseStamped, queue_size=10)
+rospy.Subscriber('/ORB_SLAM3/pose', PoseStamped, pose_callback)
+rospy.spin()
+\end{python}
+\lstlistingname{ ORB-SLAM3 Position zu MAVROS senden}
+\end{figure}
+
+
+
+\begin{figure}
+\begin{python}[breaklines=true,label=lst:azurepublish]
+    
+import rospy
+from sensor_msgs.msg import Image, CameraInfo
+
+def image_callback(data):
+    image_pub.publish(data)
+
+def camera_info_callback(data):
+    camera_info_pub.publish(data)
+
+rospy.init_node('azure_to_orb_slam')
+image_pub = rospy.Publisher('/camera/color/image_raw', Image, queue_size=10)
+camera_info_pub = rospy.Publisher('/camera/color/camera_info', CameraInfo, queue_size=10)
+rospy.Subscriber('/azure_kinect_ros_driver/color_image', Image, image_callback)
+rospy.Subscriber('/azure_kinect_ros_driver/color_camera_info', CameraInfo, camera_info_callback)
+rospy.spin()
+
+\end{python}
+\lstlistingname{ Azure Kinect mit ORB-SLAM3 verbinden}
+\end{figure}
+
+\subsection{MAVROS}
+
+MAVROS ermöglicht es Verbindung mit dem Autopilot der Drohne über das MAVLink Protokoll herzustellen. Um über ROS Topics und Messages über MAVLink kommunizieren zu können, muss eine MAVROS Node gestartet werden.
+
+Die MAVROS Node stellt die Funktionalitäten des Autopilots \ac{ROS} zur Verfügung. Um MAVROS zu starten wird eine Launchfile wie \ref{lst:mavroslaunch} verwendet. In ihr werden die Topic Namen definiert die zur Kommunikation gepublished werden sollen. Außerdem werden dort die Verbindungsparameter zum Autopilot definiert.
+
+\begin{roslaunch}[breaklines=true]
+    <!--
+    Copyright (c) Microsoft Corporation. All rights reserved.
+    Licensed under the MIT License.
+    -->
+    
+    <launch>
+      <arg name="tf_prefix"         default="" />                       <!-- Prefix added to tf frame IDs. It typically contains a trailing '_' unless empty. -->
+      <arg name="overwrite_robot_description" default="true" />         <!-- Flag to publish a standalone azure_description instead of the default robot_descrition parameter-->
+    
+      <group if="$(arg overwrite_robot_description)">
+        <param name="robot_description"
+          command="xacro $(find azure_kinect_ros_driver)/urdf/azure_kinect.urdf.xacro tf_prefix:=$(arg tf_prefix)" />
+        <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+      </group>
+    
+      <group unless="$(arg overwrite_robot_description)">
+        <param name="azure_description"
+          command="xacro $(find azure_kinect_ros_driver)/urdf/azure_kinect.urdf.xacro tf_prefix:=$(arg tf_prefix)" />
+        <node name="joint_state_publisher_azure" pkg="joint_state_publisher" type="joint_state_publisher">
+          <remap from="robot_description" to="azure_description" />
+        </node>  
+        <node name="robot_state_publisher_azure" pkg="robot_state_publisher" type="robot_state_publisher">
+          <remap from="robot_description" to="azure_description" />
+        </node>
+      </group>
+    
+      <arg name="depth_enabled"           default="true" />           <!-- Enable or disable the depth camera -->
+      <arg name="depth_mode"              default="WFOV_UNBINNED" />  <!-- Set the depth camera mode, which affects FOV, depth range, and camera resolution. See Azure Kinect documentation for full details. Valid options: NFOV_UNBINNED, NFOV_2X2BINNED, WFOV_UNBINNED, WFOV_2X2BINNED, and PASSIVE_IR -->
+      <arg name="depth_unit"              default="16UC1" />          <!-- Depth distance units. Options are: "32FC1" (32 bit float metre) or "16UC1" (16 bit integer millimetre) -->
+      <arg name="color_enabled"           default="true" />           <!-- Enable or disable the color camera -->
+      <arg name="color_format"            default="bgra" />           <!-- The format of RGB camera. Valid options: bgra, jpeg -->
+      <arg name="color_resolution"        default="1536P" />          <!-- Resolution at which to run the color camera. Valid options: 720P, 1080P, 1440P, 1536P, 2160P, 3072P -->
+      <arg name="fps"                     default="5" />              <!-- FPS to run both cameras at. Valid options are 5, 15, and 30 -->
+      <arg name="point_cloud"             default="true" />           <!-- Generate a point cloud from depth data. Requires depth_enabled -->
+      <arg name="rgb_point_cloud"         default="true" />           <!-- Colorize the point cloud using the RBG camera. Requires color_enabled and depth_enabled -->
+      <arg name="point_cloud_in_depth_frame" default="false" />        <!-- Whether the RGB pointcloud is rendered in the depth frame (true) or RGB frame (false). Will either match the resolution of the depth camera (true) or the RGB camera (false). -->
+      <arg name="required"                default="false" />          <!-- Argument which specified if the entire launch file should terminate if the node dies -->
+      <arg name="sensor_sn"               default="" />               <!-- Sensor serial number. If none provided, the first sensor will be selected -->
+      <arg name="recording_file"          default="" />               <!-- Absolute path to a mkv recording file which will be used with the playback api instead of opening a device -->
+      <arg name="recording_loop_enabled"  default="false" />          <!-- If set to true the recording file will rewind the beginning once end of file is reached -->
+      <arg name="body_tracking_enabled"           default="false" />  <!-- If set to true the joint positions will be published as marker arrays -->
+      <arg name="body_tracking_smoothing_factor"  default="0.0" />    <!-- Set between 0 for no smoothing and 1 for full smoothing -->
+      <arg name="rescale_ir_to_mono8"  default="false" />    <!-- Whether to rescale the IR image to an 8-bit monochrome image for visualization and further processing. A scaling factor (ir_mono8_scaling_factor) is applied. -->
+      <arg name="ir_mono8_scaling_factor"  default="1.0" />    <!-- Scaling factor to apply when converting IR to mono8 (see rescale_ir_to_mono8). If using illumination, use the value 0.5-1. If using passive IR, use 10. -->
+      <arg name="imu_rate_target" default="0"/>                       <!-- Desired output rate of IMU messages. Set to 0 (default) for full rate (1.6 kHz). --> 
+      <arg name="wired_sync_mode" default="0"/>                       <!-- Wired sync mode. 0: OFF, 1: MASTER, 2: SUBORDINATE. --> 
+      <arg name="subordinate_delay_off_master_usec" default="0"/>     <!-- Delay subordinate camera off master camera by specified amount in usec. --> 
+    
+      <node pkg="azure_kinect_ros_driver" type="node" name="azure_kinect_ros_driver" output="screen" required="$(arg required)">
+        <param name="depth_enabled"     type="bool"   value="$(arg depth_enabled)" />
+        <param name="depth_mode"        type="string" value="$(arg depth_mode)" />
+        <param name="depth_unit"        type="string" value="$(arg depth_unit)" />
+        <param name="color_enabled"     type="bool"   value="$(arg color_enabled)" />
+        <param name="color_format"      type="string" value="$(arg color_format)" />
+        <param name="color_resolution"  type="string" value="$(arg color_resolution)" />
+        <param name="fps"               type="int"    value="$(arg fps)" />
+        <param name="point_cloud"       type="bool"   value="$(arg point_cloud)" />
+        <param name="rgb_point_cloud"   type="bool"   value="$(arg rgb_point_cloud)" />
+        <param name="point_cloud_in_depth_frame"   type="bool"   value="$(arg point_cloud_in_depth_frame)" />
+        <param name="sensor_sn"         type="string" value="$(arg sensor_sn)" />
+        <param name="tf_prefix"         type="string" value="$(arg tf_prefix)" />
+        <param name="recording_file"          type="string" value="$(arg recording_file)" />
+        <param name="recording_loop_enabled"  type="bool"   value="$(arg recording_loop_enabled)" />
+        <param name="body_tracking_enabled"           type="bool"   value="$(arg body_tracking_enabled)" />
+        <param name="body_tracking_smoothing_factor"  type="double" value="$(arg body_tracking_smoothing_factor)" />
+        <param name="rescale_ir_to_mono8" type="bool" value="$(arg rescale_ir_to_mono8)" />
+        <param name="ir_mono8_scaling_factor" type="double" value="$(arg ir_mono8_scaling_factor)" />
+        <param name="imu_rate_target" type="int" value="$(arg imu_rate_target)"/>
+        <param name="wired_sync_mode" type="int" value="$(arg wired_sync_mode)"/>
+        <param name="subordinate_delay_off_master_usec" type="int" value="$(arg subordinate_delay_off_master_usec)"/>
+      </node>
+</launch>
+\end{roslaunch}
+\lstlistingname{ Azure Kinect ROS Driver starten mit roslaunch}
+
+\begin{roslaunch}[breaklines=true, label=lst:mavroslaunch]
+    <launch>
+    <arg name="fcu_conn" default="usb"/> <!-- options: usb, uart, tcp, udp, sitl, hitl -->
+    <arg name="fcu_ip" default="127.0.0.1"/>
+    <arg name="fcu_sys_id" default="1"/>
+    <arg name="gcs_bridge" default="tcp"/>
+    <arg name="viz" default="true"/>
+    <arg name="respawn" default="true"/>
+    <arg name="distance_sensor_remap" default="rangefinder/range"/>
+    <arg name="usb_device" default="/dev/px4fmu"/>
+    <arg name="prefix" default="" unless="$(eval fcu_conn == 'usb')"/>
+    <arg name="prefix" default="rosrun clover waitfile $(arg usb_device)" if="$(eval fcu_conn == 'usb')"/>
+
+    <node pkg="mavros" type="mavros_node" name="mavros" launch-prefix="$(arg prefix)" required="false" clear_params="true" respawn="$(arg respawn)" unless="$(eval fcu_conn == 'none')" respawn_delay="1" output="screen">
+        <!-- UART connection -->
+        <param name="fcu_url" value="/dev/ttyAMA0:921600" if="$(eval fcu_conn is None or fcu_conn == 'uart')"/>
+
+        <!-- USB connection -->
+        <param name="fcu_url" value="$(arg usb_device)" if="$(eval fcu_conn == 'usb')"/>
+
+        <!-- sitl before PX4 1.9.0 -->
+        <param name="fcu_url" value="udp://@$(arg fcu_ip):14557" if="$(eval fcu_conn == 'udp')"/>
+
+        <!-- sitl since PX4 1.9.0 -->
+        <param name="fcu_url" value="udp://@$(arg fcu_ip):14580" if="$(eval fcu_conn == 'sitl')"/>
+
+        <!-- hitl connection (to gazebo_mavlink_interface plugin) -->
+        <param name="fcu_url" value="udp://$(arg fcu_ip):14540@" if="$(eval fcu_conn == 'hitl')"/>
+
+        <!-- set target_system_id -->
+        <param name="target_system_id" value="$(arg fcu_sys_id)" />
+
+        <!-- gcs bridge -->
+        <param name="gcs_url" value="tcp-l://0.0.0.0:5760" if="$(eval gcs_bridge == 'tcp')"/>
+        <param name="gcs_url" value="udp://0.0.0.0:14550@14550" if="$(eval gcs_bridge == 'udp')"/>
+        <param name="gcs_url" value="udp-b://$(env ROS_HOSTNAME):14550@14550" if="$(eval gcs_bridge == 'udp-b')"/>
+        <param name="gcs_url" value="udp-pb://$(env ROS_HOSTNAME):14550@14550" if="$(eval gcs_bridge == 'udp-pb')"/>
+        <param name="gcs_url" value="" if="$(eval not gcs_bridge)"/>
+        <param name="gcs_quiet_mode" value="true"/>
+        <param name="conn/timeout" value="8"/>
+
+        <!-- basic params -->
+        <rosparam command="load" file="$(find clover)/launch/mavros_config.yaml"/>
+
+        <!-- remap rangefinder -->
+        <remap from="mavros/distance_sensor/rangefinder_sub" to="$(arg distance_sensor_remap)" if="$(eval bool(distance_sensor_remap))"/>
+
+        <rosparam param="plugin_whitelist">
+            - altitude
+            - command
+            - distance_sensor
+            - ftp
+            - global_position
+            - imu
+            - local_position
+            - manual_control
+            # - mocap_pose_estimate
+            - param
+            - px4flow
+            - rc_io
+            - setpoint_attitude
+            - setpoint_position
+            - setpoint_raw
+            - setpoint_velocity
+            - sys_status
+            - sys_time
+            - vision_pose_estimate
+            # - vision_speed_estimate
+            # - waypoint
+        </rosparam>
+    </node>
+
+    <!-- remapped distance_sensor config -->
+    <rosparam param="$(arg distance_sensor_remap)" if="$(eval bool(distance_sensor_remap))">
+        subscriber: true
+        id: 1
+        orientation: PITCH_270
+        covariance: 1  # cm
+    </rosparam>
+
+    <!-- Rangefinders frame -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="rangefinder_frame" args="0 0 -0.05 0 1.5707963268 0 base_link rangefinder"/>
+
+    <!-- Copter visualization -->
+    <node name="visualization" pkg="mavros_extras" type="visualization" if="$(arg viz)">
+        <remap to="mavros/local_position/pose" from="local_position"/>
+        <remap to="mavros/setpoint_position/local" from="local_setpoint"/>
+        <param name="fixed_frame_id" value="map"/>
+        <param name="child_frame_id" value="base_link"/>
+        <param name="marker_scale" value="1"/>
+        <param name="max_track_size" value="20"/>
+        <param name="num_rotors" value="4"/>
+    </node>
+</launch>
+$
+\end{roslaunch}
+
+
+
+
 \section{Navigation} \label{navigation:section} 
 Eine Navigation beziehungsweise ien Bahnplanung mit Hifle des \ac{SLAM}-Algorithmus konnte auf dem Raspberry Pi nicht umgesetzt werden, da dieser bereits für die Ausführung des \ac{SLAM}-Algorithmus zu geringe Leistung aufweist. Aus diesem Grund wurden die Bahnplanung für die Drohne nicht umgesetzt werden.
 \todo{Abgleich mit SLAM Umsetzung     F}
@@ -307,4 +555,6 @@ Um die Drohne dann unter realen Bedingung zu steuern, muss das von der Hololens 
 
 Nachdem man die Simulatin mit Coex Clover Drohne gestartet hat, hat man das \ac{ROS}-System wie in \ref{softwarearchitektur:section} gestartet.
 Die Mavros-Nodes erhält die entsprechenden Daten allerdings nicht von den Sensoren der echten Drohne, sondern nimmt sich die Werte aus der Simulation. Zudem lässt sich über die "simple\_offboard-Node" die selberstellten Skripte verwenden, um die simulierte Drohne zu steuern.
+
+Die Simulation ist in großen Zügen bereits von Clover vordefiniert. Im ROS Package clover Simulation was im Github Repo \cite{coex_clover_git} zu finden ist, befinden sich die Launch Files. Es sind sowohl Launch Files für die Simulation, wie auch für die direkte Verwendung auf der Drohne vorhanden.
 
