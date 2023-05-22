@@ -1,0 +1,20 @@
+---
+name: CI
+
+on: [push]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Ausarbeitung
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Generate PDF document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: bericht.tex
+          working_directory: ./Ausarbeitung
+          work_in_root_file_dir: ./Ausarbeitung

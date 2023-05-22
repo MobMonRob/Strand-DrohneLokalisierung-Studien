@@ -1,0 +1,39 @@
+Einleitung
+Definition und Motivation
+Historischer Überblick
+Aktuelle Anwendungsbereiche
+Die Einleitung soll den Leser in das Thema einführen. Hier kann man definieren, was SLAM ist, warum es wichtig ist und einen kurzen Überblick über die Entwicklung und aktuelle Anwendungsbereiche geben.
+
+Grundlagen
+Kamerakalibrierung und Transformationen
+Punktwolken und deren Darstellung
+Odometrie und Bewegungsschätzung
+In diesem Abschnitt werden die Grundlagen erklärt, die für das Verständnis von SLAM notwendig sind. Dazu gehört zum Beispiel die Kamerakalibrierung und die Transformationen, die benötigt werden, um die Kamerabilder in eine einheitliche Koordinatensystem zu überführen. Außerdem werden Punktwolken und deren Darstellung erklärt, sowie die Odometrie und Bewegungsschätzung, die es ermöglichen, die Bewegung des Roboters zu schätzen.
+
+SLAM-Algorithmen
+EKF-SLAM
+FastSLAM
+GraphSLAM
+Dieser Abschnitt widmet sich den verschiedenen SLAM-Algorithmen. Hier werden die mathematischen Grundlagen der Algorithmen erläutert und ihre Vor- und Nachteile besprochen. Es werden unter anderem der EKF-SLAM, FastSLAM und GraphSLAM vorgestellt.
+
+Implementierung von SLAM
+Datenakquisition
+Punktwolkengenerierung
+SLAM-Implementierung
+Hier geht es um die praktische Umsetzung von SLAM. Zunächst werden die verschiedenen Methoden zur Datenerfassung vorgestellt. Dann wird erklärt, wie aus den gesammelten Daten eine Punktwolke generiert werden kann. Schließlich werden die verschiedenen Implementierungen von SLAM besprochen.
+
+Evaluierung von SLAM
+Metriken zur Evaluierung von SLAM
+Benchmark-Datensätze
+Performance-Vergleich der SLAM-Algorithmen
+Dieser Abschnitt beschäftigt sich mit der Evaluierung von SLAM. Es werden verschiedene Metriken zur Bewertung der SLAM-Systeme vorgestellt, sowie bekannte Benchmark-Datensätze. Außerdem werden die Performance-Vergleiche der verschiedenen SLAM-Algorithmen besprochen.
+
+Anwendungen von SLAM
+Robotik
+Augmented Reality
+Autonomes Fahren
+Zuletzt werden verschiedene Anwendungsbereiche von SLAM vorgestellt. Hier wird gezeigt, wo SLAM bereits eingesetzt wird, beispielsweise in der Robotik, Augmented Reality oder im autonomen Fahren. Auch zukünftige Anwendungsbereiche können hier angesprochen werden.
+
+Zusammenfassung und Ausblick
+Zusammenfassung der Ergebnisse
+Offene Fragen und zukünftige Entwicklungen

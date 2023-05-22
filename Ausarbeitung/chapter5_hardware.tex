@@ -1,0 +1,132 @@
+\chapter{Hardware Implementierung}
+
+\section{Komponenten}
+
+\begin{itemize}
+    \item{Raspberry Pi 4 1 GB}
+    \item{COEX Clover 4.2}
+\end{itemize}
+
+\section{COEX Clover 4.2}
+Bei der für das Projekt verwendete Drohne handelt es sich um eine Coex Clover Drohne in der Version Clover 4.2. Dies ist eine programmierbare Drohne, die besonders für Bildungszwecke eingesetzt wird. Sie ist sowohl für den Einsatz draußen als auch in Gebäuden geeignet. \\
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=10cm,keepaspectratio,angle=0]{images/coex_clover.jpg}
+    \caption[Coex Clover Drohne]{\label{img coex_clover} Coex Clover Drohne \cite{imgcoexclover}}
+\end{figure}
+
+
+Zu Beginn erhält man hierbei einen Bausatz, welcher dann zu einem Quadrokopter zusammengebaut werden kann. Der Vorteil hierbei ist zudem, dass die gesamte Drohne ohne Löten zusammengesetzt werden kann. Zu den einzelnen Bestandteilen der Drohne kommen noch eine Dokumentation sowie verschiedene Bibliotheken, die es ermöglichen, die Drohne zusammen bauen und fliegen lassen zu können. \\
+Durch die Verwendung verschiedener Open-Source Komponenten lässt sich die Drohne programmieren, wodurch ein vielseitiger Einsatzbereich entsteht.\\
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=10cm,keepaspectratio,angle=0]{images/coex_clover_kit.jpg}
+    \caption[Bausatz Coex Clover Drohne]{\label{img coex_clover_kit} Bausatz Coex Clover Drohne \cite{imgcoexcloverkit}}
+\end{figure}
+
+Die Coex Clover Drohne soll laut Herstellerinformationen bis zu 15 Minuten am Stück fliegen können und in dieser Zeit eine Maximalhöhe von 500 Metern bei einer Höchstgeschwindigkeit von bis zu 72 km/h erreichen können \cite[vgl.][]{coex_clover}.\\
+
+Zu den Hauptbestandteilen der Drohne zählen zum einen ein Raspberry Pi 4 sowie der Flightcontroller Coex Pix. Diese bilden die Grundlage zur Programmierung und Steuerung der Coex Clover Drohne und ermöglichen es zudem, die Drohne drahtlos per WLAN zu verbinden. \\
+Die Drohne ist ein Quadrokopter und besitzt somit vier Motoren, welche einzeln angesteuert werden können. Sie besitzt zudem eine Vielzahl verschiedener Sensoren, auf welche in Kapitel \ref{sensoren:section} genauer eingegangen wird. Zu diesen zählen unter anderem ein Gyroskop, ein Magnetometer sowie ein Laseranstandssensor und eine Kamera, die unten an der Drohne angebracht ist.
+Zum Schutz befindet sich zudem außen einen Rahmen, wie man in Abbildung \ref{img coex_clover} sehen kann.
+Bei der Drohne ist zudem ein 2300 mAh großer Akku dabei, der für die vom Hersteller angegebene Flugdauer sorgen soll.
+Im Folgenden wird nun auf die wichtigsten Bestandteile der Coex Clover Drohne noch einmal genauer eingegangen:
+
+\subsection{Raspberry Pi 4} \label{raspberry_pi:subsection}
+
+Die Coex Clover Drohne, welche für diese Arbeit genutzt wurde, enthält einen Raspberry Pi 4 Model B mit 1 GB Arbeitsspeicher.\\
+Der Raspberry Pi beinhaltet zudem eine austauschbare MicroSD-Karte, auf welche sich in diesem Fall das Raspberry Pi Betriebssysteme befindet. Über diesen ist es unter anderem möglich die Drohne mittels beispielsweise mit Hilfe von Skripten autonom fliegen zu lassen.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm,keepaspectratio,angle=0]{images/raspberry-pi-4-labelled.png}
+    \caption[Raspberry Pi 4]{\label{img raspberry_pi} Raspberry Pi 4 \cite{imgraspberrypi}}
+\end{figure}
+
+
+\subsection{Coex Pix} \label{coex_pix:subsection}
+Der Coex Pix Flightcontroller wird für den Betrieb von Drohnen und anderen Fluggeräten verwendet werden. Es handelt sich hierbei um einen für die Coex Clover Drohne modifizierten Pixracer Flightcontroller, auf welchem zudem eine speziell für die Coex Drohne angepasst PX4 Software (siehe Kapitel \ref{px4:section}) betrieben wird. \\
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=6cm,keepaspectratio,angle=0]{images/coexpix-top.jpg}
+    \caption[Coex Pix]{\label{img coex_pix} Coex Pix \cite{imgcoexpix}}
+\end{figure}
+
+Der Flightcontroller beinhaltet verschiedene Sensoren, hierzu gehören ein Accelerometer, ein Gyroskop, ein Barometer sowie ein Magnetometer (siehe Kapitel \ref{sensoren:section}).
+Eine Besonderheit des Controllers ist es, dass dieser standardmäßig mit einer Ausrichtung von 180° roll und 90° yaw befestigt werden soll. Zudem müssen dementsprechend auch die Parameter von PX4 angepasst werden, sodass die Ausrichtung übereinstimmt. \cite[vgl.][]{coex_pix_fcu}   
+
+
+\todo{Benennung FlightController/... AUFGABE FABI :D -> WIR SCHREIBEn FLIGHTCONTROLLER}
+
+\subsection{Abstandssensor}
+Im Bausatz der Coex Clover Drohne ist der Laseranstandssensor CJMCU-531 VL53L1X enthalten. Der CJMCU-531 Scanner ist ein fortschrittlicher Laser-Ranging-Sensor auf Basis der Time-of-Flight-Technologie. Er zeichnet sich durch seine Schnelligkeit aus und ist der schnellste Miniatur-ToF-Sensor auf dem Markt. Er hat eine präzise Messreichweite von bis zu 4 m und eine Messfrequenz von bis zu 50 Hz.
+Der Sensor hat eine kompakte Größe von 4,9 x 2,5 x 1,56 mm und eignet sich daher für Anwendungen mit Platzproblemen. Er verwendet einen unsichtbaren Laser mit einer Wellenlänge von 940 nm, der aus Sicherheitsgründen als Klasse 1 eingestuft ist. \cite[vgl.][Seite 1]{CJMCU-531}
+
+
+\subsection{Kamera}
+Die Coex Clover Drohne verwendet als Kamera das für den Raspberry Pi entwickeltes OV5647 Modul.
+Diese Kamera ist ein leistungsstarker CMOS-Bildsensor mit einer Auflösung von 5 Megapixeln. Er arbeitet mit einer niedrigen Spannung und nutzt die OmniBSI-Technologie, um eine Videoausgabe mit einer Auflösung von 2592x1944 zu liefern. Der Sensor bietet Flexibilität bei der Aufnahme von Bildern mit unterschiedlichen Auflösungen durch die Steuerung des seriellen Kamerasteuerbusses oder der MIPI-Schnittstelle.
+
+Mit seinem Image Array kann die Kamera eine maximale Betriebsgeschwindigkeit von 15 Bildern pro Sekunde bei voller Auflösung von 2592x1944 erreichen. Über die SCCB-Schnittstelle hat der Anwender die Kontrolle über die Bildqualität, die Datenübertragung und die Kamerafunktionen. Die Implementierung der OmniBSI-Technologie in den Sensor ermöglicht eine verbesserte Leistung ohne Beeinträchtigung der physikalischen und optischen Aspekte. \cite[vgl.][Kapitel 2.1]{OV5647}
+\todo{Abkürzungen in verzeichnis?}
+
+\section{3D Scanner}
+Damit die Drohne auch ihre Umgebung scannen kann und sich im 3D-Raum lokalisieren kann, müssen entsprechende Scanner verwendet werden. Die Drohne selbst besitzt solche Scanner allerdings nicht. Dementsprechend haben wir nach verwendbarer Hardware Ausschau gehalten und uns für die Microsoft HoloLens und die Azure Kinect entschieden.
+
+\subsection{Microsoft HoloLens}
+Die HoloLens 2 von Microsoft ist ein Augmented-Reality-Headset, das eine Vielzahl von Sensoren verwendet, um seine Umgebung zu scannen und ein 3D-Modell der Umgebung zu erstellen. Diese 3D-Modelle werden dann verwendet, um virtuelle Objekte in die reale Welt zu integrieren.
+
+Die HoloLens 2 verwendet mehrere Sensoren, um die Umgebung zu scannen, darunter:
+
+\begin{description}
+    \item[\ac{ToF}-Kamera:]{ Die ToF-Kamera projiziert ein Infrarotlicht auf die Umgebung und misst die Zeit, die das Licht benötigt, um zurückzukehren. Diese Informationen werden verwendet, um die Entfernung zu Objekten in der Umgebung zu berechnen und ein Tiefenbild zu erstellen.}
+    \item[Stereokamera:]{ Die Stereokamera verwendet zwei Kameras, um eine dreidimensionale Ansicht der Umgebung zu erstellen. Durch die Verwendung von zwei Kameras können die Abstände zwischen Objekten in der Umgebung berechnet werden, um ein 3D-Modell zu erstellen.}
+    \item[\ac{IMU}-Sensoren:]{ Die HoloLens 2 verfügt über eine \ac{IMU}, die aus Beschleunigungsmessern und Gyroskopen besteht. Diese Sensoren messen die Bewegung des Headsets, um zu verfolgen, wie es sich im Raum bewegt. Diese Informationen werden verwendet, um das 3D-Modell der Umgebung zu aktualisieren, während sich der Benutzer bewegt.}
+    \item[Umgebungslichtsensor:]{ Der Umgebungslichtsensor misst die Helligkeit der Umgebung, um das 3D-Modell der Umgebung entsprechend anzupassen.}
+\end{description} 
+
+Durch die Verwendung dieser Sensoren kann die HoloLens 2 ein genaues und detailliertes 3D-Modell der Umgebung erstellen und virtuelle Objekte nahtlos in die reale Welt integrieren.
+
+\section{Azure Kinect DK}
+
+Das Azure Kinect DK ist ein System, das für die Erfassung von Tiefenbildern und 3D-Modellen eingesetzt wird. Das System besteht aus einer RGB-Kamera und einer Tiefenkamera, die in Kombination arbeiten, um präzise räumliche Tiefeninformationen zu erfassen und 3D-Modelle zu generieren.
+
+\subsection{Kamera} \label{kamera:section}
+Eine Kamera ist ein Gerät, das in der Lage ist, visuelle Informationen aufzunehmen und zu speichern. Die Funktionsweise einer Kamera basiert auf der Verwendung von optischen Linsen und einem Bildsensor. Das Licht fällt durch die Linse auf den Bildsensor, der das Licht in elektronische Signale umwandelt, die dann von einem Prozessor verarbeitet und in ein digitales Bild umgewandelt werden. Der Prozessor kann auch Funktionen wie Fokussierung, Belichtung und Weißabgleich steuern. Die resultierenden digitalen Bilder können dann gespeichert oder übertragen werden. 
+
+Das Azure Kinect \ac{DK} verwendet 2 Kameras, wie in Auflistung \ref{azure-kamera}.
+
+\begin{description}
+
+    \label{azure-kamera}
+    \item[RGB Kamera] Die RGB-Kamera des Azure Kinect \ac{DK} ist eine hochauflösende Farbkamera, die auf einem 1/2.5" CMOS-Sensor basiert. Die Kamera hat eine Auflösung von 3840 x 2160 Pixeln (4K) und verfügt über einen Rolling-Shutter, der die Bildaufnahme zeilenweise abarbeitet, um Bewegungsunschärfe zu reduzieren. Das System ist in der Lage, Farbinformationen und Texturdaten zu erfassen, die für die Erstellung von 3D-Modellen genutzt werden können.
+    \item[Depth Kamera] Die Tiefenkamera des Azure Kinect \ac{DK} nutzt einen Time-of-Flight-Sensor, um Tiefenbilder zu erfassen. Die Kamera sendet Infrarot-Licht aus, das vom Objekt reflektiert und von der Kamera empfangen wird. Die Zeit, die das Licht braucht, um zum Objekt und zurück zur Kamera zu gelangen, wird gemessen und zur Berechnung der Entfernung genutzt. Die Auflösung der Tiefenkamera beträgt 1024 x 1024 Pixel, was für eine präzise Erfassung der Tiefeninformationen ausreichend ist. Die Tiefenkamera unterstützt verschiedene Modi. Folgende Modi werden unterstützt.
+
+\begin{itemize}
+        \item NFOV\_UNBINNED (NFOV): Normaler Sichtbereich, unbinär (ungebündelt) und unverzerrt. Eignet sich für die meisten Anwendungen und liefert eine präzise Tiefenkarte mit hoher räumlicher Auflösung.
+        \item NFOV\_BINNED (NFOV): Normaler Sichtbereich, binär (gebündelt) und unverzerrt. Bietet eine höhere Bildrate und eignet sich für Anwendungen, die keine hohe räumliche Auflösung benötigen, wie z.B. Körperverfolgung oder Objekterkennung.
+        \item WFOV\_UNBINNED (WFOV): Weitwinkel-Sichtbereich, unbinär und unverzerrt. Bietet eine größere Abdeckung des Sichtbereichs und ist ideal für Anwendungen wie z.B. Umgebungserkennung oder Indoor-Kartierung.
+        \item WFOV\_BINNED (WFOV): Weitwinkel-Sichtbereich, binär und unverzerrt. Bietet eine höhere Bildrate und ist nützlich für Anwendungen wie z.B. Körperverfolgung oder Objekterkennung in einem breiteren Sichtbereich.
+        \item PASSIVE\_IR (IR): Infrarot-Sichtbereich, binär und unverzerrt. Eignet sich für Anwendungen, bei denen Lichtbedingungen schlecht sind oder Infrarot-Signale genutzt werden, wie z.B. bei der Erfassung von Gesten.
+    \end{itemize}
+\end{description}
+
+    
+
+    Durch die Kombination von RGB- und Tiefenkamera ist das Azure Kinect \ac{DK} in der Lage, präzise räumliche Tiefeninformationen zu erfassen und 3D-Modelle zu generieren. Das System kann in einer Vielzahl von Anwendungen eingesetzt werden, wie zum Beispiel in der Robotik, virtuellen Realität und Augmented Reality. Es kann auch für die Erfassung von Bewegungen und Gesten genutzt werden, was in der Computergrafik und im Maschinenlernen von Vorteil ist.
+
+
+    Zusätzlich zur RGB- und Tiefenkamera verfügt das Azure Kinect \ac{DK} auch über eine integrierte Inertial Measurement Unit (\ac{IMU}). Die \ac{IMU} besteht aus einem Beschleunigungsmesser und einem Gyroskop, die Bewegungsdaten erfassen und zur Bestimmung der Orientierung und Position des Geräts im Raum genutzt werden können. Die \ac{IMU} kann auch zur Kompensation von Bewegungsunschärfe und zur Stabilisierung von 3D-Modellen genutzt werden.
+
+\subsection{\acl{IMU}}
+
+Das Azure \ac{DK} enthält eine integrierte \ac{IMU}, die aus einem 3-Achsen-Beschleunigungsmesser und einem 3-Achsen-Gyroskop besteht. Die \ac{IMU} erfasst die Beschleunigung und Rotation des Geräts und liefert entsprechende Daten, die für die Navigation und Stabilisierung verwendet werden können.
+
+Die \ac{IMU} im Azure Kinect \ac{DK} ist speziell darauf ausgelegt, zusammen mit den Kameras des Systems zu arbeiten. Sie ist in der Lage, genaue Daten in Echtzeit zu liefern und kann zur Verbesserung der räumlichen Genauigkeit der Tiefenbilder beitragen. Die \ac{IMU} kann auch in Kombination mit anderen Sensoren und Systemen genutzt werden, um die Bewegung und Position von Geräten und Robotern in Echtzeit zu verfolgen.
+
+
+Insgesamt ermöglicht die Integration einer \ac{IMU} dem Azure Kinect \ac{DK} eine noch präzisere und zuverlässigere Erfassung von Tiefeninformationen und Bewegungsdaten. Dies macht das System zu einem leistungsfähigen Werkzeug für eine Vielzahl von Anwendungen in der Robotik, virtuellen Realität, Augmented Reality und anderen Bereichen, in denen eine genaue räumliche Erfassung erforderlich ist.
+

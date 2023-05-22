@@ -1,0 +1,619 @@
+\chapter{Software Implementierung}
+
+\section{PX4} \label{px4:section}
+PX 4 ist eine Open-Source-Autopilot-Software, welche zur Steuerung verschiedener Arten von Fahrzeugen genutzt werden kann, hierzu zählen beispielsweise verschiedene Drohnenarten, sowie auch Fahrzeuge auf dem Boden und Unterwasserfahrzeuge.\\ Es kann zum einen für bereits flugfähige Drohnen eingesetzt werden. Aber es besteht auch die Möglichkeit, eine neue Drohne in Verbindung mit PX4 zu bauen.\\
+Die Software bietet eine Vielzahl verschiedener Funktionen an, zu diesen gehören unter anderem Wegpunkt-Navigation, Stabilisierung, Missionsplanung und Missionsausführung, Flugüberwachung sowie auch verschiedene Flugmodi.
+Für die Verwendung der PX4 Software kann QGroundControl (siehe Kapitel \ref{qGroundControl:subsection}) verwendet werden. \cite[vgl.][]{px4} \\
+
+Der PX4-Flugstack wurde ursprünglich für die Pixhawk-Hardware entwickelt, allerdings ist es heutzutage auch möglich diesen auf Linux-Computern und anderer Hardware einzusetzen. Wie es auch bei der Coex Clover Drohne mit dem Coex Pix umgesetzt wird. \\
+Die Software setzt Sensoren ein, um den Zustand der Drohne zu bestimmen. Hierfür werden einige Sensoren vorausgesetzt, zu diesen zählen ein Gyroskop, ein Beschleunigungssensor, ein Magnetometer sowie ein Barometer. Zudem ist GPS empfohlen, um weitere Modi nutzen zu können. \cite[vgl.][]{px4}
+
+\subsection{Flugmodi}
+PX4 bietet verschiedene Flugmodi an, welche das Verhalten der jeweiligen Fahrzeuge beziehungsweise Drohnen steuert und auch regelt, wie jeweils auf Benutzereingaben reagiert werden soll. Das Wechseln dieser Flugmodi kann zum einen über die QGroundControl Software (siehe Kapitel \ref{qGroundControl:subsection}) oder auch je nach Anpassung der Fernbedienung, beispielsweise über verschiedene Schalter, auf dieser vollzogen werden. \\
+Allerdings muss auch beachtet werden, dass nicht alle Flugmodi bei allen Drohnen oder Fahrzeugen einsetzbar sind. Ausschlaggebend hierfür ist vor allem die jeweilige Ausstattung sowie auch die Art des Fahrzeuges, da es auch spezifische Flugmodi beispielsweise nur für \ac{UAV}s gibt. Zudem hat jeder Flugmodi bestimmte Bedingungen, die erfüllt sein müssen, beispielsweise Sensoren wie ein Geschwindigkeitssensor. \\
+Die Flugmodi lassen sich in drei Kategorien einteilen, diese sind manuelle, unterstütze sowie automatische Steuerung.
+Da es bei diesem Projekt um den Einsatz einer Drohne handelt, werden im folgenden lediglich die für Drohnen relevanten Flugmodi erläutert.\\
+Zu der manuellen Steuerung, bei welchem der Pilot die Drohne direkt und ohne direkte Unterstützung steuert, gehören unter anderem die Modi 'manuell' beziehungsweise 'stabilisiert'. Diese sorgen für eine stabilisierte horizontale Ausrichtung, jedoch ermöglichen sie es dem Piloten hierbei, das Gaspedal sowie die Roll- und Neigbewegungen selbst zu bestimmen. Zu dieser Kategorie gibt es noch weitere Modi, welche allerdings hauptsächlich für Flugshows genutzt werden.
+Bei der unterstützten Steuerung kann aus zwei verschiedenen Flugmodi gewählt werden, 'ALTCTL (Altitude)' und 'POSCTL (Position)'. Beim ALTCTL-Modi wird besonders die Höhe der Drohne vom Autopilot gesteuert, sodass diese einen möglichst konstanten Abstand zum Boden hält. Dieser Modi benötigt hierfür ein Barometer oder andere Sensoren zur Höhenmessung.
+Der POSCTL dient zum Halten der Position der Drohne, das heißt neben der Höhe werden zudem die Bewegungsgeschwindigkeit nach vorne, hinten und zur Seite gesteuert, um die Drohne möglichst auf einer bestimmten Position zu halten.\\
+Bei der automatischen Steuerung fliegt die Drohne automatische ohne Benutzereingaben mittels eines Programms. Zu dieser Kategorie gehört der 'Offboard'-Modus, hierdurch ist es möglich, dass die Drohne durch einen anderen Computer gesteuert werden kann. Zudem gibt es noch einen Missions-Modus, hierbei kann beispielsweise über QGroundControl ein Pfad geplant werden, welcher dann von der Drohne mittels GPS geflogen wird. \\
+Für das Projekt ist hierbei vor allem der Offboard-Modus von Bedeutung, da dieser benötigt wird, um autonome Flüge mit der Coex Clover Drohne zu machen, da diese von dem Raspberry Pi gesteuert wird. \cite[vgl.][]{flight-modes}
+
+
+\subsection{QGroundControl}  \label{qGroundControl:subsection}
+QGroundControl ist eine Software, welche vor allem für Drohnen mit einem PX4, aber auch anderen Flightcontroller genutzt werden kann. Hierbei bietet es verschiedene Funktionen. Zum einen gehört hierzu die Konfiguration der einzelnen  Drohnen. Desweiteren ist es möglich, mit der Software verschiedene Flugmodi auszuwählen, sowie diese dann auch während des Fluges zu überwachen, beispielsweise durch die Anzeige der Flugposition auf einer Karte sowie auch deren Geschwindigkeit und andere Sensordaten.
+Es ist auch möglich, mit QGroundControl eine ganze Flugplanung zu machen, welche die Drohne daraufhin umsetzt. \cite[vgl.][]{qGroundControl}
+
+
+\section{Systemarchitektur}\label{systemarchitektur:section}
+
+\subsection{Allgemeine Systemarchitektur eines ROS Programms} \label{systemarchitektur_ros_programm:subsection}
+Das \ac{ROS} hat den Bereich der Robotik revolutioniert, indem es einen robusten und flexiblen Rahmen für die Entwicklung komplexer Robotersysteme bietet. Das Herzstück von \ac{ROS} ist seine ausgeklügelte Systemarchitektur, die das Zusammenspiel zwischen verschiedenen Komponenten orchestriert und eine nahtlose Kommunikation und Koordination ermöglicht.
+
+\subsubsection{Zentrale Konzepte von ROS} \label{zentrale_konzepte:subsubsection}
+\begin{description}
+    \item[Nodes:] Nodes sind autonome Softwaremodule, die bestimmte Aufgaben innerhalb eines ROS-Systems übernehmen. Sie kommunizieren miteinander, indem sie Nachrichten zu Themen veröffentlichen und abonnieren oder indem sie Services aufrufen und bereitstellen. Nodes können über mehrere Maschinen verteilt sein und bilden so ein verteiltes System. (Siehe Kapitel \ref{nodes:subsection})
+    
+    \item[Topics:] Topics sind benannte Busse, über die Nodes Nachrichten austauschen. Nachrichten werden von einem oder mehreren Nodes in Topics veröffentlicht und von Nodes abonniert, die am Empfang der Daten interessiert sind. Topics verwenden ein Publish-Subscribe-Messaging-Muster, das eine asynchrone Kommunikation ermöglicht und die Sender- und Empfängernodes entkoppelt. (Siehe Kapitel \ref{topics:subsection})
+    
+    \item[Messages:] Nachrichten sind die Datenstrukturen, die für die Kommunikation zwischen Nodes verwendet werden. Sie werden in ROS mithilfe der Interface-Definition Language (IDL) oder Nachrichtenbeschreibungsdateien (.msg) definiert. Nachrichten können einfach sein, z. B. numerische Werte oder Zeichenketten, oder komplex, bestehend aus verschachtelten Strukturen und Arrays. (Siehe Kapitel \ref{messages:subsection})
+    
+    \item[Services:] Services ermöglichen eine synchrone Anfrage-Antwort-Kommunikation zwischen Nodes. Ein Node bietet einen Service an, und andere Node können Anfragen an ihn senden. Die Dienstnode verarbeitet dann die Anforderung und sendet eine Antwort an den anfordernden Node zurück. Services werden mithilfe von .srv-Dateien definiert und folgen einem Client-Server-Kommunikationsmuster.
+\end{description}
+
+\subsubsection{Ebenen der ROS-Systemarchitektur} \label{ebenen_ros_systemarchitektur:subsubsection}
+\begin{description}
+    \item[Dateisystem-Ebene:] Die Dateisystem-Ebene in \ac{ROS} spielt eine entscheidende Rolle bei der Organisation und Verwaltung der für die Entwicklung von Roboteranwendungen erforderlichen Ressourcen. Sie bietet eine hierarchische Struktur und Paketverwaltungsfunktionen, die es Entwicklern ermöglichen, ihren Code, ihre Konfigurationsdateien, Startdateien und Daten effizient zu organisieren. Die \ac{ROS} Filesystem-Ebene dient als Grundlage für den Aufbau modularer und wiederverwendbarer Softwarekomponenten innerhalb des \ac{ROS}-Ökosystems.
+
+    Der Kern der \ac{ROS} Filesystem-Ebene ist das Konzept der Pakete. Ein Paket in \ac{ROS} ist eine Verzeichnisstruktur, die eine Sammlung zusammengehöriger Dateien enthält, einschließlich Code, Konfigurationsdateien und Datenressourcen. Pakete bieten einen modularen Ansatz zur Organisation von Code und erleichtern die Wiederverwendung von Code über verschiedene Projekte hinweg. Sie kapseln eine bestimmte Funktionalität oder ein Merkmal und können unabhängig entwickelt, getestet und verteilt werden.
+    
+    Die \ac{ROS}-Dateisystem-Ebene folgt einem auf Konventionen basierenden Ansatz für die Organisation von Paketen. Ein typisches \ac{ROS}-Paket enthält eine Manifest-Datei namens package.xml, die Metadaten und Abhängigkeiten für das Paket enthält. Darüber hinaus folgt die Verzeichnisstruktur des Pakets einem bestimmten Layout, mit Verzeichnissen wie src für Quellcode, launch für Startdateien, msg für Nachrichten-Definitionsdateien und config für Konfigurationsdateien. Diese einheitliche Struktur verbessert die Zusammenarbeit und ermöglicht es den Entwicklern, Ressourcen innerhalb eines Pakets leicht zu finden und darauf zuzugreifen. \cite[vgl.][]{ros-Packages}
+    
+    Die Paketverwaltungswerkzeuge in \ac{ROS} bieten wichtige Funktionen für die Verwaltung von Paketen. Das Werkzeug rospack ermöglicht es Benutzern, Pakete im Dateisystem zu finden und Informationen über ihre Abhängigkeiten abzurufen. Es hilft beim Auffinden von Paketpfaden, beim Abrufen von Paket-Metadaten und beim Auflösen von Paketabhängigkeiten. Das Werkzeug rosdep kümmert sich um die Installation von Paketabhängigkeiten, indem es automatisch die von \ac{ROS}-Paketen benötigten Abhängigkeiten auf Systemebene auflöst und installiert.
+    
+    Darüber hinaus unterhält die \ac{ROS}-Community ein zentrales Paket-Repository, den \ac{ROS} Package Index (https://index.ros.org/packages/). Der \ac{ROS} Package Index ist eine umfassende Sammlung von \ac{ROS}-Paketen, die von Entwicklern weltweit zur Verfügung gestellt werden. Er dient als wertvolle Ressource für die Entdeckung und den Austausch von Paketen und fördert die Zusammenarbeit und die Wiederverwendung von Code innerhalb des \ac{ROS}-Ökosystems.
+    
+    \cite[vgl.][]{filesystem}
+    
+    
+    \item[Computation-Graph-Ebene:] Die Computation-Graph-Ebene ist eine grundlegende Komponente der \ac{ROS}-Architektur, die den Datenfluss und die Interaktionen zwischen den Nodes orchestriert. Sie bietet eine visuelle Darstellung der Beziehungen zwischen Nodes, Topics und Services und ermöglicht eine nahtlose Kommunikation und Koordination innerhalb eines \ac{ROS}-Systems.
+
+    Die Computation-Graph-Ebene bildet das Rückgrat von \ac{ROS} und erleichtert die Weitergabe von Nachrichten, die Synchronisation und die Koordination zwischen den Nodes. Sie verwendet eine gerichtete Graphenstruktur, bekannt als ROS-Graph, um die Verbindungen und Abhängigkeiten zwischen den verschiedenen Komponenten eines \ac{ROS}-Systems darzustellen. Dieser Graph ermöglicht es Entwicklern, die Architektur des Systems zu visualisieren und zu verstehen, wie Informationen zwischen den Nodes fließen. Der ROS-Graph besteht aus Nodes, Topics und Services.
+    
+    Die Computation-Graph-Ebene bietet mehrere Werkzeuge und Dienstprogramme zur Verwaltung und Visualisierung des ROS-Graphen. Eines der wichtigsten Werkzeuge ist roscore, das als Master-Node im ROS-System fungiert. Es verwaltet die Registrierung von Knoten, die Erkennung von Themen und Diensten und erleichtert den Aufbau von Verbindungen zwischen Herausgebern und Abonnenten.
+    
+    Ein weiteres wichtiges Werkzeug ist rqt\_graph, das den ROS-Graphen in Echtzeit visualisiert. Es zeigt die Knoten und ihre Verbindungen an und bietet eine visuelle Darstellung des Kommunikationsflusses innerhalb des \ac{ROS}-Systems. Entwickler können mit diesem Tool den Zustand des Systems überwachen, Engpässe erkennen und Probleme im Zusammenhang mit der Nachrichtenübermittlung und der Koordination zwischen den Nodes beheben. \cite[vgl.][]{rqt-graph}
+    
+    Darüber hinaus hat die \ac{ROS}-Gemeinschaft zusätzliche Visualisierungstools entwickelt, wie z. B. rviz, das eine 3D-Visualisierungsumgebung für Roboter und ihre Umgebung bereitstellt. rviz ermöglicht Entwicklern die Anzeige von Sensordaten, Robotermodellen und anderen visuellen Elementen und unterstützt so die Analyse und Fehlersuche in komplexen Robotersystemen.
+    
+    \cite[vgl.][]{computationGraph}
+    
+    \item[Client-Libraries-Ebene:] Die Client-Libraries-Ebene bietet High-Level-Abstraktionen und Programmierschnittstellen für Entwickler zur Interaktion mit dem System. \ac{ROS} bietet Client-Bibliotheken in mehreren Programmiersprachen, darunter C++, Python und andere, wodurch es für eine Vielzahl von Entwicklern zugänglich ist.
+
+    Die Client-Libraries-Ebene dient als Brücke zwischen den zugrunde liegenden Systemkomponenten und der von den Entwicklern implementierten Anwendungslogik. Sie vereinfacht den Entwicklungsprozess, indem sie gebrauchsfertige Funktionen und Klassen bereitstellt, die die Komplexität des \ac{ROS}-Systems abstrahieren.
+    
+    Die Hauptaufgabe der Client-Libraries-Ebene besteht darin, Entwicklern die Möglichkeit zu geben, ROS-Nodes zu erstellen und mit anderen Nodes über Topics und Services zu kommunizieren. Die Client-Libraries-Ebene bietet APIs zum Erstellen, Konfigurieren und Verwalten von Nodes innerhalb eines \ac{ROS}-Systems. Sie ermöglichen es Entwicklern, Topics zu veröffentlichen und zu abonnieren, Services aufzurufen und bereitzustellen und auf den ROS-Parameter-Server für die dynamische Konfiguration zuzugreifen.
+    
+    Die C++-Client-Bibliothek, bekannt als roscpp, bietet eine leistungsstarke und effiziente Programmierschnittstelle für die Entwicklung von ROS-Nodes in C++. Sie bietet Funktionen wie Publisher, Subscriber, Services, Timer und Callbacks, die es Entwicklern ermöglichen, verschiedene Aspekte der Kommunikation und Steuerung innerhalb ihrer Anwendungen zu handhaben. \cite[vgl.][]{roscpp}
+    
+    Die Python-Client-Bibliothek rospy bietet eine komfortable und intuitive Schnittstelle für die Entwicklung von ROS-Nodes in Python. Sie bietet ähnliche Funktionen wie roscpp und ermöglicht Entwicklern die Erstellung von Publishern, Subscribern, Diensten und den Zugriff auf Parameter. \cite[vgl.][]{rospy}
+    
+    Die Client-Libraries-Ebene enthält auch zusätzliche Bibliotheken und Tools, die die Entwicklungserfahrung verbessern. Mit dem roslaunch-Tool können Benutzer beispielsweise Launchdateien definieren und verwalten, was die Initialisierung und Konfiguration von \ac{ROS}-Systemen vereinfacht. Die rospy-Bibliothek bietet Dienstprogramme für das Zeitmanagement, die Protokollierung und die Verwaltung des Lebenszyklus von Nodes. \cite[vgl.][]{roslaunch}
+    
+    Darüber hinaus ermöglicht die Client-Libraries-Ebene die Interoperabilität und Kommunikation zwischen Nodes, die in verschiedenen Programmiersprachen implementiert sind. \ac{ROS} bietet eine gemeinsame Nachrichten-Definitionssprache, die es den Nodes ermöglicht, Daten in einem standardisierten Format auszutauschen. Die Nachrichten-Definitionsdateien werden verwendet, um sprachspezifischen Code für die Serialisierung und Deserialisierung von Nachrichten zu erzeugen.
+    
+    \cite[vgl.][]{client-libraries}
+   
+    
+    \item[Tools-Schicht:] \ac{ROS}  bietet eine Vielzahl von Werkzeugen, die bei der Entwicklung, Fehlersuche und Analyse von ROS-Programmen helfen. Tools wie RViz bieten 3D-Visualisierungsfunktionen, mit denen Entwickler den Zustand und die Umgebung des Roboters visualisieren können. Andere Tools wie rosbag ermöglichen die Aufzeichnung und Wiedergabe von Nachrichtendaten zur Offline-Analyse und Fehlersuche.
+    
+    \cite[vgl.][]{ros-tools}
+    
+    \item[Betriebssystem-Schicht:] Die Betriebssystemschicht stellt die zugrundeliegende Infrastruktur bereit, die für den Betrieb von \ac{ROS} notwendig ist, einschließlich Hardwareabstraktion, Gerätetreiber und Prozessmanagement. \ac{ROS}  ist mit verschiedenen Betriebssystemen wie Linux, macOS und Windows kompatibel und gewährleistet so die Portabilität über verschiedene Plattformen hinweg.
+    
+    \cite[vgl.][]{ROSIntroduction}
+
+\end{description}
+
+\subsubsection{Schlüsselkomponenten von ROS} \label{schluesselkomponente:subsubsection}
+\begin{description}
+    \item[ROS-Master:] Der ROS-Master ist eine entscheidende Komponente in der Architektur von \ac{ROS}, die eine zentrale Koordinations- und Kommunikationsdrehscheibe für ROS-Nodes innerhalb eines Systems darstellt. Er dient als zentraler Punkt für die Registrierung und Erkennung von ROS-Nodes, die Verwaltung von Topics und Services und die Erleichterung der Kommunikation zwischen ihnen.
+
+    Der ROS-Master fungiert als Benennungsdienst, der es den Nodes ermöglicht, ihre Namen und Informationen zu registrieren. Wenn eine Node startet, kontaktiert sie den ROS-Master, um ihre Anwesenheit anzukündigen und Details wie ihren Namen, ihren Netzwerkstandort und die Topics und Services, die sie anbietet oder benötigt, mitzuteilen. Dieser Registrierungsprozess ermöglicht es anderen Nodes, die registrierten Nodes zu entdecken und Verbindungen mit ihnen herzustellen.
+    
+    Eine der Hauptaufgaben des ROS-Masters ist die Verwaltung der Veröffentlichung und des Abonnements von Topics. Wenn eine Node Daten in einem bestimmten Topic veröffentlichen möchte, registriert er das Topic beim ROS-Master zusammen mit dem zugehörigen Nachrichtentyp. Andere Nodes, die am Empfang der Daten interessiert sind, können sich dann über den ROS-Master für dieses Topic anmelden. Der ROS-Master erleichtert die Herstellung von Verbindungen zwischen Publishern und Subscribern und sorgt für eine zuverlässige und effiziente Übertragung von Nachrichten zwischen ihnen.
+    
+    Der ROS-Master spielt auch eine entscheidende Rolle bei der Verwaltung der Registrierung und Entdeckung von ROS-Services. Nodes können Services bereitstellen, die bestimmte Funktionen oder Informationen anbieten. Andere Nodes können diese Services aufrufen, um Aktionen oder Daten anzufordern. Der ROS-Master behält den Überblick über die verfügbaren Services und ermöglicht es den Nodes, die entsprechenden Serviceanbieter zu finden und sich mit ihnen zu verbinden.
+
+    \cite[vgl.][]{ros-master}
+    
+    \item[Launch-System:] Das Launch System ist ein leistungsfähiges Werkzeug, das den Prozess des Startens und Verwaltens mehrerer ROS-Nodes und ihrer zugehörigen Parameter und Konfigurationen vereinfacht. Es bietet eine bequeme und flexible Möglichkeit, komplexe \ac{ROS}-Systeme zu starten, zu konfigurieren und erleichtert zudem die Verwaltung von Abhängigkeiten und den gleichzeitigen Start mehrerer Nodes.
+
+    Das Launch System verwendet XML-basierte Launchdateien, um die Konfigurations- und Startanforderungen der Nodes zu spezifizieren. Diese Launchdateien enthalten eine Reihe von Anweisungen, die definieren, welche Nodes gestartet werden sollen, welche Parameter gesetzt werden sollen, welche Topic neu zugeordnet werden sollen und andere notwendige Konfigurationen. Launchdateien bieten einen strukturierten und wiederverwendbaren Ansatz zum Starten von ROS-Nodes und erleichtern die Verwaltung komplexer Systemkonfigurationen.
+
+    \cite[vgl.][]{roslaunch}
+    
+    \item[Parameter-Server:] Der Parameter-Server ist ein zentrales Speicher- und Abrufsystem für die von den ROS-Nodes verwendeten Konfigurationsparameter. Er dient als gemeinsam genutzte, globale Datenbank, auf die alle Nodes innerhalb eines \ac{ROS}-Systems zugreifen können und die es ihnen ermöglicht, ihr Verhalten dynamisch zu konfigurieren und gemeinsame Einstellungen zu nutzen.
+
+    Der Parameter Server ermöglicht es den Nodes, Schlüssel-Wert-Paare zu speichern und abzurufen, wobei die Schlüssel String-Identifikatoren sind und die Werte von verschiedenen Typen sein können, z. B. Ganzzahlen, Fließkommazahlen, Boolesche Werte, Strings und Listen. Nodes können den Parameter-Server verwenden, um Parameter zu speichern, die ihr Verhalten beeinflussen, wie Schwellenwerte, Verstärkungen, Kalibrierungswerte oder Konfigurationseinstellungen.
+    
+    ROS-Nodes können auf den Parameter-Server zugreifen, um Parameterwerte während der Laufzeit abzurufen. Sie können Parameter beim Start lesen oder ihr Verhalten dynamisch aktualisieren, indem sie den Parameter Server während des Betriebs abfragen. Dank dieser Flexibilität können sich die Nodes an veränderte Bedingungen anpassen oder neu konfiguriert werden, ohne dass der Code geändert oder neu kompiliert werden muss.
+
+    \cite[vgl.][]{parameter-server}
+    
+    
+    \item[ROS-Bags:] ROS-Bags sind eine leistungsstarke Funktion, die es Benutzern ermöglicht, von ROS-Nodes generierte Daten aufzuzeichnen und wiederzugeben. Sie bieten eine flexible und effiziente Möglichkeit, einen Stream von \ac{ROS}-Nachrichten zu erfassen und zu speichern, um Offline-Analysen, Debugging und die Wiedergabe von Simulationen zu ermöglichen.
+
+    ROS-Bags sind im Wesentlichen ein Format zur Speicherung von \ac{ROS}-Nachrichten in einer zeitlich geordneten Abfolge. Sie können als eine Art Datenprotokoll betrachtet werden, das die Eingaben und Ausgaben eines \ac{ROS}-Systems während der Laufzeit aufzeichnet. ROS-Bags können Nachrichten aus verschiedenen Themenbereichen gleichzeitig aufzeichnen und bieten so eine umfassende Darstellung des Systemverhaltens.
+    
+    Der Hauptzweck der Verwendung von ROS-Bags besteht darin, Offline-Analysen und Debugging zu ermöglichen. Durch die Aufzeichnung der Nachrichten, die während eines bestimmten Laufs oder Experiments zwischen den Nodes ausgetauscht werden, können die Benutzer die aufgezeichneten Daten später wieder abspielen, um detaillierte Analysen oder Fehlersuchaufgaben durchzuführen. Dies ist besonders nützlich bei der Fehlersuche in komplexen Szenarien oder bei der Analyse von Systemverhalten, das sich nur schwer in Echtzeit reproduzieren lässt.
+
+    \cite[vgl.][]{ros-bags}
+\end{description}
+
+\subsection{Starten eines ROS Programms} \label{starten eines ROS Programms:subsection}
+    Zum Starten verschiedener Nodes in \ac{ROS} wird das ROS-eigene Tool roslaunch verwendet. Roslaunch ist ein mächtiges Werkzeug für die Konfiguration, das Starten und die Überwachung von ROS-Paketen und -Nodes. Mit roslaunch können Entwickler schnell und einfach Nodes starten, indem sie eine XML-Datei erstellen, die alle notwendigen Konfigurationen enthält. Die XML-Datei wird als Launch-Datei bezeichnet und wird in der Regel von Entwicklern erstellt, um eine oder mehrere ROS-Knoten gleichzeitig zu starten und zu konfigurieren.
+
+    Ein großer Vorteil von roslaunch ist seine Portabilität. Mit Launch-Dateien können Entwickler ROS-Pakete und -Nodes problemlos auf verschiedenen Systemen starten und konfigurieren, unabhängig von der Plattform oder Architektur. Dies erleichtert die Entwicklung von ROS-Software für verschiedene Roboter- und Hardware-Plattformen erheblich. \cite{roslaunch}
+
+    Der Befehl, mit welchem man roslauch aufruft, sieht wie folgt aus:
+    
+    \textit{\$ roslaunch package\_name file.launch}
+
+\section{Softwarearchitektur} \label{softwarearchitektur:section}
+
+In der Abbildung \ref{img ros_communication} ist eine Übersicht der Kommunikation zwischen den verschiedenen Komponenten in \ac{ROS} zu sehen. \\
+Hauptbestandteil sind hierbei vor allem die Nodes der Hauptkamera beziehungsweise der Azure Kinect sowie auch Mavros. \\
+Mavros ist ein ROS-Paket, welches die Kommunikation zwischen dem Raspberry Pi und der Drohne mit Hilfe des MAVLink-Protokolls (siehe Kapitel \ref{mavlink}) ermöglicht. Es unterstützt dabei unter anderem den PX4 Flightstack, welcher in der Coex Clover Drohne vorhanden ist. Die Kommunikation kann hierbei wie bei MAVLink auch über \ac{USB} oder auch über Wifi stattfinden. \cite[vgl.][]{mavros}\\
+Im nachfolgenden wird nun genauer auf die einzelnen Komponenten sowie den Ablauf der ROS Kommunikation (siehe \ref{img ros_communication}) eingegangen. \\
+
+\begin{description}
+    \item[simple\_offboard:]{simple\_offboard ermöglicht eine einfache Interaktion mit der Drohne. Das Modul hierzu vereinfacht das Programmieren von Skripten für autonome Flüge mit Drohnen mit Hilfe des Flugmodus Offboard. \cite[vgl.][]{simple_offboard}}
+    \item[mavros:]{Die Mavros Node ist für die Kommunikation zwischen dem Raspberry Pi und dem Flightcontroller zuständig.\\
+    Hierfür gibt es viele verschiedene Topics, welche jeweils für den Austausch von unterschiedlichen Informationen verantwortlich sind.\\
+    Diese Topics werden im Namespace '\textbackslash mavros' zusammengefasst, zu diesen zählen unter anderem:\\
+    \textbackslash mavros\textbackslash state: gibt den Status der Verbindung zwischen Raspberry Pi und Flightcontroller sowie den aktuellen Flugmodus an.\\
+    \textbackslash mavros\textbackslash battery: enthält verschiedene Parameter und Nachrichten zur Batterie. Hierzu zählen der aktuelle Ladezustand, die verbleibende Kapazität, die Spannung oder auch die geschätzte Restflugzeit der Drohne.\\
+    \textbackslash mavros\textbackslash local\_position\textbackslash pose: enthält die lokale Position sowie die aktuelle Orientierung der Drohne in einem Koordinatensystem.\\
+    \textbackslash mavros\textbackslash setpoint\_attitude\textbackslash attitude: enthält die Informationen zum Einstellen der Fluglage. \cite[vgl.][]{mavros}}
+    \item[main\_camera:]{Von dem Azure Kinect ROS Treiber werden zwei Topics übergeben, diese sind: \\
+    '\textbackslash main\_camera\textbackslash image\_raw', über dieses Topic werden die Rohbilder der Kamera gesendet. Zudem noch '\textbackslash main\_camera\textbackslash image\_info', über welches die Kamerainformationen übertragen werden. [\citetitle[vgl.][]{kinect_ros_driver}]}
+\end{description}
+ 
+    \begin{landscape}
+        \begin{figure}
+            \includegraphics[width=\paperwidth,keepaspectratio]{images/graph_ros.pdf}
+            \caption[Übersicht ROS Kommunikation]{\label{img ros_communication} Übersicht ROS Kommunikation [eigene Darstellung]}
+        \end{figure}
+    \end{landscape}
+
+
+Der prinzipielle Ablauf bei der Kommunikation in Abbildung \ref{img ros_communication} wird von der mavros Node gestartet, denn diese bildet mit der Kommunikation zwischen ROS auf dem Raspberry Pi und dem PX4 des Flightcontrollers die Grundlage. Zudem bietet der Einsatz der simple\_offboard Node die Möglichkeit zur Nutzung eigener Skripte, wodurch die Drohne autonom fliegen und navigieren kann. Diese beiden Nodes kommunizieren untereinander mit Hilfe der vielen verschiedenen Mavros-Nodes, um Informationen und Parameter auszutauschen. Die simple\_offboard-Node kann zudem verschiedene Koordinatensysteme anfordern, welche von den Nodes aus dem main\_camera-Namespace kommen und mit Hilfe des \textbackslash tf-Topics transformiert werden. Diese Koordinatensysteme werden nun über die vpe\_publisher-Node an Mavros, sowie im weiteren Verlauf auch der simple\_offboard-Node übermittelt. Dadurch kann das Skript die Drohne anhand der Koordinaten navigieren und die Drohne dementsprechend zu der gewollten Position fliegen.
+ 
+
+\section{Kalibrierung der COEX Drohne} \label{kalibrierung_coex__drohne:subsection}
+\subsection{Kalibrierung der IMU}
+\begin{description}
+    \item[Kompass] Bevor man mit der Kompasskalibrierung beginnen kann, muss man sicherstellen, dass sich keine großen Metallobjekte oder starken Magnetfelder in direkter Nähe der Drohne befinden. Startet man nun mit der Kalibrierung, so wird einem in QGroundControl angegeben, wie man diese durchzuführen hat. Um mit der Kompasskalibrierung zu beginnen, positioniert man die Drohne entsprechend den angegebenen roten Ausrichtungen. Zudem muss man sicherstellen, dass die Drohne in der gewählten Ausrichtung stehen bleibt. Wenn man dazu aufgefordert wird, dreht man die Drohne um die angegebene Achse in eine oder beide Richtungen. In QGroundControl sieht die Kalibrierung so aus, wie es in Abbildung \ref{fig:compass-calibration} gezeigt wird.
+
+    Während die Kalibrierung für die aktuelle Ausrichtung fortschreitet, wechselt das entsprechende Bild auf dem Bildschirm von rot zu grün und zeigt damit die erfolgreiche Kalibrierung an. Diese Schritte wiederholt man dann für alle von QGroundControl angegebenen Orientierungen.
+    \begin{figure}[H]
+        \includegraphics[width=\textwidth]{./images/qgc-cal-compass.png}
+        \caption{Kompass Kalibrierung in QGroundControl}\label{fig:compass-calibration}
+    \end{figure}
+    
+    \item[Gyroscope] Bei der Kalibrierung der Gyroscope stellt man die Drohne auf eine ebene Oberfläche. Nun startet man die Kalibrierung in QGroundControl. Während der Kalibrierung muss die Drohne absolut ruhig stehen gelassen werden. Ist QGroundControl mit der Kalibrierung fertig, so wird Calibration complete angegeben.
+    
+    \item[Accelerometer] Für die Kalibrierung der Accelerometer muss man ebenfalls den Anweisungen von QGroundControl folgen. Hierfür muss die Drohne entsprechend der Bilder in QGroundControl positioniert werden, siehe \ref{fig:accel-calibration}. Wenn man durch das gelbe Ausrichtungsbild dazu aufgefordert wird, mass man die Drohne ruhig halten. Sobald die Kalibrierung für die aktuelle Ausrichtung abgeschlossen ist, wechselt das entsprechende Bild auf dem Bildschirm zu grün. Diese Schritte wiederholt man dann für alle angegebenen Orientierungen der Drohne.
+    \begin{figure}[H]
+        \includegraphics[width=\textwidth]{./images/qgc-cal-accelerometer.png}
+        \caption{Accelerometer Kalibrierung in QGroundControl}\label{fig:accel-calibration}
+    \end{figure}
+
+\end{description}
+
+
+
+\subsection{Kalibrierung der ESC}
+Elektronische Drehzahlregler (ESCs) sind für die Steuerung der Geschwindigkeit und Richtung der Motoren auf der Grundlage des PWM-Eingangs vom Flightcontroller verantwortlich. Es ist wichtig zu beachten, dass der Bereich der Eingänge, auf die ESCs reagieren können, einstellbar ist und sogar ESCs desselben Modells unterschiedliche Standardbereiche haben können.
+
+Um ein einheitliches und synchronisiertes Verhalten zu gewährleisten, ist eine Kalibrierung erforderlich. Dieser Prozess beinhaltet die Aktualisierung aller Regler mit den maximalen und minimalen PWM-Eingangswerten, die vom Flightcontroller geliefert werden. Das Ergebnis ist, dass alle Regler und Motoren über den gesamten Eingangsbereich gleichmäßig auf die Eingaben des Flightcontrollers reagieren.
+
+Bevor man mit der Kalibrierung starten kann, muss man die Propeller von der Drohne entfernen. Dies ist eine wesentliche Sicherheitsvorkehrung, um versehentliche Bewegungen während des Kalibrierungsvorgangs zu vermeiden.
+
+Nun trennt man den Akku von der Drohne und stellt über ein USB-Kabel eine Verbindung zwischen dem Flightcontroller und dem Computer her. Zudem muss man sicherstellen, dass diese Verbindung dauerhaft erhalten bleibt und während der Kalibrierung nicht unterbrochen wird.
+
+In QGroundControl wird dann die Kalibrierung gestartet. Dazu folgt man den Anweisungen und Aufforderungen von QGroundControl.
+
+Sobald man von QGroundControl dazu aufgefordert wird, schließt man die Batterie an die Drohne an. Dieser Schritt ist entscheidend, da er den automatischen Beginn des Kalibrierungsprozesses ermöglicht.
+
+Sobald die Kalibrierung abgeschlossen ist, erhält man von QGroundControl eine Meldung über den erfolgreichen Abschluss des Kalibrierungsvorgangs.
+
+\subsection{Kalibrierung der PID-Regler}
+Das Setup für die PID-Abstimmung in QGroundControl bietet Echtzeit-Diagramme, die die Sollwert- und Reaktionskurven des Fahrzeugs anzeigen. Das Ziel der Abstimmung ist es, die P/I/D-Werte so fein abzustimmen, dass die Reaktionskurve eng mit der Sollwertkurve übereinstimmt und eine schnelle Reaktion ohne überschwingen gewährleistet ist.
+
+Die Regler sind in Schichten organisiert, wobei ein übergeordneter Regler seine Ergebnisse an einen untergeordneten Regler weitergibt. Der Geschwindigkeitsregler ist der unterste Regler, gefolgt vom Lageregler und schließlich dem Geschwindigkeits- und Positionsregler. Es ist wichtig, die PID-Abstimmung in dieser Reihenfolge durchzuführen, beginnend mit dem Geschwindigkeitsregler, da sie sich auf alle anderen Regler auswirkt.
+
+Das Testverfahren für jeden Regler (rate, attitude, velocity/posibition) und jede Achse (yaw, roll, pitch) bleibt gleich. Dabei wird eine schnelle Sollwertänderung durch schnelles Bewegen der Steuerknüppel erzeugt und die Reaktion beobachtet. Dann werden die Schieberegler angepasst, um die Nachführung der Reaktion auf den Sollwert zu verbessern.
+
+Um die PID-Werte der Drohne mit QGroundControl einzustellen, beginnt man damit, die Drohne zu starten, normalerweise im Positionsmodus. Sobald sich das Fahrzeug im Schwebeflug befindet, fährt man mit den folgenden Schritten fort.
+
+Nun wird  das QGroundControl Vehicle Setup geöffnet und man navigiert zum Abschnitt PID Tuning in der QGC Rate Controller Tuning UI. Vor Beginn der Kalibrierung muss man sich vergewissern, dass der Auswahlschalter für den Flugmodus auf Deaktiviert eingestellt ist. Dadurch wird sichergestellt, dass sich das Fahrzeug im richtigen Modus für die Abstimmung befindet.
+
+Nun wählt man die Option Roll im Optionsfeld Select Tuning. Dadurch wird der Abstimmungsprozess auf die Rollachse konzentriert.
+Für die Abstimmung des Geschwindigkeitsreglers muss man in den Acro-Modus, den Stabilized-Modus oder den Altitude-Modus wechseln, sofern die automatische Umschaltung nicht aktiviert ist.
+
+Sobald man den entsprechenden Modus eingestellt hat, startet man die Kalibrierung. Dadurch wird die Verfolgung der Sollwert- und Reaktionskurven eingeleitet, wodurch Echtzeitdiagramme erstellt werden.
+
+Um die Reaktion zu bewerten, bewegt man den Steuerknüppel schnell über den gesamten Bereich und beobachtet die Sprungantwort in den angezeigten Diagrammen. So kann man beurteilen, wie das Verhalten des Fahrzeugs mit dem gewünschten Sollwert übereinstimmt.
+
+Jetzt kommt der Teil der Abstimmung. Man verwendet die Schieberegler auf der Benutzeroberfläche, um die drei PID-Werte MC\_ROLLRATE\_K, MC\_ROLLRATE\_I, und MC\_ROLLRATE\_D zu ändern. Diese Werte steuern die Proportional-, Integral- bzw. Derivativ-Komponenten des Reglers. Nun beobachtet man die Sprungantwort erneut, nachdem man die Schieberegler eingestellt hat. Die geänderten Werte werden sofort im Fahrzeug gespeichert, wenn man die Schieberegler bewegt.
+
+Die Kalibrierung wiederholt man dan für die Nick- und Gierachse und geht dabei die gleichen Schritte wie zuvor durch. Dadurch wird sichergestellt, dass jede Achse für eine optimale Leistung richtig eingestellt ist. Zudem wiederholt man die Kalibrierung auch für den Lage-, Geschwindigkeits- und Positionsregler auf allen Achsen.
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{./images/qgc_mc_pid_tuning_rate_controller.950965c8.png}
+    \caption{PID-Regler Kalibrierung in QGroundControl}\label{fig:accelerometer-calibration}
+\end{figure}
+
+\section{3D Modell} \label{3d_modell:section}
+Um die Drohne auch in der Simulation unter echten Bedingungen fliegen zu lassen, müssen die realen Gegebenheiten in die Simulation übertragen werden. Um dies zu bewerkstelligen, muss ein 3D-Modell der Räume erstellt werden, in welchen sich die Drohne bewegen soll.
+    \subsection{3D Scan} \label{3d-scan:subsection}
+
+        \subsubsection{Microsoft HoloLens 2} \label{hololens:subsubsection}
+        Um ein 3D-Modell des Raumes mit der Microsoft HoloLens 2 zu erstellen, muss man die integrierte Mixed-Reality-Capture-Funktion der HoloLens 2 verwenden.
+        
+        Die Mixed-Reality-Capture-Funktion der HoloLens 2 ist eine integrierte Funktion, mit der Benutzer die Möglichkeit haben, die Hologramme, die von der HoloLens 2 dargestellt werden, in Echtzeit aufzuzeichnen und zu teilen. Diese Funktion ermöglicht es Benutzern, ihre Augenbewegungen und Handlungen in einer virtuellen Umgebung aufzuzeichnen, um sie mit anderen zu teilen oder für zukünftige Referenz oder Analyse zu speichern. Die Mixed-Reality-Capture-Funktion der HoloLens 2 kann auch für die Erstellung von Immersive-Mixed-Reality-Videoinhalten verwendet werden, indem sie es ermöglicht, virtuelle Hologramme in eine reale Umgebung zu integrieren. Dies kann für verschiedene Anwendungen wie zum Beispiel für die Erstellung von virtuellen Touren, für die Präsentation von Produkten oder für die Unterhaltungsindustrie eingesetzt werden.
+
+        Um das 3D-Modell zu erstellen und zu speichern muss man das Window-Geräteportal verwenden. Hierfür muss die HoloLens zunächst in den Entwicklermodus geschaltet werden. Zudem benötigt man die IP-Adresse der HoloLens. Nun kann man sich im Webbrowser auf das Geräteportal der HoloLens anmelden (https://<Hololens\_IP\_Adresse>). Ist man mit dem Geräteportal verbunden, kann man dort den 3D-Scan starten. Nun muss man sich mit der HoloLens in der zu scannenden Umgebung bewegen, um die Umgebung komplett und möglichst detailgetreu zu erfassen. Ist der Scann abgeschlossen kann man das 3D-Modell von der HoloLens auf den PC als .obj Datei herunterladen.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=1]{images/modell_zimmer_hololens.png}
+            \caption[3D Modell mit HoloLens 2]{\label{img modell_hololens} 3D Modell mit HoloLens 2 [eigene Darstellung]}
+        \end{figure}
+
+        Es ist wichtig zu beachten, dass die Qualität des erstellten 3D-Modells von verschiedenen Faktoren abhängt, wie z.B. der Beleuchtung im Raum und der Genauigkeit des Scans. Eine sorgfältige Vorbereitung des Raums und eine langsame, gründliche Durchführung des Scans können dazu beitragen, ein genaueres und detaillierteres 3D-Modell zu erstellen.
+        \subsubsection{Azure Kinect \ac{DK}} \label{kinect:subsubsection}
+        Für das Scannen der Umgebung und die Erstellung des 3D-Modells mit der Azure Kinect wurde ein anderer Ansatz gewählt als bei der Verwendung der HoloLens. Anstelle eines im Voraus erstellten 3D-Modells wird das Modell in Echtzeit erstellt. Ermöglicht wird dies durch die Verwendung von \ac{VSLAM}, wie im Kapitel \ref{SLAM:section} über \ac{SLAM} beschrieben.
+
+        Mit \ac{VSLAM} ist es nicht mehr notwendig, die Umgebung im Voraus zu scannen. Stattdessen werden die Tiefen- und Bildinformationen in Echtzeit erfasst, während sich die Azure Kinect durch den Raum bewegt. Durch die kontinuierliche Verarbeitung dieser Informationen kann das 3D-Modell der Umgebung Schritt für Schritt erstellt und aktualisiert werden.
+
+        Ein großer Vorteil von \ac{VSLAM} ist, dass es nicht nur die Erstellung des 3D-Modells, sondern auch die Echtzeitberechnung der eigenen Position innerhalb des Modells ermöglicht. Dies wird durch die kontinuierliche Verschmelzung von Tiefendaten und Bildinformationen erreicht, um sowohl die Bewegung der Kamera als auch die räumliche Struktur der Umgebung zu verfolgen.
+
+    \subsection{3D Modell Vorbereitung} \label{3d_modell_vorbereitung:subsection}
+    Da das von der HoloLens erstellte 3D-Modell keine homogenen Oberflächen beinhaltet, sondern sich nur aus übereinandergelegten einzelnen Flächen zusammensetzt, muss das Modell noch überarbeitet werden, um die entstandenen 'Löcher' im Scan zu füllen.
+    
+    Hierfür wurde zunächst eine Neuberechnung der Normalen der Punkte der Punktwolke durchgeführt. Dadurch wird die Orientierung und Ausrichtung der Oberfläche genauer erfasst. Dies trug dazu bei, Unstimmigkeiten oder Verzerrungen im Modell zu minimieren. Danach wurde die Punktwolke bereinigt. Das bedeutet, dass Ausreißer, Rauschen und andere unerwünschte Punkte in der Punktwolke erkannt und entfernt wurden. Dadurch verbessert sich die Qualität und Genauigkeit der Punktwolke. Zum Schluss wurde mit dem Poisson-Verfahren eine reibungslose und konsistente Oberfläche aus der bereinigten Punktwolke erstellt. Dieses Verfahren basiert auf mathematischen Modellen und ermöglicht die rekonstruktive Glättung und Verschmelzung der Punktdaten. Durch die Anwendung des Poisson-Verfahrens wurde eine hochwertige Oberflächenrekonstruktion erreicht, die eine realistische Darstellung des Modells gewährleistet.
+
+\section{Umsetzung SLAM und MAVROS} \label{slam:section}
+\subsection{Azure Kinect ROS Driver \& SDK}
+
+Um die Umsetzung von \ac{SLAM} an der COEX Drohne zu ermöglichen, muss zuerst die Azure Kamera ihre Daten für ROS bereitstellen. Dazu wird der Azure ROS Driver verwendet. Beim Azure Kinect ROS Driver handelt es sich um ein Kit von Microsoft, dass den proprietären Treiber des Azure Kinect SDKs anspricht und eine ROS Node erstellt, die die Daten der Azure Kamera für ROS verfügbar macht. Der ROS Treiber stellt Sensor Daten in folgenden Formaten zur Verfügung.
+
+\begin{itemize}
+    \item PointCloud2, optional gefärbt mithilfe der Kamera
+    \item Rohe Farb, Tiefen und Infrarot Bilder. Beinhaltet auch Kalibrierungsinfo der Kamera
+    \item kombiniertes Tiefenbild in Farbkameraauflösung
+    \item kombiniertes Farbbild in Tiefenkameraauflösung
+    \item \ac{IMU} Sensordaten
+    \item \ac{TF}2 Model, was die extrinsische Kalibrierung der Kamera repräsentiert
+\end{itemize}
+
+Mit dem Code aus dem Auszug \ref{lst:azurepublish} kann der Code dann an andere \ac{ROS} Nodes nach dem \ac{ROS} Publish und Subscribe Pattern veröffentlicht werden.
+
+Bevor die Azure ROS Driver jedoch publishen kann, muss noch der Driver gestartet werden. Dies funktioniert mit einer \ac{ROS} Launch File. In diesem Launchfile werden alle Kameraoptionen gesetzt. Ein Beispiel der Launchfile ist in \ref{lst:driverlaunch}
+\cite[vgl. ]{kinect_ros_driver}
+
+\begin{roslaunch}[breaklines=true,label=lst:driverlaunch,caption={Azure ROS Driver Start}]
+    <!--
+    Copyright (c) Microsoft Corporation. All rights reserved.
+    Licensed under the MIT License.
+    -->
+    
+    <launch>
+      <arg name="tf_prefix"         default="" />                       <!-- Prefix added to tf frame IDs. It typically contains a trailing '_' unless empty. -->
+      <arg name="overwrite_robot_description" default="true" />         <!-- Flag to publish a standalone azure_description instead of the default robot_descrition parameter-->
+    
+      <group if="$(arg overwrite_robot_description)">
+        <param name="robot_description"
+          command="xacro $(find azure_kinect_ros_driver)/urdf/azure_kinect.urdf.xacro tf_prefix:=$(arg tf_prefix)" />
+        <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+      </group>
+    
+      <group unless="$(arg overwrite_robot_description)">
+        <param name="azure_description"
+          command="xacro $(find azure_kinect_ros_driver)/urdf/azure_kinect.urdf.xacro tf_prefix:=$(arg tf_prefix)" />
+        <node name="joint_state_publisher_azure" pkg="joint_state_publisher" type="joint_state_publisher">
+          <remap from="robot_description" to="azure_description" />
+        </node>  
+        <node name="robot_state_publisher_azure" pkg="robot_state_publisher" type="robot_state_publisher">
+          <remap from="robot_description" to="azure_description" />
+        </node>
+      </group>
+    
+      <arg name="depth_enabled"           default="true" />           <!-- Enable or disable the depth camera -->
+      <arg name="depth_mode"              default="WFOV_UNBINNED" />  <!-- Set the depth camera mode, which affects FOV, depth range, and camera resolution. See Azure Kinect documentation for full details. Valid options: NFOV_UNBINNED, NFOV_2X2BINNED, WFOV_UNBINNED, WFOV_2X2BINNED, and PASSIVE_IR -->
+      <arg name="depth_unit"              default="16UC1" />          <!-- Depth distance units. Options are: "32FC1" (32 bit float metre) or "16UC1" (16 bit integer millimetre) -->
+      <arg name="color_enabled"           default="true" />           <!-- Enable or disable the color camera -->
+      <arg name="color_format"            default="bgra" />           <!-- The format of RGB camera. Valid options: bgra, jpeg -->
+      <arg name="color_resolution"        default="1536P" />          <!-- Resolution at which to run the color camera. Valid options: 720P, 1080P, 1440P, 1536P, 2160P, 3072P -->
+      <arg name="fps"                     default="5" />              <!-- FPS to run both cameras at. Valid options are 5, 15, and 30 -->
+      <arg name="point_cloud"             default="true" />           <!-- Generate a point cloud from depth data. Requires depth_enabled -->
+      <arg name="rgb_point_cloud"         default="true" />           <!-- Colorize the point cloud using the RBG camera. Requires color_enabled and depth_enabled -->
+      <arg name="point_cloud_in_depth_frame" default="false" />        <!-- Whether the RGB pointcloud is rendered in the depth frame (true) or RGB frame (false). Will either match the resolution of the depth camera (true) or the RGB camera (false). -->
+      <arg name="required"                default="false" />          <!-- Argument which specified if the entire launch file should terminate if the node dies -->
+      <arg name="sensor_sn"               default="" />               <!-- Sensor serial number. If none provided, the first sensor will be selected -->
+      <arg name="recording_file"          default="" />               <!-- Absolute path to a mkv recording file which will be used with the playback api instead of opening a device -->
+      <arg name="recording_loop_enabled"  default="false" />          <!-- If set to true the recording file will rewind the beginning once end of file is reached -->
+      <arg name="body_tracking_enabled"           default="false" />  <!-- If set to true the joint positions will be published as marker arrays -->
+      <arg name="body_tracking_smoothing_factor"  default="0.0" />    <!-- Set between 0 for no smoothing and 1 for full smoothing -->
+      <arg name="rescale_ir_to_mono8"  default="false" />    <!-- Whether to rescale the IR image to an 8-bit monochrome image for visualization and further processing. A scaling factor (ir_mono8_scaling_factor) is applied. -->
+      <arg name="ir_mono8_scaling_factor"  default="1.0" />    <!-- Scaling factor to apply when converting IR to mono8 (see rescale_ir_to_mono8). If using illumination, use the value 0.5-1. If using passive IR, use 10. -->
+      <arg name="imu_rate_target" default="0"/>                       <!-- Desired output rate of IMU messages. Set to 0 (default) for full rate (1.6 kHz). --> 
+      <arg name="wired_sync_mode" default="0"/>                       <!-- Wired sync mode. 0: OFF, 1: MASTER, 2: SUBORDINATE. --> 
+      <arg name="subordinate_delay_off_master_usec" default="0"/>     <!-- Delay subordinate camera off master camera by specified amount in usec. --> 
+    
+      <node pkg="azure_kinect_ros_driver" type="node" name="azure_kinect_ros_driver" output="screen" required="$(arg required)">
+        <param name="depth_enabled"     type="bool"   value="$(arg depth_enabled)" />
+        <param name="depth_mode"        type="string" value="$(arg depth_mode)" />
+        <param name="depth_unit"        type="string" value="$(arg depth_unit)" />
+        <param name="color_enabled"     type="bool"   value="$(arg color_enabled)" />
+        <param name="color_format"      type="string" value="$(arg color_format)" />
+        <param name="color_resolution"  type="string" value="$(arg color_resolution)" />
+        <param name="fps"               type="int"    value="$(arg fps)" />
+        <param name="point_cloud"       type="bool"   value="$(arg point_cloud)" />
+        <param name="rgb_point_cloud"   type="bool"   value="$(arg rgb_point_cloud)" />
+        <param name="point_cloud_in_depth_frame"   type="bool"   value="$(arg point_cloud_in_depth_frame)" />
+        <param name="sensor_sn"         type="string" value="$(arg sensor_sn)" />
+        <param name="tf_prefix"         type="string" value="$(arg tf_prefix)" />
+        <param name="recording_file"          type="string" value="$(arg recording_file)" />
+        <param name="recording_loop_enabled"  type="bool"   value="$(arg recording_loop_enabled)" />
+        <param name="body_tracking_enabled"           type="bool"   value="$(arg body_tracking_enabled)" />
+        <param name="body_tracking_smoothing_factor"  type="double" value="$(arg body_tracking_smoothing_factor)" />
+        <param name="rescale_ir_to_mono8" type="bool" value="$(arg rescale_ir_to_mono8)" />
+        <param name="ir_mono8_scaling_factor" type="double" value="$(arg ir_mono8_scaling_factor)" />
+        <param name="imu_rate_target" type="int" value="$(arg imu_rate_target)"/>
+        <param name="wired_sync_mode" type="int" value="$(arg wired_sync_mode)"/>
+        <param name="subordinate_delay_off_master_usec" type="int" value="$(arg subordinate_delay_off_master_usec)"/>
+      </node>
+</launch>
+\end{roslaunch}
+\lstlistingname{ Azure Kinect ROS Driver starten mit roslaunch}
+
+\subsection{ORB-SLAM3 ROS}
+
+Die Informationen von den Azure Kinect ROS Driver Kamera Nodes werden an einen \ac{VSLAM} Node für ORB-SLAM3 gesendet. Dazu verwendet die SLAM Node die \ac{IMU}, Farb und Tiefenbilder von der Azure Kinect.
+Mittels \textit{rosrun ORB\_SLAM3\ RGBD PATH\_TO\_VOCABULARY PATH\_TO\_SETTINGS\_FILE} kann die Node gestartet werden.
+Das ORB Vocabulary ist dabei bereits im Source Code vorhanden.
+\cite[vgl.]{ORBSLAM3TRO}
+
+Die Position die ORB-SLAM3 schätzt kann dann mittels MAVROS an die Drohne übermittelt werden.
+Die ORB-SLAM3 Node sendet hierzu, wie in Auszug \ref{lst:orbslammavros} die geschätzte Position an das Topic \textit{/mavros/setpoint\_position/local}.
+
+\begin{figure}
+\begin{python}[breaklines=true, label=lst:orbslammavros,caption={ORB-SLAM3 Publisher zu MAVROS}]
+import rospy
+from geometry_msgs.msg import PoseStamped
+
+def pose_callback(data):
+    setpoint_pub.publish(data)
+
+rospy.init_node('orb_slam_to_mavros')
+setpoint_pub = rospy.Publisher('/mavros/setpoint_position/local', PoseStamped, queue_size=10)
+rospy.Subscriber('/ORB_SLAM3/pose', PoseStamped, pose_callback)
+rospy.spin()
+\end{python}
+\end{figure}
+
+
+
+\begin{python}[breaklines=true,label=lst:azurepublish, caption={Azure Kamera Publisher zu ORB-SLAM3}]
+    
+import rospy
+from sensor_msgs.msg import Image, CameraInfo
+
+def image_callback(data):
+    image_pub.publish(data)
+
+def camera_info_callback(data):
+    camera_info_pub.publish(data)
+
+rospy.init_node('azure_to_orb_slam')
+image_pub = rospy.Publisher('/camera/color/image_raw', Image, queue_size=10)
+camera_info_pub = rospy.Publisher('/camera/color/camera_info', CameraInfo, queue_size=10)
+rospy.Subscriber('/azure_kinect_ros_driver/color_image', Image, image_callback)
+rospy.Subscriber('/azure_kinect_ros_driver/color_camera_info', CameraInfo, camera_info_callback)
+rospy.spin()
+
+\end{python}
+
+\subsection{MAVROS}
+
+MAVROS ermöglicht es Verbindung mit dem Autopiloten der Drohne über das MAVLink Protokoll herzustellen. Um über ROS Topics und Messages über MAVLink kommunizieren zu können, muss eine MAVROS Node gestartet werden.
+
+Die MAVROS Node stellt die Funktionalitäten des Autopilots \ac{ROS} zur Verfügung. Um MAVROS zu starten wird eine Launchfile wie \ref{lst:mavroslaunch} verwendet. In ihr werden die Topic Namen definiert, die zur Kommunikation gepublished werden sollen. Außerdem werden dort die Verbindungsparameter zum Autopilot definiert. Die ORB-SLAM3 Node schickt die geschätzte Position zu diesen Topics. Dazwischen wird jedoch noch die \ac{TF} Bibliothek von \ac{ROS} verwendet, die die Posen zwischen den verwendeten Koordinatensystemem transformiert. 
+
+
+
+\begin{roslaunch}[breaklines=true, label=lst:mavroslaunch,caption={MAVROS starten}]
+    <launch>
+    <arg name="fcu_conn" default="usb"/> <!-- options: usb, uart, tcp, udp, sitl, hitl -->
+    <arg name="fcu_ip" default="127.0.0.1"/>
+    <arg name="fcu_sys_id" default="1"/>
+    <arg name="gcs_bridge" default="tcp"/>
+    <arg name="viz" default="true"/>
+    <arg name="respawn" default="true"/>
+    <arg name="distance_sensor_remap" default="rangefinder/range"/>
+    <arg name="usb_device" default="/dev/px4fmu"/>
+    <arg name="prefix" default="" unless="$(eval fcu_conn == 'usb')"/>
+    <arg name="prefix" default="rosrun clover waitfile $(arg usb_device)" if="$(eval fcu_conn == 'usb')"/>
+
+    <node pkg="mavros" type="mavros_node" name="mavros" launch-prefix="$(arg prefix)" required="false" clear_params="true" respawn="$(arg respawn)" unless="$(eval fcu_conn == 'none')" respawn_delay="1" output="screen">
+        <!-- UART connection -->
+        <param name="fcu_url" value="/dev/ttyAMA0:921600" if="$(eval fcu_conn is None or fcu_conn == 'uart')"/>
+
+        <!-- USB connection -->
+        <param name="fcu_url" value="$(arg usb_device)" if="$(eval fcu_conn == 'usb')"/>
+
+        <!-- sitl before PX4 1.9.0 -->
+        <param name="fcu_url" value="udp://@$(arg fcu_ip):14557" if="$(eval fcu_conn == 'udp')"/>
+
+        <!-- sitl since PX4 1.9.0 -->
+        <param name="fcu_url" value="udp://@$(arg fcu_ip):14580" if="$(eval fcu_conn == 'sitl')"/>
+
+        <!-- hitl connection (to gazebo_mavlink_interface plugin) -->
+        <param name="fcu_url" value="udp://$(arg fcu_ip):14540@" if="$(eval fcu_conn == 'hitl')"/>
+
+        <!-- set target_system_id -->
+        <param name="target_system_id" value="$(arg fcu_sys_id)" />
+
+        <!-- gcs bridge -->
+        <param name="gcs_url" value="tcp-l://0.0.0.0:5760" if="$(eval gcs_bridge == 'tcp')"/>
+        <param name="gcs_url" value="udp://0.0.0.0:14550@14550" if="$(eval gcs_bridge == 'udp')"/>
+        <param name="gcs_url" value="udp-b://$(env ROS_HOSTNAME):14550@14550" if="$(eval gcs_bridge == 'udp-b')"/>
+        <param name="gcs_url" value="udp-pb://$(env ROS_HOSTNAME):14550@14550" if="$(eval gcs_bridge == 'udp-pb')"/>
+        <param name="gcs_url" value="" if="$(eval not gcs_bridge)"/>
+        <param name="gcs_quiet_mode" value="true"/>
+        <param name="conn/timeout" value="8"/>
+
+        <!-- basic params -->
+        <rosparam command="load" file="$(find clover)/launch/mavros_config.yaml"/>
+
+        <!-- remap rangefinder -->
+        <remap from="mavros/distance_sensor/rangefinder_sub" to="$(arg distance_sensor_remap)" if="$(eval bool(distance_sensor_remap))"/>
+
+        <rosparam param="plugin_whitelist">
+            - altitude
+            - command
+            - distance_sensor
+            - ftp
+            - global_position
+            - imu
+            - local_position
+            - manual_control
+            # - mocap_pose_estimate
+            - param
+            - px4flow
+            - rc_io
+            - setpoint_attitude
+            - setpoint_position
+            - setpoint_raw
+            - setpoint_velocity
+            - sys_status
+            - sys_time
+            - vision_pose_estimate
+            # - vision_speed_estimate
+            # - waypoint
+        </rosparam>
+    </node>
+
+    <!-- remapped distance_sensor config -->
+    <rosparam param="$(arg distance_sensor_remap)" if="$(eval bool(distance_sensor_remap))">
+        subscriber: true
+        id: 1
+        orientation: PITCH_270
+        covariance: 1  # cm
+    </rosparam>
+
+    <!-- Rangefinders frame -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="rangefinder_frame" args="0 0 -0.05 0 1.5707963268 0 base_link rangefinder"/>
+
+    <!-- Copter visualization -->
+    <node name="visualization" pkg="mavros_extras" type="visualization" if="$(arg viz)">
+        <remap to="mavros/local_position/pose" from="local_position"/>
+        <remap to="mavros/setpoint_position/local" from="local_setpoint"/>
+        <param name="fixed_frame_id" value="map"/>
+        <param name="child_frame_id" value="base_link"/>
+        <param name="marker_scale" value="1"/>
+        <param name="max_track_size" value="20"/>
+        <param name="num_rotors" value="4"/>
+    </node>
+</launch>
+$
+\end{roslaunch}
+
+
+
+
+\section{Navigation} \label{navigation:section} 
+Eine Navigation beziehungsweise eine Bahnplanung mit Hilfe des \ac{SLAM}-Algorithmus konnte auf dem Raspberry Pi nicht umgesetzt werden, da dieser bereits für die Ausführung des \ac{SLAM}-Algorithmus zu geringe Leistung aufweist. Aus diesem Grund wurde die Bahnplanung für die Drohne nicht umgesetzt. Theoretisch hätte die Bahnplanung mit Algorithmen wie Dijkstra, A** oder ähnlichem durchgeführt werden können.
+
+
+
+\section{Simulation} \label{simulation:section}
+Da es aufgrund der Probleme lange Zeit unmöglich war die Drohne stabil zu fliegen, hat man sich dazu entschlossen, die Drohne zunächst einmal in einer Simulation zu steuern. Als Simulator hat man sich für Gazebo (siehe \ref{gazebo:subsubsection}) entschieden. \\
+\\
+\textbf{Warum Gazebo}\\
+Gazebo bietet eine hochrealistische Umgebung für die Simulation von Robotern und deren Interaktion mit der physischen Welt. Es ermöglicht die Simulation von Sensoren, Aktoren und physikalischen Eigenschaften von Robotern. Der Hauptgrund für die Verwendung von Gazebo war, dass es eine Gazebo-ROS-Bridge gibt, die es ermöglicht, Gazebo und ROS miteinander zu verbinden. Die Bridge ermöglicht eine Kommunikation zwischen der Gazebo-Simulation und den ROS-Komponenten. Dadurch können ROS-Knoten Informationen aus der Simulation empfangen und Befehle an die virtuellen Roboter senden. \\
+
+Für die Coex Clover Drohne steht eine bereits existierende Simulationsumgebung für Gazebo zur Verfügung. In dieser Umgebung können die meisten Funktionen der echten Drohne genutzt werden. Die Simulation basiert auf dem PX4-SIL-Modus und verwendet den gleichen ROS-Code wie die tatsächliche Drohne. Zudem werden die meisten Hardwarekomponenten in der Simulation präzise emuliert. Wichtige Bestandteile der Umgebung sind folgende:
+
+\begin{description}
+    \item[Hochwertiges visuelles Clover 4 Modell:] Die Umgebung bietet ein hochwertiges visuelles Modell der Clover 4 Drohne. Dieses Modell gibt das Aussehen und das Design der tatsächlichen Drohne genau wieder und sorgt so für ein realistisches und realitätsnahes Simulationserlebnis. 
+    
+    \item[Gazebo Plugins für Clover-spezifische Hardware:] Um die einzigartigen Hardware-Funktionen der Clover-Drohne zu simulieren, sind Gazebo-Plugins enthalten. Diese Plugins ermöglichen die Simulation spezifischer Hardwarekomponenten. Durch die Integration dieser Plugins können Benutzer das Verhalten und die Funktionalität der Hardware der Clover-Drohne während der Simulationen genau nachbilden.
+    
+    \item[Beispielmodelle und Welten:] Die Umgebung bietet eine Sammlung von Beispiel\-modellen und -welten. Diese vorgefertigten Modelle und Umgebungen dienen als Vorlagen und Beispiele, die verschiedene Szenarien und Konfigurationen zeigen, die als Grundlage für die Erstellung komplexerer Simulationen verwendet werden können.
+    
+    \item[Roslaunch-Dateien zum Starten der Simulationen:] Die Umgebung beinhaltet einige Launchdateien. Diese Dateien ermöglichen einen schnellen und einfachen Start von Simulationen und automatisieren die Konfigurations- und Initialisierungsschritte. Durch die Verwendung von Roslaunch-Dateien kann die Simulationen mit vordefinierten Einstellungen schnell gestartet werden.   
+\end{description}
+
+Startet man nun mittels des Launchbefehls (siehe \ref{starten eines ROS Programms:subsection})von \ac{ROS} die Gazebo-Simulation mit der Coex Clover Umgebung, so wird in Gazebo automatisch eine Welt erstellt, in der die Drohne mit all ihren Funktionen platziert ist.
+
+Um die Drohne dann unter realen Bedingung zu steuern, muss das von der HoloLens aufgenommene 3D-Modell der realen Umgebung in die Simulation eingefügt und die Drohne darin platziert werden. Wie bei der realen Drohne kann man die Parameter der simulierten Drohne mit QGroundControl konfigurieren und die Drohne starten.
+
+Nachdem man die Simulatin mit Coex Clover Drohne gestartet hat, hat man das \ac{ROS}-System wie in \ref{softwarearchitektur:section} gestartet.
+Die Mavros-Node erhält die entsprechenden Daten allerdings nicht von den Sensoren der echten Drohne, sondern nimmt sich die Werte aus der Simulation. Zudem lässt sich über die 'simple\_offboard-Node' die selberstellten Skripte verwenden, um die simulierte Drohne zu steuern. Ein Beispielskript ist hierfür in \ref{lst:steuerungDrohne} zu sehen.
+
+Die Simulation ist in großen Zügen bereits von Clover vordefiniert. Im ROS Package clover Simulation was im Github Repo \cite{coex_clover_git} zu finden ist, befinden sich die Launchfiles. Es sind sowohl Launchfiles für die Simulation, wie auch für die direkte Verwendung auf der Drohne vorhanden.\\
+
+
+
+\begin{python}[breaklines=true, label=lst:steuerungDrohne, caption={ Pythonskript zum Steuern der Drohne}]
+import rospy
+import math
+from math import nan
+import signal
+import sys
+from clover import srv
+from std_srvs.srv import Trigger
+from sensor_msgs.msg import Range
+from util import handle_response
+
+rospy.init_node('test_nav', disable_signals=True) # disable signals to allow interrupting with ctrl+c
+
+get_telemetry = rospy.ServiceProxy('get_telemetry', srv.GetTelemetry)
+navigate = handle_response(rospy.ServiceProxy('navigate', srv.Navigate))
+navigate_global = handle_response(rospy.ServiceProxy('navigate_global', srv.NavigateGlobal))
+set_position = handle_response(rospy.ServiceProxy('set_position', srv.SetPosition))
+set_velocity = handle_response(rospy.ServiceProxy('set_velocity', srv.SetVelocity))
+set_attitude = handle_response(rospy.ServiceProxy('set_attitude', srv.SetAttitude))
+set_rates = handle_response(rospy.ServiceProxy('set_rates', srv.SetRates))
+land = handle_response(rospy.ServiceProxy('land', Trigger))
+
+def interrupt(sig, frame):
+    print('\nInterrupted, landing...')
+    land()
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, interrupt)
+
+def navigate_wait(x=0, y=0, z=0, yaw=nan, yaw_rate=0, speed=0.5, \
+        frame_id='body', tolerance=0.2, auto_arm=False):
+
+    res = navigate(x=x, y=y, z=z, yaw=yaw, yaw_rate=yaw_rate, speed=speed, \
+        frame_id=frame_id, auto_arm=auto_arm)
+
+    if not res.success:
+        return res
+
+    while not rospy.is_shutdown():
+        telem = get_telemetry(frame_id='navigate_target')
+        if math.sqrt(telem.x ** 2 + telem.y ** 2 + telem.z ** 2) < tolerance:
+            return res
+        rospy.sleep(0.2)
+
+def print_distance():
+    dist = rospy.wait_for_message('rangefinder/range', Range).range
+    print('Distance: {:.2f}'.format(dist))
+
+input('Flight Show[enter] ')
+navigate_wait(z=1, frame_id='body', auto_arm=True)
+print_distance()
+print('x=2')
+navigate_wait(x=2, frame_id='navigate_target')
+print('z=1')
+navigate_wait(z=1, frame_id='body', auto_arm=True)
+print_distance()
+print('x=0')
+navigate_wait(x=0, frame_id='navigate_target')
+print('z=-1')
+navigate_wait(z=-1, frame_id='body', auto_arm=True)
+print_distance()
+start = get_telemetry()
+
+input('Land [enter]')
+land()
+\end{python}
+
