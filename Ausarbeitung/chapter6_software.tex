@@ -147,24 +147,19 @@ Hauptbestandteil sind hierbei vor allem die Nodes der Hauptkamera beziehungsweis
 Mavros ist ein ROS-Paket, welches die Kommunikation zwischen dem Raspberry Pi und der Drohne mit Hilfe des MAVLink-Protokolls (siehe Kapitel \ref{mavlink}) ermöglicht. Es unterstützt dabei unter anderem den PX4 Flightstack, welcher in der Coex Clover Drohne vorhanden ist. Die Kommunikation kann hierbei wie bei MAVLink auch über \ac{USB} oder auch über Wifi stattfinden. \cite[vgl.][]{mavros}\\
 Im nachfolgenden wird nun genauer auf die einzelnen Komponenten sowie den Ablauf der ROS Kommunikation (siehe \ref{img ros_communication}) eingegangen. \\
 
-simple\_offboard: \\
-simple\_offboard ermöglicht eine einfache Interaktion mit der Drohne. Das Modul hierzu vereinfacht das Programmieren von Skripten für autonome Flüge mit Drohnen mit Hilfe des Flugmodus Offboard. \cite[vgl.][]{simple_offboard}\\
-
-mavros: \\
-Die Mavros Node ist für die Kommunikation zwischen dem Raspberry Pi und dem Flightcontroller zuständig.\\
-Hierfür gibt es viele verschiedene Topics, welche jeweils für den Austausch von unterschiedliche Informationen verantwortlich sind.\\
-Diese Topics werden im Namespace "\textbackslash mavros" zusammengefasst, zu diesen zählen unter anderem:\\
-\textbackslash mavros\textbackslash state: gibt den Status der Verbindung zwischen Raspberry Pi und Flightcontroller sowie den aktuellen Flugmodus an.\\
-\textbackslash mavros\textbackslash battery: enthält verschiedene Parameter und Nachrichten zur Batterie. Hierzu zählen der aktuelle Ladezustand, die verbleibende Kapazität, die Spannung oder auch die geschätzte Restflugzeit der Drohne.\\
-\textbackslash mavros\textbackslash local\_position\textbackslash pose: enthält die lokale Position sowie die aktuelle Orientierung der Drohne in einem Koordinatensystem.\\
-\textbackslash mavros\textbackslash setpoint\_attitude\textbackslash attitude: enthält die Informationen zum Einstellen der Fluglage. \cite[vgl.][]{mavros}\\
+\begin{description}
+    \item[simple\_offboard:]{simple\_offboard ermöglicht eine einfache Interaktion mit der Drohne. Das Modul hierzu vereinfacht das Programmieren von Skripten für autonome Flüge mit Drohnen mit Hilfe des Flugmodus Offboard. \cite[vgl.][]{simple_offboard}}
+    \item[mavros:]{Die Mavros Node ist für die Kommunikation zwischen dem Raspberry Pi und dem Flightcontroller zuständig.\\
+    Hierfür gibt es viele verschiedene Topics, welche jeweils für den Austausch von unterschiedliche Informationen verantwortlich sind.\\
+    Diese Topics werden im Namespace "\textbackslash mavros" zusammengefasst, zu diesen zählen unter anderem:\\
+    \textbackslash mavros\textbackslash state: gibt den Status der Verbindung zwischen Raspberry Pi und Flightcontroller sowie den aktuellen Flugmodus an.\\
+    \textbackslash mavros\textbackslash battery: enthält verschiedene Parameter und Nachrichten zur Batterie. Hierzu zählen der aktuelle Ladezustand, die verbleibende Kapazität, die Spannung oder auch die geschätzte Restflugzeit der Drohne.\\
+    \textbackslash mavros\textbackslash local\_position\textbackslash pose: enthält die lokale Position sowie die aktuelle Orientierung der Drohne in einem Koordinatensystem.\\
+    \textbackslash mavros\textbackslash setpoint\_attitude\textbackslash attitude: enthält die Informationen zum Einstellen der Fluglage. \cite[vgl.][]{mavros}}
+    \item[main\_camera:]{Von dem Azure Kinect ROS Treiber werden zwei Topics übergeben, diese sind: \\
+    "\textbackslash main\_camera\textbackslash image\_raw", über dieses Topic werden die Rohbilder der Kamera gesendet. Zudem noch "\textbackslash main\_camera\textbackslash image\_info", über welches die Kamerainformationen übertragen werden. [\citetitle[vgl.][]{kinect_ros_driver}]}
+\end{description}
  
-main\_camera: \\
-Von dem Azure Kinect ROS Treiber werden zwei Topics übergeben, diese sind: \\
-"\textbackslash main\_camera\textbackslash image\_raw", über dieses Topic werden die Rohbilder der Kamera gesendet. Zudem noch "\textbackslash main\_camera\textbackslash image\_info", über welches die Kamerainformationen übertragen werden. [\citetitle[vgl.][]{kinect_ros_driver}]\\
-
-    %\includepdf[landscape=true]{images/graph_ros.pdf}
-    %\caption[Übersicht ROS Nodes]{\label{img ros_nodes_graph} Übersicht ROS Nodes [eigene Darstellung]}
     \begin{landscape}
         \begin{figure}
             \includegraphics[width=\paperwidth,keepaspectratio]{images/graph_ros.pdf}
@@ -179,7 +174,7 @@ Der prinzipielle Ablauf bei der Kommunikation in Abbildung \ref{img ros_communic
 \section{Kalibrierung der COEX Drohne} \label{kalibrierung_coex__drohne:subsection}
 \subsection{Kalibrierung der IMU}
 \begin{description}
-    \item[Kompass] Bevor man mit der Kompasskallibrierung beginnen kann, muss man sicherstellen, dass sich keine großen Metallobjekte oder starke Magnetfelder in direkter Nähe der Drohne befinden. Startet man nun mit der Kallibrierung, so wird einem in QGroundControl angegeben, wie man diese Durchzuführen hat. Um mit der Kompasskalibrierung zu beginnen, positioniert man die Drohne entsprechend den angegebenen roten Ausrichtungen. Zudem muss man sicherstellen, dass die Drohne in der gewählten Ausrichtung stehen bleibt. Wenn man dazu aufgefordert wird, drehen man die Drohne um die angegebene Achse in eine oder beide Richtungen. In QGroundControl sieht die Kalibierung so aus, wie es in Abbildung \ref{fig:compass-calibration} gezeigt wird.
+    \item[Kompass] Bevor man mit der Kompasskalibrierung beginnen kann, muss man sicherstellen, dass sich keine großen Metallobjekte oder starke Magnetfelder in direkter Nähe der Drohne befinden. Startet man nun mit der Kalibrierung, so wird einem in QGroundControl angegeben, wie man diese Durchzuführen hat. Um mit der Kompasskalibrierung zu beginnen, positioniert man die Drohne entsprechend den angegebenen roten Ausrichtungen. Zudem muss man sicherstellen, dass die Drohne in der gewählten Ausrichtung stehen bleibt. Wenn man dazu aufgefordert wird, drehen man die Drohne um die angegebene Achse in eine oder beide Richtungen. In QGroundControl sieht die Kalibrierung so aus, wie es in Abbildung \ref{fig:compass-calibration} gezeigt wird.
 
     Während die Kalibrierung für die aktuelle Ausrichtung fortschreitet, wechselt das entsprechende Bild auf dem Bildschirm von rot zu grün und zeigt damit die erfolgreiche Kalibrierung an. Diese Schritte wiederholt man dann für alle von QGroundControl angegebenen Orientierungen.
     \begin{figure}[H]
@@ -187,9 +182,9 @@ Der prinzipielle Ablauf bei der Kommunikation in Abbildung \ref{img ros_communic
         \caption{Kompass Kalibrierung in QGroundControl}\label{fig:compass-calibration}
     \end{figure}
     
-    \item[Gyroscope] Bei der Kallibrierung der Gyroscope stellt man die Drohne auf eine ebene Oberfläche. Nun startet man die Kallibrierung in QGroundControl. Wärend der Kallibrierung muss die Drohne absolut ruhig stehen gelassen werden. Ist QGroundControl mit der Kallibrierung fertig, so wird Calibration complete angegeben.
+    \item[Gyroscope] Bei der Kalibrierung der Gyroscope stellt man die Drohne auf eine ebene Oberfläche. Nun startet man die Kalibrierung in QGroundControl. Während der Kalibrierung muss die Drohne absolut ruhig stehen gelassen werden. Ist QGroundControl mit der Kalibrierung fertig, so wird Calibration complete angegeben.
     
-    \item[Accelerometer] Für die Kallibrierung der Accelerometer muss man ebenfalls den Anweisungen von QGroundControl folgen. Hierfür muss die Drohne entsprechend der Bilder in QGroundControl positioniert werden, siehe \ref{fig:accel-calibration}. Wenn man durch das gelbe Ausrichtungsbild dazu aufgefordert wird, mass man die Drohne ruhig halten. Sobald die Kalibrierung für die aktuelle Ausrichtung abgeschlossen ist, wechselt das entsprechende Bild auf dem Bildschirm zu grün. Diese Schritte wiederholt man dann für alle angegebenen Orientierungen der Drohne.
+    \item[Accelerometer] Für die Kalibrierung der Accelerometer muss man ebenfalls den Anweisungen von QGroundControl folgen. Hierfür muss die Drohne entsprechend der Bilder in QGroundControl positioniert werden, siehe \ref{fig:accel-calibration}. Wenn man durch das gelbe Ausrichtungsbild dazu aufgefordert wird, mass man die Drohne ruhig halten. Sobald die Kalibrierung für die aktuelle Ausrichtung abgeschlossen ist, wechselt das entsprechende Bild auf dem Bildschirm zu grün. Diese Schritte wiederholt man dann für alle angegebenen Orientierungen der Drohne.
     \begin{figure}[H]
         \includegraphics[width=\textwidth]{./images/qgc-cal-accelerometer.png}
         \caption{Accelerometer Kalibrierung in QGroundControl}\label{fig:accel-calibration}
@@ -234,7 +229,7 @@ Um die Reaktion zu bewerten, bewegt man den Steuerknüppel schnell über den ges
 
 Jetzt kommt der Teil der Abstimmung. Man verwendet die Schieberegler auf der Benutzeroberfläche, um die drei PID-Werte MC\_ROLLRATE\_K, MC\_ROLLRATE\_I, und MC\_ROLLRATE\_D zu ändern. Diese Werte steuern die Proportional-, Integral- bzw. Derivativ-Komponenten des Reglers. Nun beobachtet man die Sprungantwort erneut, nachdem man die Schieberegler eingestellt hat. Die geänderten Werte werden sofort im Fahrzeug gespeichert, wenn man die Schieberegler bewegen.
 
-Die Kallibrierung wiederholt man dan für die Nick- und Gierachse und geht dabei die gleichen Schritte wie zuvor durch. Dadurch wird sichergestellt, dass jede Achse für eine optimale Leistung richtig eingestellt ist. Zudem wiederholt man die Kalibrierung auch für den Lage-, Geschwindigkeits- und Positionsregler auf allen Achsen.
+Die Kalibrierung wiederholt man dan für die Nick- und Gierachse und geht dabei die gleichen Schritte wie zuvor durch. Dadurch wird sichergestellt, dass jede Achse für eine optimale Leistung richtig eingestellt ist. Zudem wiederholt man die Kalibrierung auch für den Lage-, Geschwindigkeits- und Positionsregler auf allen Achsen.
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{./images/qgc_mc_pid_tuning_rate_controller.950965c8.png}
     \caption{PID-Regler Kalibrierung in QGroundControl}\label{fig:accelerometer-calibration}
@@ -249,26 +244,26 @@ Um die Drohne auch in der Simulation unter echten Bedingungen fliegen zu lassen,
         
         Die Mixed-Reality-Capture-Funktion der HoloLens 2 ist eine integrierte Funktion, mit der Benutzer die Möglichkeit haben, die Hologramme, die von der HoloLens 2 dargestellt werden, in Echtzeit aufzuzeichnen und zu teilen. Diese Funktion ermöglicht es Benutzern, ihre Augenbewegungen und Handlungen in einer virtuellen Umgebung aufzuzeichnen, um sie mit anderen zu teilen oder für zukünftige Referenz oder Analyse zu speichern. Die Mixed-Reality-Capture-Funktion der HoloLens 2 kann auch für die Erstellung von Immersive-Mixed-Reality-Videoinhalten verwendet werden, indem sie es ermöglicht, virtuelle Hologramme in eine reale Umgebung zu integrieren. Dies kann für verschiedene Anwendungen wie zum Beispiel für die Erstellung von virtuellen Touren, für die Präsentation von Produkten oder für die Unterhaltungsindustrie eingesetzt werden.
 
-        Um das 3D-Modell zu erstellen und zu speichern muss man das Window-Geräteportal verwenden. Hierfür muss die Hololens zunächst in den Entwicklermodus geschaltet werden. Zudem benötigt man die IP-Adresse der Hololens. Nun kann man sich im Webbrowser auf das Geräteportal der Hololens anmelden (https://<Hololens\_IP\_Adresse>). Ist man mit dem Geräteportal verbunden, kann man dort den 3D-Scan starten. Nun muss man sich mit der Hololens in der zu scannenden Umgebung bewegen, um die Umgebung komplett und möglichst Detailgetreu zu erfassen. Ist der Scann abgeschlossen kann man das 3D-Modell von der Hololens auf den PC als .obj Datei herunterladen.
+        Um das 3D-Modell zu erstellen und zu speichern muss man das Window-Geräteportal verwenden. Hierfür muss die HoloLens zunächst in den Entwicklermodus geschaltet werden. Zudem benötigt man die IP-Adresse der HoloLens. Nun kann man sich im Webbrowser auf das Geräteportal der HoloLens anmelden (https://<Hololens\_IP\_Adresse>). Ist man mit dem Geräteportal verbunden, kann man dort den 3D-Scan starten. Nun muss man sich mit der HoloLens in der zu scannenden Umgebung bewegen, um die Umgebung komplett und möglichst Detailgetreu zu erfassen. Ist der Scann abgeschlossen kann man das 3D-Modell von der HoloLens auf den PC als .obj Datei herunterladen.
 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=1]{images/modell_zimmer_hololens.png}
-            \caption[3D Modell mit Hololens 2]{\label{img modell_hololens} 3D Modell mit Hololens 2 [eigene Darstellung]}
+            \caption[3D Modell mit HoloLens 2]{\label{img modell_hololens} 3D Modell mit HoloLens 2 [eigene Darstellung]}
         \end{figure}
 
         Es ist wichtig zu beachten, dass die Qualität des erstellten 3D-Modells von verschiedenen Faktoren abhängt, wie z.B. der Beleuchtung im Raum und der Genauigkeit des Scans. Eine sorgfältige Vorbereitung des Raums und eine langsame, gründliche Durchführung des Scans können dazu beitragen, ein genaueres und detaillierteres 3D-Modell zu erstellen.
         \subsubsection{Azure Kinect \ac{DK}} \label{kinect:subsubsection}
-        Für das Scannen der Umgebung und die Erstellung des 3D-Modells mit der Azure Kinect wurde ein anderer Ansatz gewählt als bei der Verwendung der Hololens. Anstelle eines im Voraus erstellten 3D-Modells wird das Modell in Echtzeit erstellt. Ermöglicht wird dies durch die Verwendung von \ac{VSLAM}, wie im Kapitel \ref{SLAM:section} über \ac{SLAM} beschrieben.
+        Für das Scannen der Umgebung und die Erstellung des 3D-Modells mit der Azure Kinect wurde ein anderer Ansatz gewählt als bei der Verwendung der HoloLens. Anstelle eines im Voraus erstellten 3D-Modells wird das Modell in Echtzeit erstellt. Ermöglicht wird dies durch die Verwendung von \ac{VSLAM}, wie im Kapitel \ref{SLAM:section} über \ac{SLAM} beschrieben.
 
         Mit \ac{VSLAM} ist es nicht mehr notwendig, die Umgebung im Voraus zu scannen. Stattdessen werden die Tiefen- und Bildinformationen in Echtzeit erfasst, während sich die Azure Kinect durch den Raum bewegt. Durch die kontinuierliche Verarbeitung dieser Informationen kann das 3D-Modell der Umgebung Schritt für Schritt erstellt und aktualisiert werden.
 
         Ein großer Vorteil von \ac{VSLAM} ist, dass es nicht nur die Erstellung des 3D-Modells, sondern auch die Echtzeitberechnung der eigenen Position innerhalb des Modells ermöglicht. Dies wird durch die kontinuierliche Verschmelzung von Tiefendaten und Bildinformationen erreicht, um sowohl die Bewegung der Kamera als auch die räumliche Struktur der Umgebung zu verfolgen.
 
     \subsection{3D Modell Vorbereitung} \label{3d_modell_vorbereitung:subsection}
-    Da das von der Hololens erstellte 3D-Modell keine homogenen Oberflächen beinhaltet, sondern sich nur aus übereinandergelegte einzelne Flächen zusammesetzt, muss das Modell noch überarbeitet werden, um die entstandenen "Löcher" im Scan zu füllen.
+    Da das von der HoloLens erstellte 3D-Modell keine homogenen Oberflächen beinhaltet, sondern sich nur aus übereinandergelegte einzelne Flächen zusammensetzt, muss das Modell noch überarbeitet werden, um die entstandenen "Löcher" im Scan zu füllen.
     
-    Hierfür wurde zunächst eine Neuberechnung der Normlen der Punkte der Punktwolke durgeführt. Dadurch wird die Orientierung und Ausrichtung der Oberfläche genauer erfasst. Dies trug dazu bei, Unstimmigkeiten oder Verzerrungen im Modell zu minimieren. Danach wurde die Punktwolke bereincht. Das bedeutet, dass Ausreißern, Rauschen und anderen unerwünschten Punkten in der Punktwolke erkannt und entfernt wurden. Dadurch verbessert sich die Qualität und genaugkeit der Punktwolke. Zum Schluss wurde mit dem Poisson-Verfahren eine reibungslose und konsistente Oberfläche aus der bereinigten Punktwolke erstellt. Dieses Verfahren basiert auf mathematischen Modellen und ermöglicht die rekonstruktive Glättung und Verschmelzung der Punktdaten. Durch die Anwendung des Poisson-Verfahrens wurde eine hochwertige Oberflächenrekonstruktion erreicht, die eine realistische Darstellung des Modells gewährleistet.
+    Hierfür wurde zunächst eine Neuberechnung der Normalen der Punkte der Punktwolke durchgeführt. Dadurch wird die Orientierung und Ausrichtung der Oberfläche genauer erfasst. Dies trug dazu bei, Unstimmigkeiten oder Verzerrungen im Modell zu minimieren. Danach wurde die Punktwolke bereinigt. Das bedeutet, dass Ausreißern, Rauschen und anderen unerwünschten Punkten in der Punktwolke erkannt und entfernt wurden. Dadurch verbessert sich die Qualität und Genauigkeit der Punktwolke. Zum Schluss wurde mit dem Poisson-Verfahren eine reibungslose und konsistente Oberfläche aus der bereinigten Punktwolke erstellt. Dieses Verfahren basiert auf mathematischen Modellen und ermöglicht die rekonstruktive Glättung und Verschmelzung der Punktdaten. Durch die Anwendung des Poisson-Verfahrens wurde eine hochwertige Oberflächenrekonstruktion erreicht, die eine realistische Darstellung des Modells gewährleistet.
 
 \section{Umsetzung SLAM und MAVROS} \label{slam:section}
 \subsection{Azure Kinect ROS Driver \& SDK}
@@ -523,11 +518,6 @@ $
 
 \section{Navigation} \label{navigation:section} 
 Eine Navigation beziehungsweise ien Bahnplanung mit Hifle des \ac{SLAM}-Algorithmus konnte auf dem Raspberry Pi nicht umgesetzt werden, da dieser bereits für die Ausführung des \ac{SLAM}-Algorithmus zu geringe Leistung aufweist. Aus diesem Grund wurden die Bahnplanung für die Drohne nicht umgesetzt werden. Theoretisch hätte die Bahnplanung mit Algorithmen wie Dijkstra, A** oder ähnlichem durchgeführt werden können.
-
-
-% wie Navigation hätte umgesetzt werden können -> theoretische Grundlagen?
-% Navigation selbst nicht umgesetzt, u.a. auf Grund von Begrenzung Leistung Raspberry Pi
-% nicht umgesetzt, da keine SLAM, 
 
 
 
