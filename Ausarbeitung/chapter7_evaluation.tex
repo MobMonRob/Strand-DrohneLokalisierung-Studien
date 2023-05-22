@@ -33,7 +33,7 @@ Um die Leistung der Kartenerstellung und Odometrie weiter zu verbessern, könnte
 
 Insgesamt zeigt die Auswertung, dass die Verwendung von Azure Kinect in Kombination mit \ac{IMU}-Daten eine effektive Methode zur Verbesserung der Kartenerstellung und Odometrie in Visual SLAM-basierten Systemen auf Drohnen ist. Durch die Integration von RGBD-Tiefenkamera- und \ac{IMU}-Daten konnten die Genauigkeit, Robustheit sowie Zuverlässigkeit der geschätzten Flugbahn erhöht werden, was zu präzisen und zuverlässigen autonomen Flugmanövern führt.
 
-Um die Leistung des \ac{SLAM} Algorithmus mit der Azure Kinect Kamera zu beurteilen, haben wir auch den ORB-SLAM3 Algorithmus mit Testdaten laufen lassen. Genauergesagt mit dem Testdatensatz Floor1 von der \ac{TUM} von \cite{tum_data}.
+Um die Leistung des \ac{SLAM} Algorithmus mit der Azure Kinect Kamera zu beurteilen, haben wir auch den ORB-SLAM3 Algorithmus mit Testdaten laufen lassen. Genauer gesagt mit dem Testdatensatz Floor1 von der \ac{TUM} von \cite{tum_data}.
 
 Ein Beispiel davon sehen sie in Abbildung \ref{fig:orbslam3}
 
@@ -70,7 +70,7 @@ Die Auswertung der verwendeten Sensoren und Algorithmen zeigt, dass die Verwendu
 
 Dennoch gibt es einige Probleme, die zu beachten sind. Diese sind zum einen die begrenzte Verarbeitungsleistung des Raspberry Pi, was zu Einschränkungen und Verzögerungen bei der Echtzeitverarbeitung der visuellen Daten führt. Dies kann die Reaktionsfähigkeit und Stabilität des Navigationssystems beeinträchtigen. Daher sollten weitere Optimierungen und die Verwendung leistungsfähigerer Hardware in Betracht gezogen werden, um \ac{VSLAM} mit der Pfadfindung auf der Drohne optimal einsetzen zu können.
 
-Die mechanischen Herausforderungen, die mit der Montage der Sensoren an der Drohne verbunden sind, wurden ebenfalls festgestellt. Die Hololens 2 erweist sich aufgrund ihrer Größe, ihres Gewichts und fehlender Befestigungsmöglichkeiten als ungeeignet. Die Azure Kinect hingegen ist kleiner, leichter und bietet Befestigungsmöglichkeiten für den Einsatz an der Drohne.
+Die mechanischen Herausforderungen, die mit der Montage der Sensoren an der Drohne verbunden sind, wurden ebenfalls festgestellt. Die HoloLens 2 erweist sich aufgrund ihrer Größe, ihres Gewichts und fehlender Befestigungsmöglichkeiten als ungeeignet. Die Azure Kinect hingegen ist kleiner, leichter und bietet Befestigungsmöglichkeiten für den Einsatz an der Drohne.
 
 \subsection{Schlussfolgerung}
 Zusammenfassend kann festgehalten werden, dass die Verwendung von RGBD-Tiefenkameras wie die Azure Kinect in Kombination mit \ac{IMU}-Daten eine vielversprechende Lösung für die autonome Navigation von Drohnen in Innenräumen darstellt. Durch die Kombination von visuellen Daten, Tiefeninformationen und \ac{IMU}-Daten können präzise Karten der Umgebung erstellt, genaue Trajektorien geschätzt und zuverlässige autonome Flugmanöver durchgeführt werden. Um die volle Leistungsfähigkeit und Robustheit des Systems zu erreichen, müssen jedoch einige Probleme wie die fehlende Rechenleistung oder auch der Sensordrift der Coex Drohne behoben werden. \\
