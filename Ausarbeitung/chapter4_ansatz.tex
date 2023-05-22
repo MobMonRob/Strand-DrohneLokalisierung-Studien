@@ -37,44 +37,42 @@ Zur Bewertung der \ac{SLAM} Algorithmen wurden folgende Quellen als Referenz gen
 
 \subsection{Übersicht VSLAM Algorithmen}\label{chp:übersicht-slamalgo}
 
-Da die Azure Kinect in dieser Arbeit verwendet sollen, werden alle \ac{VSLAM} Verfahren, die nur mit monokular funktionierenden Kameras verwendet werden können ausgeschlossen.
+Da die Azure Kinect in dieser Arbeit verwendet sollen, werden alle \ac{VSLAM} Verfahren, die nur mit monokular funktionierenden Kameras verwendet werden können, ausgeschlossen.
 Ansonsten kann der Depth \ac{ToF} Sensor der Azure Kinekt nicht verwendet werden.
 
 \subsubsection{ElasticFusion}
 
 
 ElasticFusion ist eine dichte \ac{SLAM}-Methode, die \ac{RGB-D}-Kameras verwendet. Es konstruiert ein global konsistentes Modell der Umgebung zur Verwendung in Roboteranwendungen wie Objekterkennung und -manipulation und bestimmt gleichzeitig die Sensorposition in Echtzeit. Erreicht wird dies durch eine Kombination aus Frame-to-Model-Kameratracking und oberflächenbasierter Fusion, die eine häufige Modellverfeinerung durch nicht starre Oberflächendeformationen nutzt. 
-Im Gegensatz zu ORB-SLAM3 ist Elastic Fusion ein dichtes \ac{SLAM}-System. Es verwendet eine Surfel-Darstellung für die 3D-Kartierung, die eine detailliertere und robustere Karte als einige andere Methoden liefert. Das System verwendet \ac{RGB-D}-Kameras, um reichhaltige visuelle Informationen zu erfassen, so dass es auch in komplexen Innenräumen eingesetzt werden kann. Obwohl es eine Echtzeitleistung bietet, könnte Elastic Fusion aufgrund der dichten Natur seines Ansatzes mehr Rechenressourcen erfordern als merkmalsbasierte Methoden. Seine Fähigkeiten zur Sensorfusion und detaillierten Kartendarstellung sind jedoch lobenswert. Da es sich um ein Open-Source-Programm handelt, ist es für Anpassungen und Weiterentwicklungen zugänglich.
+Im Gegensatz zu ORB-SLAM3 ist ElasticFusion ein dichtes \ac{SLAM}-System. Es verwendet eine Surfel-Darstellung für die 3D-Kartierung, die eine detailliertere und robustere Karte als einige andere Methoden liefert. Das System verwendet \ac{RGB-D}-Kameras, um reichhaltige visuelle Informationen zu erfassen, sodass es auch in komplexen Innenräumen eingesetzt werden kann. Obwohl es eine Echtzeitleistung bietet, könnte ElasticFusion aufgrund der dichten Natur seines Ansatzes mehr Rechenressourcen erfordern als merkmalbasierte Methoden. Seine Fähigkeiten zur Sensorfusion und detaillierten Kartendarstellung sind jedoch lobenswert. Da es sich um ein Open-Source-Programm handelt, ist es für Anpassungen und Weiterentwicklungen zugänglich. \cite{elasticfusion}
 
-\cite{elasticfusion}
 \subsubsection{DynaSLAM}
 
 DynaSLAM ist ein visuelles \ac{SLAM}-System, das für die Handhabung dynamischer Objekte in der Umgebung entwickelt wurde. Es baut auf ORB-SLAM2 auf und kann mit monokularen, Stereo- und \ac{RGB-D}-Kameras arbeiten. DynaSLAM führt eine Hintergrund-Vordergrund-Segmentierungsmethode ein, um mit dynamischen Objekten umzugehen.
-
 \cite{bescos2018dynaslam}
+
 \subsubsection{ORB-SLAM3}
 
-ORB-SLAM3 ist eine vielseitige und genaue \ac{SLAM}-Lösung für monokulare, Stereo- und \ac{RGB-D}-Kameras. Sie ist in der Lage, in Echtzeit die Kameratrajektorie und eine spärliche 3D-Rekonstruktion der Szene in einer Vielzahl von Umgebungen zu berechnen, von kleinen handgehaltenen Sequenzen eines Schreibtisches bis hin zu einem Auto, das durch mehrere Städte fährt
+ORB-SLAM3 ist eine vielseitige und genaue \ac{SLAM}-Lösung für monokulare, Stereo- und \ac{RGB-D}-Kameras. Es ist in der Lage, in Echtzeit die Kameratrajektorie und eine spärliche 3D-Rekonstruktion der Szene in einer Vielzahl von Umgebungen zu berechnen, von kleinen handgehaltenen Sequenzen eines Schreibtisches bis hin zu einem Auto, das durch mehrere Städte fährt
 
 ORB-SLAM3 ist eine Erweiterung des ORB-SLAM, der für die simultane Lokalisierung und Kartierung (SLAM) in dreidimensionalen Umgebungen entwickelt wurde. Im Gegensatz zu ORB-SLAM verwendet ORB-SLAM3 jedoch eine tiefere Netzwerkarchitektur, um die Leistung und Genauigkeit der Odometrie und der visuellen Wahrnehmung zu verbessern.
 
 ORB-SLAM3 nutzt eine Kombination aus Tiefenkameras und RGB-Kameras, um eine 3D-Repräsentation der Umgebung zu erstellen und gleichzeitig die Bewegung des Roboters in der Umgebung zu schätzen. Der Algorithmus verwendet ein neuronales Netzwerk, um die Tiefeninformationen der Kameras zu verarbeiten und eine Schätzung der Kamerapositionen und -orientierungen zu generieren.
 
-Im Gegensatz zu anderen \ac{SLAM}-Verfahren, die auf einer Vielzahl von Features wie Punkten oder Linien basieren, nutzt ORB-SLAM3 Oriented Bounding Boxen (OBBs), um eine robustere Schätzung der Kamerabewegungen und -positionen zu ermöglichen. Die OBBs erlauben eine genauere Modellierung der Umgebung und eine bessere Korrektur von Fehlern, die durch Ungenauigkeiten bei der Berechnung von 3D-Points entstehen können.
+Im Gegensatz zu anderen \ac{SLAM}-Verfahren, die auf einer Vielzahl von Features wie Punkten oder Linien basieren, nutzt ORB-SLAM3 \ac{OBBs}, um eine robustere Schätzung der Kamerabewegungen und -positionen zu ermöglichen. Die \ac{OBBs} erlauben eine genauere Modellierung der Umgebung und eine bessere Korrektur von Fehlern, die durch Ungenauigkeiten bei der Berechnung von 3D-Points entstehen können.
 
 Insgesamt ermöglicht ORB-SLAM3 eine genauere und robustere Lokalisierung und Kartierung in dreidimensionalen Umgebungen, was ihn zu einem vielversprechenden Ansatz für autonome Robotikanwendungen macht.
 
-ORB-SLAM3 zeigt in verschiedenen Umgebungen, auch in Innenräumen, eine gute Leistung und ist dabei sehr genau und robust. Es ist in der Lage, Echtzeitoperationen effektiv zu bewältigen, ist aber möglicherweise nicht so rechenintensiv wie einige andere Methoden.
+ORB-SLAM3 zeigt in verschiedenen Umgebungen, auch in Innenräumen, eine gute Leistung und ist dabei sehr genau und robust. Es ist in der Lage, Echtzeitoperationen effektiv zu bewältigen, ist dabei aber möglicherweise nicht so rechenintensiv wie einige andere Methoden.
 
-Das Vokabular in ORB-SLAM ist eine Datenbank, die dazu dient, bereits gesehene Stellen zu identifizieren (d. h. die Erkennung von Loop Closures). Es besteht aus einer Sammlung von ORB-Merkmalen, die aus einer Vielzahl von Bildern extrahiert wurden.
+Das Vokabular in ORB-SLAM ist eine Datenbank, die dazu dient, bereits gesehene Stellen zu identifizieren (d.h. die Erkennung von Loop Closures). Es besteht aus einer Sammlung von ORB-Merkmalen, die aus einer Vielzahl von Bildern extrahiert wurden.
 
-Um es einfach zu erklären: Stellen Sie sich vor, Sie sind ein Roboter, der durch eine Umgebung navigiert. Während Sie navigieren, speichern Sie bestimmte Merkmale der Umgebung, wie z. B. markante Strukturen oder Objekte, in Ihrer Datenbank. Diese Merkmale werden ORB-Merkmale genannt. Wenn Sie später durch dieselbe Umgebung navigieren, können Sie diese gespeicherten Merkmale verwenden, um zu erkennen, dass Sie bereits an diesem Ort gewesen sind. Dies wird als Schleifenschluss bezeichnet.
+Um es einfach zu erklären: Stellen Sie sich vor, Sie sind ein Roboter, der durch eine Umgebung navigiert. Während Sie navigieren, speichern Sie bestimmte Merkmale der Umgebung, wie z.B. markante Strukturen oder Objekte, in Ihrer Datenbank. Diese Merkmale werden ORB-Merkmale genannt. Wenn Sie später durch dieselbe Umgebung navigieren, können Sie diese gespeicherten Merkmale verwenden, um zu erkennen, dass Sie bereits an diesem Ort gewesen sind. Dies wird als Schleifenschluss bezeichnet.
 
 Das Vokabular in ORB-SLAM ist also im Wesentlichen eine Sammlung dieser ORB-Merkmale, die der Roboter verwendet, um Orte zu erkennen, die er bereits gesehen hat. Es wird normalerweise während des Trainingsprozesses erstellt und dann während der Laufzeit verwendet, um Schleifenschlüsse zu erkennen und so die Genauigkeit der Karte zu verbessern, die der Roboter von seiner Umgebung erstellt.
-
 \cite{ORBSLAM3TRO}
 
-\begin{table}
+\begin{table}[H]
     \begin{center}
         \begin{tabular}{|p{4cm}|p{1.5cm}|p{10cm}|}
             \hline
@@ -92,7 +90,7 @@ Das Vokabular in ORB-SLAM ist also im Wesentlichen eine Sammlung dieser ORB-Merk
     \end{center}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
     \begin{center}
         \begin{adjustbox}{max width=\textwidth}
         \begin{tabular}{|l|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
@@ -102,9 +100,9 @@ Das Vokabular in ORB-SLAM ist also im Wesentlichen eine Sammlung dieser ORB-Merk
             \rowcolor{green}
             ORB-SLAM3 & $9*9=81$ = & 8*8=64 & 7*7=49 & 8*10=80 & 7*8=56 & 9*9=81 & 8*8=64 &  475\\
             \hline
-            Elastic Fusion & 8*9=72 & 8*8=64 & 7*7=49 & 7*10=70 & 8*8=64 & 9*9=91 & 7*8=56 &  466\\
+            Elastic Fusion & 8*9=72 & 8*8=64 & 7*7=49 & 7*10=70 & 8*8=64 & 9*9=81 & 7*8=56 &  456\\
             \hline
-            DynaSLAM & 9*9=81 & 9*8=72 & 6*7=42 & 7*10=70 & 7*8=56 & 8*9=72 & 9*8=72 & 466\\
+            DynaSLAM & 9*9=81 & 9*8=72 & 6*7=42 & 7*10=70 & 7*8=56 & 8*9=72 & 9*8=72 & 465\\
             \hline
             \end{tabular}
         \end{adjustbox}
@@ -114,7 +112,7 @@ Das Vokabular in ORB-SLAM ist also im Wesentlichen eine Sammlung dieser ORB-Merk
 
 \subsection{Auswahl Lokalisierungssystem}
 
-Die in Kapitel \ref{lst:navigation-types} vorgestellten Vorgehensweisen sind mehr oder weniger geeignet für den Einsatz auf der Drohne und für den Einsatz mit \ac{SLAM}.
+Die in Kapitel \ref{lst:navigation-types} vorgestellten Vorgehensweisen sind mehr oder weniger geeignet für den Einsatz auf der Drohne und den Einsatz mit \ac{SLAM}.
 In einer gewichteten Analyse wurden die einzelnen Vorgehensweisen verglichen und der Gewinner ausgewählt.
 
 Verglichen wurden Navigationstypen nach den in Tabelle \ref{tab:vergleich-kriterien} genannten Kriterien.
@@ -127,10 +125,10 @@ Die Einschätzungen für die Gewichtungen in der Tabelle basieren auf der subjek
 \item \textbf{Anforderungen des Projekts:} Die Gewichtungen können durch die spezifischen Anforderungen des Projekts bestimmt werden. Wenn beispielsweise eine besonders hohe Genauigkeit erforderlich ist, kann diesem Kriterium eine höhere Gewichtung zugeordnet werden.
 
 \item \textbf{Wichtigkeit für den Einsatzzweck:} Die Gewichtungen können auf der Wichtigkeit jedes Kriteriums für den vorgesehenen Einsatzzweck des \ac{SLAM}-Navigationssystems basieren. Wenn beispielsweise das System in einer Umgebung mit vielen Störungen eingesetzt wird, kann der Anfälligkeit für Störungen eine höhere Gewichtung zugeordnet werden.
-\item \textbf{Expertenmeinungen} Expertenmeinungen: Die Gewichtungen können auf Expertenmeinungen basieren, die auf ihrer Erfahrung und Fachkenntnis in der Navigationstechnologie beruhen.
+\item \textbf{Expertenmeinungen:} Die Gewichtungen können auf Expertenmeinungen basieren, die auf ihrer Erfahrung und Fachkenntnis in der Navigationstechnologie beruhen.
 \end{itemize}
 
-Aufgrund des Ergebnisses aus Tabelle \ref{tab:vergleich-gewichtung} wird ersichtlich das folgende Lokalisierungsvorgehensweisen für den Einsatz mit der Drohne und \ac{SLAM} am besten eingesetzt werden können.
+Aufgrund des Ergebnisses aus Tabelle \ref{tab:vergleich-gewichtung} wird ersichtlich, dass folgende Lokalisierungsvorgehensweisen für den Einsatz mit der Drohne und \ac{SLAM} am besten eingesetzt werden können.
 
 \begin{itemize}
     \item Optical Sensoren
@@ -147,7 +145,7 @@ Alleine mit Inertial Navigation kann kein \ac{SLAM} durchgeführt werden. Da die
         \hline
         \textbf{Kriterien} & \textbf{Gewichtung} & \textbf{Begründung} \\
         \hline
-        Genauigkeit & 5 & Um eine möglichst akkurate Hindernisserkennung zu ermöglichen, sollte das Lokalisierungssystem genau sein. \\
+        Genauigkeit & 5 & Um eine möglichst akkurate Hinderniserkennung zu ermöglichen, sollte das Lokalisierungssystem genau sein. \\
         \hline
         Ungenauigkeitsakkumulation & 5 & Wie stark summieren sich die Fehler auf? \\
         \hline
@@ -199,14 +197,14 @@ Alleine mit Inertial Navigation kann kein \ac{SLAM} durchgeführt werden. Da die
 
 \subsection{ROS Version}
 
-Die \ac{ROS} Version, welche für diese Arbeit verwendet wurde, ist die Version "ROS Noetic Ninjemys". Diese ist die aktuellste ROS 1 Version mit long term support. Das Betriebssystem, auf welches die Version abzielt, ist Ubuntu 20.04 (Focal). Dementsprechend wurde auch Ubuntu 20.04 für diese Arbeit verwendet.
+Die \ac{ROS} Version, welche für diese Arbeit verwendet wurde, ist die Version 'ROS Noetic Ninjemys'. Diese ist die aktuellste ROS 1 Version mit long term support. Das Betriebssystem, auf welches die Version abzielt, ist Ubuntu 20.04 (Focal). Dementsprechend wurde auch Ubuntu 20.04 für diese Arbeit verwendet.
 
 \subsection{Auswahl Sensoren}
 
-Die COEX Drohne, die für diese Arbeit verwendet wird ist mit einem COEX Pix ausgestattet.
-Dieser Flightcontroller ist standardmäßig mit einer \ac{IMU} ausgestattet. Zunächst sollte eine Holo Lens 2 auf der Drohne montiert werden um durch das Spatial Mapping Feature die Umgebung zu scannen und die Position zu erkenne.
-Später hat sich herausgestellt, dass eine Montage der Holo Lens 2 auf der Drohne nicht möglich ist, da die Holo Lens 2 für die COEX Drohne zu schwer wäre.
-Die Azure Kinect verfügt jedoch über die gleichen Sensoren wie die Holo Lens 2 ist aber wesentlich kleiner und leichter, da keine unnötigen Funktionen wie ein \ac{AR} Display vorhanden sind.
+Die COEX Drohne, die für diese Arbeit verwendet wird, ist mit einem COEX Pix ausgestattet.
+Dieser Flightcontroller besitzt standardmäßig eine \ac{IMU}. Zunächst sollte eine Microsoft HoloLens 2 auf der Drohne montiert werden, um durch das Spatial Mapping Feature die Umgebung zu scannen und die Position zu erkennen.
+Später hat sich herausgestellt, dass eine Montage der HoloLens 2 auf der Drohne nicht möglich ist, da die HoloLens 2 für die COEX Drohne zu schwer wäre.
+Die Azure Kinect verfügt jedoch über die gleichen Sensoren wie die HoloLens 2, ist aber wesentlich kleiner und leichter, da keine unnötigen Funktionen wie ein \ac{AR} Display vorhanden sind.
 Zu Beginn wurde auch die Nutzung eines \ac{Lidar}-Sensors in Betracht gezogen, jedoch sind diese Sensoren auf Grund ihres Gewichtes, welches das maximale Gewicht der Coex Drohne überschreitet, nicht für die Befestigung auf der Drohne geeignet.\\
 Somit sind folgende Sensoren auf der COEX Drohne verfügbar.
 
