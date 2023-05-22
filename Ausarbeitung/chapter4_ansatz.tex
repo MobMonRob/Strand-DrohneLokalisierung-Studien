@@ -2,15 +2,15 @@
 
 \section{Zielsetzung}
 Die vorliegende Arbeit handelt davon mit Hilfe eines eigens erstellten 3D Modells eine Drohne Indoor navigieren zu können. Um dies umsetzen zu können gibt es einen Quadrokopter der zu diesem Zwecke eingesetzt werden kann. \\
-Heutzutage basiert die Navgiation vieler Drohnen auf \ac{GPS} allerdings kann man Drohnen innerhalb von Gebäuden nicht mit dieser Technik fliegen lassen, da damit die im Innenraum vorhandenen Hindernisse nicht berücksichtigt werden können. Aus diesem Grund soll hierfür eine Möglichkeit gefunden werden, welche es ermöglicht, eine Drohne ohne \ac{GPS} im Innenraum eines Gebäudes mit Hilfe eines 3D Modells navigieren zu können.\\
-Der Quadrokopter, die Coex Clover Drohne ist bereits mit verschiedenen Sensoren ausgestattet und kann potenziell mit weiteren Sensoren erweitert werden. Jedoch ist die Drohne bis zum Beginn dieser Arbeit noch nicht richtig geflogen ist. Somit muss zum einen die Nutzbarkeit der Drohne für dieses Projekt sichergestellt werden, um diese in dieser Arbeit einsetzen zu können. \\
+Heutzutage basiert die Navigation vieler Drohnen auf \ac{GPS} allerdings kann man Drohnen innerhalb von Gebäuden nicht mit dieser Technik fliegen lassen, da unter anderem die im Innenraum vorhandenen Hindernisse nicht berücksichtigt werden können. Aus diesem Grund soll hierfür eine Möglichkeit gefunden werden, eine Drohne ohne \ac{GPS} im Innenraum eines Gebäudes mit Hilfe eines 3D Modells navigieren zu können.\\
+Der Quadrokopter, die Coex Clover Drohne ist bereits mit verschiedenen Sensoren ausgestattet und kann potenziell mit zusätzlichen Sensoren erweitert werden. Jedoch ist die Drohne bis zum Beginn dieser Arbeit noch nicht richtig geflogen ist. Somit muss zum einen die Nutzbarkeit der Drohne für dieses Projekt sichergestellt werden, um diese in dieser Arbeit einsetzen zu können. \\
 Ziel dieser Arbeit ist es, bestenfalls den bereits vorhandenen Quadrokopter mit Hilfe eines eigens erstellten 3D Umweltmodells innerhalb eines Raumes navigieren zu können und dadurch kleinere Aufgaben wie beispielsweise das Auslesen eines QR-Codes somit erledigen zu können.
 
 
 
 \section{Vorgehensweise}
 
-In Abbildung \ref{fig:vorgehensweise} sind die 2 Vorgehensweisen die wir uns ausgedacht haben ersichtlich. In Ansatz 1 hatten wir zuerst versucht ein vorher gescanntes 3D Modell auf die Drohne zu laden und eine Positionierung im 3D Modell durchzuführen. Schnell wurde ersichtlich, dass es wenig sinnvoll eine Positionierung in einem vorher bekannten 3D Modell durchzuführen, da die Drohne auch in unbekannten Umgebungen eingesetzt werden soll. Deshalb ist es sinnvoller die Positionierung und die 3D Modell Erstellung zu kombinieren. Dazu kann \ac{SLAM} eingesetzt werden. Deshalb haben wir Ansatz 1 relativ schnell wieder verworfen.
+In Abbildung \ref{fig:vorgehensweise} sind die zwei Vorgehensweisen, welche wir uns ausgedacht haben, ersichtlich. In Ansatz 1 hatten wir zuerst versucht ein vorher gescanntes 3D Modell auf die Drohne zu laden und eine Positionierung im 3D Modell durchzuführen. Schnell wurde ersichtlich, dass es wenig sinnvoll ist, eine Positionierung in einem vorher bekannten 3D Modell durchzuführen, da die Drohne auch in unbekannten Umgebungen eingesetzt werden soll. Deshalb ist es sinnvoller, die Positionierung und die 3D Modell Erstellung zu kombinieren. Dazu kann \ac{SLAM} eingesetzt werden. Deshalb haben wir Ansatz 1 relativ schnell wieder verworfen.
 
 \begin{figure}
     \includegraphics[scale=0.7]{images/ansatz_plan.pdf}
@@ -19,21 +19,21 @@ In Abbildung \ref{fig:vorgehensweise} sind die 2 Vorgehensweisen die wir uns aus
 
 \subsection{Auswahl SLAM Algorithmus}
 
-Es wurden mehrere \ac{SLAM}-Algorithmen in Betracht gezogen, und aufgrund der begrenzten Leistung des Raspberry Pi haben wir den Algorithmus mit den geringsten Anforderungen ausgewählt. Eine Übersicht der gebräuchlichen \ac{SLAM} Algorithmen ist in \ref{chp:übersicht-slamalgo} zu sehen.Für eine fundierte Auswahl wurde eine gewichtete Analyse erstellt, um den für unsere Zwecke bestens geeigneten \ac{SLAM} Algorithmus zu verwenden. Die Gewichte mit den Kriterien sehen Sie in Tabelle \ref{tab:vergleich-slam-gewichtung} und das Ergebnis in \ref{tab:vergleich-slam-analyse}
+Es wurden mehrere \ac{SLAM}-Algorithmen in Betracht gezogen und aufgrund der begrenzten Leistung des Raspberry Pi haben wir den Algorithmus mit den geringsten Anforderungen ausgewählt. Eine Übersicht der gebräuchlichen \ac{SLAM} Algorithmen ist in \ref{chp:übersicht-slamalgo} zu sehen. Für eine fundierte Auswahl wurde eine gewichtete Analyse erstellt, um den für unsere Zwecke am besten geeignete \ac{SLAM} Algorithmus zu verwenden. Die Gewichte mit den Kriterien sehen Sie in Tabelle \ref{tab:vergleich-slam-gewichtung} und das Ergebnis in \ref{tab:vergleich-slam-analyse}.
 
 Bei der Bewertung von \ac{SLAM}-Algorithmen gibt es mehrere Punkte, die zur Messung der Qualität und Eignung eines SLAM-Verfahrens herangezogen werden können.
 
 \begin{description}
-    \item[Genauigkeit]{Die Genauigkeit eines \ac{SLAM}-Algorithmus bezieht sich darauf, wie genau die geschätzten PosiRFtionen und Kartendarstellungen mit den tatsächlichen Werten übereinstimmen. Eine höhere Genauigkeit ist für eine präzise Navigation und Kartierung wünschenswert}
-    \item[Robustheit]{\ac{SLAM}-Algorithmen sollten robust gegenüber Schwankungen in der Umgebung sein und mit schwierigen Bedingungen wie dynamischen Objekten, Verdeckungen oder Beleuchtungsänderungen umgehen können. Ein robuster Algorithmus behält selbst bei diesen Faktoren genaue Schätzungen bei} 
-    \item[Skalierbarkeit]{Skalierbarkeit ist wichtig, wenn es um groß angelegte Kartierungsszenarien oder lang andauernde Operationen geht. Ein Algorithmus sollte in der Lage sein, wachsende Datenmengen zu verarbeiten, z. B. größere Umgebungen oder längere Einsatzzeiten, ohne dass die Leistung signifikant abnimmt}
-    \item[Leistung in Echtzeit]{Die Echtzeitfähigkeit ist für viele Anwendungen entscheidend, insbesondere in der Robotik oder der erweiterten Realität. \ac{SLAM}-Algorithmen sollten in der Lage sein, Sensordaten zu verarbeiten und Schätzungen in Echtzeit zu aktualisieren, um zeitnahe und reaktionsfähige Informationen zu liefern}
-    \item[Berechnungseffizienz]{\ac{SLAM}-Algorithmen sollten rechnerisch effizient sein, insbesondere bei ressourcenbeschränkten Plattformen wie dem Raspberry Pi. Es ist wichtig, einen Algorithmus zu wählen, der ein ausgewogenes Verhältnis zwischen Genauigkeit und Rechenanforderungen herstellt und eine optimale Leistung auf der gewählten Hardware gewährleistet}
-    \item[Fähigkeit zur Sensorfusion]{Die Integration mehrerer Sensoren, wie z. B. Kameras, Inertialmesseinheiten (IMUs) oder Tiefensensoren, kann die \ac{SLAM}-Leistung verbessern. Algorithmen, die Informationen von verschiedenen Sensoren effektiv fusionieren können, liefern oft genauere und zuverlässigere Ergebnisse}
-    \item[Kartendarstellung]{Die Qualität und Darstellung der erzeugten Karte kann ebenfalls ein wichtiger Faktor sein. Ein guter \ac{SLAM}-Algorithmus sollte Karten erzeugen, die geometrisch konsistent, visuell informativ und für nachfolgende Aufgaben oder Analysen nützlich sind} 
+    \item[Genauigkeit]{Die Genauigkeit eines \ac{SLAM}-Algorithmus bezieht sich darauf, wie genau die geschätzten Positionen und Kartendarstellungen mit den tatsächlichen Werten übereinstimmen. Eine höhere Genauigkeit ist für eine präzise Navigation und Kartierung wünschenswert.}
+    \item[Robustheit]{\ac{SLAM}-Algorithmen sollten robust gegenüber Schwankungen in der Umgebung sein und mit schwierigen Bedingungen wie dynamischen Objekten, Verdeckungen oder Beleuchtungsänderungen umgehen können. Ein robuster Algorithmus behält selbst bei diesen Faktoren genaue Schätzungen bei.} 
+    \item[Skalierbarkeit]{Skalierbarkeit ist wichtig, wenn es um groß angelegte Kartierungsszenarien oder lang andauernde Operationen geht. Ein Algorithmus sollte in der Lage sein, wachsende Datenmengen zu verarbeiten, z.B. größere Umgebungen oder längere Einsatzzeiten, ohne dass die Leistung signifikant abnimmt.}
+    \item[Leistung in Echtzeit]{Die Echtzeitfähigkeit ist für viele Anwendungen entscheidend, insbesondere in der Robotik oder der erweiterten Realität. \ac{SLAM}-Algorithmen sollten in der Lage sein, Sensordaten zu verarbeiten und Schätzungen in Echtzeit zu aktualisieren, um zeitnahe und reaktionsfähige Informationen zu liefern.}
+    \item[Berechnungseffizienz]{\ac{SLAM}-Algorithmen sollten rechnerisch effizient sein, insbesondere bei ressourcenbeschränkten Plattformen wie dem Raspberry Pi. Es ist wichtig, einen Algorithmus zu wählen, der ein ausgewogenes Verhältnis zwischen Genauigkeit und Rechenanforderungen herstellt und eine optimale Leistung auf der gewählten Hardware gewährleistet.}
+    \item[Fähigkeit zur Sensorfusion]{Die Integration mehrerer Sensoren, wie z.B. Kameras, Inertialmesseinheiten (IMUs) oder Tiefensensoren, kann die \ac{SLAM}-Leistung verbessern. Algorithmen, die Informationen von verschiedenen Sensoren effektiv fusionieren können, liefern oft genauere und zuverlässigere Ergebnisse.}
+    \item[Kartendarstellung]{Die Qualität und Darstellung der erzeugten Karte kann ebenfalls ein wichtiger Faktor sein. Ein guter \ac{SLAM}-Algorithmus sollte Karten erzeugen, die geometrisch konsistent, visuell informativ und für nachfolgende Aufgaben oder Analysen nützlich sind.} 
 \end{description}
 
-Zur Bewertung der \ac{SLAM} Algorithmen haben wurden folgende Quellen als Referenz genommen \cite{ragot:hal-04071273}, \cite{Merzlyakov2021}, \cite{9440682}
+Zur Bewertung der \ac{SLAM} Algorithmen wurden folgende Quellen als Referenz genommen \cite{ragot:hal-04071273}, \cite{Merzlyakov2021}, \cite{9440682}
 
 \subsection{Übersicht VSLAM Algorithmen}\label{chp:übersicht-slamalgo}
 
