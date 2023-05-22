@@ -1,0 +1,81 @@
+{
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"px4_add_git_submodule"
+		],
+		"files" : 
+		[
+			"PX4-Autopilot/cmake/px4_git.cmake",
+			"PX4-Autopilot/src/modules/mavlink/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 34,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 90,
+				"parent" : 1
+			}
+		]
+	},
+	"id" : "git_mavlink_v2::@b52afe8ca614e9d88043",
+	"name" : "git_mavlink_v2",
+	"paths" : 
+	{
+		"build" : "PX4-Autopilot/src/modules/mavlink",
+		"source" : "PX4-Autopilot/src/modules/mavlink"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/PX4-Autopilot/src/modules/mavlink/CMakeFiles/git_mavlink_v2",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/PX4-Autopilot/src/modules/mavlink/CMakeFiles/git_mavlink_v2.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/PX4-Autopilot/src/modules/mavlink/git_init__home_mburr_catkin_ws_src_PX4-Autopilot_mavlink_include_mavlink_v2_0.stamp.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

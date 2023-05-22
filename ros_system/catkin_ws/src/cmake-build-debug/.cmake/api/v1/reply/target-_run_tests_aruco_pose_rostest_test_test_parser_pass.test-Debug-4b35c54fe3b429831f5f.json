@@ -1,0 +1,100 @@
+{
+	"backtrace" : 3,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"catkin_run_tests_target",
+			"add_rostest",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"/opt/ros/noetic/share/catkin/cmake/test/tests.cmake",
+			"/opt/ros/noetic/share/rostest/cmake/rostest-extras.cmake",
+			"clover/aruco_pose/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 249,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 52,
+				"parent" : 1
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 177,
+				"parent" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 190,
+				"parent" : 2
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 4,
+			"id" : "tests::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "clean_test_results_aruco_pose::@7d2b3147102ba5ad4106"
+		}
+	],
+	"id" : "_run_tests_aruco_pose_rostest_test_test_parser_pass.test::@7d2b3147102ba5ad4106",
+	"name" : "_run_tests_aruco_pose_rostest_test_test_parser_pass.test",
+	"paths" : 
+	{
+		"build" : "clover/aruco_pose",
+		"source" : "clover/aruco_pose"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 3,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/clover/aruco_pose/CMakeFiles/_run_tests_aruco_pose_rostest_test_test_parser_pass.test",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/clover/aruco_pose/CMakeFiles/_run_tests_aruco_pose_rostest_test_test_parser_pass.test.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

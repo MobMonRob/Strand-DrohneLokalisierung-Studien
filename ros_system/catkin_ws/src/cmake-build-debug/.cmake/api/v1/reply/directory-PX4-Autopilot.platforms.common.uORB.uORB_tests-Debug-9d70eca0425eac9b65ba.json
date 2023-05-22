@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "PX4-Autopilot/platforms/common/uORB/uORB_tests",
+		"source" : "PX4-Autopilot/platforms/common/uORB/uORB_tests"
+	}
+}

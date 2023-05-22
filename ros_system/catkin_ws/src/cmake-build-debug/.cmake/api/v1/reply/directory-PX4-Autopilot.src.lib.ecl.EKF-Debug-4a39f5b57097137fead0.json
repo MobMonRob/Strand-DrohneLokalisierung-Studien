@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "PX4-Autopilot/src/lib/ecl/EKF",
+		"source" : "PX4-Autopilot/src/lib/ecl/EKF"
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "PX4-Autopilot/src/modules/mavlink/mavlink_tests",
+		"source" : "PX4-Autopilot/src/modules/mavlink/mavlink_tests"
+	}
+}

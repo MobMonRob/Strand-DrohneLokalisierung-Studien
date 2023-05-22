@@ -1,0 +1,236 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"_install",
+			"install"
+		],
+		"files" : 
+		[
+			"/opt/ros/noetic/share/catkin/cmake/custom_install.cmake",
+			"PX4-Autopilot/platforms/posix/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 82,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 140,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 3
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 151,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 5
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 160,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 7
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 169,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 9
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 178,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 11
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 186,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 13
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 197,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 15
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 206,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 17
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "px4",
+			"paths" : 
+			[
+				"PX4-Autopilot/posix-configs",
+				"PX4-Autopilot/test",
+				"cmake-build-debug/etc",
+				"cmake-build-debug/devel/lib/px4"
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "px4",
+			"paths" : 
+			[
+				"PX4-Autopilot/integrationtests",
+				"PX4-Autopilot/launch",
+				"cmake-build-debug/devel/lib/px4"
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "px4",
+			"paths" : 
+			[
+				"PX4-Autopilot/CMakeLists.txt",
+				"PX4-Autopilot/package.xml"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 8,
+			"component" : "Unspecified",
+			"destination" : "px4/Tools",
+			"paths" : 
+			[
+				"PX4-Autopilot/Tools/ecl_ekf"
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 10,
+			"component" : "Unspecified",
+			"destination" : "px4/Tools",
+			"paths" : 
+			[
+				"PX4-Autopilot/Tools/setup_gazebo.bash",
+				"PX4-Autopilot/Tools/upload_log.py"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 12,
+			"component" : "Unspecified",
+			"destination" : "px4/build/px4_sitl_default",
+			"paths" : 
+			[
+				"cmake-build-debug/PX4-Autopilot/etc"
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 14,
+			"component" : "Unspecified",
+			"destination" : "px4/build/px4_sitl_default",
+			"paths" : 
+			[
+				"cmake-build-debug/PX4-Autopilot/build_gazebo"
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 16,
+			"component" : "Unspecified",
+			"destination" : "px4/Tools/sitl_gazebo",
+			"paths" : 
+			[
+				"PX4-Autopilot/Tools/sitl_gazebo/models",
+				"PX4-Autopilot/Tools/sitl_gazebo/worlds"
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 18,
+			"component" : "Unspecified",
+			"destination" : "px4/Tools/sitl_gazebo",
+			"paths" : 
+			[
+				"PX4-Autopilot/Tools/sitl_gazebo/CMakeLists.txt",
+				"PX4-Autopilot/Tools/sitl_gazebo/package.xml"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "PX4-Autopilot/platforms/posix",
+		"source" : "PX4-Autopilot/platforms/posix"
+	}
+}

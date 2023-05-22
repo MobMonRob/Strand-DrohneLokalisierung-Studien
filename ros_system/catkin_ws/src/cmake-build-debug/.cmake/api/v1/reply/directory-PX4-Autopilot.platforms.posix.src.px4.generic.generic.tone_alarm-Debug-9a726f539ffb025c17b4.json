@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "PX4-Autopilot/platforms/posix/src/px4/generic/generic/tone_alarm",
+		"source" : "PX4-Autopilot/platforms/posix/src/px4/generic/generic/tone_alarm"
+	}
+}

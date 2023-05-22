@@ -1,0 +1,79 @@
+{
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target"
+		],
+		"files" : 
+		[
+			"PX4-Autopilot/src/systemcmds/topic_listener/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 39,
+				"parent" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "uorb_msgs::@41e83c3f64b96923a15f"
+		}
+	],
+	"id" : "generate_topic_listener::@2adb17b0906206801c5e",
+	"name" : "generate_topic_listener",
+	"paths" : 
+	{
+		"build" : "PX4-Autopilot/src/systemcmds/topic_listener",
+		"source" : "PX4-Autopilot/src/systemcmds/topic_listener"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/PX4-Autopilot/src/systemcmds/topic_listener/CMakeFiles/generate_topic_listener",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/PX4-Autopilot/src/systemcmds/topic_listener/CMakeFiles/generate_topic_listener.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/PX4-Autopilot/src/systemcmds/topic_listener/listener_generated.cpp.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

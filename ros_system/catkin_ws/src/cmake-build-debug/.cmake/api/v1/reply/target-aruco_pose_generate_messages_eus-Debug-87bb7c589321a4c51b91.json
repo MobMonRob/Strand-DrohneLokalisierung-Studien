@@ -1,0 +1,185 @@
+{
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"include",
+			"generate_messages",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"cmake-build-debug/clover/aruco_pose/cmake/aruco_pose-genmsg.cmake",
+			"/opt/ros/noetic/share/genmsg/cmake/genmsg-extras.cmake",
+			"clover/aruco_pose/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 99,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 307,
+				"parent" : 1
+			},
+			{
+				"file" : 0,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 136,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 353,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 356,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 143,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 145,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 147,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 149,
+				"parent" : 3
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "std_msgs_generate_messages_eus::@0eb71bc6d5b12e2a1c2a"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "geometry_msgs_generate_messages_eus::@48535c8cc480d6857d86"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "_aruco_pose_generate_messages_check_deps_Point2D::@7d2b3147102ba5ad4106"
+		},
+		{
+			"backtrace" : 8,
+			"id" : "_aruco_pose_generate_messages_check_deps_Marker::@7d2b3147102ba5ad4106"
+		},
+		{
+			"backtrace" : 9,
+			"id" : "_aruco_pose_generate_messages_check_deps_MarkerArray::@7d2b3147102ba5ad4106"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "_aruco_pose_generate_messages_check_deps_SetMarkers::@7d2b3147102ba5ad4106"
+		}
+	],
+	"id" : "aruco_pose_generate_messages_eus::@7d2b3147102ba5ad4106",
+	"name" : "aruco_pose_generate_messages_eus",
+	"paths" : 
+	{
+		"build" : "clover/aruco_pose",
+		"source" : "clover/aruco_pose"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2,
+				3,
+				4,
+				5,
+				6
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 4,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/clover/aruco_pose/CMakeFiles/aruco_pose_generate_messages_eus",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/clover/aruco_pose/CMakeFiles/aruco_pose_generate_messages_eus.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/devel/share/roseus/ros/aruco_pose/manifest.l.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/devel/share/roseus/ros/aruco_pose/msg/Marker.l.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/devel/share/roseus/ros/aruco_pose/msg/MarkerArray.l.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/devel/share/roseus/ros/aruco_pose/msg/Point2D.l.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/devel/share/roseus/ros/aruco_pose/srv/SetMarkers.l.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

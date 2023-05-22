@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "PX4-Autopilot/boards/px4/sitl/src",
+		"source" : "PX4-Autopilot/boards/px4/sitl/src"
+	}
+}

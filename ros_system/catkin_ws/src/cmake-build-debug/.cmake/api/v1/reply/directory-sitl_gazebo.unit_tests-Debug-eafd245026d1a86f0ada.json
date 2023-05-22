@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "sitl_gazebo/unit_tests",
+		"source" : "sitl_gazebo/unit_tests"
+	}
+}

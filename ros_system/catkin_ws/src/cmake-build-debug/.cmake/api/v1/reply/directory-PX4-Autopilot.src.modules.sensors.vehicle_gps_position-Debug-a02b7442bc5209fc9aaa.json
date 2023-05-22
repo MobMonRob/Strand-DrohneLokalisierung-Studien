@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "PX4-Autopilot/src/modules/sensors/vehicle_gps_position",
+		"source" : "PX4-Autopilot/src/modules/sensors/vehicle_gps_position"
+	}
+}

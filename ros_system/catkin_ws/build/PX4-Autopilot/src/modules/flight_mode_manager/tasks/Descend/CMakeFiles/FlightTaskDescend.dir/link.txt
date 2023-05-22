@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/mburr/catkin_ws/devel/lib/libFlightTaskDescend.a  CMakeFiles/FlightTaskDescend.dir/FlightTaskDescend.cpp.o
+/usr/bin/ranlib /home/mburr/catkin_ws/devel/lib/libFlightTaskDescend.a

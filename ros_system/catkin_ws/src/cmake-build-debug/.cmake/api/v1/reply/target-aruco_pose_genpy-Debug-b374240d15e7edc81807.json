@@ -1,0 +1,69 @@
+{
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"include",
+			"generate_messages",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"cmake-build-debug/clover/aruco_pose/cmake/aruco_pose-genmsg.cmake",
+			"/opt/ros/noetic/share/genmsg/cmake/genmsg-extras.cmake",
+			"clover/aruco_pose/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 99,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 307,
+				"parent" : 1
+			},
+			{
+				"file" : 0,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 323,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 324,
+				"parent" : 3
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "aruco_pose_generate_messages_py::@7d2b3147102ba5ad4106"
+		}
+	],
+	"id" : "aruco_pose_genpy::@7d2b3147102ba5ad4106",
+	"name" : "aruco_pose_genpy",
+	"paths" : 
+	{
+		"build" : "clover/aruco_pose",
+		"source" : "clover/aruco_pose"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/mburr/catkin_ws/devel/lib/libArmAuthorization.a  CMakeFiles/ArmAuthorization.dir/ArmAuthorization.cpp.o
+/usr/bin/ranlib /home/mburr/catkin_ws/devel/lib/libArmAuthorization.a

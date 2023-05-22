@@ -1,0 +1,2 @@
+Azure_Kinect_ROS_Driver:PX4-Autopilot:beginner_tutorials:clover/aruco_pose:clover/clover:clover/clover_blocks:clover/clover_description:clover/clover_simulation:clover/roswww_static:mav_comm/mav_comm:mav_comm/mav_msgs:mav_comm/mav_planning_msgs:mav_comm/mav_state_machine_msgs:mav_comm/mav_system_msgs:max_position_estimator:ros_led/led_msgs:ros_led/ws281x:sitl_gazebo
+-DCATKIN_DEVEL_PREFIX=/home/mburr/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/mburr/catkin_ws/install -G Unix Makefiles

@@ -1,0 +1,1690 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "devel/lib/mavlink_sitl_gazebo/gazebo_gimbal_controller_plugin_test"
+		}
+	],
+	"backtrace" : 5,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"_catkin_add_executable_with_google_test",
+			"_catkin_add_google_test",
+			"catkin_add_gtest",
+			"add_unit_test",
+			"link_directories",
+			"target_link_libraries",
+			"set_target_properties",
+			"include",
+			"dart_traverse_components",
+			"dart_package_init",
+			"find_package",
+			"set_property",
+			"boost_find_component",
+			"find_dependency",
+			"add_compile_options",
+			"add_definitions",
+			"configure_shared_library_build_settings",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"/opt/ros/noetic/share/catkin/cmake/test/gtest.cmake",
+			"sitl_gazebo/unit_tests/CMakeLists.txt",
+			"sitl_gazebo/CMakeLists.txt",
+			"/usr/share/dart/cmake/dart_dartTargets.cmake",
+			"/usr/share/dart/cmake/DARTConfig.cmake",
+			"/usr/lib/x86_64-linux-gnu/cmake/gazebo/gazebo-config.cmake",
+			"/opt/ros/noetic/share/octomap/octomap-targets.cmake",
+			"/opt/ros/noetic/share/octomap/octomap-config.cmake",
+			"/usr/share/dart/cmake/DARTFindoctomap.cmake",
+			"/usr/share/dart/cmake/dart_dartComponent.cmake",
+			"/usr/lib/x86_64-linux-gnu/cmake/boost_thread-1.71.0/boost_thread-config.cmake",
+			"/usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake",
+			"/home/mburr/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindBoost.cmake",
+			"/usr/lib/x86_64-linux-gnu/cmake/ignition-transport8/ignition-transport8-config.cmake",
+			"/usr/lib/x86_64-linux-gnu/cmake/ignition-fuel_tools4/ignition-fuel_tools4-config.cmake",
+			"/usr/lib/x86_64-linux-gnu/cmake/ignition-msgs5/ignition-msgs5-config.cmake",
+			"/usr/lib/x86_64-linux-gnu/cmake/ignition-math6/ignition-math6-config.cmake",
+			"/usr/lib/x86_64-linux-gnu/cmake/sdformat9/sdformat9-config.cmake",
+			"/usr/lib/x86_64-linux-gnu/cmake/ignition-msgs5/ignition-msgs5-targets.cmake",
+			"/usr/lib/x86_64-linux-gnu/cmake/ignition-common3-graphics/ignition-common3-graphics-targets.cmake",
+			"/usr/lib/x86_64-linux-gnu/cmake/ignition-common3-graphics/ignition-common3-graphics-config.cmake",
+			"/home/mburr/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeFindDependencyMacro.cmake",
+			"/usr/lib/x86_64-linux-gnu/cmake/ignition-common3/ignition-common3-config.cmake",
+			"/usr/lib/x86_64-linux-gnu/cmake/ignition-transport8/ignition-transport8-targets.cmake",
+			"/usr/share/dart/cmake/DARTFindBoost.cmake",
+			"/opt/ros/noetic/share/rosconsole/cmake/rosconsole-extras.cmake",
+			"/opt/ros/noetic/share/rosconsole/cmake/rosconsoleConfig.cmake",
+			"/opt/ros/noetic/share/roscpp/cmake/roscppConfig.cmake",
+			"/opt/ros/noetic/share/catkin/cmake/tools/libraries.cmake",
+			"/opt/ros/noetic/share/catkin/cmake/all.cmake",
+			"/opt/ros/noetic/share/catkin/cmake/catkinConfig.cmake",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 31,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 17,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 37,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 89,
+				"parent" : 3
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 180,
+				"parent" : 4
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 101,
+				"parent" : 6
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 229,
+				"parent" : 6
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 4
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 22,
+				"parent" : 1
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 32,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 186,
+				"parent" : 4
+			},
+			{
+				"command" : 11,
+				"file" : 2,
+				"line" : 48,
+				"parent" : 6
+			},
+			{
+				"file" : 5,
+				"parent" : 13
+			},
+			{
+				"command" : 11,
+				"file" : 5,
+				"line" : 166,
+				"parent" : 14
+			},
+			{
+				"file" : 4,
+				"parent" : 15
+			},
+			{
+				"command" : 10,
+				"file" : 4,
+				"line" : 171,
+				"parent" : 16
+			},
+			{
+				"command" : 9,
+				"file" : 4,
+				"line" : 123,
+				"parent" : 17
+			},
+			{
+				"command" : 8,
+				"file" : 4,
+				"line" : 81,
+				"parent" : 18
+			},
+			{
+				"file" : 3,
+				"parent" : 19
+			},
+			{
+				"command" : 7,
+				"file" : 3,
+				"line" : 56,
+				"parent" : 20
+			},
+			{
+				"command" : 8,
+				"file" : 4,
+				"line" : 63,
+				"parent" : 18
+			},
+			{
+				"file" : 9,
+				"parent" : 22
+			},
+			{
+				"command" : 8,
+				"file" : 9,
+				"line" : 6,
+				"parent" : 23
+			},
+			{
+				"file" : 8,
+				"parent" : 24
+			},
+			{
+				"command" : 11,
+				"file" : 8,
+				"line" : 9,
+				"parent" : 25
+			},
+			{
+				"file" : 7,
+				"parent" : 26
+			},
+			{
+				"command" : 8,
+				"file" : 7,
+				"line" : 77,
+				"parent" : 27
+			},
+			{
+				"file" : 6,
+				"parent" : 28
+			},
+			{
+				"command" : 7,
+				"file" : 6,
+				"line" : 69,
+				"parent" : 29
+			},
+			{
+				"command" : 11,
+				"file" : 2,
+				"line" : 47,
+				"parent" : 6
+			},
+			{
+				"file" : 12,
+				"parent" : 31
+			},
+			{
+				"command" : 11,
+				"file" : 12,
+				"line" : 594,
+				"parent" : 32
+			},
+			{
+				"file" : 11,
+				"parent" : 33
+			},
+			{
+				"command" : 13,
+				"file" : 11,
+				"line" : 182,
+				"parent" : 34
+			},
+			{
+				"command" : 11,
+				"file" : 11,
+				"line" : 117,
+				"parent" : 35
+			},
+			{
+				"file" : 10,
+				"parent" : 36
+			},
+			{
+				"command" : 12,
+				"file" : 10,
+				"line" : 92,
+				"parent" : 37
+			},
+			{
+				"command" : 11,
+				"file" : 5,
+				"line" : 235,
+				"parent" : 14
+			},
+			{
+				"file" : 13,
+				"parent" : 39
+			},
+			{
+				"command" : 7,
+				"file" : 13,
+				"line" : 167,
+				"parent" : 40
+			},
+			{
+				"command" : 11,
+				"file" : 5,
+				"line" : 251,
+				"parent" : 14
+			},
+			{
+				"file" : 14,
+				"parent" : 42
+			},
+			{
+				"command" : 7,
+				"file" : 14,
+				"line" : 170,
+				"parent" : 43
+			},
+			{
+				"command" : 11,
+				"file" : 13,
+				"line" : 96,
+				"parent" : 40
+			},
+			{
+				"file" : 15,
+				"parent" : 45
+			},
+			{
+				"command" : 7,
+				"file" : 15,
+				"line" : 165,
+				"parent" : 46
+			},
+			{
+				"command" : 11,
+				"file" : 5,
+				"line" : 208,
+				"parent" : 14
+			},
+			{
+				"file" : 17,
+				"parent" : 48
+			},
+			{
+				"command" : 11,
+				"file" : 17,
+				"line" : 60,
+				"parent" : 49
+			},
+			{
+				"file" : 16,
+				"parent" : 50
+			},
+			{
+				"command" : 7,
+				"file" : 16,
+				"line" : 163,
+				"parent" : 51
+			},
+			{
+				"command" : 8,
+				"file" : 15,
+				"line" : 134,
+				"parent" : 46
+			},
+			{
+				"file" : 18,
+				"parent" : 53
+			},
+			{
+				"command" : 7,
+				"file" : 18,
+				"line" : 66,
+				"parent" : 54
+			},
+			{
+				"command" : 11,
+				"file" : 5,
+				"line" : 246,
+				"parent" : 14
+			},
+			{
+				"file" : 22,
+				"parent" : 56
+			},
+			{
+				"command" : 14,
+				"file" : 22,
+				"line" : 197,
+				"parent" : 57
+			},
+			{
+				"command" : 11,
+				"file" : 21,
+				"line" : 47,
+				"parent" : 58
+			},
+			{
+				"file" : 20,
+				"parent" : 59
+			},
+			{
+				"command" : 8,
+				"file" : 20,
+				"line" : 121,
+				"parent" : 60
+			},
+			{
+				"file" : 19,
+				"parent" : 61
+			},
+			{
+				"command" : 7,
+				"file" : 19,
+				"line" : 66,
+				"parent" : 62
+			},
+			{
+				"command" : 8,
+				"file" : 13,
+				"line" : 136,
+				"parent" : 40
+			},
+			{
+				"file" : 23,
+				"parent" : 64
+			},
+			{
+				"command" : 7,
+				"file" : 23,
+				"line" : 66,
+				"parent" : 65
+			},
+			{
+				"command" : 15,
+				"file" : 2,
+				"line" : 174,
+				"parent" : 6
+			},
+			{
+				"command" : 8,
+				"file" : 9,
+				"line" : 6,
+				"parent" : 23
+			},
+			{
+				"file" : 24,
+				"parent" : 68
+			},
+			{
+				"command" : 16,
+				"file" : 24,
+				"line" : 13,
+				"parent" : 69
+			},
+			{
+				"command" : 16,
+				"file" : 5,
+				"line" : 142,
+				"parent" : 14
+			},
+			{
+				"command" : 16,
+				"file" : 5,
+				"line" : 148,
+				"parent" : 14
+			},
+			{
+				"command" : 11,
+				"file" : 2,
+				"line" : 56,
+				"parent" : 6
+			},
+			{
+				"file" : 27,
+				"parent" : 73
+			},
+			{
+				"command" : 11,
+				"file" : 27,
+				"line" : 197,
+				"parent" : 74
+			},
+			{
+				"file" : 26,
+				"parent" : 75
+			},
+			{
+				"command" : 8,
+				"file" : 26,
+				"line" : 222,
+				"parent" : 76
+			},
+			{
+				"file" : 25,
+				"parent" : 77
+			},
+			{
+				"command" : 16,
+				"file" : 25,
+				"line" : 12,
+				"parent" : 78
+			},
+			{
+				"file" : 31
+			},
+			{
+				"command" : 11,
+				"file" : 31,
+				"line" : 58,
+				"parent" : 80
+			},
+			{
+				"file" : 30,
+				"parent" : 81
+			},
+			{
+				"command" : 8,
+				"file" : 30,
+				"line" : 20,
+				"parent" : 82
+			},
+			{
+				"file" : 29,
+				"parent" : 83
+			},
+			{
+				"command" : 17,
+				"file" : 29,
+				"line" : 174,
+				"parent" : 84
+			},
+			{
+				"command" : 16,
+				"file" : 28,
+				"line" : 18,
+				"parent" : 85
+			},
+			{
+				"command" : 16,
+				"file" : 25,
+				"line" : 8,
+				"parent" : 78
+			},
+			{
+				"command" : 18,
+				"file" : 2,
+				"line" : 183,
+				"parent" : 6
+			},
+			{
+				"command" : 18,
+				"file" : 2,
+				"line" : 200,
+				"parent" : 6
+			},
+			{
+				"command" : 18,
+				"file" : 2,
+				"line" : 98,
+				"parent" : 6
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -fdiagnostics-color=always"
+				},
+				{
+					"backtrace" : 67,
+					"fragment" : "-Wno-deprecated-declarations"
+				},
+				{
+					"backtrace" : 67,
+					"fragment" : "-Wno-address-of-packed-member"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-I/usr/include/uuid"
+				},
+				{
+					"backtrace" : 12,
+					"fragment" : "-DGTEST_HAS_PTHREAD=1"
+				},
+				{
+					"fragment" : "-std=gnu++17"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "BOOST_ALL_NO_LIB"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "BOOST_ATOMIC_DYN_LINK"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "BOOST_DATE_TIME_DYN_LINK"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "BOOST_FILESYSTEM_DYN_LINK"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "BOOST_IOSTREAMS_DYN_LINK"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "BOOST_PROGRAM_OPTIONS_DYN_LINK"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "BOOST_REGEX_DYN_LINK"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "BOOST_SYSTEM_DYN_LINK"
+				},
+				{
+					"backtrace" : 70,
+					"define" : "BOOST_TEST_DYN_LINK"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "BOOST_THREAD_DYN_LINK"
+				},
+				{
+					"backtrace" : 71,
+					"define" : "LIBBULLET_VERSION=2.88"
+				},
+				{
+					"backtrace" : 72,
+					"define" : "LIBBULLET_VERSION_GT_282"
+				},
+				{
+					"backtrace" : 79,
+					"define" : "ROSCONSOLE_BACKEND_LOG4CXX"
+				},
+				{
+					"backtrace" : 86,
+					"define" : "ROS_BUILD_SHARED_LIBS=1"
+				},
+				{
+					"backtrace" : 87,
+					"define" : "ROS_PACKAGE_NAME=\"mavlink_sitl_gazebo\""
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 88,
+					"path" : "/home/mburr/catkin_ws/src/sitl_gazebo/include"
+				},
+				{
+					"backtrace" : 88,
+					"path" : "/home/mburr/catkin_ws/src/cmake-build-debug/sitl_gazebo"
+				},
+				{
+					"backtrace" : 88,
+					"path" : "/usr/include/eigen3/eigen3"
+				},
+				{
+					"backtrace" : 88,
+					"path" : "/usr/include/gazebo-11/gazebo/msgs"
+				},
+				{
+					"backtrace" : 88,
+					"path" : "/home/mburr/catkin_ws/src/mavlink/include"
+				},
+				{
+					"backtrace" : 88,
+					"path" : "/usr/include/Paging"
+				},
+				{
+					"backtrace" : 88,
+					"path" : "/home/mburr/catkin_ws/src/sitl_gazebo/external/OpticalFlow/include"
+				},
+				{
+					"backtrace" : 89,
+					"path" : "/usr/include/gstreamer-1.0"
+				},
+				{
+					"backtrace" : 89,
+					"path" : "/usr/include/glib-2.0"
+				},
+				{
+					"backtrace" : 89,
+					"path" : "/usr/lib/x86_64-linux-gnu/glib-2.0/include"
+				},
+				{
+					"backtrace" : 90,
+					"isSystem" : true,
+					"path" : "/usr/include/gazebo-11"
+				},
+				{
+					"backtrace" : 90,
+					"isSystem" : true,
+					"path" : "/usr/include/bullet"
+				},
+				{
+					"backtrace" : 90,
+					"isSystem" : true,
+					"path" : "/usr/include/simbody"
+				},
+				{
+					"backtrace" : 90,
+					"isSystem" : true,
+					"path" : "/usr/include/sdformat-9.10"
+				},
+				{
+					"backtrace" : 90,
+					"isSystem" : true,
+					"path" : "/usr/include/ignition/math6"
+				},
+				{
+					"backtrace" : 90,
+					"isSystem" : true,
+					"path" : "/usr/include/OGRE"
+				},
+				{
+					"backtrace" : 90,
+					"isSystem" : true,
+					"path" : "/usr/include/OGRE/Terrain"
+				},
+				{
+					"backtrace" : 90,
+					"isSystem" : true,
+					"path" : "/usr/include/OGRE/Paging"
+				},
+				{
+					"backtrace" : 90,
+					"isSystem" : true,
+					"path" : "/usr/include/ignition/transport8"
+				},
+				{
+					"backtrace" : 90,
+					"isSystem" : true,
+					"path" : "/usr/include/ignition/msgs5"
+				},
+				{
+					"backtrace" : 90,
+					"isSystem" : true,
+					"path" : "/usr/include/ignition/common3"
+				},
+				{
+					"backtrace" : 90,
+					"isSystem" : true,
+					"path" : "/usr/include/ignition/fuel_tools4"
+				},
+				{
+					"backtrace" : 90,
+					"isSystem" : true,
+					"path" : "/usr/include/x86_64-linux-gnu/qt5"
+				},
+				{
+					"backtrace" : 90,
+					"isSystem" : true,
+					"path" : "/usr/include/x86_64-linux-gnu/qt5/QtCore"
+				},
+				{
+					"backtrace" : 90,
+					"isSystem" : true,
+					"path" : "/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"
+				},
+				{
+					"backtrace" : 88,
+					"isSystem" : true,
+					"path" : "/usr/include/eigen3"
+				},
+				{
+					"backtrace" : 88,
+					"isSystem" : true,
+					"path" : "/usr/include/opencv4"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "/opt/ros/noetic/include"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "/usr/include/sdformat-9.10/sdf/.."
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "/usr/include/ignition/cmake2"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "/usr/include/uuid"
+				},
+				{
+					"backtrace" : 12,
+					"isSystem" : true,
+					"path" : "/usr/src/googletest/googletest/include"
+				},
+				{
+					"backtrace" : 12,
+					"isSystem" : true,
+					"path" : "/usr/src/googletest/googletest"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					5,
+					5,
+					5
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 12,
+			"id" : "gtest::@b738d542747fbb7ea6e3"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "gtest_main::@b738d542747fbb7ea6e3"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "mav_msgs::@898d7499ec4de7dc4815"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "nav_msgs::@898d7499ec4de7dc4815"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "physics_msgs::@898d7499ec4de7dc4815"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "std_msgs::@898d7499ec4de7dc4815"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "sensor_msgs::@898d7499ec4de7dc4815"
+		},
+		{
+			"backtrace" : 11,
+			"id" : "gazebo_gimbal_controller_plugin::@898d7499ec4de7dc4815"
+		}
+	],
+	"id" : "gazebo_gimbal_controller_plugin_test::@cc114936ee412cf9056b",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-rdynamic",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "-L/usr/lib/x86_64-linux-gnu/gazebo-11/plugins",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 8,
+				"fragment" : "-L/home/mburr/catkin_ws/src/cmake-build-debug/sitl_gazebo",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 9,
+				"fragment" : "-L/home/mburr/catkin_ws/src/cmake-build-debug/gtest",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/home/mburr/catkin_ws/src/cmake-build-debug/sitl_gazebo:/home/mburr/catkin_ws/src/cmake-build-debug/gtest:/home/mburr/catkin_ws/src/cmake-build-debug/gtest/lib:/home/mburr/catkin_ws/src/cmake-build-debug/devel/lib:/opt/ros/noetic/lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lBulletSoftBody",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lBulletDynamics",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lBulletCollision",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lLinearMath",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_client",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_gui",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_sensors",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_rendering",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_physics",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_ode",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_transport",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_msgs",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_util",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_common",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_gimpact",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_opcode",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_opende_ou",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_iostreams.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lprotobuf",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lOgreMain",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lOgreTerrain",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lOgrePaging",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgstreamer-1.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgstapp-1.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-L/usr/lib/x86_64-linux-gnu",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lglib-2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lgobject-2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 10,
+				"fragment" : "gtest/lib/libgtest_maind.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "devel/lib/libgazebo_gimbal_controller_plugin.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "gtest/lib/libgtestd.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "devel/lib/libmav_msgs.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "devel/lib/libnav_msgs.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "devel/lib/libstd_msgs.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "devel/lib/libsensor_msgs.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "devel/lib/libphysics_msgs.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lBulletSoftBody",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lBulletDynamics",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lBulletCollision",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lLinearMath",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libSimTKsimbody.so.3.6",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libSimTKmath.so.3.6",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libSimTKcommon.so.3.6",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lblas",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-llapack",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lblas",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-llapack",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lrt",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lm",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libdart.so.6.9.2",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-ldl",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 21,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libdart-external-odelcpsolver.so.6.9.2",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lccd",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lfcl",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lassimp",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 21,
+				"fragment" : "/opt/ros/noetic/lib/liboctomap.so.1.9.8",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 30,
+				"fragment" : "/opt/ros/noetic/lib/liboctomath.so.1.9.8",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_client",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_gui",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_sensors",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_rendering",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_physics",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_ode",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_transport",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_msgs",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_util",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_common",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_gimpact",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_opcode",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgazebo_opende_ou",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 38,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_iostreams.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lprotobuf",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libsdformat9.so.9.10.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lOgreMain",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lOgreTerrain",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lOgrePaging",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 41,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libignition-transport8.so.8.4.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libignition-common3-graphics.so.3.15.1",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 44,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libignition-fuel_tools4.so.4.8.3",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 47,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libignition-msgs5.so.5.11.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 52,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libignition-math6.so.6.13.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 55,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libprotobuf.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 63,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libignition-common3.so.3.15.1",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 66,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libuuid.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-luuid",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_stitching.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_aruco.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_bgsegm.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_bioinspired.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_ccalib.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_dnn_objdetect.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_dnn_superres.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_dpm.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_highgui.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_face.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_freetype.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_fuzzy.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_hdf.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_hfs.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_img_hash.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_line_descriptor.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_quality.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_reg.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_rgbd.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_saliency.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_shape.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_stereo.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_structured_light.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_phase_unwrapping.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_superres.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_optflow.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_surface_matching.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_tracking.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_datasets.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_plot.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_text.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_dnn.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_ml.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_videostab.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_viz.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_ximgproc.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_video.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_xobjdetect.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_calib3d.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_features2d.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_flann.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_xphoto.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_photo.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgstreamer-1.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgstapp-1.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-L/usr/lib/x86_64-linux-gnu",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lglib-2.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lgobject-2.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-ltinyxml",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "gazebo_gimbal_controller_plugin_test",
+	"nameOnDisk" : "gazebo_gimbal_controller_plugin_test",
+	"paths" : 
+	{
+		"build" : "sitl_gazebo/unit_tests",
+		"source" : "sitl_gazebo/unit_tests"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "sitl_gazebo/unit_tests/gazebo_gimbal_controller_plugin_test.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

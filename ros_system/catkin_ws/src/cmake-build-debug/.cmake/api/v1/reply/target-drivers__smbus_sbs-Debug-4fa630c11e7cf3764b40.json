@@ -1,0 +1,113 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "devel/lib/libdrivers__smbus_sbs.a"
+		}
+	],
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"px4_add_library",
+			"add_dependencies",
+			"target_link_libraries"
+		],
+		"files" : 
+		[
+			"PX4-Autopilot/cmake/px4_add_library.cmake",
+			"PX4-Autopilot/src/lib/drivers/smbus_sbs/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 34,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 41,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 46,
+				"parent" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 47,
+				"parent" : 1
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "uorb_headers::@41e83c3f64b96923a15f"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "uorb_msgs::@41e83c3f64b96923a15f"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "cdev::@de7df18704747d577c31"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "perf::@228cfc54e8a84194768c"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "work_queue::@b6acbf708784dc6ae211"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "drivers_board::@73fc16b0358f07d30129"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "tinybson::@2617af6503db735e7b8c"
+		}
+	],
+	"id" : "drivers__smbus_sbs::@f60baf81ae248c318c20",
+	"name" : "drivers__smbus_sbs",
+	"nameOnDisk" : "libdrivers__smbus_sbs.a",
+	"paths" : 
+	{
+		"build" : "PX4-Autopilot/src/lib/drivers/smbus_sbs",
+		"source" : "PX4-Autopilot/src/lib/drivers/smbus_sbs"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"path" : "PX4-Autopilot/src/lib/drivers/smbus_sbs/SBS.hpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

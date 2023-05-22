@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/mburr/catkin_ws/devel/lib/liblaunchdetection.a  CMakeFiles/launchdetection.dir/LaunchDetector.cpp.o CMakeFiles/launchdetection.dir/CatapultLaunchMethod.cpp.o
+/usr/bin/ranlib /home/mburr/catkin_ws/devel/lib/liblaunchdetection.a

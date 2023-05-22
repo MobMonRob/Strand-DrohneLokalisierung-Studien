@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/mburr/catkin_ws/devel/lib/libWeatherVane.a  CMakeFiles/WeatherVane.dir/WeatherVane.cpp.o
+/usr/bin/ranlib /home/mburr/catkin_ws/devel/lib/libWeatherVane.a

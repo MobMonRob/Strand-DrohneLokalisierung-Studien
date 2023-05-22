@@ -1,0 +1,79 @@
+{
+	"backtrace" : 5,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"catkin_run_tests_target",
+			"_catkin_add_google_test",
+			"catkin_add_gtest",
+			"add_unit_test",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"/opt/ros/noetic/share/catkin/cmake/test/tests.cmake",
+			"/opt/ros/noetic/share/catkin/cmake/test/gtest.cmake",
+			"sitl_gazebo/unit_tests/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 2
+			},
+			{
+				"command" : 4,
+				"file" : 2,
+				"line" : 31,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 17,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 37,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 98,
+				"parent" : 3
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 137,
+				"parent" : 4
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 147,
+				"parent" : 4
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 6,
+			"id" : "_run_tests_mavlink_sitl_gazebo_gtest::@cc114936ee412cf9056b"
+		}
+	],
+	"id" : "_run_tests_mavlink_sitl_gazebo::@cc114936ee412cf9056b",
+	"name" : "_run_tests_mavlink_sitl_gazebo",
+	"paths" : 
+	{
+		"build" : "sitl_gazebo/unit_tests",
+		"source" : "sitl_gazebo/unit_tests"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

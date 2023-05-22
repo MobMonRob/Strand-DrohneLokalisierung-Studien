@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/mburr/catkin_ws/devel/lib/libNullMixer.a  CMakeFiles/NullMixer.dir/NullMixer.cpp.o
+/usr/bin/ranlib /home/mburr/catkin_ws/devel/lib/libNullMixer.a

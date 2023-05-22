@@ -1,0 +1,99 @@
+{
+	"backtrace" : 3,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"include",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"PX4-Autopilot/platforms/posix/cmake/sitl_target.cmake",
+			"PX4-Autopilot/platforms/posix/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 132,
+				"parent" : 0
+			},
+			{
+				"file" : 0,
+				"parent" : 1
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 170,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 180,
+				"parent" : 2
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "px4::@fa3a768158441bce8952"
+		},
+		{
+			"id" : "logs_symlink::@fa3a768158441bce8952"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "git_jmavsim::@fa3a768158441bce8952"
+		}
+	],
+	"id" : "jmavsim_techpod_gdb::@fa3a768158441bce8952",
+	"name" : "jmavsim_techpod_gdb",
+	"paths" : 
+	{
+		"build" : "PX4-Autopilot/platforms/posix",
+		"source" : "PX4-Autopilot/platforms/posix"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 3,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/PX4-Autopilot/platforms/posix/CMakeFiles/jmavsim_techpod_gdb",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/PX4-Autopilot/platforms/posix/CMakeFiles/jmavsim_techpod_gdb.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

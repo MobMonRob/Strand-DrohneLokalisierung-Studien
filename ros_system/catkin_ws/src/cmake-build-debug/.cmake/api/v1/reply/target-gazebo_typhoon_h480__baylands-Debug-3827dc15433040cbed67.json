@@ -1,0 +1,99 @@
+{
+	"backtrace" : 3,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"include",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"PX4-Autopilot/platforms/posix/cmake/sitl_target.cmake",
+			"PX4-Autopilot/platforms/posix/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 132,
+				"parent" : 0
+			},
+			{
+				"file" : 0,
+				"parent" : 1
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 198,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 205,
+				"parent" : 2
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "px4::@fa3a768158441bce8952"
+		},
+		{
+			"id" : "logs_symlink::@fa3a768158441bce8952"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "sitl_gazebo::@fa3a768158441bce8952"
+		}
+	],
+	"id" : "gazebo_typhoon_h480__baylands::@fa3a768158441bce8952",
+	"name" : "gazebo_typhoon_h480__baylands",
+	"paths" : 
+	{
+		"build" : "PX4-Autopilot/platforms/posix",
+		"source" : "PX4-Autopilot/platforms/posix"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 3,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/PX4-Autopilot/platforms/posix/CMakeFiles/gazebo_typhoon_h480__baylands",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/PX4-Autopilot/platforms/posix/CMakeFiles/gazebo_typhoon_h480__baylands.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

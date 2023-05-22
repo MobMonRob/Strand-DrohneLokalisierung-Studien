@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/mburr/catkin_ws/devel/lib/libPositionControl.a  CMakeFiles/PositionControl.dir/ControlMath.cpp.o CMakeFiles/PositionControl.dir/PositionControl.cpp.o
+/usr/bin/ranlib /home/mburr/catkin_ws/devel/lib/libPositionControl.a

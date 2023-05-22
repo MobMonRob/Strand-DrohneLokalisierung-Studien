@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "PX4-Autopilot/src/systemcmds/sd_bench",
+		"source" : "PX4-Autopilot/src/systemcmds/sd_bench"
+	}
+}

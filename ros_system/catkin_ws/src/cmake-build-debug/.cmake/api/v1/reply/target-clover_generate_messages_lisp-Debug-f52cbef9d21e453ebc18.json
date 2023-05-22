@@ -1,0 +1,253 @@
+{
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"include",
+			"generate_messages",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"cmake-build-debug/clover/clover/cmake/clover-genmsg.cmake",
+			"/opt/ros/noetic/share/genmsg/cmake/genmsg-extras.cmake",
+			"clover/clover/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 111,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 307,
+				"parent" : 1
+			},
+			{
+				"file" : 0,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 328,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 586,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 335,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 337,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 339,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 341,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 343,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 345,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 347,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 351,
+				"parent" : 3
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "std_msgs_generate_messages_lisp::@0eb71bc6d5b12e2a1c2a"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "_clover_generate_messages_check_deps_GetTelemetry::@d951652180eb37dc4694"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "_clover_generate_messages_check_deps_Navigate::@d951652180eb37dc4694"
+		},
+		{
+			"backtrace" : 8,
+			"id" : "_clover_generate_messages_check_deps_NavigateGlobal::@d951652180eb37dc4694"
+		},
+		{
+			"backtrace" : 9,
+			"id" : "_clover_generate_messages_check_deps_SetPosition::@d951652180eb37dc4694"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "_clover_generate_messages_check_deps_SetVelocity::@d951652180eb37dc4694"
+		},
+		{
+			"backtrace" : 11,
+			"id" : "_clover_generate_messages_check_deps_SetAttitude::@d951652180eb37dc4694"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "_clover_generate_messages_check_deps_SetRates::@d951652180eb37dc4694"
+		},
+		{
+			"backtrace" : 13,
+			"id" : "_clover_generate_messages_check_deps_SetLEDEffect::@d951652180eb37dc4694"
+		},
+		{
+			"backtrace" : 14,
+			"id" : "_clover_generate_messages_check_deps_Execute::@d951652180eb37dc4694"
+		}
+	],
+	"id" : "clover_generate_messages_lisp::@d951652180eb37dc4694",
+	"name" : "clover_generate_messages_lisp",
+	"paths" : 
+	{
+		"build" : "clover/clover",
+		"source" : "clover/clover"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 4,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/clover/clover/CMakeFiles/clover_generate_messages_lisp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/clover/clover/CMakeFiles/clover_generate_messages_lisp.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/devel/share/common-lisp/ros/clover/srv/Execute.lisp.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/devel/share/common-lisp/ros/clover/srv/GetTelemetry.lisp.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/devel/share/common-lisp/ros/clover/srv/Navigate.lisp.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/devel/share/common-lisp/ros/clover/srv/NavigateGlobal.lisp.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/devel/share/common-lisp/ros/clover/srv/SetAttitude.lisp.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/devel/share/common-lisp/ros/clover/srv/SetLEDEffect.lisp.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/devel/share/common-lisp/ros/clover/srv/SetPosition.lisp.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/devel/share/common-lisp/ros/clover/srv/SetRates.lisp.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/devel/share/common-lisp/ros/clover/srv/SetVelocity.lisp.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

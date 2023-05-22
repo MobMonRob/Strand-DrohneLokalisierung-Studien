@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/mburr/catkin_ws/devel/lib/libSimpleMixer.a  CMakeFiles/SimpleMixer.dir/SimpleMixer.cpp.o
+/usr/bin/ranlib /home/mburr/catkin_ws/devel/lib/libSimpleMixer.a

@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "PX4-Autopilot/src/examples/px4_mavlink_debug",
+		"source" : "PX4-Autopilot/src/examples/px4_mavlink_debug"
+	}
+}

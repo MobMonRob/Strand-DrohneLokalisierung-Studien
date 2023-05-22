@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "PX4-Autopilot/src/modules/mc_pos_control/Takeoff",
+		"source" : "PX4-Autopilot/src/modules/mc_pos_control/Takeoff"
+	}
+}

@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/mburr/catkin_ws/devel/lib/libAirspeedValidator.a  CMakeFiles/AirspeedValidator.dir/AirspeedValidator.cpp.o
+/usr/bin/ranlib /home/mburr/catkin_ws/devel/lib/libAirspeedValidator.a

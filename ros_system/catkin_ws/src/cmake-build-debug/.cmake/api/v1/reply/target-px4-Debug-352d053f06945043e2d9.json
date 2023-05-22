@@ -1,0 +1,3114 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "devel/lib/px4/px4"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"link_directories",
+			"target_link_libraries",
+			"px4_add_module",
+			"px4_add_library",
+			"add_dependencies",
+			"px4_os_prebuild_targets",
+			"px4_add_board",
+			"include",
+			"add_compile_options",
+			"px4_add_common_flags",
+			"add_definitions",
+			"configure_shared_library_build_settings",
+			"find_package",
+			"px4_os_add_flags",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"PX4-Autopilot/platforms/posix/CMakeLists.txt",
+			"PX4-Autopilot/CMakeLists.txt",
+			"PX4-Autopilot/cmake/px4_add_module.cmake",
+			"PX4-Autopilot/src/lib/rc/rc_tests/CMakeLists.txt",
+			"PX4-Autopilot/src/drivers/pwm_out_sim/CMakeLists.txt",
+			"PX4-Autopilot/src/drivers/tone_alarm/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/airspeed_selector/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/commander/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/ekf2/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/flight_mode_manager/tasks/AutoLineSmoothVel/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/flight_mode_manager/tasks/AutoFollowMe/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/flight_mode_manager/tasks/Auto/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/flight_mode_manager/tasks/ManualPosition/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/flight_mode_manager/tasks/Descend/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/flight_mode_manager/tasks/Utility/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/fw_pos_control_l1/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/mc_att_control/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/mc_hover_thrust_estimator/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/local_position_estimator/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/mc_pos_control/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/mc_rate_control/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/navigator/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/rover_pos_control/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/mavlink/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/sensors/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/simulator/battery_simulator/CMakeLists.txt",
+			"PX4-Autopilot/src/systemcmds/dyn/CMakeLists.txt",
+			"PX4-Autopilot/src/lib/mixer/CMakeLists.txt",
+			"PX4-Autopilot/src/lib/mixer/AllocatedActuatorMixer/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/attitude_estimator_q/CMakeLists.txt",
+			"PX4-Autopilot/src/modules/logger/CMakeLists.txt",
+			"PX4-Autopilot/src/lib/cdev/test/CMakeLists.txt",
+			"PX4-Autopilot/platforms/common/px4_work_queue/test/CMakeLists.txt",
+			"PX4-Autopilot/platforms/posix/src/px4/common/CMakeLists.txt",
+			"PX4-Autopilot/src/lib/parameters/CMakeLists.txt",
+			"PX4-Autopilot/cmake/px4_add_library.cmake",
+			"PX4-Autopilot/platforms/common/uORB/CMakeLists.txt",
+			"PX4-Autopilot/platforms/posix/cmake/px4_impl_os.cmake",
+			"PX4-Autopilot/cmake/px4_add_board.cmake",
+			"PX4-Autopilot/boards/px4/sitl/default.cmake",
+			"PX4-Autopilot/src/lib/version/CMakeLists.txt",
+			"PX4-Autopilot/platforms/posix/cmake/sitl_target.cmake",
+			"PX4-Autopilot/cmake/px4_add_common_flags.cmake",
+			"/opt/ros/noetic/share/catkin/cmake/tools/libraries.cmake",
+			"/opt/ros/noetic/share/catkin/cmake/all.cmake",
+			"/opt/ros/noetic/share/catkin/cmake/catkinConfig.cmake",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 53,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 348,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 58,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 70,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 73,
+				"parent" : 0
+			},
+			{
+				"file" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 3,
+				"line" : 34,
+				"parent" : 7
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 8
+			},
+			{
+				"file" : 4
+			},
+			{
+				"command" : 3,
+				"file" : 4,
+				"line" : 33,
+				"parent" : 10
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 11
+			},
+			{
+				"file" : 5
+			},
+			{
+				"command" : 3,
+				"file" : 5,
+				"line" : 34,
+				"parent" : 13
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 14
+			},
+			{
+				"file" : 6
+			},
+			{
+				"command" : 3,
+				"file" : 6,
+				"line" : 33,
+				"parent" : 16
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 17
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 17
+			},
+			{
+				"file" : 7
+			},
+			{
+				"command" : 3,
+				"file" : 7,
+				"line" : 37,
+				"parent" : 20
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 21
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 21
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 21
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 21
+			},
+			{
+				"file" : 8
+			},
+			{
+				"command" : 3,
+				"file" : 8,
+				"line" : 36,
+				"parent" : 26
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 27
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 27
+			},
+			{
+				"file" : 9
+			},
+			{
+				"command" : 3,
+				"file" : 9,
+				"line" : 110,
+				"parent" : 30
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 31
+			},
+			{
+				"command" : 2,
+				"file" : 9,
+				"line" : 130,
+				"parent" : 30
+			},
+			{
+				"command" : 2,
+				"file" : 9,
+				"line" : 130,
+				"parent" : 30
+			},
+			{
+				"file" : 10
+			},
+			{
+				"command" : 2,
+				"file" : 10,
+				"line" : 38,
+				"parent" : 35
+			},
+			{
+				"file" : 11
+			},
+			{
+				"command" : 2,
+				"file" : 11,
+				"line" : 38,
+				"parent" : 37
+			},
+			{
+				"file" : 12
+			},
+			{
+				"command" : 2,
+				"file" : 12,
+				"line" : 38,
+				"parent" : 39
+			},
+			{
+				"command" : 2,
+				"file" : 9,
+				"line" : 130,
+				"parent" : 30
+			},
+			{
+				"command" : 2,
+				"file" : 9,
+				"line" : 130,
+				"parent" : 30
+			},
+			{
+				"command" : 2,
+				"file" : 9,
+				"line" : 130,
+				"parent" : 30
+			},
+			{
+				"command" : 2,
+				"file" : 9,
+				"line" : 130,
+				"parent" : 30
+			},
+			{
+				"command" : 2,
+				"file" : 9,
+				"line" : 130,
+				"parent" : 30
+			},
+			{
+				"file" : 13
+			},
+			{
+				"command" : 2,
+				"file" : 13,
+				"line" : 39,
+				"parent" : 46
+			},
+			{
+				"command" : 2,
+				"file" : 9,
+				"line" : 130,
+				"parent" : 30
+			},
+			{
+				"command" : 2,
+				"file" : 9,
+				"line" : 130,
+				"parent" : 30
+			},
+			{
+				"command" : 2,
+				"file" : 9,
+				"line" : 130,
+				"parent" : 30
+			},
+			{
+				"command" : 2,
+				"file" : 9,
+				"line" : 130,
+				"parent" : 30
+			},
+			{
+				"file" : 14
+			},
+			{
+				"command" : 2,
+				"file" : 14,
+				"line" : 38,
+				"parent" : 52
+			},
+			{
+				"file" : 15
+			},
+			{
+				"command" : 2,
+				"file" : 15,
+				"line" : 43,
+				"parent" : 54
+			},
+			{
+				"file" : 16
+			},
+			{
+				"command" : 3,
+				"file" : 16,
+				"line" : 37,
+				"parent" : 56
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 57
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 57
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 57
+			},
+			{
+				"file" : 17
+			},
+			{
+				"command" : 3,
+				"file" : 17,
+				"line" : 36,
+				"parent" : 61
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 62
+			},
+			{
+				"file" : 18
+			},
+			{
+				"command" : 3,
+				"file" : 18,
+				"line" : 39,
+				"parent" : 64
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 65
+			},
+			{
+				"file" : 19
+			},
+			{
+				"command" : 3,
+				"file" : 19,
+				"line" : 33,
+				"parent" : 67
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 68
+			},
+			{
+				"file" : 20
+			},
+			{
+				"command" : 3,
+				"file" : 20,
+				"line" : 37,
+				"parent" : 70
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 71
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 71
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 21
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 71
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 14
+			},
+			{
+				"file" : 21
+			},
+			{
+				"command" : 3,
+				"file" : 21,
+				"line" : 36,
+				"parent" : 77
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 78
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 57
+			},
+			{
+				"file" : 22
+			},
+			{
+				"command" : 3,
+				"file" : 22,
+				"line" : 36,
+				"parent" : 81
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 82
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 82
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 57
+			},
+			{
+				"file" : 23
+			},
+			{
+				"command" : 3,
+				"file" : 23,
+				"line" : 33,
+				"parent" : 86
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 87
+			},
+			{
+				"file" : 24
+			},
+			{
+				"command" : 3,
+				"file" : 24,
+				"line" : 36,
+				"parent" : 89
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 90
+			},
+			{
+				"file" : 25
+			},
+			{
+				"command" : 3,
+				"file" : 25,
+				"line" : 44,
+				"parent" : 92
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 93
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 93
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 93
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 93
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 93
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 93
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 93
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 21
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 90
+			},
+			{
+				"file" : 26
+			},
+			{
+				"command" : 3,
+				"file" : 26,
+				"line" : 34,
+				"parent" : 103
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 104
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 62
+			},
+			{
+				"file" : 27
+			},
+			{
+				"command" : 2,
+				"file" : 27,
+				"line" : 8,
+				"parent" : 107
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 11
+			},
+			{
+				"file" : 28
+			},
+			{
+				"command" : 2,
+				"file" : 28,
+				"line" : 50,
+				"parent" : 110
+			},
+			{
+				"file" : 29
+			},
+			{
+				"command" : 2,
+				"file" : 29,
+				"line" : 38,
+				"parent" : 112
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 11
+			},
+			{
+				"file" : 30
+			},
+			{
+				"command" : 3,
+				"file" : 30,
+				"line" : 34,
+				"parent" : 115
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 116
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 14
+			},
+			{
+				"file" : 31
+			},
+			{
+				"command" : 3,
+				"file" : 31,
+				"line" : 34,
+				"parent" : 119
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 120
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 90
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 90
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 93
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 21
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 90
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 90
+			},
+			{
+				"file" : 32
+			},
+			{
+				"command" : 3,
+				"file" : 32,
+				"line" : 34,
+				"parent" : 128
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 156,
+				"parent" : 129
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 129
+			},
+			{
+				"file" : 33
+			},
+			{
+				"command" : 3,
+				"file" : 33,
+				"line" : 34,
+				"parent" : 132
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 133
+			},
+			{
+				"file" : 34
+			},
+			{
+				"command" : 2,
+				"file" : 34,
+				"line" : 65,
+				"parent" : 135
+			},
+			{
+				"command" : 2,
+				"file" : 34,
+				"line" : 68,
+				"parent" : 135
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 27
+			},
+			{
+				"file" : 35
+			},
+			{
+				"command" : 2,
+				"file" : 35,
+				"line" : 156,
+				"parent" : 139
+			},
+			{
+				"file" : 37
+			},
+			{
+				"command" : 4,
+				"file" : 37,
+				"line" : 37,
+				"parent" : 141
+			},
+			{
+				"command" : 2,
+				"file" : 36,
+				"line" : 47,
+				"parent" : 142
+			},
+			{
+				"command" : 8,
+				"file" : 1,
+				"line" : 144,
+				"parent" : 2
+			},
+			{
+				"file" : 40,
+				"parent" : 144
+			},
+			{
+				"command" : 7,
+				"file" : 40,
+				"line" : 2,
+				"parent" : 145
+			},
+			{
+				"command" : 6,
+				"file" : 39,
+				"line" : 291,
+				"parent" : 146
+			},
+			{
+				"command" : 5,
+				"file" : 38,
+				"line" : 304,
+				"parent" : 147
+			},
+			{
+				"file" : 41
+			},
+			{
+				"command" : 5,
+				"file" : 41,
+				"line" : 69,
+				"parent" : 149
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 132,
+				"parent" : 0
+			},
+			{
+				"file" : 42,
+				"parent" : 151
+			},
+			{
+				"command" : 5,
+				"file" : 42,
+				"line" : 11,
+				"parent" : 152
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 104,
+				"parent" : 0
+			},
+			{
+				"command" : 10,
+				"file" : 1,
+				"line" : 318,
+				"parent" : 2
+			},
+			{
+				"command" : 9,
+				"file" : 43,
+				"line" : 45,
+				"parent" : 155
+			},
+			{
+				"command" : 9,
+				"file" : 43,
+				"line" : 114,
+				"parent" : 155
+			},
+			{
+				"command" : 9,
+				"file" : 43,
+				"line" : 118,
+				"parent" : 155
+			},
+			{
+				"command" : 9,
+				"file" : 43,
+				"line" : 121,
+				"parent" : 155
+			},
+			{
+				"command" : 9,
+				"file" : 43,
+				"line" : 134,
+				"parent" : 155
+			},
+			{
+				"command" : 9,
+				"file" : 43,
+				"line" : 169,
+				"parent" : 155
+			},
+			{
+				"command" : 9,
+				"file" : 43,
+				"line" : 169,
+				"parent" : 155
+			},
+			{
+				"command" : 9,
+				"file" : 43,
+				"line" : 169,
+				"parent" : 155
+			},
+			{
+				"command" : 9,
+				"file" : 43,
+				"line" : 169,
+				"parent" : 155
+			},
+			{
+				"command" : 9,
+				"file" : 43,
+				"line" : 169,
+				"parent" : 155
+			},
+			{
+				"command" : 11,
+				"file" : 43,
+				"line" : 192,
+				"parent" : 155
+			},
+			{
+				"command" : 11,
+				"file" : 1,
+				"line" : 150,
+				"parent" : 2
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 16,
+				"parent" : 0
+			},
+			{
+				"file" : 47
+			},
+			{
+				"command" : 13,
+				"file" : 47,
+				"line" : 58,
+				"parent" : 169
+			},
+			{
+				"file" : 46,
+				"parent" : 170
+			},
+			{
+				"command" : 8,
+				"file" : 46,
+				"line" : 20,
+				"parent" : 171
+			},
+			{
+				"file" : 45,
+				"parent" : 172
+			},
+			{
+				"command" : 12,
+				"file" : 45,
+				"line" : 174,
+				"parent" : 173
+			},
+			{
+				"command" : 11,
+				"file" : 44,
+				"line" : 18,
+				"parent" : 174
+			},
+			{
+				"command" : 14,
+				"file" : 1,
+				"line" : 319,
+				"parent" : 2
+			},
+			{
+				"command" : 11,
+				"file" : 38,
+				"line" : 251,
+				"parent" : 176
+			},
+			{
+				"command" : 11,
+				"file" : 38,
+				"line" : 216,
+				"parent" : 176
+			},
+			{
+				"command" : 15,
+				"file" : 39,
+				"line" : 179,
+				"parent" : 146
+			},
+			{
+				"command" : 15,
+				"file" : 39,
+				"line" : 204,
+				"parent" : 146
+			},
+			{
+				"command" : 15,
+				"file" : 43,
+				"line" : 173,
+				"parent" : 155
+			},
+			{
+				"command" : 15,
+				"file" : 38,
+				"line" : 221,
+				"parent" : 176
+			},
+			{
+				"command" : 15,
+				"file" : 1,
+				"line" : 350,
+				"parent" : 2
+			},
+			{
+				"command" : 15,
+				"file" : 0,
+				"line" : 2,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -fPIE -fdiagnostics-color=always"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-g"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-fdata-sections"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-ffunction-sections"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-fomit-frame-pointer"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-fmerge-all-constants"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-fno-signed-zeros"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-fno-trapping-math"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-freciprocal-math"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-fno-math-errno"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-fno-strict-aliasing"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-fvisibility=hidden"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-include"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "visibility.h"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Wextra"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Werror"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Warray-bounds"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Wcast-align"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Wdisabled-optimization"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Wdouble-promotion"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Wfatal-errors"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Wfloat-equal"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Wformat-security"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Winit-self"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Wlogical-op"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Wpointer-arith"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Wshadow"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Wuninitialized"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Wunknown-pragmas"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Wunused-variable"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Wno-missing-field-initializers"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Wno-missing-include-dirs"
+				},
+				{
+					"backtrace" : 156,
+					"fragment" : "-Wno-unused-parameter"
+				},
+				{
+					"backtrace" : 157,
+					"fragment" : "-fdiagnostics-color=always"
+				},
+				{
+					"backtrace" : 158,
+					"fragment" : "-Wno-stringop-truncation"
+				},
+				{
+					"backtrace" : 159,
+					"fragment" : "-fno-builtin-printf"
+				},
+				{
+					"backtrace" : 159,
+					"fragment" : "-fno-strength-reduce"
+				},
+				{
+					"backtrace" : 159,
+					"fragment" : "-Wformat=1"
+				},
+				{
+					"backtrace" : 159,
+					"fragment" : "-Wunused-but-set-variable"
+				},
+				{
+					"backtrace" : 159,
+					"fragment" : "-Wno-format-truncation"
+				},
+				{
+					"backtrace" : 160,
+					"fragment" : "-fcheck-new"
+				},
+				{
+					"backtrace" : 161,
+					"fragment" : "-fno-exceptions"
+				},
+				{
+					"backtrace" : 162,
+					"fragment" : "-fno-rtti"
+				},
+				{
+					"backtrace" : 163,
+					"fragment" : "-fno-threadsafe-statics"
+				},
+				{
+					"backtrace" : 164,
+					"fragment" : "-Wreorder"
+				},
+				{
+					"backtrace" : 165,
+					"fragment" : "-Wno-overloaded-virtual"
+				},
+				{
+					"fragment" : "-std=gnu++14"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 166,
+					"define" : "CONFIG_ARCH_BOARD_PX4_SITL"
+				},
+				{
+					"backtrace" : 167,
+					"define" : "ENABLE_LOCKSTEP_SCHEDULER"
+				},
+				{
+					"backtrace" : 168,
+					"define" : "PX4_SHELL_COMMAND_PREFIX=\"px4-\""
+				},
+				{
+					"backtrace" : 175,
+					"define" : "ROS_BUILD_SHARED_LIBS=1"
+				},
+				{
+					"backtrace" : 166,
+					"define" : "__CUSTOM_FILE_IO__"
+				},
+				{
+					"backtrace" : 177,
+					"define" : "__PX4_LINUX"
+				},
+				{
+					"backtrace" : 178,
+					"define" : "__PX4_POSIX"
+				},
+				{
+					"backtrace" : 166,
+					"define" : "__STDC_FORMAT_MACROS"
+				},
+				{
+					"backtrace" : 178,
+					"define" : "noreturn_function=__attribute__((noreturn))"
+				},
+				{
+					"define" : "px4_EXPORTS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 179,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/boards/px4/sitl/src"
+				},
+				{
+					"backtrace" : 180,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/platforms/posix/src/px4/common/include"
+				},
+				{
+					"backtrace" : 181,
+					"path" : "/home/mburr/catkin_ws/src/cmake-build-debug/PX4-Autopilot"
+				},
+				{
+					"backtrace" : 181,
+					"path" : "/home/mburr/catkin_ws/src/cmake-build-debug/PX4-Autopilot/src/lib"
+				},
+				{
+					"backtrace" : 181,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/platforms/posix/src/px4/generic/generic/include"
+				},
+				{
+					"backtrace" : 181,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/platforms/common"
+				},
+				{
+					"backtrace" : 181,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/platforms/common/include"
+				},
+				{
+					"backtrace" : 181,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src"
+				},
+				{
+					"backtrace" : 181,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/include"
+				},
+				{
+					"backtrace" : 181,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/lib"
+				},
+				{
+					"backtrace" : 181,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/lib/matrix"
+				},
+				{
+					"backtrace" : 181,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/modules"
+				},
+				{
+					"backtrace" : 182,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/platforms/posix/include"
+				},
+				{
+					"backtrace" : 183,
+					"path" : "/home/mburr/catkin_ws/src/cmake-build-debug/PX4-Autopilot/external/Install/include"
+				},
+				{
+					"backtrace" : 184,
+					"path" : "/home/mburr/catkin_ws/src/cmake-build-debug/PX4-Autopilot/platforms/posix"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/modules/flight_mode_manager/tasks/AutoFollowMe"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/modules/flight_mode_manager/tasks/Auto"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/modules/flight_mode_manager/tasks/FlightTask"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/modules/flight_mode_manager/tasks/Utility"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/lib/slew_rate"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/lib/motion_planning"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/modules/flight_mode_manager/tasks/AutoLineSmoothVel"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/modules/flight_mode_manager/tasks/AutoMapper"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/modules/flight_mode_manager/tasks/Descend"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/modules/flight_mode_manager/tasks/Failsafe"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/modules/flight_mode_manager/tasks/ManualAcceleration"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/modules/flight_mode_manager/tasks/ManualAltitudeSmoothVel"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/modules/flight_mode_manager/tasks/ManualAltitude"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/modules/flight_mode_manager/tasks/ManualPosition"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/modules/flight_mode_manager/tasks/ManualPositionSmoothVel"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/modules/flight_mode_manager/tasks/Transition"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/src/modules/flight_mode_manager/tasks/Orbit"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/mburr/catkin_ws/src/PX4-Autopilot/mavlink/include/mavlink"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "14"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 148,
+			"id" : "uorb_headers::@41e83c3f64b96923a15f"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "uorb_msgs::@41e83c3f64b96923a15f"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "airspeed::@f13e919fba19da207aa5"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "AirspeedValidator::@5e2f4ab366c3781628e3"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "avoidance::@93aaaa17a49d0695ff50"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "battery::@5e93e7ec9fe609849480"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "bezier::@8c9735255bf478448738"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "cdev::@de7df18704747d577c31"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "lib__cdev__test__cdev_test::@768a93f8e092c3530a9b"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "circuit_breaker::@2583db6937caeb818070"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "CollisionPrevention::@8d0379c89fd4837c5dc5"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "controllib::@a53476d5bd1ab04d97be"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "lib__controllib__controllib_test::@660d3b866a69b36d7cd0"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "conversion::@a0e5683f670d7aefa756"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "drivers_accelerometer::@4401d1d02f9d519981da"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "drivers_barometer::@429aa3cc377f78a82c58"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "drivers__device::@a82824ec00107efb6b8d"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "drivers_gyroscope::@efd891020a9c4b769a06"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "drivers_magnetometer::@331b7291c9d9e4ada660"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "ecl_airdata::@276da0eb45fa6806d282"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "ecl_EKF::@52f41f1487cf5d04d50a"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "ecl_geo::@69f4b63d8baa332c29fa"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "ecl_geo_lookup::@fe2dfd75fe1e8e4cd9af"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "hysteresis::@63ef5f427f97257c7170"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "l1::@1aa0b0f7e292d2648377"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "landing_slope::@11493ab879d60be31b02"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "mathlib::@f4cf47f27c7bbc8619dd"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "mixer::@41a068a9b22a03f5208e"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "MixerBase::@6fbb29f0472a9e1fb8a1"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "AllocatedActuatorMixer::@edc29854b76840bf9b12"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "HelicopterMixer::@bed3ae8e5c2e71ed80b7"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "MultirotorMixer::@9d8df874056a5e9b5df6"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "NullMixer::@d16be0cad5592720b423"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "SimpleMixer::@bf91aaa699d80f154589"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "mixer_module::@5c527a8ac373ce872145"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "motion_planning::@fd01c4e47464af99521b"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "output_limit::@16276185dce2e5e49a32"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "perf::@228cfc54e8a84194768c"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "pid::@26b97a4a0ffa34cba1ec"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "rc::@6966c2a0f8f72c6de17d"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "lib__rc__rc_tests::@eee86524e204fe2b2ac3"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "sensor_calibration::@20f46cf85b9879ebaf7f"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "SlewRate::@e76f5454519e8cf1efd7"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemlib::@ce44036b2c8990c12e57"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "tecs::@c7c944f5246b6d51be66"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "tunes::@07f58f7f7642a45bbf7b"
+		},
+		{
+			"backtrace" : 150,
+			"id" : "ver_gen::@225624c5a784175611c5"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "version::@225624c5a784175611c5"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "WeatherVane::@2e5dbbad7eb118fcac28"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "arch_tone_alarm::@45f22d951d4f127ea5b7"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__uORB__uORB_tests::@3ec9624039e4a1cbfd4b"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "lib__work_queue__test__wqueue_test::@fbd4bbb72d31554cf740"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "work_queue::@b6acbf708784dc6ae211"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "drivers__camera_capture::@eb9baa3e3f0046fd7e2d"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "drivers__camera_trigger::@9c9c7d4a8e97a0537e0c"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "drivers__gps::@ef0495d3b9b4f27e3303"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "drivers__pwm_out_sim::@22bbeb086f5a329646f1"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "examples__rpm_simulator::@262e6f41bdade6de241a"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "drivers__tone_alarm::@2e2075b3d9ca0f221748"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__airship_att_control::@5d53b60fd7d656beb8f0"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__airspeed_selector::@23abae03f05df3533c42"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__attitude_estimator_q::@468be9816f62f9a44792"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__camera_feedback::@ae34895515547503423a"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__commander::@daec8257d084d526825b"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "failure_detector::@8479b8a6da79974e044a"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "PreFlightCheck::@5feba62a4759915a69f9"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "ArmAuthorization::@f12bbb6b60c22a0849cb"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "HealthFlags::@ac527ab144f97319e492"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__commander__commander_tests::@7606ce472aca21078c8d"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__dataman::@ae6830300d3ff2d86324"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__ekf2::@10c570c78a78c3e3e6df"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "EKF2Utility::@fd051c88f51aeff11185"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__events::@d02eade65cca99ddcf41"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__flight_mode_manager::@e26988f6173406b3a6ed"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "FlightTask::@65b64153eb52957088d2"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "FlightTaskUtility::@ec704e68fbc93aa7309f"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "FlightTaskAuto::@efbf76a9e25cadc51826"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "FlightTaskAutoMapper::@6efacb3ec84ebe9afd9b"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "FlightTaskAutoFollowMe::@79d3d16a62f39995e752"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "FlightTaskAutoLineSmoothVel::@e0e02da59666073930e1"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "FlightTaskDescend::@13ad99f370ac72b53996"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "FlightTaskFailsafe::@02b8ce57b74ac6d45e18"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "FlightTaskManualAcceleration::@b0d37810e22b28cb138f"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "FlightTaskManualAltitude::@7f27de44ee73797df6ce"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "FlightTaskManualAltitudeSmoothVel::@2f2608b32ca90d32d05d"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "FlightTaskManualPosition::@a710519d9c3e993ae9a1"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "FlightTaskManualPositionSmoothVel::@669130198f4a6a386462"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "FlightTaskTransition::@2f6e0e3797bc3ed62ec4"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "FlightTaskOrbit::@1dd63d003536e6a530b2"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__fw_att_control::@3f440b404d3a66157956"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__fw_pos_control_l1::@f234b6995c2e41435306"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "launchdetection::@5af541370b04e598c970"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "runway_takeoff::@083927d34964e067ecca"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__gyro_calibration::@7165f4bc9ce98fc499f6"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__gyro_fft::@d70e7c041496ff6c38b0"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__land_detector::@1ccb5f5d843c10406bdb"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__landing_target_estimator::@3c58cc792236dbc31279"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__load_mon::@250dff3ebe009ab37f9b"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__local_position_estimator::@ddefa30d7fac9a32df1f"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__logger::@74ba62dd20e556b00b79"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__mavlink::@b52afe8ca614e9d88043"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__mavlink__mavlink_tests::@add4b386c0b544a0e9f1"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__mc_att_control::@aae862541d6d891608f1"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "AttitudeControl::@371bef64e78f75abdcd3"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "zero_order_hover_thrust_ekf::@a1b2940d738a1e703be1"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__mc_hover_thrust_estimator::@a1b2940d738a1e703be1"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__mc_pos_control::@1ea845053fc04dd51577"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "PositionControl::@4660d3d23821e15da717"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "Takeoff::@5b743285554b389eb402"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__mc_rate_control::@ce284d89ea1c6ea61677"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "RateControl::@cd6cc5e98c6a5a6561c2"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__navigator::@ebd497e6935444c3b584"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "geofence_breach_avoidance::@6134dff6c933907a8df2"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__rc_update::@e6a73625da862346a0b7"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__replay::@7ecaf9343ea9c1bd0325"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__rover_pos_control::@370f96a0c5f2032469a0"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__sensors::@9c83aa1c58f48d5f68f6"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "data_validator::@26fbda00935b8cf747b8"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "vehicle_acceleration::@b83b24fa1ebe1d13a7c7"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "vehicle_angular_velocity::@0ad1006c0f55f1b55f1e"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "vehicle_air_data::@23312c5f6ee721dbc403"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "vehicle_gps_position::@2a533da44861af912d45"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "vehicle_imu::@f20ee7e6409e0278a7a3"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "vehicle_magnetometer::@f751dc79f7534d846908"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__simulator::@d753223b9ac13f7f4dda"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__simulator__battery_simulator::@da4bc6b87dd309799ced"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__temperature_compensation::@5bbfa37dc49d4594a6c8"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__uuv_att_control::@e1bd864e487ce88c1897"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__uuv_pos_control::@0c2669a6785c302ece08"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "drivers__vmount::@3a4382408aa139ee8d5e"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__vtol_att_control::@096a7938ad88a88e41aa"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__dyn::@e245f54b0c0130aae3d8"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__esc_calib::@790a4217405e21e81337"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__failure::@4ea7c15c08ac062a6b45"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__led_control::@3ee6988433c40f0e2181"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__mixer::@06de9064e0ec0efbb228"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__motor_ramp::@256675e65ed174e13375"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__motor_test::@335c27239b9ad50a3d3f"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__param::@3c1a67d270178aedb276"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__perf::@b783a2c3cd922fbd80f8"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__pwm::@d80d5be1086bc8f87b16"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__sd_bench::@3c3683b02a7468181d40"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__shutdown::@7656329b459aa012bd52"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__system_time::@1022a4d5b8b4cc51f696"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__tests::@43a6a295000fe0bf3394"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__tests__hrt_test::@82aaab069888e07d31de"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__topic_listener::@2adb17b0906206801c5e"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__tune_control::@78ac39d00c6d143857a6"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__uorb::@a720565cd14803f49b96"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__ver::@e20e4d7a54c5ecc5aac2"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "systemcmds__work_queue::@2a20313a7f6a1a3b95df"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__fake_gps::@0c3f492f196f8418feab"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "modules__fake_imu::@d0b5b0e8fa022a80db94"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "examples__fake_magnetometer::@e4423b565d65268fce9c"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "examples__fixedwing_control::@a90ce54b0e7fe1989583"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "examples__hello::@779e7eeeb2735e780b5c"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "examples__px4_mavlink_debug::@363c0a9b13a71bbc4633"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "examples__px4_simple_app::@ea8bbfbc12e5703b41dd"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "examples__rover_steering_control::@7767d5b5925cf1aea627"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "examples__uuv_example_app::@5a3f215e278d763bb9bb"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "examples__work_item::@57d89bf0c61ac194dd59"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "drivers_board::@73fc16b0358f07d30129"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "tinybson::@2617af6503db735e7b8c"
+		},
+		{
+			"backtrace" : 153,
+			"id" : "logs_symlink::@fa3a768158441bce8952"
+		},
+		{
+			"backtrace" : 154,
+			"id" : "romfs_gen_files_target::@adcf9f76bb77a93e5f47"
+		}
+	],
+	"id" : "px4::@fa3a768158441bce8952",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-fuse-ld=gold   -Wl,--export-dynamic -rdynamic",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-L/home/mburr/catkin_ws/src/cmake-build-debug/PX4-Autopilot/external/Install/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/home/mburr/catkin_ws/src/cmake-build-debug/PX4-Autopilot/external/Install/lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/liblib__cdev__test__cdev_test.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/liblib__controllib__controllib_test.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/liblib__rc__rc_tests.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__uORB__uORB_tests.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/liblib__work_queue__test__wqueue_test.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libdrivers__camera_capture.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libdrivers__camera_trigger.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libdrivers__gps.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libdrivers__pwm_out_sim.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libexamples__rpm_simulator.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libdrivers__tone_alarm.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__airship_att_control.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__airspeed_selector.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__attitude_estimator_q.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__camera_feedback.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__commander.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__commander__commander_tests.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__dataman.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__ekf2.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__events.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__flight_mode_manager.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__fw_att_control.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__fw_pos_control_l1.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__gyro_calibration.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__gyro_fft.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__land_detector.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__landing_target_estimator.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__load_mon.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__local_position_estimator.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__logger.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__mavlink.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__mavlink__mavlink_tests.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__mc_att_control.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__mc_hover_thrust_estimator.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__mc_pos_control.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__mc_rate_control.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__navigator.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__rc_update.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__replay.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__rover_pos_control.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__sensors.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__simulator.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__simulator__battery_simulator.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__temperature_compensation.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__uuv_att_control.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__uuv_pos_control.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libdrivers__vmount.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__vtol_att_control.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__dyn.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__esc_calib.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__failure.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__led_control.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__mixer.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__motor_ramp.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__motor_test.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__param.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__perf.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__pwm.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__sd_bench.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__shutdown.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__system_time.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__tests.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__tests__hrt_test.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__topic_listener.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__tune_control.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__uorb.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__ver.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libsystemcmds__work_queue.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__fake_gps.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libmodules__fake_imu.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libexamples__fake_magnetometer.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libexamples__fixedwing_control.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libexamples__hello.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libexamples__px4_mavlink_debug.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libexamples__px4_simple_app.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libexamples__rover_steering_control.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libexamples__uuv_example_app.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libexamples__work_item.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-lm",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libpx4_layer.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libpx4_platform.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libwork_queue.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libparameters.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lrt",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "devel/lib/libuORB.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 9,
+				"fragment" : "devel/lib/librc.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "devel/lib/libmixer_module.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 15,
+				"fragment" : "devel/lib/libarch_tone_alarm.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 18,
+				"fragment" : "devel/lib/libAirspeedValidator.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 19,
+				"fragment" : "devel/lib/libecl_airdata.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 22,
+				"fragment" : "devel/lib/libfailure_detector.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 23,
+				"fragment" : "devel/lib/libPreFlightCheck.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 24,
+				"fragment" : "devel/lib/libArmAuthorization.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 25,
+				"fragment" : "devel/lib/libHealthFlags.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 28,
+				"fragment" : "devel/lib/libecl_EKF.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 29,
+				"fragment" : "devel/lib/libEKF2Utility.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 32,
+				"fragment" : "devel/lib/libWeatherVane.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 33,
+				"fragment" : "devel/lib/libFlightTaskAutoFollowMe.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 34,
+				"fragment" : "devel/lib/libFlightTaskAutoLineSmoothVel.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 36,
+				"fragment" : "devel/lib/libFlightTaskAutoMapper.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 38,
+				"fragment" : "devel/lib/libFlightTaskAuto.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 40,
+				"fragment" : "devel/lib/libavoidance.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 41,
+				"fragment" : "devel/lib/libFlightTaskDescend.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 42,
+				"fragment" : "devel/lib/libFlightTaskFailsafe.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 43,
+				"fragment" : "devel/lib/libFlightTaskManualAcceleration.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 44,
+				"fragment" : "devel/lib/libFlightTaskManualPositionSmoothVel.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 45,
+				"fragment" : "devel/lib/libFlightTaskManualPosition.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 47,
+				"fragment" : "devel/lib/libCollisionPrevention.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 48,
+				"fragment" : "devel/lib/libFlightTaskTransition.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 49,
+				"fragment" : "devel/lib/libFlightTaskOrbit.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 50,
+				"fragment" : "devel/lib/libFlightTaskManualAltitudeSmoothVel.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 51,
+				"fragment" : "devel/lib/libFlightTaskManualAltitude.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 36,
+				"fragment" : "devel/lib/libFlightTaskUtility.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 53,
+				"fragment" : "devel/lib/libFlightTask.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 55,
+				"fragment" : "devel/lib/libbezier.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 58,
+				"fragment" : "devel/lib/liblaunchdetection.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 59,
+				"fragment" : "devel/lib/librunway_takeoff.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 60,
+				"fragment" : "devel/lib/libtecs.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 63,
+				"fragment" : "devel/lib/libAttitudeControl.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 66,
+				"fragment" : "devel/lib/libzero_order_hover_thrust_ekf.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 69,
+				"fragment" : "devel/lib/libcontrollib.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 72,
+				"fragment" : "devel/lib/libPositionControl.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 73,
+				"fragment" : "devel/lib/libTakeoff.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 74,
+				"fragment" : "devel/lib/libhysteresis.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 75,
+				"fragment" : "devel/lib/libSlewRate.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 76,
+				"fragment" : "devel/lib/libcircuit_breaker.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 79,
+				"fragment" : "devel/lib/libRateControl.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 80,
+				"fragment" : "devel/lib/liblanding_slope.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 83,
+				"fragment" : "devel/lib/libgeofence_breach_avoidance.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 84,
+				"fragment" : "devel/lib/libmotion_planning.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 85,
+				"fragment" : "devel/lib/libl1.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 88,
+				"fragment" : "devel/lib/libpid.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 91,
+				"fragment" : "devel/lib/libairspeed.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 94,
+				"fragment" : "devel/lib/libdata_validator.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 95,
+				"fragment" : "devel/lib/libvehicle_acceleration.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 96,
+				"fragment" : "devel/lib/libvehicle_angular_velocity.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 97,
+				"fragment" : "devel/lib/libvehicle_air_data.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 98,
+				"fragment" : "devel/lib/libvehicle_gps_position.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 99,
+				"fragment" : "devel/lib/libvehicle_imu.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 100,
+				"fragment" : "devel/lib/libvehicle_magnetometer.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 101,
+				"fragment" : "devel/lib/libsensor_calibration.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 102,
+				"fragment" : "devel/lib/libdrivers_barometer.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 105,
+				"fragment" : "devel/lib/libbattery.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 106,
+				"fragment" : "devel/lib/libmathlib.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 108,
+				"fragment" : "-ldl",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 109,
+				"fragment" : "devel/lib/libmixer.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 111,
+				"fragment" : "devel/lib/libAllocatedActuatorMixer.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 111,
+				"fragment" : "devel/lib/libHelicopterMixer.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 111,
+				"fragment" : "devel/lib/libMultirotorMixer.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 111,
+				"fragment" : "devel/lib/libNullMixer.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 111,
+				"fragment" : "devel/lib/libSimpleMixer.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 113,
+				"fragment" : "devel/lib/libMixerBase.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 114,
+				"fragment" : "devel/lib/liboutput_limit.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 117,
+				"fragment" : "devel/lib/libecl_geo_lookup.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 118,
+				"fragment" : "devel/lib/libtunes.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 121,
+				"fragment" : "devel/lib/libversion.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 122,
+				"fragment" : "devel/lib/libdrivers_accelerometer.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 123,
+				"fragment" : "devel/lib/libdrivers_gyroscope.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 124,
+				"fragment" : "devel/lib/libdrivers__device.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 125,
+				"fragment" : "devel/lib/libecl_geo.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 126,
+				"fragment" : "devel/lib/libdrivers_magnetometer.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 127,
+				"fragment" : "devel/lib/libconversion.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 130,
+				"fragment" : "devel/lib/libsystemlib.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libpx4_layer.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libpx4_platform.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libparameters.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "devel/lib/libuORB.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 131,
+				"fragment" : "devel/lib/libcdev.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 134,
+				"fragment" : "devel/lib/libpx4_work_queue.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 136,
+				"fragment" : "devel/lib/libpx4_daemon.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 137,
+				"fragment" : "devel/lib/liblockstep_scheduler.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libpx4_layer.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libpx4_platform.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libparameters.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "devel/lib/libuORB.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 131,
+				"fragment" : "devel/lib/libcdev.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 134,
+				"fragment" : "devel/lib/libpx4_work_queue.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 136,
+				"fragment" : "devel/lib/libpx4_daemon.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 137,
+				"fragment" : "devel/lib/liblockstep_scheduler.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "devel/lib/libwork_queue.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 136,
+				"fragment" : "devel/lib/libdrivers_board.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 138,
+				"fragment" : "devel/lib/libperf.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 140,
+				"fragment" : "devel/lib/libtinybson.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 143,
+				"fragment" : "devel/lib/libuorb_msgs.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-lm",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "px4",
+	"nameOnDisk" : "px4",
+	"paths" : 
+	{
+		"build" : "PX4-Autopilot/platforms/posix",
+		"source" : "PX4-Autopilot/platforms/posix"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "PX4-Autopilot/platforms/posix/src/px4/common/main.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "cmake-build-debug/PX4-Autopilot/platforms/posix/apps.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

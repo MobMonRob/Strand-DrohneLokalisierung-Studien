@@ -1,0 +1,93 @@
+{
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"px4_add_git_submodule",
+			"include"
+		],
+		"files" : 
+		[
+			"PX4-Autopilot/cmake/px4_git.cmake",
+			"PX4-Autopilot/platforms/posix/cmake/sitl_target.cmake",
+			"PX4-Autopilot/platforms/posix/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 132,
+				"parent" : 0
+			},
+			{
+				"file" : 1,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 75,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 90,
+				"parent" : 3
+			}
+		]
+	},
+	"id" : "git_jsbsim_bridge::@fa3a768158441bce8952",
+	"name" : "git_jsbsim_bridge",
+	"paths" : 
+	{
+		"build" : "PX4-Autopilot/platforms/posix",
+		"source" : "PX4-Autopilot/platforms/posix"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 4,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/PX4-Autopilot/platforms/posix/CMakeFiles/git_jsbsim_bridge",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/PX4-Autopilot/platforms/posix/CMakeFiles/git_jsbsim_bridge.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/PX4-Autopilot/platforms/posix/git_init__home_mburr_catkin_ws_src_PX4-Autopilot_Tools_jsbsim_bridge.stamp.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

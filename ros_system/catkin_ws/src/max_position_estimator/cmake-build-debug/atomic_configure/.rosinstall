@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/mburr/catkin_ws/src/max_position_estimator/cmake-build-debug/devel/setup.sh
