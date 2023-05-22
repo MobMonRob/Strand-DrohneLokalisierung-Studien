@@ -9,19 +9,19 @@ Der PX4-Flugstack wurde ursprünglich für die Pixhawk-Hardware entwickelt, alle
 Die Software setzt Sensoren, ein um den Zustand der Drohne zu bestimmen. Hierfür werden einige Sensoren vorausgesetzt, zu diesen zählen ein Gyroskop, ein Beschleunigungssensor, ein Magnetometer sowie ein Barometer. Zudem ist GPS empfohlen um weitere Modi nutzen zu können. \cite[vgl.][]{px4}
 
 \subsection{Flugmodi}
-PX4 bietet verschiedene Flugmodi an, welche das Verhalten der des jeweiligen Fahrzeuge beziehungsweise Drohnen steuert und auch regelt, wie jeweils auf Benutzereingaben regiert werden soll. Das Wechseln dieser Flugmodi kann zum einen über die QGroundControl Software (siehe Kapitel \ref{qGroundControl:subsection}) oder auch je nach Anpassung der Fernbedinung, beispielsweise über verschiedene Schalter, auf dieser vollzogen werden. \\
-Allerdings muss auch beachtet werden, dass nicht alle Flugmodi bei allen Drohnen oder Fahrzeugen einsetzbar sind. Aussschlaggebend hierfür ist vor allem die Ausstattung des. Da jeder Flugmodi bestimmte Bedingungen hat die erfüllt sein müssen, beispielsweise Sensoren wie ein Geschwindikgeitssensor. \\
+PX4 bietet verschiedene Flugmodi an, welche das Verhalten der jeweiligen Fahrzeuge beziehungsweise Drohnen steuert und auch regelt, wie jeweils auf Benutzereingaben regiert werden soll. Das Wechseln dieser Flugmodi kann zum einen über die QGroundControl Software (siehe Kapitel \ref{qGroundControl:subsection}) oder auch je nach Anpassung der Fernbedienung, beispielsweise über verschiedene Schalter, auf dieser vollzogen werden. \\
+Allerdings muss auch beachtet werden, dass nicht alle Flugmodi bei allen Drohnen oder Fahrzeugen einsetzbar sind. Ausschlaggebend hierfür ist vor allem die Ausstattung des. Da jeder Flugmodi bestimmte Bedingungen hat die erfüllt sein müssen, beispielsweise Sensoren wie ein Geschwindigkeitssensor. \\
 Die Flugmodi lassen sich in drei Kategorien einteilen, diese sind manuelle, ünterstütze sowie automatische Steuerung.
 Da es bei diesem Projekt um den Einsatz einer Drohne handelt, werden im folgenden lediglich die für Drohnen relevanten Flugmodi erläutert.
-Zu der manuellen Steuerung, bei welchem der Pilot die Drohne direkt und ohne direkte UNterstützung steuert, gehören unter anderem die Modi "manuell" beziehungsweise "stabilisiert". Diese sorgen für eine stabilisierte horizontale Ausrichtung, jedoch ermöglichen sie es dem Piloten hierbei, das Gaspedal sowie die Roll- und Neigbewegungen selbst zu bestimmen. Zu dieser Katergorie gibt es noch weitere Modi, welche allerdingsa hauptsächlich für Flugshows genutzt werden.
-Bei der unterstützen Steuerung kann aus zwei verschiedenen Flugmodi gewählt werden, "ALTCTL (Altitude)" und "POSCTL (Position)". Beim ALTCTL-Modi wird besonders die Höhe der Drohne von Autopliot gesteurt, sodass diese einen möglichst konstanten Abstand zum Boden hält. Dieser Modi benötigt hierfür ein Barometer oder andere Sensoren zur Höhenmessung.
-Der POSCTL dient zum Halten der Position der Drohne, das heißt neben der Höhe werden zudem die Bewegungsgeschwindkeit nach vorne, hinten und zur Seite gesteuert, um die Drohne möglichst auf einer bestimmten Position zu halten.\\
-Bei der automatischen Steuerung fliegt die Drohne automatische ohne Benutzereingaben mittels eines Programms. Zu dieser Katergorie gehört der "Offboard"-Modus hierdurch ist es möglich, dass die Drohne durch einen anderen Computer gesteuert werden kann. Zudem gibt es noch einen Missions-Modus, hierbei kann beispielsweise über QGroundControl ein Pfad geplant werden, welcher dann von der Drohne mittels GPS geflogen wird. \\
+Zu der manuellen Steuerung, bei welchem der Pilot die Drohne direkt und ohne direkte UNterstützung steuert, gehören unter anderem die Modi "manuell" beziehungsweise "stabilisiert". Diese sorgen für eine stabilisierte horizontale Ausrichtung, jedoch ermöglichen sie es dem Piloten hierbei, das Gaspedal sowie die Roll- und Neigbewegungen selbst zu bestimmen. Zu dieser Kategorie gibt es noch weitere Modi, welche allerdings hauptsächlich für Flugshows genutzt werden.
+Bei der unterstützen Steuerung kann aus zwei verschiedenen Flugmodi gewählt werden, "ALTCTL (Altitude)" und "POSCTL (Position)". Beim ALTCTL-Modi wird besonders die Höhe der Drohne von Autopilot gesteuert, sodass diese einen möglichst konstanten Abstand zum Boden hält. Dieser Modi benötigt hierfür ein Barometer oder andere Sensoren zur Höhenmessung.
+Der POSCTL dient zum Halten der Position der Drohne, das heißt neben der Höhe werden zudem die Bewegungsgeschwindigkeit nach vorne, hinten und zur Seite gesteuert, um die Drohne möglichst auf einer bestimmten Position zu halten.\\
+Bei der automatischen Steuerung fliegt die Drohne automatische ohne Benutzereingaben mittels eines Programms. Zu dieser Kategorie gehört der "Offboard"-Modus hierdurch ist es möglich, dass die Drohne durch einen anderen Computer gesteuert werden kann. Zudem gibt es noch einen Missions-Modus, hierbei kann beispielsweise über QGroundControl ein Pfad geplant werden, welcher dann von der Drohne mittels GPS geflogen wird. \\
 Für das Projekt ist hierbei vor allem der Offboard-Modus von Bedeutung, da dieser benötigt wird, um autonome Flüge mit der Coex Clover Drohne zu machen, da diese hierbei von dem Raspberry Pi gesteuert wird. \cite[vgl.][]{flight-modes}
 
 
 \subsection{QGroundControl}  \label{qGroundControl:subsection}
-QGroundControl ist eine Software, welche vor allem für Drohnen mit einem PX4 aber auch anderen Flight Controller genutzt werden kann. Hierbei bietet es verschiedene Funktionen. Zum einen gehört hierzu die Konfiguration der einzelnen  Drohnen. Desweiteren ist es möglich mit der Software verschiedene Flugmodi auszuwählen, sowie diese dann auch während des Fluges zu überwachen, beispielweise durch die Anzeige der Flugposition auf einer Karte sowie auch deren Geschwindigkeit und andere Sensordaten.
+QGroundControl ist eine Software, welche vor allem für Drohnen mit einem PX4 aber auch anderen Flightcontroller genutzt werden kann. Hierbei bietet es verschiedene Funktionen. Zum einen gehört hierzu die Konfiguration der einzelnen  Drohnen. Desweiteren ist es möglich mit der Software verschiedene Flugmodi auszuwählen, sowie diese dann auch während des Fluges zu überwachen, beispielweise durch die Anzeige der Flugposition auf einer Karte sowie auch deren Geschwindigkeit und andere Sensordaten.
 Es ist auch möglich mit QGroundControl eine ganze Flugplanung zu machen, welche die Drohne daraufhin umsetzt. \cite[vgl.][]{qGroundControl}
 
 
@@ -151,7 +151,7 @@ simple\_offboard: \\
 simple\_offboard ermöglicht eine einfache Interaktion mit der Drohne. Das Modul hierzu vereinfacht das Programmieren von Skripten für autonome Flüge mit Drohnen mit Hilfe des Flugmodus Offboard. \cite[vgl.][]{simple_offboard}\\
 
 mavros: \\
-Die Mavros Node ist für die Kommunikation zwischen dem Raspberry Pi und dem Flight Controller zuständig.\\
+Die Mavros Node ist für die Kommunikation zwischen dem Raspberry Pi und dem Flightcontroller zuständig.\\
 Hierfür gibt es viele verschiedene Topics, welche jeweils für den Austausch von unterschiedliche Informationen verantwortlich sind.\\
 Diese Topics werden im Namespace "\textbackslash mavros" zusammengefasst, zu diesen zählen unter anderem:\\
 \textbackslash mavros\textbackslash state: gibt den Status der Verbindung zwischen Raspberry Pi und Flightcontroller sowie den aktuellen Flugmodus an.\\
@@ -173,7 +173,7 @@ Von dem Azure Kinect ROS Treiber werden zwei Topics übergeben, diese sind: \\
     \end{landscape}
 
 
-Der prinzipielle Ablauf bei der Kommunikation in Abbildung \ref{img ros_communication} wird von der mavros Node gestartet, denn diese bildet mit der Kommunikation zwischen ROS auf dem Raspberry Pi und dem PX4 des Flight Controllers die Grundlage. Zudem bietet der Einsatz der simple\_offboard Node die Möglichkeit zur Nutzung eigener Skripte, wodurch die Drohne autonom fliegen und navigieren kann. Diese beiden Nodes kommunizieren unter einander mit Hilfe der vielen verschiedenen Mavros-Nodes um Informationen und Parameter auszutauschen. Die simple\_offboard-Node kann zudem verschiedene Koordinatensysteme anfordern, welche von den Nodes aus dem main\_camera-Namespace kommen und mit Hilfe des \textbackslash tf-Topics transformiert werden. Diese Koordinatensysteme werden nun über die vpe\_publisher-Node an Mavros, sowie im weiteren Verlauf auch der simple\_offboard-Node übermittelt. Dadurch kann das Skript die Drohne anhand der Koordinaten navigieren und die Drohne dementsprechend zu der gewollten Position fliegen.
+Der prinzipielle Ablauf bei der Kommunikation in Abbildung \ref{img ros_communication} wird von der mavros Node gestartet, denn diese bildet mit der Kommunikation zwischen ROS auf dem Raspberry Pi und dem PX4 des Flightcontrollers die Grundlage. Zudem bietet der Einsatz der simple\_offboard Node die Möglichkeit zur Nutzung eigener Skripte, wodurch die Drohne autonom fliegen und navigieren kann. Diese beiden Nodes kommunizieren unter einander mit Hilfe der vielen verschiedenen Mavros-Nodes um Informationen und Parameter auszutauschen. Die simple\_offboard-Node kann zudem verschiedene Koordinatensysteme anfordern, welche von den Nodes aus dem main\_camera-Namespace kommen und mit Hilfe des \textbackslash tf-Topics transformiert werden. Diese Koordinatensysteme werden nun über die vpe\_publisher-Node an Mavros, sowie im weiteren Verlauf auch der simple\_offboard-Node übermittelt. Dadurch kann das Skript die Drohne anhand der Koordinaten navigieren und die Drohne dementsprechend zu der gewollten Position fliegen.
  
 
 \section{Kalibrierung der COEX Drohne} \label{kalibrierung_coex__drohne:subsection}
@@ -200,13 +200,13 @@ Der prinzipielle Ablauf bei der Kommunikation in Abbildung \ref{img ros_communic
 
 
 \subsection{Kalibrierung der ESC}
-Elektronische Drehzahlregler (ESCs) sind für die Steuerung der Geschwindigkeit und Richtung der Motoren auf der Grundlage des PWM-Eingangs vom Flight Controller verantwortlich. Es ist wichtig zu beachten, dass der Bereich der Eingänge, auf die ESCs reagieren können, einstellbar ist und sogar ESCs desselben Modells unterschiedliche Standardbereiche haben können.
+Elektronische Drehzahlregler (ESCs) sind für die Steuerung der Geschwindigkeit und Richtung der Motoren auf der Grundlage des PWM-Eingangs vom Flightcontroller verantwortlich. Es ist wichtig zu beachten, dass der Bereich der Eingänge, auf die ESCs reagieren können, einstellbar ist und sogar ESCs desselben Modells unterschiedliche Standardbereiche haben können.
 
-Um ein einheitliches und synchronisiertes Verhalten zu gewährleisten, ist eine Kalibrierung erforderlich. Dieser Prozess beinhaltet die Aktualisierung aller Regler mit den maximalen und minimalen PWM-Eingangswerten, die vom Flight Controller geliefert werden. Das Ergebnis ist, dass alle Regler und Motoren über den gesamten Eingangsbereich gleichmäßig auf die Eingaben des Flight Controllers reagieren.
+Um ein einheitliches und synchronisiertes Verhalten zu gewährleisten, ist eine Kalibrierung erforderlich. Dieser Prozess beinhaltet die Aktualisierung aller Regler mit den maximalen und minimalen PWM-Eingangswerten, die vom Flightcontroller geliefert werden. Das Ergebnis ist, dass alle Regler und Motoren über den gesamten Eingangsbereich gleichmäßig auf die Eingaben des Flightcontrollers reagieren.
 
 Bevor man mit der Kalibrierung starten kann, muss man die Propeller von der Drohne entfernen. Dies ist eine wesentliche Sicherheitsvorkehrung, um versehentliche Bewegungen während des Kalibrierungsvorgangs zu vermeiden.
 
-Nun trennt man den Akku von der Drohne und stellet über ein USB-Kabel eine Verbindung zwischen dem Flight Controllers und dem Computer her. Zudem muss man sicherstellen, dass diese Verbindung dauerhaft erhalten bleibt und wärend der Kalibrierung nicht unterbrochen wird.
+Nun trennt man den Akku von der Drohne und stellet über ein USB-Kabel eine Verbindung zwischen dem Flightcontrollers und dem Computer her. Zudem muss man sicherstellen, dass diese Verbindung dauerhaft erhalten bleibt und wärend der Kalibrierung nicht unterbrochen wird.
 
 In QGroundControl wird dann die Kalibrierung gestartet. Dazu folgt man den Anweisungen und Aufforderungen von QGroundControl.
 
@@ -556,7 +556,7 @@ Um die Drohne dann unter realen Bedingung zu steuern, muss das von der Hololens 
 Nachdem man die Simulatin mit Coex Clover Drohne gestartet hat, hat man das \ac{ROS}-System wie in \ref{softwarearchitektur:section} gestartet.
 Die Mavros-Nodes erhält die entsprechenden Daten allerdings nicht von den Sensoren der echten Drohne, sondern nimmt sich die Werte aus der Simulation. Zudem lässt sich über die 'simple\_offboard-Node' die selberstellten Skripte verwenden, um die simulierte Drohne zu steuern. Ein Beispielskript ist hierfür in \ref{lst:steuerungDrohne} zu sehen.
 
-Die Simulation ist in großen Zügen bereits von Clover vordefiniert. Im ROS Package clover Simulation was im Github Repo \cite{coex_clover_git} zu finden ist, befinden sich die Launch Files. Es sind sowohl Launch Files für die Simulation, wie auch für die direkte Verwendung auf der Drohne vorhanden.
+Die Simulation ist in großen Zügen bereits von Clover vordefiniert. Im ROS Package clover Simulation was im Github Repo \cite{coex_clover_git} zu finden ist, befinden sich die Launch Files. Es sind sowohl Launch Files für die Simulation, wie auch für die direkte Verwendung auf der Drohne vorhanden.\\
 
 
 
