@@ -33,6 +33,16 @@ Um die Leistung der Kartenerstellung und Odometrie weiter zu verbessern, könnte
 
 Insgesamt zeigt die Auswertung, dass die Verwendung von Azure Kinect in Kombination mit \ac{IMU}-Daten eine effektive Methode zur Verbesserung der Kartenerstellung und Odometrie in Visual SLAM-basierten Systemen auf Drohnen ist. Durch die Integration von RGBD-Tiefenkamera- und \ac{IMU}-Daten konnten die Genauigkeit, Robustheit sowie Zuverlässigkeit der geschätzten Flugbahn erhöht werden, was zu präzisen und zuverlässigen autonomen Flugmanövern führt.
 
+Um die Leistung des \ac{SLAM} Algorithmus mit der Azure Kinect Kamera zu beurteilen, haben wir auch den ORB-SLAM3 Algorithmus mit Testdaten laufen lassen. Genauergesagt mit dem Testdatensatz Floor1 von der \ac{TUM} von \cite{tum_data}.
+
+Ein Beispiel davon sehen sie in Abbildung \ref{fig:orbslam3}
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{images/orbslam3_simulation}
+    \label{fig:orbslam3}
+    \caption{ORB-SLAM3 Simulation}
+\end{figure}
+
 \subsection{Trajektorenbestimmung}
 Die Auswertung der Trajektorienbestimmung mit \ac{VSLAM} zeigt vielversprechende Ergebnisse für eine genaue und robuste Positionsbestimmung. \ac{VSLAM} ermöglicht hierbei die gleichzeitige Schätzung der Kameraposition und die Erstellung einer 3D-Karte der Umgebung auf Grundlage visueller Merkmale. Bei der Analyse verschiedener Parameter und Einstellungen zur Optimierung der Genauigkeit und Zuverlässigkeit der Trajektorienbestimmung zeigte sich, dass \ac{VSLAM} in der Lage ist, die Kameraposition mit hoher Genauigkeit und Stabilität auch in Umgebungen mit wechselnden Lichtverhältnissen und unterschiedlichen Texturen zu bestimmen. Insgesamt war die Trajektorienbestimmung konsistent und folgte den Kamerabewegungen mit geringen Abweichungen. Dennoch wurden einige Probleme festgestellt, wie beispielsweise das Auftreten von Drift oder Verlust der Verfolgung. Diese Probleme können auf die begrenzte Rechenleistung des verwendeten Raspberry Pi sowie die Komplexität der verwendeten Algorithmen zurückgeführt werden. Insgesamt ist die Trajektorienbestimmung mit \ac{VSLAM} eine vielversprechende Methode, um eine präzise und robuste Positionsbestimmung in Echtzeit zu ermöglichen. Dennoch sind weitere Optimierungen und Anpassungen erforderlich, um die Leistung in anspruchsvolleren Szenarien weiter zu verbessern.
 \subsubsection{Pfadfindung/Navigation}
